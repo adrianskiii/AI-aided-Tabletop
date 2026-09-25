@@ -4,8 +4,10 @@
   "description": "Dungeons & Dragons, 5th Edition — the classic fantasy TTRPG.",
   "tldr": "D&D 5e — the benchmark tabletop RPG. Four actions per round (action, bonus action, movement, reaction) on a d20 grid: roll under a DC or meet a target. Six abilities (Str/Dex/Con/Int/Wis/Cha) drive derived modifiers and skill checks. Each class level grants at least one feature — that's your 'buff tree'. Damage types and saving throws (six, ability-based) do most of the narrative lifting, so describe the physical outcome of every roll.",
   "links": {
-    "rules": ["5e SRD (official, free): https://media.wizards.com/2016/dnd/downloads/5_SRD.pdf",
-              "D&D Beyond rules compendium: https://www.dndbeyond.com"],
+    "rules": [
+      "5e SRD (official, free): https://media.wizards.com/2016/dnd/downloads/5_SRD.pdf",
+      "D&D Beyond rules compendium: https://www.dndbeyond.com"
+    ],
     "wiki": "5e.wiki community wiki: https://5e.wiki",
     "data_api": "5etools 5e data API: https://app.5etools.me"
   },
@@ -13,21 +15,54 @@
   "fields": {
     "race": {
       "label": "Race",
-      "suggestions": ["Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome",
-                      "Half-Elf", "Half-Orc", "Tiefling", "Aarakocra",
-                      "Goblin", "Tabaxi", "Custom..."]
+      "suggestions": [
+        "Human",
+        "Elf",
+        "Dwarf",
+        "Halfling",
+        "Dragonborn",
+        "Gnome",
+        "Half-Elf",
+        "Half-Orc",
+        "Tiefling",
+        "Aarakocra",
+        "Goblin",
+        "Tabaxi",
+        "Custom..."
+      ]
     },
     "class": {
       "label": "Class",
-      "suggestions": ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
-                     "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock",
-                     "Wizard", "Custom..."]
+      "suggestions": [
+        "Barbarian",
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Fighter",
+        "Monk",
+        "Paladin",
+        "Ranger",
+        "Rogue",
+        "Sorcerer",
+        "Warlock",
+        "Wizard",
+        "Custom..."
+      ]
     },
     "alignment": {
       "label": "Alignment",
-      "suggestions": ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral",
-                     "True Neutral", "Chaotic Neutral", "Lawful Evil",
-                     "Neutral Evil", "Chaotic Evil", "Unaligned"]
+      "suggestions": [
+        "Lawful Good",
+        "Neutral Good",
+        "Chaotic Good",
+        "Lawful Neutral",
+        "True Neutral",
+        "Chaotic Neutral",
+        "Lawful Evil",
+        "Neutral Evil",
+        "Chaotic Evil",
+        "Unaligned"
+      ]
     }
   },
   "flavor": {
@@ -59,113 +94,767 @@
   },
   "backgrounds": {
     "label": "Background",
-    "suggestions": ["Acolyte", "Charlatan", "Criminal", "Entertainer", "Folk Hero",
-                   "Guild Artisan", "Hermit", "Noble", "Outlander", "Sage",
-                   "Sailor", "Soldier", "Urchin", "Custom..."]
+    "suggestions": [
+      "Acolyte",
+      "Charlatan",
+      "Criminal",
+      "Entertainer",
+      "Folk Hero",
+      "Guild Artisan",
+      "Hermit",
+      "Noble",
+      "Outlander",
+      "Sage",
+      "Sailor",
+      "Soldier",
+      "Urchin",
+      "Custom..."
+    ]
   },
   "class_data": {
-    "Barbarian":   { "spellcaster": false, "skills": ["Athletics", "Intimidation", "Nature", "Perception", "Survival"], "features": { "1": ["Rage", "Unarmored Defense"], "2": ["Reckless Attack", "Danger Sense"], "3": ["Primal Path"], "5": ["Extra Attack", "Fast Movement"], "7": ["Feral Instinct"], "9": ["Brutal Critical"], "11": ["Relentless Rage"], "15": ["Persistent Rage"], "18": ["Indomitable Might"], "20": ["Primal Champion"] } },
-    "Bard":        { "spellcaster": true, "skills": ["any 3 of choice"], "features": { "1": ["Spellcasting", "Bardic Inspiration (d6)"], "2": ["Jack of All Trades", "Song of Rest"], "3": ["Bard College", "Expertise"], "5": ["Bardic Inspiration (d8)", "Font of Inspiration"], "6": ["Countercharm"], "10": ["Magical Secrets"], "20": ["Superior Inspiration"] } },
-    "Cleric":      { "spellcaster": true, "skills": ["History", "Insight", "Medicine", "Persuasion", "Religion"], "features": { "1": ["Spellcasting", "Divine Domain"], "2": ["Channel Divinity (1/rest)"], "5": ["Destroy Undead"], "6": ["Channel Divinity (2/rest)"], "10": ["Divine Intervention"], "20": ["Improved Divine Intervention"] } },
-    "Druid":       { "spellcaster": true, "skills": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"], "features": { "1": ["Druidic", "Spellcasting"], "2": ["Wild Shape", "Druid Circle"], "18": ["Timeless Body", "Beast Spells"], "20": ["Archdruid"] } },
-    "Fighter":     { "spellcaster": false, "skills": ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"], "features": { "1": ["Fighting Style", "Second Wind"], "2": ["Action Surge"], "3": ["Martial Archetype"], "5": ["Extra Attack"], "9": ["Indomitable (1)"], "11": ["Extra Attack (2)"], "13": ["Indomitable (2)"], "17": ["Action Surge (2)", "Indomitable (3)"], "20": ["Extra Attack (3)"] } },
-    "Monk":        { "spellcaster": false, "skills": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"], "features": { "1": ["Unarmored Defense", "Martial Arts"], "2": ["Ki", "Unarmored Movement"], "3": ["Monastic Tradition", "Deflect Missiles"], "5": ["Extra Attack", "Stunning Strike"], "7": ["Evasion", "Stillness of Mind"], "10": ["Purity of Body"], "14": ["Diamond Soul"], "20": ["Perfect Self"] } },
-    "Paladin":     { "spellcaster": true, "skills": ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"], "features": { "1": ["Divine Sense", "Lay on Hands"], "2": ["Fighting Style", "Spellcasting", "Divine Smite"], "3": ["Sacred Oath", "Divine Health"], "5": ["Extra Attack"], "6": ["Aura of Protection"], "10": ["Aura of Courage"], "11": ["Improved Divine Smite"], "20": ["Sacred Oath capstone"] } },
-    "Ranger":      { "spellcaster": true, "skills": ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"], "features": { "1": ["Favored Enemy", "Natural Explorer"], "2": ["Fighting Style", "Spellcasting"], "3": ["Ranger Archetype", "Primeval Awareness"], "5": ["Extra Attack"], "8": ["Land's Stride"], "10": ["Hide in Plain Sight"], "18": ["Feral Senses"], "20": ["Foe Slayer"] } },
-    "Rogue":       { "spellcaster": false, "skills": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"], "features": { "1": ["Expertise", "Sneak Attack"], "2": ["Cunning Action"], "3": ["Roguish Archetype"], "5": ["Uncanny Dodge"], "7": ["Evasion"], "11": ["Reliable Talent"], "14": ["Blindsense"], "15": ["Slippery Mind"], "18": ["Elusive"], "20": ["Stroke of Luck"] } },
-    "Sorcerer":    { "spellcaster": true, "skills": ["Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"], "features": { "1": ["Spellcasting", "Sorcerous Origin"], "2": ["Font of Magic", "Sorcery Points"], "3": ["Metamagic"], "20": ["Sorcerous Restoration"] } },
-    "Warlock":     { "spellcaster": true, "skills": ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"], "features": { "1": ["Pact Magic", "Otherworldly Patron"], "2": ["Eldritch Invocations"], "3": ["Pact Boon"], "11": ["Mystic Arcanum (6th)"], "20": ["Eldritch Master"] } },
-    "Wizard":      { "spellcaster": true, "skills": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"], "features": { "1": ["Spellcasting", "Arcane Recovery"], "2": ["Arcane Tradition"], "18": ["Spell Mastery"], "20": ["Signature Spells"] } }
+    "Barbarian": {
+      "spellcaster": false,
+      "skills": [
+        "Athletics",
+        "Intimidation",
+        "Nature",
+        "Perception",
+        "Survival"
+      ],
+      "features": {
+        "1": [
+          "Rage",
+          "Unarmored Defense"
+        ],
+        "2": [
+          "Reckless Attack",
+          "Danger Sense"
+        ],
+        "3": [
+          "Primal Path"
+        ],
+        "5": [
+          "Extra Attack",
+          "Fast Movement"
+        ],
+        "7": [
+          "Feral Instinct"
+        ],
+        "9": [
+          "Brutal Critical"
+        ],
+        "11": [
+          "Relentless Rage"
+        ],
+        "15": [
+          "Persistent Rage"
+        ],
+        "18": [
+          "Indomitable Might"
+        ],
+        "20": [
+          "Primal Champion"
+        ]
+      }
+    },
+    "Bard": {
+      "spellcaster": true,
+      "skills": [
+        "any 3 of choice"
+      ],
+      "features": {
+        "1": [
+          "Spellcasting",
+          "Bardic Inspiration (d6)"
+        ],
+        "2": [
+          "Jack of All Trades",
+          "Song of Rest"
+        ],
+        "3": [
+          "Bard College",
+          "Expertise"
+        ],
+        "5": [
+          "Bardic Inspiration (d8)",
+          "Font of Inspiration"
+        ],
+        "6": [
+          "Countercharm"
+        ],
+        "10": [
+          "Magical Secrets"
+        ],
+        "20": [
+          "Superior Inspiration"
+        ]
+      }
+    },
+    "Cleric": {
+      "spellcaster": true,
+      "skills": [
+        "History",
+        "Insight",
+        "Medicine",
+        "Persuasion",
+        "Religion"
+      ],
+      "features": {
+        "1": [
+          "Spellcasting",
+          "Divine Domain"
+        ],
+        "2": [
+          "Channel Divinity (1/rest)"
+        ],
+        "5": [
+          "Destroy Undead"
+        ],
+        "6": [
+          "Channel Divinity (2/rest)"
+        ],
+        "10": [
+          "Divine Intervention"
+        ],
+        "20": [
+          "Improved Divine Intervention"
+        ]
+      }
+    },
+    "Druid": {
+      "spellcaster": true,
+      "skills": [
+        "Arcana",
+        "Animal Handling",
+        "Insight",
+        "Medicine",
+        "Nature",
+        "Perception",
+        "Religion",
+        "Survival"
+      ],
+      "features": {
+        "1": [
+          "Druidic",
+          "Spellcasting"
+        ],
+        "2": [
+          "Wild Shape",
+          "Druid Circle"
+        ],
+        "18": [
+          "Timeless Body",
+          "Beast Spells"
+        ],
+        "20": [
+          "Archdruid"
+        ]
+      }
+    },
+    "Fighter": {
+      "spellcaster": false,
+      "skills": [
+        "Acrobatics",
+        "Animal Handling",
+        "Athletics",
+        "History",
+        "Insight",
+        "Intimidation",
+        "Perception",
+        "Survival"
+      ],
+      "features": {
+        "1": [
+          "Fighting Style",
+          "Second Wind"
+        ],
+        "2": [
+          "Action Surge"
+        ],
+        "3": [
+          "Martial Archetype"
+        ],
+        "5": [
+          "Extra Attack"
+        ],
+        "9": [
+          "Indomitable (1)"
+        ],
+        "11": [
+          "Extra Attack (2)"
+        ],
+        "13": [
+          "Indomitable (2)"
+        ],
+        "17": [
+          "Action Surge (2)",
+          "Indomitable (3)"
+        ],
+        "20": [
+          "Extra Attack (3)"
+        ]
+      }
+    },
+    "Monk": {
+      "spellcaster": false,
+      "skills": [
+        "Acrobatics",
+        "Athletics",
+        "History",
+        "Insight",
+        "Religion",
+        "Stealth"
+      ],
+      "features": {
+        "1": [
+          "Unarmored Defense",
+          "Martial Arts"
+        ],
+        "2": [
+          "Ki",
+          "Unarmored Movement"
+        ],
+        "3": [
+          "Monastic Tradition",
+          "Deflect Missiles"
+        ],
+        "5": [
+          "Extra Attack",
+          "Stunning Strike"
+        ],
+        "7": [
+          "Evasion",
+          "Stillness of Mind"
+        ],
+        "10": [
+          "Purity of Body"
+        ],
+        "14": [
+          "Diamond Soul"
+        ],
+        "20": [
+          "Perfect Self"
+        ]
+      }
+    },
+    "Paladin": {
+      "spellcaster": true,
+      "skills": [
+        "Athletics",
+        "Insight",
+        "Intimidation",
+        "Medicine",
+        "Persuasion",
+        "Religion"
+      ],
+      "features": {
+        "1": [
+          "Divine Sense",
+          "Lay on Hands"
+        ],
+        "2": [
+          "Fighting Style",
+          "Spellcasting",
+          "Divine Smite"
+        ],
+        "3": [
+          "Sacred Oath",
+          "Divine Health"
+        ],
+        "5": [
+          "Extra Attack"
+        ],
+        "6": [
+          "Aura of Protection"
+        ],
+        "10": [
+          "Aura of Courage"
+        ],
+        "11": [
+          "Improved Divine Smite"
+        ],
+        "20": [
+          "Sacred Oath capstone"
+        ]
+      }
+    },
+    "Ranger": {
+      "spellcaster": true,
+      "skills": [
+        "Animal Handling",
+        "Athletics",
+        "Insight",
+        "Investigation",
+        "Nature",
+        "Perception",
+        "Stealth",
+        "Survival"
+      ],
+      "features": {
+        "1": [
+          "Favored Enemy",
+          "Natural Explorer"
+        ],
+        "2": [
+          "Fighting Style",
+          "Spellcasting"
+        ],
+        "3": [
+          "Ranger Archetype",
+          "Primeval Awareness"
+        ],
+        "5": [
+          "Extra Attack"
+        ],
+        "8": [
+          "Land's Stride"
+        ],
+        "10": [
+          "Hide in Plain Sight"
+        ],
+        "18": [
+          "Feral Senses"
+        ],
+        "20": [
+          "Foe Slayer"
+        ]
+      }
+    },
+    "Rogue": {
+      "spellcaster": false,
+      "skills": [
+        "Acrobatics",
+        "Athletics",
+        "Deception",
+        "Insight",
+        "Intimidation",
+        "Investigation",
+        "Perception",
+        "Performance",
+        "Persuasion",
+        "Sleight of Hand",
+        "Stealth"
+      ],
+      "features": {
+        "1": [
+          "Expertise",
+          "Sneak Attack"
+        ],
+        "2": [
+          "Cunning Action"
+        ],
+        "3": [
+          "Roguish Archetype"
+        ],
+        "5": [
+          "Uncanny Dodge"
+        ],
+        "7": [
+          "Evasion"
+        ],
+        "11": [
+          "Reliable Talent"
+        ],
+        "14": [
+          "Blindsense"
+        ],
+        "15": [
+          "Slippery Mind"
+        ],
+        "18": [
+          "Elusive"
+        ],
+        "20": [
+          "Stroke of Luck"
+        ]
+      }
+    },
+    "Sorcerer": {
+      "spellcaster": true,
+      "skills": [
+        "Arcana",
+        "Deception",
+        "Insight",
+        "Intimidation",
+        "Persuasion",
+        "Religion"
+      ],
+      "features": {
+        "1": [
+          "Spellcasting",
+          "Sorcerous Origin"
+        ],
+        "2": [
+          "Font of Magic",
+          "Sorcery Points"
+        ],
+        "3": [
+          "Metamagic"
+        ],
+        "20": [
+          "Sorcerous Restoration"
+        ]
+      }
+    },
+    "Warlock": {
+      "spellcaster": true,
+      "skills": [
+        "Arcana",
+        "Deception",
+        "History",
+        "Intimidation",
+        "Investigation",
+        "Nature",
+        "Religion"
+      ],
+      "features": {
+        "1": [
+          "Pact Magic",
+          "Otherworldly Patron"
+        ],
+        "2": [
+          "Eldritch Invocations"
+        ],
+        "3": [
+          "Pact Boon"
+        ],
+        "11": [
+          "Mystic Arcanum (6th)"
+        ],
+        "20": [
+          "Eldritch Master"
+        ]
+      }
+    },
+    "Wizard": {
+      "spellcaster": true,
+      "skills": [
+        "Arcana",
+        "History",
+        "Insight",
+        "Investigation",
+        "Medicine",
+        "Religion"
+      ],
+      "features": {
+        "1": [
+          "Spellcasting",
+          "Arcane Recovery"
+        ],
+        "2": [
+          "Arcane Tradition"
+        ],
+        "18": [
+          "Spell Mastery"
+        ],
+        "20": [
+          "Signature Spells"
+        ]
+      }
+    }
   },
   "race_data": {
-    "Human":       { "skill_proficiencies": [], "traits": ["versatile +1 to all abilities"] },
-    "Elf":         { "skill_proficiencies": ["Perception"], "traits": ["Darkvision", "Fey Ancestry", "Trance"] },
-    "Dwarf":       { "skill_proficiencies": [], "traits": ["Darkvision", "Dwarven Resilience", "Stonecunning"] },
-    "Halfling":    { "skill_proficiencies": [], "traits": ["Lucky", "Brave", "Halfling Nimbleness"] },
-    "Dragonborn":  { "skill_proficiencies": [], "traits": ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"] },
-    "Gnome":       { "skill_proficiencies": [], "traits": ["Darkvision", "Gnome Cunning"] },
-    "Half-Elf":    { "skill_proficiencies": ["any 2 of choice"], "traits": ["Darkvision", "Fey Ancestry", "Skill Versatility"] },
-    "Half-Orc":    { "skill_proficiencies": ["Intimidation"], "traits": ["Darkvision", "Relentless Endurance", "Savage Attacks"] },
-    "Tiefling":    { "skill_proficiencies": [], "traits": ["Darkvision", "Hellish Resistance", "Infernal Legacy"] }
+    "Human": {
+      "skill_proficiencies": [],
+      "traits": [
+        "versatile +1 to all abilities"
+      ]
+    },
+    "Elf": {
+      "skill_proficiencies": [
+        "Perception"
+      ],
+      "traits": [
+        "Darkvision",
+        "Fey Ancestry",
+        "Trance"
+      ]
+    },
+    "Dwarf": {
+      "skill_proficiencies": [],
+      "traits": [
+        "Darkvision",
+        "Dwarven Resilience",
+        "Stonecunning"
+      ]
+    },
+    "Halfling": {
+      "skill_proficiencies": [],
+      "traits": [
+        "Lucky",
+        "Brave",
+        "Halfling Nimbleness"
+      ]
+    },
+    "Dragonborn": {
+      "skill_proficiencies": [],
+      "traits": [
+        "Draconic Ancestry",
+        "Breath Weapon",
+        "Damage Resistance"
+      ]
+    },
+    "Gnome": {
+      "skill_proficiencies": [],
+      "traits": [
+        "Darkvision",
+        "Gnome Cunning"
+      ]
+    },
+    "Half-Elf": {
+      "skill_proficiencies": [
+        "any 2 of choice"
+      ],
+      "traits": [
+        "Darkvision",
+        "Fey Ancestry",
+        "Skill Versatility"
+      ]
+    },
+    "Half-Orc": {
+      "skill_proficiencies": [
+        "Intimidation"
+      ],
+      "traits": [
+        "Darkvision",
+        "Relentless Endurance",
+        "Savage Attacks"
+      ]
+    },
+    "Tiefling": {
+      "skill_proficiencies": [],
+      "traits": [
+        "Darkvision",
+        "Hellish Resistance",
+        "Infernal Legacy"
+      ]
+    }
   },
   "subrace_data": {
     "Elf": {
-      "High Elf":    { "traits": ["Cantrip", "Elf Weapon Training", "+1 Intelligence"] },
-      "Wood Elf":    { "traits": ["Fleet of Foot", "Mask of the Wild", "+1 Wisdom"] },
-      "Drow":        { "traits": ["Superior Darkvision", "Sunlight Sensitivity", "Drow Magic"] }
+      "High Elf": {
+        "traits": [
+          "Cantrip",
+          "Elf Weapon Training",
+          "+1 Intelligence"
+        ]
+      },
+      "Wood Elf": {
+        "traits": [
+          "Fleet of Foot",
+          "Mask of the Wild",
+          "+1 Wisdom"
+        ]
+      },
+      "Drow": {
+        "traits": [
+          "Superior Darkvision",
+          "Sunlight Sensitivity",
+          "Drow Magic"
+        ]
+      }
     },
     "Dwarf": {
-      "Hill Dwarf":  { "traits": ["Dwarven Toughness", "+1 Wisdom"] },
-      "Mountain Dwarf": { "traits": ["Dwarven Armor Training", "+2 Strength"] }
+      "Hill Dwarf": {
+        "traits": [
+          "Dwarven Toughness",
+          "+1 Wisdom"
+        ]
+      },
+      "Mountain Dwarf": {
+        "traits": [
+          "Dwarven Armor Training",
+          "+2 Strength"
+        ]
+      }
     },
     "Halfling": {
-      "Lightfoot":   { "traits": ["Naturally Stealthy", "+1 Charisma"] },
-      "Stout":       { "traits": ["Stout Resilience", "+1 Constitution"] }
+      "Lightfoot": {
+        "traits": [
+          "Naturally Stealthy",
+          "+1 Charisma"
+        ]
+      },
+      "Stout": {
+        "traits": [
+          "Stout Resilience",
+          "+1 Constitution"
+        ]
+      }
     },
     "Gnome": {
-      "Forest Gnome": { "traits": ["Natural Illusionist", "Speak with Small Beasts", "+1 Dexterity"] },
-      "Rock Gnome":   { "traits": ["Artificer's Lore", "Tinker", "+1 Constitution"] }
+      "Forest Gnome": {
+        "traits": [
+          "Natural Illusionist",
+          "Speak with Small Beasts",
+          "+1 Dexterity"
+        ]
+      },
+      "Rock Gnome": {
+        "traits": [
+          "Artificer's Lore",
+          "Tinker",
+          "+1 Constitution"
+        ]
+      }
     }
   },
   "subclass_data": {
     "Barbarian": [
-      { "name": "Path of the Berserker", "description": "A fury that never breaks — frenzy grants extra attacks at a cost." },
-      { "name": "Path of the Totem Warrior", "description": "Draws spirit power from totem animals for resilience and senses." }
+      {
+        "name": "Path of the Berserker",
+        "description": "A fury that never breaks — frenzy grants extra attacks at a cost."
+      },
+      {
+        "name": "Path of the Totem Warrior",
+        "description": "Draws spirit power from totem animals for resilience and senses."
+      }
     ],
     "Fighter": [
-      { "name": "Champion", "description": "The purest warrior — improved crits and remarkable athleticism." },
-      { "name": "Battle Master", "description": "A tactician with combat maneuvers that control the battlefield." },
-      { "name": "Eldritch Knight", "description": "A fighter who weaves limited wizardry into their swordplay." }
+      {
+        "name": "Champion",
+        "description": "The purest warrior — improved crits and remarkable athleticism."
+      },
+      {
+        "name": "Battle Master",
+        "description": "A tactician with combat maneuvers that control the battlefield."
+      },
+      {
+        "name": "Eldritch Knight",
+        "description": "A fighter who weaves limited wizardry into their swordplay."
+      }
     ],
     "Rogue": [
-      { "name": "Thief", "description": "Fast hands and a faster climb — the classic second-story specialist." },
-      { "name": "Assassin", "description": "A killer who strikes first with disguise, poison, and sure death." },
-      { "name": "Arcane Trickster", "description": "A rogue who steals spells as deftly as coin purses." }
+      {
+        "name": "Thief",
+        "description": "Fast hands and a faster climb — the classic second-story specialist."
+      },
+      {
+        "name": "Assassin",
+        "description": "A killer who strikes first with disguise, poison, and sure death."
+      },
+      {
+        "name": "Arcane Trickster",
+        "description": "A rogue who steals spells as deftly as coin purses."
+      }
     ],
     "Wizard": [
-      { "name": "School of Evocation", "description": "A blaster who sculpts explosions around allies." },
-      { "name": "School of Abjuration", "description": "A warded defender who shields the party from harm." },
-      { "name": "School of Illusion", "description": "A master of phantoms, trickery, and twisting perception." }
+      {
+        "name": "School of Evocation",
+        "description": "A blaster who sculpts explosions around allies."
+      },
+      {
+        "name": "School of Abjuration",
+        "description": "A warded defender who shields the party from harm."
+      },
+      {
+        "name": "School of Illusion",
+        "description": "A master of phantoms, trickery, and twisting perception."
+      }
     ],
     "Cleric": [
-      { "name": "Life Domain", "description": "The iconic healer — blessed with the strongest restorative magic." },
-      { "name": "War Domain", "description": "A battle-priest who channels divine fury through steel." },
-      { "name": "Trickery Domain", "description": "A deceiver's domain, blessing stealth and misdirection." }
+      {
+        "name": "Life Domain",
+        "description": "The iconic healer — blessed with the strongest restorative magic."
+      },
+      {
+        "name": "War Domain",
+        "description": "A battle-priest who channels divine fury through steel."
+      },
+      {
+        "name": "Trickery Domain",
+        "description": "A deceiver's domain, blessing stealth and misdirection."
+      }
     ],
     "Monk": [
-      { "name": "Way of the Open Hand", "description": "The purest unarmed path, turning ki into crowd control." },
-      { "name": "Way of Shadow", "description": "A ninja who slips through darkness and silence." },
-      { "name": "Way of the Four Elements", "description": "A monk who bends elements into ki-fueled devastating strikes." }
+      {
+        "name": "Way of the Open Hand",
+        "description": "The purest unarmed path, turning ki into crowd control."
+      },
+      {
+        "name": "Way of Shadow",
+        "description": "A ninja who slips through darkness and silence."
+      },
+      {
+        "name": "Way of the Four Elements",
+        "description": "A monk who bends elements into ki-fueled devastating strikes."
+      }
     ],
     "Paladin": [
-      { "name": "Oath of Devotion", "description": "The archetypal holy knight, radiant and unshakable." },
-      { "name": "Oath of the Ancients", "description": "A green knight sworn to protect life and light." },
-      { "name": "Oath of Vengeance", "description": "A relentless avenger who hunts the wicked without mercy." }
+      {
+        "name": "Oath of Devotion",
+        "description": "The archetypal holy knight, radiant and unshakable."
+      },
+      {
+        "name": "Oath of the Ancients",
+        "description": "A green knight sworn to protect life and light."
+      },
+      {
+        "name": "Oath of Vengeance",
+        "description": "A relentless avenger who hunts the wicked without mercy."
+      }
     ],
     "Ranger": [
-      { "name": "Hunter", "description": "A precise marksman archetype with deadly combat tactics." },
-      { "name": "Beast Master", "description": "A ranger bonded to an animal companion that fights beside them." }
+      {
+        "name": "Hunter",
+        "description": "A precise marksman archetype with deadly combat tactics."
+      },
+      {
+        "name": "Beast Master",
+        "description": "A ranger bonded to an animal companion that fights beside them."
+      }
     ],
     "Bard": [
-      { "name": "College of Lore", "description": "A scholar whose secrets make them versatile beyond measure." },
-      { "name": "College of Valor", "description": "A battle-bard who inspires with steel as well as song." }
+      {
+        "name": "College of Lore",
+        "description": "A scholar whose secrets make them versatile beyond measure."
+      },
+      {
+        "name": "College of Valor",
+        "description": "A battle-bard who inspires with steel as well as song."
+      }
     ],
     "Druid": [
-      { "name": "Circle of the Moon", "description": "A shapeshifter whose wild forms are combat beasts." },
-      { "name": "Circle of the Land", "description": "A custodian of terrain whose magic flows from the land itself." }
+      {
+        "name": "Circle of the Moon",
+        "description": "A shapeshifter whose wild forms are combat beasts."
+      },
+      {
+        "name": "Circle of the Land",
+        "description": "A custodian of terrain whose magic flows from the land itself."
+      }
     ],
     "Sorcerer": [
-      { "name": "Draconic Bloodline", "description": "Dragon ancestry surges through your spells and scales." },
-      { "name": "Wild Magic", "description": "Raw chaos — every spell risks a surge of unpredictable power." }
+      {
+        "name": "Draconic Bloodline",
+        "description": "Dragon ancestry surges through your spells and scales."
+      },
+      {
+        "name": "Wild Magic",
+        "description": "Raw chaos — every spell risks a surge of unpredictable power."
+      }
     ],
     "Warlock": [
-      { "name": "The Fiend", "description": "A pact with a devil that grants punishing hellfire." },
-      { "name": "The Great Old One", "description": "An eldritch patron whose gifts are alien and mind-breaking." }
+      {
+        "name": "The Fiend",
+        "description": "A pact with a devil that grants punishing hellfire."
+      },
+      {
+        "name": "The Great Old One",
+        "description": "An eldritch patron whose gifts are alien and mind-breaking."
+      }
     ]
   },
   "abilities": {
     "enabled": true,
-    "scores": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+    "scores": [
+      "strength",
+      "dexterity",
+      "constitution",
+      "intelligence",
+      "wisdom",
+      "charisma"
+    ],
     "min": 1,
     "max": 30,
     "default": 10,
@@ -174,13 +863,49 @@
       "base": 8,
       "min": 8,
       "max": 15,
-      "costs": { "8": 0, "9": 1, "10": 2, "11": 3, "12": 4, "13": 5, "14": 7, "15": 9 }
+      "costs": {
+        "8": 0,
+        "9": 1,
+        "10": 2,
+        "11": 3,
+        "12": 4,
+        "13": 5,
+        "14": 7,
+        "15": 9
+      }
     }
   },
   "progression": {
     "level_field": "identity.level",
-    "xp_levels": [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000,
-                  85000, 100000, 120000, 140000, 165000, 195000, 225000,
-                  265000, 305000, 355000]
+    "xp_levels": [
+      0,
+      300,
+      900,
+      2700,
+      6500,
+      14000,
+      23000,
+      34000,
+      48000,
+      64000,
+      85000,
+      100000,
+      120000,
+      140000,
+      165000,
+      195000,
+      225000,
+      265000,
+      305000,
+      355000
+    ],
+    "max_level": 20
+  },
+  "rewards_schema": "v1",
+  "rewards": {
+    "race": "race_data.traits",
+    "subrace": "subrace_data.<race>.*.traits",
+    "class": "class_data.<class>.features",
+    "subclass": "subclass_data.<class>[].features"
   }
 }

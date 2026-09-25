@@ -440,27 +440,133 @@ def api_game(game_id: str):
 #  backgrounds, spells, conditions, damage — SRD data via 5etools.co)          #
 # --------------------------------------------------------------------------- #
 
-_EMPTY_RULES = {k: [] for k in ("skills", "races", "classes", "backgrounds",
-                                "spells", "conditions", "damages", "alignments")}
+_RULE_KEYS = ("skills", "races", "classes", "backgrounds",
+              "spells", "conditions", "damages", "alignments")
+
+
+def _empty_rules() -> dict:
+    """A fresh rules container with independent lists.
+
+    IMPORTANT: never reuse list objects across calls. `_profile_rules` mutates
+    these lists (append), and sharing them would accumulate race/class entries
+    from every system on top of each other — the "options loaded multiple
+    times" bug.
+    """
+    return {k: [] for k in _RULE_KEYS}
+
+
+def _dedup_by_name(items: list) -> list:
+    """Drop duplicate race/class entries; first occurrence (by name) wins."""
+    out, seen = [], set()
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        key = str(it.get("name", "")).strip().lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(it)
+    return out
+
+
+
+def _profile_rules(system: str) -> dict:
+    """Normalize local profile data into the shared rules/rewards shape."""
+    game = local_games().get(system) or {}
+    out = {**_empty_rules(), "system": system, "source": "local-profile"}
+
+    race_data = game.get("race_data") or {}
+    for name, data in race_data.items():
+        data = data if isinstance(data, dict) else {}
+        out["races"].append({
+            "name": name,
+            "traits": [{"name": x if isinstance(x, str) else x.get("name", "Trait"),
+                        "description": "" if isinstance(x, str) else x.get("description", "")}
+                       for x in data.get("traits", [])],
+            "skill_proficiencies": list(data.get("skill_proficiencies", [])),
+            "ability_scores": data.get("ability_scores", {}),
+            "subraces": [],
+        })
+
+    by_race = {r["name"]: r for r in out["races"]}
+    for race_name, subs in (game.get("subrace_data") or {}).items():
+        r = by_race.get(race_name)
+        if not r or not isinstance(subs, dict):
+            continue
+        r["subraces"] = [{
+            "name": sn,
+            "traits": [{"name": x if isinstance(x, str) else x.get("name", "Trait"),
+                        "description": "" if isinstance(x, str) else x.get("description", "")}
+                       for x in (sd or {}).get("traits", [])],
+            "ability_scores": (sd or {}).get("ability_scores", {}),
+        } for sn, sd in subs.items()]
+
+    class_data = game.get("class_data") or {}
+    subclass_data = game.get("subclass_data") or {}
+    for name, data in class_data.items():
+        data = data if isinstance(data, dict) else {}
+        features = {}
+        for lvl, names in (data.get("features") or {}).items():
+            seq = names if isinstance(names, list) else [names]
+            features[str(lvl)] = [{
+                "name": x if isinstance(x, str) else x.get("name", "Feature"),
+                "description": "" if isinstance(x, str) else x.get("description", "")
+            } for x in seq]
+        norm_subs = []
+        for sc in subclass_data.get(name, []) if isinstance(subclass_data.get(name, []), list) else []:
+            if isinstance(sc, str):
+                norm_subs.append({"name": sc, "description": "", "features": {}})
+            else:
+                norm_subs.append({
+                    "name": sc.get("name", "Subclass"),
+                    "description": sc.get("description", ""),
+                    "features": sc.get("features") or sc.get("features_by_level")
+                                or sc.get("level_rewards") or {},
+                })
+        out["classes"].append({
+            "name": name,
+            "skills": [{"name": x, "choice": None, "options": []} for x in data.get("skills", [])],
+            "features": features,
+            "starting_features": features.get("1", []),
+            "is_spellcaster": bool(data.get("spellcaster")),
+            "spellcasting_ability": data.get("spellcasting_ability", ""),
+            "subclasses": norm_subs,
+        })
+    bg = game.get("backgrounds") or {}
+    out["backgrounds"] = [{"name": x} for x in bg.get("suggestions", []) if x != "Custom..."]
+    return out
 
 
 def rules_payload(system: str) -> dict:
-    """The rules knowledge base for a system.
+    """Return one stable rules/rewards format for every selectable system.
 
-    dnd5e         → live SRD data (5etools.co)
-    pathfinder2e  → live Ancestry/Class/Feature data (Pf2eTools open JSON)
-    Other systems → empty base so the UI hides the sections; add a system by
-    registering its knowledge source (one fetch + normalizer per kind)."""
-    base = {"system": system, "offline": not _want_remote()}
+    Live sources win for systems that have them; local profile data fills gaps
+    and is the fallback for BG/CP/custom and offline mode.
+    """
+    local = _profile_rules(system)
+    base = dict(local)
+    base["system"] = system
+    base["offline"] = not _want_remote()
     if _want_remote():
-        if system == "dnd5e":
-            base.update(fiveetools.five_e())
-        elif system == "pathfinder2e":
-            base.update(pf2etools.pf2e())
-        else:
-            base.update(_EMPTY_RULES)
-    else:
-        base.update(_EMPTY_RULES)
+        try:
+            if system == "dnd5e":
+                live = fiveetools.five_e()
+            elif system == "pathfinder2e":
+                live = pf2etools.pf2e()
+            else:
+                live = None
+            if isinstance(live, dict):
+                # Live rule data wins, but local profile-only rewards survive.
+                for key, value in live.items():
+                    if value not in (None, [], {}):
+                        base[key] = value
+                base["source"] = "live+local"
+        except Exception:
+            base["source"] = "local-profile"
+    # Names are case/whitespace-insensitive; drop any duplicates so the grid
+    # never shows the same race/class several times.
+    base["races"] = _dedup_by_name(base.get("races", []))
+    base["classes"] = _dedup_by_name(base.get("classes", []))
     return base
 
 
@@ -848,4 +954,13 @@ if __name__ == "__main__":
     print(f"  local games  : {sorted(p.stem for p in GAME_DIR.glob('*.json'))}")
     print(f"  remote games : {DMS_API_URL}")
     print(f"  campaigns    : {CAMPAIGNS_FILE.name} + {E5TTOOLS_ADVENTURES_URL}")
+    try:
+        _5 = fiveetools.five_e()
+        _p2 = pf2etools.pf2e()
+        print(f"  live rules   : 5e {len(_5.get('classes', []))} classes / "
+              f"{len(_5.get('races', []))} races | PF2e "
+              f"{len(_p2.get('classes', []))} classes / "
+              f"{len(_p2.get('races', []))} races (offline if 0)")
+    except Exception:
+        print("  live rules   : offline/unavailable (local profiles remain)")
     app.run(host="127.0.0.1", port=5000, debug=True)

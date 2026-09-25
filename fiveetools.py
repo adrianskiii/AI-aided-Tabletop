@@ -91,9 +91,15 @@ def _race(x: dict) -> dict:
                         name = "choose: " + "/".join(n for n in names if n)
                 if name and isinstance(name, str):
                     skill_profs.append(name.strip())
-    # dedupe, keep order
-    seen = set()
-    skill_profs = [s for s in skill_profs if not (s.lower() in seen or seen.add(s.lower()))]
+    # dedupe, keep order (build a fresh list — never a shared/closed-over one)
+    out, seen = [], set()
+    for s in skill_profs:
+        key = s.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(s)
+    skill_profs = out
     return {
         "name": x.get("name", ""),
         "speed": x.get("speed"),
@@ -276,13 +282,15 @@ def skills() -> list:
 def races() -> list:
     data = cached_remote(f"{BASE}/races")
     rows = data.get("data") if isinstance(data, dict) else data
-    return [_race(x) for x in (rows or []) if isinstance(x, dict)]
+    return [r for r in (_race(x) for x in (rows or []) if isinstance(x, dict))
+            if r.get("name")]
 
 
 def classes() -> list:
     data = cached_remote(f"{BASE}/classes")
     rows = data.get("data") if isinstance(data, dict) else data
-    return [_class(x) for x in (rows or []) if isinstance(x, dict)]
+    return [c for c in (_class(x) for x in (rows or []) if isinstance(x, dict))
+            if c.get("name")]
 
 
 def backgrounds() -> list:

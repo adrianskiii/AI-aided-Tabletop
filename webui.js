@@ -63,26 +63,131 @@ function buildStepDots() {
       `<a data-i="${i}" onclick="goStep(${i})" title="${esc(STEP_LABELS[i] || "")}">` +
       `<span>${STEP_ICONS[i] || "·"}</span><span>${esc(STEP_LABELS[i] || "?")}</span></a>`
     ).join("");
-    rail.innerHTML += `
-      <div class="rail-footer">
-        <button class="acquire-btn" onclick="toggleAcquire()">
-          <span class="ico">✦</span>
-          <span>Skills &amp; build</span>
-          <small id="acquire-count">what you gain, by level</small>
-        </button>
-        <div class="acquire-panel" id="acquire-panel" style="display:none">
-          <h4>Build overview</h4>
-          <div class="acquire-cols" id="acquire-list">
-            <div class="acquire-col"><span class="empty">nothing yet</span></div>
-          </div>
-        </div>
-      </div>`;
+
   }
 }
 
 function toggleAcquire() {
   const p = $("#acquire-panel");
   if (p) { p.style.display = p.style.display === "none" ? "block" : "none"; renderAcquire(); }
+}
+
+
+function _rewardItems(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.map(x =>
+    typeof x === "string" ? { name: x, description: "" } :
+    { name: x.name || x.title || "Reward", description: x.description || x.desc || "" }
+  );
+  if (typeof value === "object") return Object.entries(value).flatMap(([level, xs]) =>
+    (Array.isArray(xs) ? xs : [xs]).map(x =>
+      typeof x === "string" ? { level, name: x, description: "" } :
+      { level, name: x?.name || x?.title || "Reward", description: x?.description || x?.desc || "" }
+    )
+  );
+  return [];
+}
+
+function _classForDock() {
+  if (!S.class) return null;
+  return S.class;
+}
+
+function _subclassForDock() {
+  return S.subclass || null;
+}
+
+function renderBuildDock() {
+  const body = $("#dock-body");
+  const meta = $("#dock-meta");
+  if (!body || !meta) return;
+
+  const lvlNow = Math.max(1, parseInt(val("f-level")) || 1);
+  const race = S.race || {};
+  const subrace = S.subrace || null;
+  const cls = _classForDock();
+  const subclass = _subclassForDock();
+  const system = S.system || {};
+  const taxonomy = system.taxonomy || {};
+  const raceLabel = taxonomy.race_label || ((system.fields || {}).race || {}).label || "Race";
+  const subraceLabel = taxonomy.subrace_label || "Subrace";
+  const classLabel = taxonomy.class_label || ((system.fields || {}).class || {}).label || "Class";
+  const subclassLabel = taxonomy.subclass_label || "Subclass";
+
+  meta.textContent = [
+    system.label || system.id || "",
+    race.name ? `${raceLabel}: ${race.name}` : "",
+    subrace?.name ? `${subraceLabel}: ${subrace.name}` : "",
+    cls?.name ? `${classLabel}: ${cls.name}` : "",
+    subclass?.name ? `${subclassLabel}: ${subclass.name}` : "",
+    `Level ${lvlNow}`
+  ].filter(Boolean).join(" · ");
+
+  const normalizeLevel = x => {
+    const n = Number(x);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  };
+  const groupRows = rows => {
+    const map = new Map();
+    rows.forEach(r => {
+      const lvl = normalizeLevel(r.level);
+      const key = lvl == null ? "_" : String(lvl);
+      if (!map.has(key)) map.set(key, { level: lvl, names: [], descriptions: [], source: r.source });
+      const g = map.get(key);
+      if (r.name && !g.names.includes(r.name)) g.names.push(r.name);
+      if (r.description && !g.descriptions.includes(r.description)) g.descriptions.push(r.description);
+    });
+    return [...map.values()].sort((a,b) => {
+      if (a.level == null) return 1;
+      if (b.level == null) return -1;
+      return a.level - b.level;
+    }).map(g => ({
+      level: g.level,
+      name: g.names.join(" · "),
+      description: g.descriptions.join(" · "),
+      source: g.source
+    }));
+  };
+
+  const section = (title, rows, emptyText) => {
+    const grouped = groupRows(rows);
+    const many = grouped.length > 12 ? " dock-many" : "";
+    return `
+      <section class="dock-section">
+        <h4>${esc(title)}</h4>
+        <div class="dock-list${many}">
+          ${grouped.length ? grouped.map(r => `
+            <div class="dock-row ${r.level && r.level === lvlNow ? "dock-current" : ""}">
+              <span class="dock-level">${r.level ? `L${esc(r.level)}` : "◆"}</span>
+              <div class="dock-name"><b title="${esc(r.name)}">${esc(r.name)}</b></div>
+            </div>`).join("") : `<div class="dock-empty">${esc(emptyText)}</div>`}
+        </div>
+      </section>`;
+  };
+
+  const raceRows = [
+    ...(race.ability_scores ? Object.entries(race.ability_scores).map(([a,n]) =>
+      ({name:`+${n} ${a}`,description:"ability score",source:raceLabel})) : []),
+    ..._rewardItems(race.traits).map(r => ({...r,source:raceLabel})),
+    ...(race.skill_proficiencies || []).map(s => ({name:`${s} proficiency`,source:raceLabel})),
+  ];
+  const subRows = subrace ? [
+    ...(subrace.ability_scores ? Object.entries(subrace.ability_scores).map(([a,n]) =>
+      ({name:`+${n} ${a}`,description:"ability score",source:subraceLabel})) : []),
+    ..._rewardItems(subrace.traits).map(r => ({...r,source:subraceLabel})),
+  ] : [];
+  const clsRows = _rewardItems(cls?.features || cls?.features_by_level || cls?.level_rewards)
+    .map(r => ({...r,source:classLabel}));
+  const scRows = _rewardItems(subclass?.features || subclass?.features_by_level || subclass?.level_rewards)
+    .map(r => ({...r,source:subclassLabel}));
+
+  body.innerHTML =
+    section(`${raceLabel} — ${race.name || "none"}`, raceRows, `No ${raceLabel.toLowerCase()} rewards loaded.`) +
+    section(`${subraceLabel} — ${subrace?.name || "none selected"}`, subRows,
+      subrace ? `No ${subraceLabel.toLowerCase()} rewards loaded.` : `This system has no ${subraceLabel.toLowerCase()} selected yet.`) +
+    section(`${classLabel} — ${cls?.name || "none"}`, clsRows, `No ${classLabel.toLowerCase()} rewards loaded.`) +
+    section(`${subclassLabel} — ${subclass?.name || "none selected"}`, scRows,
+      subclass ? `No ${subclassLabel.toLowerCase()} rewards loaded.` : `Choose a ${subclassLabel.toLowerCase()} when this system offers one.`);
 }
 
 function refreshAcquireCount() {
@@ -94,6 +199,7 @@ function refreshAcquireCount() {
   }
   const p = $("#acquire-panel");
   if (p && p.style.display !== "none") renderAcquire();
+  renderBuildDock();
 }
 
 function renderAcquire() {
@@ -147,6 +253,7 @@ function renderAcquire() {
 
   const total = raceItems.length + subItems.length + classItems.length + subClassItems.length;
   $("#acquire-count").textContent = total ? `${total} tracked` : "what you gain, by level";
+  renderBuildDock();
 }
 
 function updateRail() {
@@ -194,6 +301,19 @@ function prevStep() { goStep(curStep - 1); }
 
 function bindEvents() {
   $("#nav-next").onclick = nextStep;
+  /* ---- Skills & Build overview ------------------------------------- */
+  const buildToggle = $("#build-toggle");
+  const buildDock = $("#build-dock");
+  const buildClose = $("#build-close");
+  const setBuildOpen = open => {
+    buildDock.classList.toggle("open", open);
+    buildDock.setAttribute("aria-hidden", open ? "false" : "true");
+    buildToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) renderBuildDock();
+  };
+  buildToggle.onclick = () => setBuildOpen(!buildDock.classList.contains("open"));
+  buildClose.onclick = () => setBuildOpen(false);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && buildDock.classList.contains("open")) setBuildOpen(false); });
   $("#nav-back").onclick = prevStep;
 
   /* ---- Modal ---- */
@@ -251,6 +371,7 @@ function selectSystem(id) {
   S.abilities = {};   // reset scores (points-buy & defaults re-seed below)
   renderSystemGrid();
   renderSystemNarrate();
+  renderBuildDock();
   loadRules(id);
   loadCampaigns(id);
   renderAbilities();
@@ -264,7 +385,7 @@ async function loadRules(systemId) {
     S.rules = has ? kb : null;
   } catch (e) { S.rules = null; }
   // re-render anything that depends on rules
-  if (S.system) renderRaceGrid(); renderClassGrid();
+  if (S.system) renderRaceGrid(); renderClassGrid(); renderBuildDock();
 }
 
 async function loadCampaigns(systemId) {
@@ -408,6 +529,7 @@ function pickRace(name) {
   renderRaceNarrate();
   renderSubrace();
   refreshAcquireCount();
+  renderBuildDock();
 }
 
 function renderRaceNarrate() {
@@ -464,6 +586,7 @@ function pickSubrace(name) {
   S.subrace = (S.race.subraces || []).find(sr => sr.name === name);
   renderSubrace();
   refreshAcquireCount();
+  renderBuildDock();
 }
 
 /* ====================================================================== */
@@ -537,6 +660,7 @@ function pickClass(name) {
   renderAbilities();
   renderLevels();
   renderSubclass();
+  renderBuildDock();
 }
 
 function renderClassNarrate() {
@@ -761,7 +885,8 @@ function renderTreeLevels(keys) {
 function setLevel(lvl) {
   $("#f-level").value = lvl;
   renderLevels();
-  $("#f-level").oninput = renderLevels;
+  renderBuildDock();
+  $("#f-level").oninput = () => { renderLevels(); renderBuildDock(); };
 }
 
 /* ---------------------------------------------------------------------- */
@@ -876,6 +1001,7 @@ function pickSubclass(name) {
   S.subclass = (S.class.subclasses || []).find(sc => sc.name === name);
   renderSubclass();
   refreshAcquireCount();
+  renderBuildDock();
 }
 
 /* ====================================================================== */

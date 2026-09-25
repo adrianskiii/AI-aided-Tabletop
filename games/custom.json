@@ -10,11 +10,31 @@
   },
   "genre": "anything",
   "fields": {
-    "race": { "label": "Race / Species", "suggestions": ["Custom..."] },
-    "class": { "label": "Class / Vocation", "suggestions": ["Custom..."] },
-    "alignment": { "label": "Alignment / Morality", "suggestions": ["Custom..."] }
+    "race": {
+      "label": "Race / Species",
+      "suggestions": [
+        "Custom..."
+      ]
+    },
+    "class": {
+      "label": "Class / Vocation",
+      "suggestions": [
+        "Custom..."
+      ]
+    },
+    "alignment": {
+      "label": "Alignment / Morality",
+      "suggestions": [
+        "Custom..."
+      ]
+    }
   },
-  "backgrounds": { "label": "Background", "suggestions": ["Custom..."] },
+  "backgrounds": {
+    "label": "Background",
+    "suggestions": [
+      "Custom..."
+    ]
+  },
   "abilities": {
     "enabled": false,
     "scores": [],
@@ -22,5 +42,27 @@
     "max": 30,
     "default": 10,
     "points_buy": null
-  }
+  },
+  "progression": {
+    "level_field": "identity.level",
+    "max_level": 20,
+    "xp_levels": []
+  },
+  "rewards_schema": "v1",
+  "rewards": {
+    "race": "race_data.traits",
+    "subrace": "subrace_data.<race>.*.traits",
+    "class": "class_data.<class>.features",
+    "subclass": "subclass_data.<class>[].features"
+  },
+  "taxonomy": {
+    "race_label": "Race / Species",
+    "subrace_label": "Subrace / Heritage",
+    "class_label": "Class / Vocation",
+    "subclass_label": "Subclass / Specialization"
+  },
+  "race_data": {},
+  "subrace_data": {},
+  "class_data": {},
+  "subclass_data": {}
 }

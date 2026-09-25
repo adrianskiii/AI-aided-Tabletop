@@ -12,18 +12,42 @@
   "fields": {
     "race": {
       "label": "Origin / Ward",
-      "suggestions": ["Night City", "Badlands Nomad", "Arasaka Corporate", "Militech Veteran",
-                     "Street Kid", "Eurocorp Exile", "Orbital High-Rider", "Megabuilding Drifter",
-                     "Custom..."]
+      "suggestions": [
+        "Night City",
+        "Badlands Nomad",
+        "Arasaka Corporate",
+        "Militech Veteran",
+        "Street Kid",
+        "Eurocorp Exile",
+        "Orbital High-Rider",
+        "Megabuilding Drifter",
+        "Custom..."
+      ]
     },
     "class": {
       "label": "Role",
-      "suggestions": ["Solo", "Netrunner", "Techie", "MedTech", "Fixer", "Nomad",
-                     "Cop", "Corporate", "Rockerboy", "Media", "Custom..."]
+      "suggestions": [
+        "Solo",
+        "Netrunner",
+        "Techie",
+        "MedTech",
+        "Fixer",
+        "Nomad",
+        "Cop",
+        "Corporate",
+        "Rockerboy",
+        "Media",
+        "Custom..."
+      ]
     },
     "alignment": {
       "label": "Morality",
-      "suggestions": ["Lawful", "Neutral", "Chaotic", "Custom..."]
+      "suggestions": [
+        "Lawful",
+        "Neutral",
+        "Chaotic",
+        "Custom..."
+      ]
     }
   },
   "flavor": {
@@ -49,15 +73,231 @@
   },
   "backgrounds": {
     "label": "Street History",
-    "suggestions": ["Hood", "Corps", "Nomads", "Riggers Union", "CyberPsycho Risk",
-                   "Fixers' Network", "Junkers", "Custom..."]
+    "suggestions": [
+      "Hood",
+      "Corps",
+      "Nomads",
+      "Riggers Union",
+      "CyberPsycho Risk",
+      "Fixers' Network",
+      "Junkers",
+      "Custom..."
+    ]
   },
   "abilities": {
     "enabled": true,
-    "scores": ["body", "cool", "intuition", "logic", "reflexes", "technical", "empathy"],
+    "scores": [
+      "body",
+      "cool",
+      "intuition",
+      "logic",
+      "reflexes",
+      "technical",
+      "empathy"
+    ],
     "min": 1,
     "max": 10,
     "default": 4,
     "points_buy": null
+  },
+  "progression": {
+    "level_field": "identity.level",
+    "max_level": 10,
+    "xp_levels": []
+  },
+  "rewards_schema": "v1",
+  "rewards": {
+    "race": "race_data.traits",
+    "subrace": "subrace_data.<race>.*.traits",
+    "class": "class_data.<class>.features",
+    "subclass": "subclass_data.<class>[].features"
+  },
+  "taxonomy": {
+    "race_label": "Origin / Ward",
+    "subrace_label": "Origin Detail",
+    "class_label": "Role",
+    "subclass_label": "Role Specialization"
+  },
+  "race_data": {
+    "Night City": {
+      "traits": []
+    },
+    "Badlands Nomad": {
+      "traits": []
+    },
+    "Arasaka Corporate": {
+      "traits": []
+    },
+    "Militech Veteran": {
+      "traits": []
+    },
+    "Street Kid": {
+      "traits": []
+    },
+    "Eurocorp Exile": {
+      "traits": []
+    },
+    "Orbital High-Rider": {
+      "traits": []
+    },
+    "Megabuilding Drifter": {
+      "traits": []
+    }
+  },
+  "subrace_data": {
+    "Night City": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Badlands Nomad": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Arasaka Corporate": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Militech Veteran": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Street Kid": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Eurocorp Exile": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Orbital High-Rider": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Megabuilding Drifter": {
+      "Custom detail": {
+        "traits": []
+      }
+    }
+  },
+  "subclass_data": {
+    "Solo": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Netrunner": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Techie": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "MedTech": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Fixer": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Nomad": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Cop": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Corporate": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Rockerboy": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ],
+    "Media": [
+      {
+        "name": "Role Specialization",
+        "description": ""
+      }
+    ]
+  },
+  "class_data": {
+    "Solo": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Netrunner": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Techie": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "MedTech": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Fixer": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Nomad": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Cop": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Corporate": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Rockerboy": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Media": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    }
   }
 }

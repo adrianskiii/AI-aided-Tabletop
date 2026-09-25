@@ -12,23 +12,66 @@
   "fields": {
     "race": {
       "label": "Ancestry",
-      "suggestions": ["Human", "Elf", "Dwarf", "Halfling", "Gnome", "Orc",
-                      "Half-Elf", "Half-Orc", "Goblin", "Leshy",
-                      "Tengu", "Catfolk", "Hobgoblin", "Shoony", "Custom..."]
+      "suggestions": [
+        "Human",
+        "Elf",
+        "Dwarf",
+        "Halfling",
+        "Gnome",
+        "Orc",
+        "Half-Elf",
+        "Half-Orc",
+        "Goblin",
+        "Leshy",
+        "Tengu",
+        "Catfolk",
+        "Hobgoblin",
+        "Shoony",
+        "Custom..."
+      ]
     },
     "class": {
       "label": "Class",
-      "suggestions": ["Alchemist", "Barbarian", "Bard", "Champion", "Cleric",
-                     "Druid", "Fighter", "Gunslinger", "Inventor", "Investigator",
-                     "Kineticist", "Magus", "Monk", "Oracle", "Psychic",
-                     "Ranger", "Rogue", "Sorcerer", "Summoner", "Swashbuckler",
-                     "Thaumaturge", "Witch", "Wizard", "Custom..."]
+      "suggestions": [
+        "Alchemist",
+        "Barbarian",
+        "Bard",
+        "Champion",
+        "Cleric",
+        "Druid",
+        "Fighter",
+        "Gunslinger",
+        "Inventor",
+        "Investigator",
+        "Kineticist",
+        "Magus",
+        "Monk",
+        "Oracle",
+        "Psychic",
+        "Ranger",
+        "Rogue",
+        "Sorcerer",
+        "Summoner",
+        "Swashbuckler",
+        "Thaumaturge",
+        "Witch",
+        "Wizard",
+        "Custom..."
+      ]
     },
     "alignment": {
       "label": "Alignment",
-      "suggestions": ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral",
-                     "Neutral", "Chaotic Neutral", "Lawful Evil",
-                     "Neutral Evil", "Chaotic Evil"]
+      "suggestions": [
+        "Lawful Good",
+        "Neutral Good",
+        "Chaotic Good",
+        "Lawful Neutral",
+        "Neutral",
+        "Chaotic Neutral",
+        "Lawful Evil",
+        "Neutral Evil",
+        "Chaotic Evil"
+      ]
     }
   },
   "flavor": {
@@ -72,16 +115,584 @@
   },
   "backgrounds": {
     "label": "Background",
-    "suggestions": ["Academic", "Artisan", "Criminal", "Cult Adept", "Far Traveler",
-                   "Mystic", "Noble", "Outlander", "Sailor", "Soldier",
-                   "Streetwise", "Veteran of the Lost Kingdom", "Custom..."]
+    "suggestions": [
+      "Academic",
+      "Artisan",
+      "Criminal",
+      "Cult Adept",
+      "Far Traveler",
+      "Mystic",
+      "Noble",
+      "Outlander",
+      "Sailor",
+      "Soldier",
+      "Streetwise",
+      "Veteran of the Lost Kingdom",
+      "Custom..."
+    ]
   },
   "abilities": {
     "enabled": true,
-    "scores": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+    "scores": [
+      "strength",
+      "dexterity",
+      "constitution",
+      "intelligence",
+      "wisdom",
+      "charisma"
+    ],
     "min": 1,
     "max": 30,
     "default": 10,
     "points_buy": null
+  },
+  "progression": {
+    "level_field": "identity.level",
+    "max_level": 20,
+    "xp_levels": [
+      0,
+      1000,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7000,
+      8000,
+      9000,
+      10000,
+      11000,
+      12000,
+      13000,
+      14000,
+      15000,
+      16000,
+      17000,
+      18000,
+      19000
+    ]
+  },
+  "rewards_schema": "v1",
+  "rewards": {
+    "race": "race_data.traits",
+    "subrace": "subrace_data.<race>.*.traits",
+    "class": "class_data.<class>.features",
+    "subclass": "subclass_data.<class>[].features"
+  },
+  "taxonomy": {
+    "race_label": "Ancestry",
+    "subrace_label": "Heritage",
+    "class_label": "Class",
+    "subclass_label": "Class specialization"
+  },
+  "race_data": {
+    "Human": {
+      "traits": []
+    },
+    "Elf": {
+      "traits": []
+    },
+    "Dwarf": {
+      "traits": []
+    },
+    "Halfling": {
+      "traits": []
+    },
+    "Gnome": {
+      "traits": []
+    },
+    "Orc": {
+      "traits": []
+    },
+    "Goblin": {
+      "traits": []
+    },
+    "Leshy": {
+      "traits": []
+    },
+    "Tengu": {
+      "traits": []
+    },
+    "Catfolk": {
+      "traits": []
+    },
+    "Hobgoblin": {
+      "traits": []
+    },
+    "Shoony": {
+      "traits": []
+    }
+  },
+  "subrace_data": {
+    "Human": {
+      "Skilled Heritage": {
+        "traits": []
+      },
+      "Versatile Heritage": {
+        "traits": []
+      },
+      "Wintertouched Human": {
+        "traits": []
+      }
+    },
+    "Elf": {
+      "Ancient Elf": {
+        "traits": []
+      },
+      "Arctic Elf": {
+        "traits": []
+      },
+      "Cavern Elf": {
+        "traits": []
+      },
+      "Seer Elf": {
+        "traits": []
+      },
+      "Whisper Elf": {
+        "traits": []
+      }
+    },
+    "Dwarf": {
+      "Ancient-Blooded Dwarf": {
+        "traits": []
+      },
+      "Death Warden Dwarf": {
+        "traits": []
+      },
+      "Forge Dwarf": {
+        "traits": []
+      },
+      "Strong-Blooded Dwarf": {
+        "traits": []
+      }
+    },
+    "Halfling": {
+      "Hillock Halfling": {
+        "traits": []
+      },
+      "Nomadic Halfling": {
+        "traits": []
+      },
+      "Twilight Halfling": {
+        "traits": []
+      },
+      "Wildwood Halfling": {
+        "traits": []
+      }
+    },
+    "Gnome": {
+      "Chameleon Gnome": {
+        "traits": []
+      },
+      "Fey-Touched Gnome": {
+        "traits": []
+      },
+      "Sensate Gnome": {
+        "traits": []
+      },
+      "Umbral Gnome": {
+        "traits": []
+      }
+    },
+    "Goblin": {
+      "Charhide Goblin": {
+        "traits": []
+      },
+      "Razortooth Goblin": {
+        "traits": []
+      },
+      "Snow Goblin": {
+        "traits": []
+      },
+      "Unbreakable Goblin": {
+        "traits": []
+      },
+      "Very Sneaky Goblin": {
+        "traits": []
+      }
+    },
+    "Orc": {
+      "Battle-Ready Orc": {
+        "traits": []
+      },
+      "Deep Orc": {
+        "traits": []
+      },
+      "Hold-Scarred Orc": {
+        "traits": []
+      },
+      "Rainfall Orc": {
+        "traits": []
+      }
+    }
+  },
+  "subclass_data": {
+    "Alchemist": [
+      {
+        "name": "Bomber",
+        "description": ""
+      },
+      {
+        "name": "Chirurgeon",
+        "description": ""
+      },
+      {
+        "name": "Mutagenist",
+        "description": ""
+      },
+      {
+        "name": "Toxicologist",
+        "description": ""
+      }
+    ],
+    "Barbarian": [
+      {
+        "name": "Animal",
+        "description": ""
+      },
+      {
+        "name": "Dragon",
+        "description": ""
+      },
+      {
+        "name": "Fury",
+        "description": ""
+      },
+      {
+        "name": "Giant",
+        "description": ""
+      },
+      {
+        "name": "Superstition",
+        "description": ""
+      }
+    ],
+    "Bard": [
+      {
+        "name": "Enigma Muse",
+        "description": ""
+      },
+      {
+        "name": "Maestro Muse",
+        "description": ""
+      },
+      {
+        "name": "Polymath Muse",
+        "description": ""
+      },
+      {
+        "name": "Warrior Muse",
+        "description": ""
+      }
+    ],
+    "Champion": [
+      {
+        "name": "Liberator",
+        "description": ""
+      },
+      {
+        "name": "Paladin",
+        "description": ""
+      },
+      {
+        "name": "Redeemer",
+        "description": ""
+      }
+    ],
+    "Cleric": [
+      {
+        "name": "Cloistered Cleric",
+        "description": ""
+      },
+      {
+        "name": "Warpriest",
+        "description": ""
+      }
+    ],
+    "Druid": [
+      {
+        "name": "Animal Order",
+        "description": ""
+      },
+      {
+        "name": "Leaf Order",
+        "description": ""
+      },
+      {
+        "name": "Storm Order",
+        "description": ""
+      },
+      {
+        "name": "Wild Order",
+        "description": ""
+      }
+    ],
+    "Investigator": [
+      {
+        "name": "Alchemical Sciences",
+        "description": ""
+      },
+      {
+        "name": "Empiricism",
+        "description": ""
+      },
+      {
+        "name": "Interrogation",
+        "description": ""
+      }
+    ],
+    "Ranger": [
+      {
+        "name": "Flurry",
+        "description": ""
+      },
+      {
+        "name": "Outwit",
+        "description": ""
+      },
+      {
+        "name": "Precision",
+        "description": ""
+      }
+    ],
+    "Rogue": [
+      {
+        "name": "Scoundrel",
+        "description": ""
+      },
+      {
+        "name": "Thief",
+        "description": ""
+      },
+      {
+        "name": "Mastermind",
+        "description": ""
+      },
+      {
+        "name": "Ruffian",
+        "description": ""
+      }
+    ],
+    "Sorcerer": [
+      {
+        "name": "Aberrant",
+        "description": ""
+      },
+      {
+        "name": "Angelic",
+        "description": ""
+      },
+      {
+        "name": "Demonic",
+        "description": ""
+      },
+      {
+        "name": "Diabolic",
+        "description": ""
+      },
+      {
+        "name": "Draconic",
+        "description": ""
+      },
+      {
+        "name": "Elemental",
+        "description": ""
+      },
+      {
+        "name": "Fey",
+        "description": ""
+      },
+      {
+        "name": "Hag",
+        "description": ""
+      },
+      {
+        "name": "Imperial",
+        "description": ""
+      },
+      {
+        "name": "Undead",
+        "description": ""
+      }
+    ],
+    "Swashbuckler": [
+      {
+        "name": "Battledancer",
+        "description": ""
+      },
+      {
+        "name": "Braggart",
+        "description": ""
+      },
+      {
+        "name": "Fencer",
+        "description": ""
+      },
+      {
+        "name": "Gymnast",
+        "description": ""
+      },
+      {
+        "name": "Wit",
+        "description": ""
+      }
+    ],
+    "Witch": [
+      {
+        "name": "Faith’s Flamekeeper",
+        "description": ""
+      },
+      {
+        "name": "Fervor",
+        "description": ""
+      },
+      {
+        "name": "Rune",
+        "description": ""
+      },
+      {
+        "name": "Silence in Snow",
+        "description": ""
+      },
+      {
+        "name": "Spinner of Threads",
+        "description": ""
+      }
+    ],
+    "Wizard": [
+      {
+        "name": "School of Ars Grammatica",
+        "description": ""
+      },
+      {
+        "name": "School of Battle Magic",
+        "description": ""
+      },
+      {
+        "name": "School of Mentalism",
+        "description": ""
+      },
+      {
+        "name": "School of Protean Form",
+        "description": ""
+      }
+    ]
+  },
+  "class_data": {
+    "Alchemist": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Barbarian": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Bard": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Champion": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Cleric": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Druid": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Fighter": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Gunslinger": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Inventor": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Investigator": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Kineticist": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Magus": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Monk": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Oracle": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Psychic": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Ranger": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Rogue": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Sorcerer": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Summoner": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Swashbuckler": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Thaumaturge": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Witch": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    },
+    "Wizard": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {}
+    }
   }
 }
