@@ -1,0 +1,86 @@
+{
+  "id": "dnd5e",
+  "label": "D&D 5e",
+  "description": "Dungeons & Dragons, 5th Edition — the classic fantasy TTRPG.",
+  "tldr": "D&D 5e — the benchmark tabletop RPG. Four actions per round (action, bonus action, movement, reaction) on a d20 grid: roll under a DC or meet a target. Six abilities (Str/Dex/Con/Int/Wis/Cha) drive derived modifiers and skill checks. Each class level grants at least one feature — that's your 'buff tree'. Damage types and saving throws (six, ability-based) do most of the narrative lifting, so describe the physical outcome of every roll.",
+  "links": {
+    "rules": ["5e SRD (official, free): https://media.wizards.com/2016/dnd/downloads/5_SRD.pdf",
+              "D&D Beyond rules compendium: https://www.dndbeyond.com"],
+    "wiki": "5e.wiki community wiki: https://5e.wiki",
+    "data_api": "5etools 5e data API: https://app.5etools.me"
+  },
+  "genre": "fantasy",
+  "fields": {
+    "race": {
+      "label": "Race",
+      "suggestions": ["Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome",
+                      "Half-Elf", "Half-Orc", "Tiefling", "Aarakocra",
+                      "Goblin", "Tabaxi", "Custom..."]
+    },
+    "class": {
+      "label": "Class",
+      "suggestions": ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
+                     "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock",
+                     "Wizard", "Custom..."]
+    },
+    "alignment": {
+      "label": "Alignment",
+      "suggestions": ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral",
+                     "True Neutral", "Chaotic Neutral", "Lawful Evil",
+                     "Neutral Evil", "Chaotic Evil", "Unaligned"]
+    }
+  },
+  "flavor": {
+    "races": {
+      "Human": "Ambitious, adaptable, and everywhere. Humans are the youngest and boldest of the common folk — whatever they lack in longevity they make up for in sheer drive.",
+      "Elf": "Elegant and long-lived, elves carry centuries of grace and sorrow in their step. Otherworldly beauty hides an unshakable composure and a deep love of art and magic.",
+      "Dwarf": "Stout, stubborn, and unbreakable as the mountains they call home. Dwarves measure wealth in craftsmanship and friendship in oaths kept.",
+      "Halfling": "Small folk with big appetites and bigger hearts. Halflings prize comfort, community, and good food — and survive by luck others call providence.",
+      "Dragonborn": "Born of dragons and proud of it. Dragonborn wear their elemental ancestry on their scaled hides and a breath of fire or frost on their lips.",
+      "Gnome": "Tiny tinkers and endless enthusiasts. Gnomes chase every idea with gleeful energy, turning gadgets, illusions, and mischief into an art form.",
+      "Half-Elf": "Caught between two worlds, half-elves belong fully to neither — and so become diplomats, wanderers, and friends to all.",
+      "Half-Orc": "Strength and fury tempered by surprising tenderness. Half-orcs balance the wild violence of their orc blood against very human loyalties.",
+      "Tiefling": "Marked by an infernal bloodline, tieflings bear horns, tails, and wary glances. Their heritage is a burden, but it grants resolve forged in fire."
+    },
+    "classes": {
+      "Barbarian": "Rage made flesh. Barbarians trade finesse for fury, shrugging off wounds that would fell lesser folk as they answer injury with eruption.",
+      "Bard": "A maestro of magic, music, and mayhem. Bards weave spells through song and wit, turning every tavern, court, and battlefield into a stage.",
+      "Cleric": "A chosen vessel of the divine. Clerics channel their god's will into healing, blessing, and blinding holy light.",
+      "Druid": "A guardian of the old wilds. Druids speak the language of beast and branch, shifting shape and calling the fury of nature to their side.",
+      "Fighter": "Master of every weapon they touch. Fighters are the unglamorous backbone of any battle — and the reason the rest survive it.",
+      "Monk": "Discipline sharpened into a weapon. Monks fight with the body itself, moving with supernatural speed and striking with focused ki.",
+      "Paladin": "Oath-bound and radiant. Paladins are living armor of their convictions, smiting evil and shielding the innocent with equal zeal.",
+      "Ranger": "A hunter with one foot in the wild. Rangers track, trap, and guide — the unseen edge between a party and certain ambush.",
+      "Rogue": "A shadow with quick hands and quicker wits. Rogues open what's locked, find what's hidden, and strike where it hurts most.",
+      "Sorcerer": "Magic from the blood, not the book. Sorcerers bend raw power that was born in them, shaping it by instinct and will.",
+      "Warlock": "A bargain struck with something older than the world. Warlocks wield borrowed power — and the price is always due.",
+      "Wizard": "Magic from study, patience, and relentless intellect. Wizards bend reality through ritual and formula, unlocking spells with discipline alone."
+    }
+  },
+  "backgrounds": {
+    "label": "Background",
+    "suggestions": ["Acolyte", "Charlatan", "Criminal", "Entertainer", "Folk Hero",
+                   "Guild Artisan", "Hermit", "Noble", "Outlander", "Sage",
+                   "Sailor", "Soldier", "Urchin", "Custom..."]
+  },
+  "abilities": {
+    "enabled": true,
+    "scores": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+    "min": 1,
+    "max": 30,
+    "default": 10,
+    "points_buy": {
+      "total": 27,
+      "base": 8,
+      "min": 8,
+      "max": 15,
+      "costs": { "8": 0, "9": 1, "10": 2, "11": 3, "12": 4, "13": 5, "14": 7, "15": 9 }
+    }
+  },
+  "progression": {
+    "level_field": "identity.level",
+    "xp_levels": [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000,
+                  85000, 100000, 120000, 140000, 165000, 195000, 225000,
+                  265000, 305000, 355000]
+  }
+}

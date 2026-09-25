@@ -1,0 +1,71 @@
+{
+  "id": "baldurs_gate",
+  "label": "Baldur's Gate / Generic Fantasy",
+  "description": "Baldur's Gate: Dark Alliance style classes, Faerûn flavor.",
+  "tldr": "Baldur's Gate (Dark Alliance-style AD&D) — the classic CRPG feel: 3d6 at the table, ability scores 3–18, class-based hit dice, magic-user spell progression by level, thieves get a % chance table per skill. Combat is Vx-style round-based; spells are the real differentiator — a mage at level 7 is a different animal than at level 3.",
+  "links": {
+    "rules": "AD&D rules live in the 5e-compatible 'AD&D SRD' community builds; see the wiki",
+    "wiki": "Baldur's Gate fandom wiki: https://baldursgate.fandom.com",
+    "data_api": "no public data API — local profile only"
+  },
+  "genre": "fantasy",
+  "fields": {
+    "race": {
+      "label": "Race",
+      "suggestions": ["Human", "Elf", "Half-Elf", "Dwarf", "Gnome", "Halfling",
+                     "Half-Orc", "Tiefling", "Custom..."]
+    },
+    "class": {
+      "label": "Class",
+      "suggestions": ["Fighter", "Ranger", "Paladin", "Barbarian", "Cleric",
+                     "Druid", "Monk", "Rogue", "Bard", "Sorcerer",
+                     "Warlock", "Wizard", "Custom..."]
+    },
+    "alignment": {
+      "label": "Alignment",
+      "suggestions": ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral",
+                     "True Neutral", "Chaotic Neutral", "Lawful Evil",
+                     "Neutral Evil", "Chaotic Evil", "Custom..."]
+    }
+  },
+  "flavor": {
+    "races": {
+      "Human": "The expansive, ambitious folk of the Sword Coast. Humans define themselves by their deeds, for they have little time to waste.",
+      "Elf": "Graceful and long-lived children of the Seldarine. Elves see centuries drift by and remain beautiful, sharp, and unreachable.",
+      "Half-Elf": "Raised at the meeting of two bloodlines, half-elves carry the grace of elves and the drive of humans — and belong everywhere and nowhere.",
+      "Dwarf": "Stout oath-keepers of the deep holds. A dwarf measures wealth in stone, friendship in trust, and grudges in centuries.",
+      "Gnome": "Bright-eyed tinkers and pranksters with an appetite for the wondrous. Gnomes invent joy as readily as they invent gadgets.",
+      "Halfling": "Small homebodies with huge courage when it counts. Halflings prize comfort, luck, and a well-stocked larder.",
+      "Half-Orc": "Born between fury and mercy. Half-orcs carry their orc strength with a human's conflicted heart.",
+      "Tiefling": "Marked by an otherworldly bloodline, tieflings wear horns and suspicion with a resolve forged by a life of innuendo."
+    },
+    "classes": {
+      "Fighter": "The sword-arm of a hundred campaigns. Fighters master weapon and armor until combat becomes second nature.",
+      "Ranger": "A wanderer at home in the wilds. Rangers track, hunt, and guide the party through a dangerous world.",
+      "Paladin": "An armored bulwark of sacred oath. Paladins burn bright with conviction and shield the innocent from the dark.",
+      "Barbarian": "Fury from the frozen north and beyond. A barbarian's rage is a storm that answers every wound with ruin.",
+      "Cleric": "A living conduit of the gods' will. Clerics mend the broken, smite the wicked, and turn the tide with a prayer.",
+      "Druid": "A keeper of the Green Man's wild places. Druids speak for beast and tree and shape-shift when words fail.",
+      "Monk": "A martial artist of the order. Monks perfect the body as a weapon and the mind as a shield.",
+      "Rogue": "A shadow with deft fingers and a quicker smile. Rogues open locked doors, pockets, and occasionally hearts.",
+      "Bard": "A minstrel whose music is magic. Bards charm courts, rally armies, and know a song for every occasion.",
+      "Sorcerer": "Magic from the blood, not the book. Sorcerers bend raw power that was born in them.",
+      "Warlock": "A pact-seeker bound to an otherworldly patron. Warlocks wield borrowed power — at a price.",
+      "Wizard": "The scholar of the arcane. Wizards unlock reality through study, ritual, and relentless curiosity."
+    }
+  },
+  "backgrounds": {
+    "label": "Background",
+    "suggestions": ["Bhaalspear", "Child of the Watch", "Torchbearer", "Guttered",
+                   "Wandering Hermit", "Soldier of the Harpers", "Hollow One",
+                   "Custom..."]
+  },
+  "abilities": {
+    "enabled": true,
+    "scores": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+    "min": 1,
+    "max": 20,
+    "default": 10,
+    "points_buy": null
+  }
+}

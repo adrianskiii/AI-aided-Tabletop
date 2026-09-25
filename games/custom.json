@@ -1,0 +1,26 @@
+{
+  "id": "custom",
+  "label": "Custom System (pure free-form)",
+  "description": "No rules at all — invent everything. Great for pure AI-generated settings.",
+  "tldr": "Custom — the rulebook is whatever the table agrees on. Use free-form fields for anything (combat style, magic cost, time system). The sheet is deliberately empty: fill exactly what your setting needs. Tip: keep a 'rules' line in the campaign world_notes so the DM/AI can reference it.",
+  "links": {
+    "rules": "n/a — free form",
+    "wiki": "system-agnostic: https://sailormoon.taleofbits.com (character sheet templates)",
+    "data_api": "n/a"
+  },
+  "genre": "anything",
+  "fields": {
+    "race": { "label": "Race / Species", "suggestions": ["Custom..."] },
+    "class": { "label": "Class / Vocation", "suggestions": ["Custom..."] },
+    "alignment": { "label": "Alignment / Morality", "suggestions": ["Custom..."] }
+  },
+  "backgrounds": { "label": "Background", "suggestions": ["Custom..."] },
+  "abilities": {
+    "enabled": false,
+    "scores": [],
+    "min": 1,
+    "max": 30,
+    "default": 10,
+    "points_buy": null
+  }
+}
