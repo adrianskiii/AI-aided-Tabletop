@@ -24,7 +24,7 @@ Provide a plattform for AI-based and person-based DMs. Should have access to:
 - API calls to talk to all players and individual player UIs
 - Make API calls to add/remove provide/delete items, buffs, skills, xp,...
 - Try to find a way to reload the AI often/reduce prompt length to reduce costs of running via API
-
+- Make it so that the narrotor fills specific files to keep it up to date and not loose important "stray sentences" in the huge prompts (no idea how)
 ### NPC
 Provide an AI agent for NPCs. One AI agent is sufficent as long as all information stay saved in a json/csv/idc. Must interact with the narrator due to thoughts the npc has an the players havent seen/heard yet, but can if they can read minds for examples or personality/idiology/agengas,...
 
