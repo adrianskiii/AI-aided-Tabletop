@@ -36,6 +36,7 @@ from pathlib import Path
 from flask import Flask, request, jsonify, send_from_directory
 
 import fiveetools
+import pf2etools
 from remote import cached_remote
 
 # --------------------------------------------------------------------------- #
@@ -301,6 +302,15 @@ def new_sheet(system: str) -> dict:
             "level": 1,
         },
         "inventory": [],            # [{name, qty, weight?, notes?}]
+        # ---- Build record: race/class picks + every level-up upgrade ---- #
+        "build": {
+            "race_traits": [],      # traits granted by the chosen race
+            "race_skills": [],      # skill/tool proficiencies from the race
+            "class_features_by_level": {},  # {level: [feature names]}
+            "proficiencies": [],    # [{skill, level: base|expert}]
+            "spells": [],           # [{name, level, acquired_at}]
+            "cantrips": [],         # [{name, acquired_at}]
+        },
     }
 
 
@@ -437,12 +447,18 @@ _EMPTY_RULES = {k: [] for k in ("skills", "races", "classes", "backgrounds",
 def rules_payload(system: str) -> dict:
     """The rules knowledge base for a system.
 
-    dnd5e → live SRD data (5etools.co). Other systems → empty base so the
-    UI can hide the sections; add a system by registering its knowledge
-    source in fiveetools.py (one fetch + normalizer per kind)."""
+    dnd5e         → live SRD data (5etools.co)
+    pathfinder2e  → live Ancestry/Class/Feature data (Pf2eTools open JSON)
+    Other systems → empty base so the UI hides the sections; add a system by
+    registering its knowledge source (one fetch + normalizer per kind)."""
     base = {"system": system, "offline": not _want_remote()}
-    if system == "dnd5e" and _want_remote():
-        base.update(fiveetools.five_e())   # includes "source"
+    if _want_remote():
+        if system == "dnd5e":
+            base.update(fiveetools.five_e())
+        elif system == "pathfinder2e":
+            base.update(pf2etools.pf2e())
+        else:
+            base.update(_EMPTY_RULES)
     else:
         base.update(_EMPTY_RULES)
     return base

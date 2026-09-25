@@ -39,7 +39,7 @@ const S = {
   games: {}, campaigns: [], rules: null,
   system: null, campaign: null,
   race: null, subrace: null, class: null, subclass: null, background: null,
-  prof: {}, spells: new Set(),
+  prof: {}, spells: new Set(), spellLevels: {},
   portrait: "🧙", kv: [], abilities: {},
   loadedId: null,          // currently-edited sheet, if any
   party: [],               // other characters (for whispers)
@@ -67,12 +67,14 @@ function buildStepDots() {
       <div class="rail-footer">
         <button class="acquire-btn" onclick="toggleAcquire()">
           <span class="ico">✦</span>
-          <span>Acquired<span></span></span>
-          <small id="acquire-count">skills &amp; spells</small>
+          <span>Skills &amp; build</span>
+          <small id="acquire-count">what you gain, by level</small>
         </button>
         <div class="acquire-panel" id="acquire-panel" style="display:none">
-          <h4>Skills &amp; Spells</h4>
-          <div class="acquire-list" id="acquire-list"><span class="empty">nothing yet</span></div>
+          <h4>Build overview</h4>
+          <div class="acquire-cols" id="acquire-list">
+            <div class="acquire-col"><span class="empty">nothing yet</span></div>
+          </div>
         </div>
       </div>`;
   }
@@ -84,10 +86,12 @@ function toggleAcquire() {
 }
 
 function refreshAcquireCount() {
-  const count = Object.values(S.prof).filter(v => v).length + S.spells.size;
   const el = $("#acquire-count");
-  if (el) el.textContent = count ? `${count} acquired` : "skills & spells";
-  // if the panel is open, re-render its contents too
+  if (el) {
+    const n = Object.values(S.prof).filter(v => v).length
+      + S.spells.size + Object.keys(S.spellLevels).length;
+    el.textContent = n ? `${n} acquired` : "what you gain, by level";
+  }
   const p = $("#acquire-panel");
   if (p && p.style.display !== "none") renderAcquire();
 }
@@ -95,16 +99,54 @@ function refreshAcquireCount() {
 function renderAcquire() {
   const list = $("#acquire-list");
   if (!list) return;
-  const profs = Object.entries(S.prof).filter(([, v]) => v);
-  const spells = [...S.spells];
-  const count = profs.length + spells.length;
-  $("#acquire-count").textContent = count ? `${count} acquired` : "skills & spells";
-  if (!count) { list.innerHTML = '<span class="empty">nothing acquired yet — pick proficiencies &amp; spells in their steps.</span>'; return; }
-  list.innerHTML = [
-    ...profs.map(([name, lvl]) =>
-      `<div class="acquire-item"><span class="nm">${esc(name)}</span><span class="tag">${lvl === "expert" ? "expert" : "proficient"}</span></div>`),
-    ...spells.map(name => `<div class="acquire-item"><span class="nm">${esc(name)}</span><span class="tag">spell</span></div>`),
-  ].join("");
+
+  const race = S.race || {};
+  const subrace = S.subrace || null;
+  const cls = S.class || {};
+  const subclass = S.subclass || null;
+
+  const col = (title, items, html) =>
+    `<div class="acquire-col"><h5>${esc(title)}</h5>${
+      items && items.length
+        ? items.map(i => `<div class="aitem">${html(i)}</div>`).join("")
+        : '<div class="empty">—</div>'
+    }</div>`;
+
+  // Race column: traits + skill proficiencies
+  const raceItems = [
+    ...(race.traits || []).map(t => t.name || t),
+    ...(race.skill_proficiencies || []).map(s => `${s} (proficient)`),
+  ];
+  const raceCol = (race.name
+    ? col("🩸 " + race.name, raceItems, i => `${esc(String(i))}`)
+    : col("🩸 Race", null, i => ""));
+
+  // Subrace column
+  const subItems = (subrace && subrace.traits || []).map(t => t.name || t);
+  const subCol = (subrace
+    ? col("🧬 " + subrace.name, subItems, i => `${esc(String(i))}`)
+    : col("🧬 Subrace", null, i => ""));
+
+  // Class column: starting features + skill proficiencies
+  const classSkillNames = (cls.skills || []).map(s => s.name).filter(Boolean);
+  const classItems = [
+    ...(cls.starting_features || []).map(f => f.name),
+    ...classSkillNames,
+  ];
+  const classCol = (cls.name
+    ? col("⚔ " + cls.name, classItems, i => `${esc(String(i))}`)
+    : col("⚔ Class", null, i => ""));
+
+  // Subclass column
+  const subClassItems = subclass ? [subclass.description || "specialization"] : [];
+  const subClassCol = (subclass
+    ? col("🌀 " + subclass.name, subClassItems, i => `${esc(String(i))}`)
+    : col("🌀 Subclass", null, i => ""));
+
+  list.innerHTML = raceCol + subCol + classCol + subClassCol;
+
+  const total = raceItems.length + subItems.length + classItems.length + subClassItems.length;
+  $("#acquire-count").textContent = total ? `${total} tracked` : "what you gain, by level";
 }
 
 function updateRail() {
@@ -342,11 +384,30 @@ function renderRaceGrid() {
 
 function pickRace(name) {
   const live = (S.rules && S.rules.races || []).find(r => r.name === name);
-  S.race = live || { name };
+  // merge in any curated offline profile data (race_data) when live is absent/thin
+  const profData = (S.system && S.system.race_data || {})[name] || {};
+  const r = live || { name };
+  if (!r.skill_proficiencies && profData.skill_proficiencies) r.skill_proficiencies = profData.skill_proficiencies;
+  if ((!r.traits || !r.traits.length) && profData.traits) {
+    r.traits = profData.traits.map(t =>
+      typeof t === "string" ? { name: t, description: "" } : t);
+  }
+  // subraces: live data wins; otherwise merge from curated subrace_data
+  if (!r.subraces || !r.subraces.length) {
+    const profSubs = (S.system && S.system.subrace_data || {})[name] || {};
+    const subs = Object.entries(profSubs).map(([sn, sd]) => ({
+      name: sn,
+      traits: (sd.traits || []).map(t =>
+        typeof t === "string" ? { name: t, description: "" } : t),
+    }));
+    if (subs.length) r.subraces = subs;
+  }
+  S.race = r;
   S.subrace = null;
   renderRaceGrid();
   renderRaceNarrate();
   renderSubrace();
+  refreshAcquireCount();
 }
 
 function renderRaceNarrate() {
@@ -359,15 +420,20 @@ function renderRaceNarrate() {
   const langs = (r.languages || []).join(", ");
   const traits = (r.traits || []).map(t =>
     `<li><b>${esc(t.name)}</b> — ${esc(t.description || "no description")}</li>`).join("");
+  const skillProfs = (r.skill_proficiencies || []).map(s =>
+    `<span class="chip"><span class="k">proficient</span>${esc(s)}</span>`).join("");
   const flavor = (S.system && S.system.flavor && S.system.flavor.races || {})[r.name] || "";
   box.innerHTML = `<h3><span class="ic">🩸</span> ${esc(r.name)}</h3>
     ${flavor ? `<p class="flavor">${esc(flavor)}</p>` : ""}
-    ${r.speed || asi || langs ? `<div class="row">
+    ${r.speed || asi || langs || skillProfs ? `<div class="row">
       ${r.speed ? `<span class="chip"><span class="k">speed</span>${esc(r.speed)}</span>` : ""}
       ${asi}
       ${langs ? `<span class="chip"><span class="k">languages</span>${esc(langs)}</span>` : ""}
+      ${skillProfs}
     </div>` : ""}
-    ${traits ? `<ul>${traits}</ul>` : ""}`;
+    ${traits ? `<ul>${traits}</ul>` : ""}
+    ${r.skill_proficiencies && r.skill_proficiencies.length
+      ? `<p class="hint" style="margin-top:8px">${esc(r.name)} grants skill/tool proficiencies above — they're added to your build automatically.</p>` : ""}`;
 }
 
 function renderSubrace() {
@@ -397,6 +463,7 @@ function renderSubrace() {
 function pickSubrace(name) {
   S.subrace = (S.race.subraces || []).find(sr => sr.name === name);
   renderSubrace();
+  refreshAcquireCount();
 }
 
 /* ====================================================================== */
@@ -441,12 +508,35 @@ function renderClassGrid() {
 
 function pickClass(name) {
   const live = (S.rules && S.rules.classes || []).find(c => c.name === name);
-  S.class = live || { name };
+  // merge curated offline profile data (class_data) when live is absent/thin
+  const profData = (S.system && S.system.class_data || {})[name] || {};
+  const c = live || { name };
+  if (profData.spellcaster) {
+    c.is_spellcaster = true;
+    if (!c.spellcasting_ability) c.spellcasting_ability = c.spell_ability || "";
+  }
+  if ((!c.skills || !c.skills.length) && profData.skills) {
+    c.skills = profData.skills.map(s => ({ name: s, choice: null, options: [] }));
+  }
+  if ((!c.features || !Object.keys(c.features).length) && profData.features) {
+    c.features = {};
+    Object.entries(profData.features).forEach(([lvl, names]) => {
+      c.features[String(lvl)] = names.map(n => ({ name: n, description: "" }));
+    });
+    c.starting_features = c.features["1"] || [];
+  }
+  // subclasses: live data wins; otherwise merge curated subclass_data (list)
+  if (!c.subclasses || !c.subclasses.length) {
+    const profSubs = (S.system && S.system.subclass_data || {})[name] || [];
+    if (Array.isArray(profSubs) && profSubs.length) c.subclasses = profSubs;
+  }
+  S.class = c;
   S.subclass = null;
   renderClassGrid();
   renderClassNarrate();
   renderAbilities();
   renderLevels();
+  renderSubclass();
 }
 
 function renderClassNarrate() {
@@ -455,20 +545,39 @@ function renderClassNarrate() {
   if (!c) { box.innerHTML = ""; return; }
   const flavor = (S.system && S.system.flavor && S.system.flavor.classes || {})[c.name] || "";
   const starting = c.starting_features || [];
-  const skills = (c.skills || []).map(s => s.name).filter(Boolean);
+  // class skill proficiencies may be fixed or "choose N from options"
+  const skillChips = (c.skills || []).map(s => {
+    if (s.choice != null && s.options && s.options.length) {
+      return `<span class="chip"><span class="k">choose ${s.choice}</span>${esc(s.options.join(", "))}</span>`;
+    }
+    return s.name ? `<span class="chip"><span class="k">proficient</span>${esc(s.name)}</span>` : "";
+  }).join("");
+  const allSkills = (c.skills || []).map(s => s.name).filter(Boolean);
   box.innerHTML = `<h3><span class="ic">⚔</span> ${esc(c.name)}</h3>
     ${flavor ? `<p class="flavor">${esc(flavor)}</p>` : ""}`;
-  const extra = c.hit_die || (c.saving_throws && c.saving_throws.length) || c.spellcasting_ability
+  const extra = c.hit_die || (c.saving_throws && c.saving_throws.length) || c.spellcasting_ability || skillChips
     ? `<div class="row">
       ${c.hit_die ? `<span class="chip"><span class="k">hit die</span>${esc(c.hit_die)}</span>` : ""}
       ${c.saving_throws && c.saving_throws.length ? `<span class="chip"><span class="k">saves</span>${esc(c.saving_throws.join(", "))}</span>` : ""}
       ${c.spellcasting_ability ? `<span class="chip"><span class="k">casting</span>${esc(c.spellcasting_ability)}</span>` : ""}
+      ${skillChips}
     </div>` : "";
   box.innerHTML += extra;
   if (starting.length) {
     box.innerHTML += `<ul>${starting.map(f => `<li><b>${esc(f.name)}</b> — ${esc(f.description || "no description")}</li>`).join("")}</ul>`;
   }
-  if (skills.length) box.innerHTML += `<p><b>Skill proficiencies:</b> ${esc(skills.join(", "))}</p>`;
+  // level-by-level route preview (compact "what you build")
+  const lvls = Object.keys(c.features || {}).map(Number).filter(n => !isNaN(n)).sort((a, b) => a - b);
+  if (lvls.length) {
+    box.innerHTML += `<details class="lvlrow" open style="margin-top:10px">
+      <summary><span class="lvb">↗</span><span>What you gain by level</span></summary>
+      <div class="feat">${lvls.map(l =>
+        `<div><b>L${l}</b> — ${esc((c.features[String(l)] || []).map(f => f.name).join(", ") || "—")}</div>`
+      ).join("")}</div>
+    </details>`;
+  } else if (allSkills.length) {
+    box.innerHTML += `<p><b>Skill proficiencies:</b> ${esc(allSkills.join(", "))}</p>`;
+  }
 }
 
 /* ====================================================================== */
@@ -612,6 +721,13 @@ function renderLevels() {
   const badge = $("#levels-class");
   const c = S.class;
   badge.textContent = (c && c.name) || "—";
+  const casterCard = $("#caster-select-card");
+  if (casterCard) {
+    // only show spell/cantrip picker for spellcasting classes
+    const isCaster = c && (c.is_spellcaster || c.spellcasting_ability);
+    casterCard.style.display = isCaster ? "block" : "none";
+    if (isCaster) renderCasterSelect(c);
+  }
   if (!c || !c.features) {
     body.innerHTML = '<p class="empty">Pick a class (with live data) to see every feature level-by-level.</p>';
     renderTreeLevels([]);
@@ -648,6 +764,92 @@ function setLevel(lvl) {
   $("#f-level").oninput = renderLevels;
 }
 
+/* ---------------------------------------------------------------------- */
+/*  Spell / cantrip selection (spellcasting classes)                       */
+/* ---------------------------------------------------------------------- */
+// Spell-slot ladder for a "full" caster (bard/cleric/druid/sorcerer/wizard).
+// Level N unlocks spell levels up to the ceiling below; the UI groups the
+// picker by spell level and marks which unlock at the character's level.
+const CASTER_LEVEL_UNLOCK = { 1: 1, 2: 1, 3: 2, 4: 2, 5: 3, 6: 3, 7: 4, 8: 4,
+  9: 5, 10: 5, 11: 6, 12: 6, 13: 7, 14: 7, 15: 8, 16: 8, 17: 9, 18: 9,
+  19: 9, 20: 9 };
+// "half" casters (ranger/paladin) get spell levels at roughly half pace.
+const HALF_CASTER_CLASSES = ["ranger", "paladin", "artificer"];
+const THIRD_CASTER_CLASSES = ["eldritch knight", "arcane trickster"];
+
+function casterProg(c) {
+  const name = (c && c.name || "").toLowerCase();
+  if (HALF_CASTER_CLASSES.some(h => name.includes(h))) return 0.5;
+  if (THIRD_CASTER_CLASSES.some(t => name.includes(t))) return 0.33;
+  // warlocks use pact magic — treat as full for UI purposes
+  return 1;
+}
+
+function maxSpellLevelAt(charLevel, c) {
+  const prog = casterProg(c);
+  // non-full casters: round down the unlock ladder scaled by prog
+  const scaleLvl = Math.max(1, Math.ceil(charLevel * prog));
+  const base = CASTER_LEVEL_UNLOCK[Math.min(20, scaleLvl)] || 1;
+  return base;
+}
+
+function renderCasterSelect(c) {
+  const box = $("#caster-select-body");
+  const badge = $("#caster-badge");
+  const lvlNow = parseInt(val("f-level")) || 1;
+  badge.textContent = `lvl ${lvlNow} · up to spell level ${maxSpellLevelAt(lvlNow, c)}`;
+  const spells = (S.rules && S.rules.spells) || [];
+  if (!spells.length) {
+    box.innerHTML = '<p class="empty">No live spell data (offline) — list spells in the Proficiencies step.</p>';
+    return;
+  }
+  // group by spell level; mark which groups are unlocked at lvlNow
+  const groups = {};
+  spells.forEach(sp => {
+    const l = sp.level ?? 0;
+    (groups[l] = groups[l] || []).push(sp);
+  });
+  const maxLvl = maxSpellLevelAt(lvlNow, c);
+  const levels = Object.keys(groups).map(Number).sort((a, b) => a - b);
+  box.innerHTML = levels.map(l => {
+    const groupSpells = groups[l];
+    const unlocked = l <= maxLvl;
+    const lockTag = l === 0 ? "cantrips" : `level ${l}`;
+    const lockNote = unlocked ? "" : `<span class="tag" style="color:var(--red)">locked</span>`;
+    return `<details class="lvlrow" ${unlocked ? "open" : ""}>
+      <summary><span class="lvb">${l === 0 ? "0" : l}</span><span>${esc(lockTag)} (${groupSpells.length}) ${lockNote}</span></summary>
+      <div class="kb-list">${groupSpells.map(sp => {
+        const known = S.spellLevels[sp.name] != null;
+        const knownLvl = S.spellLevels[sp.name];
+        return `<div class="kb-item">
+          <div class="ti" onclick="lookupSpell('${esc(sp.name)}')">${esc(sp.name)}
+            <span class="tag">${esc(sp.school || "")}</span>
+            ${knownLvl ? `<span class="tag">@lvl${esc(knownLvl)}</span>` : ""}</div>
+          <div class="act"><button class="${known ? "on" : ""}" ${unlocked ? "" : "disabled"}
+            onclick="toggleCasterSpell('${esc(sp.name)}',${sp.level ?? 0},${lvlNow})">${known ? "✓" : "+"}</button></div>
+          <div class="sub">${esc((sp.description || "").slice(0, 80))}</div>
+        </div>`;
+      }).join("")}</div>
+    </details>`;
+  }).join("");
+}
+
+function toggleCasterSpell(name, spellLevel, charLevel) {
+  if (S.spellLevels[name] != null) {
+    delete S.spellLevels[name];
+    S.spells.delete(name);
+  } else {
+    S.spellLevels[name] = charLevel;     // level at which this was acquired
+    if (spellLevel === 0) {
+      S.spells.add(name);                 // cantrips count as known spells too
+    } else {
+      S.spells.add(name);
+    }
+  }
+  renderCasterSelect(S.class);
+  refreshAcquireCount();
+}
+
 /* ====================================================================== */
 /*  Subclass                                                               */
 /* ====================================================================== */
@@ -673,6 +875,7 @@ function renderSubclass() {
 function pickSubclass(name) {
   S.subclass = (S.class.subclasses || []).find(sc => sc.name === name);
   renderSubclass();
+  refreshAcquireCount();
 }
 
 /* ====================================================================== */
@@ -897,10 +1100,32 @@ function collect() {
   if (S.subclass) custom.subclass = S.subclass.name;
   if (S.background && S.background.name) custom.background = S.background.name;
 
+  // ---- build record: race/class picks + every level-up upgrade ----
+  const race = S.race || {};
+  const cls = S.class || {};
+  const rulesSpells = (S.rules && S.rules.spells) || [];
+  const knownSpells = [...S.spells];
+  const build = {
+    race_traits: (race.traits || []).map(t => t.name),
+    race_skills: (race.skill_proficiencies || []).slice(),
+    class_features_by_level: cls.features || {},
+    proficiencies: Object.entries(S.prof)
+      .filter(([, v]) => v)
+      .map(([skill, lvl]) => ({ skill, level: lvl })),
+    spells: knownSpells.map(name => ({
+      name, level: S.spellLevels[name] != null ? S.spellLevels[name] : 0,
+    })),
+    cantrips: knownSpells.filter(name => {
+      const sp = rulesSpells.find(s => s.name === name);
+      return sp && sp.level === 0;
+    }).map(name => ({ name, acquired_at: S.spellLevels[name] || 1 })),
+  };
+
   return {
     system: S.system ? S.system.id : "dnd5e",
     visibility: { hidden_revealed: $("#h-revealed").checked },
     campaign,
+    build,
     identity: {
       name: val("f-name"), race: S.race ? S.race.name : val("f-race"),
       class: S.class ? S.class.name : val("f-class"),
@@ -1023,6 +1248,12 @@ function fillFromSheet(s) {
   $("#agenda-list").innerHTML = ""; (s.hidden || {}).hidden_agendas?.forEach(a => addSecretRow("agenda-list", a));
   $("#secret-list").innerHTML = ""; (s.hidden || {}).secrets?.forEach(a => addSecretRow("secret-list", a));
   S.spells = new Set(((s.details || {}).spells || "").split(",").map(x => x.trim()).filter(Boolean));
+  // restore build state (spell levels, proficiencies) from the saved sheet
+  S.spellLevels = {};
+  (s.build && s.build.spells || []).forEach(sp => {
+    if (sp.name) { S.spells.add(sp.name); S.spellLevels[sp.name] = sp.level; }
+  });
+  S.prof = (s.build && s.build.proficiencies || []).reduce((m, p) => { m[p.skill] = p.level; return m; }, {});
   renderKV();
   // live manage panels
   renderManage(s);

@@ -67,6 +67,33 @@ def _race(x: dict) -> dict:
     traits = [{"name": t.get("name", ""),
                "description": t.get("description") or t.get("desc") or ""}
               for t in (x.get("traits") or [])]
+    # skill / tool proficiencies the race grants (5etools "skillProficiencies",
+    # "startProficiencies", or free-form "proficiencies" shapes)
+    skill_profs = []
+    for field in ("skillProficiencies", "startProficiencies", "proficiencies"):
+        raw = x.get(field)
+        if isinstance(raw, list):
+            for p in raw:
+                name = None
+                if isinstance(p, str):
+                    name = p
+                elif isinstance(p, dict):
+                    sk = p.get("skill") or p.get("proficiency") or p.get("name")
+                    if isinstance(sk, dict):
+                        name = sk.get("name")
+                    elif sk:
+                        name = sk
+                    # "choose from N of [...options]" shapes
+                    if not name and p.get("choose"):
+                        opts = p.get("options") or p.get("from") or []
+                        names = [o.get("name") if isinstance(o, dict) else o
+                                 for o in opts]
+                        name = "choose: " + "/".join(n for n in names if n)
+                if name and isinstance(name, str):
+                    skill_profs.append(name.strip())
+    # dedupe, keep order
+    seen = set()
+    skill_profs = [s for s in skill_profs if not (s.lower() in seen or seen.add(s.lower()))]
     return {
         "name": x.get("name", ""),
         "speed": x.get("speed"),
@@ -74,6 +101,7 @@ def _race(x: dict) -> dict:
         "languages": [l.get("name") if isinstance(l, dict) else l
                       for l in (x.get("languages") or [])],
         "traits": traits,
+        "skill_proficiencies": skill_profs,  # skills/tools granted by the race
         "subraces": [_race(sr) for sr in (x.get("subraces") or [])
                      if isinstance(sr, dict)],
         "sourcebook": (x.get("sourcebook") or {}).get("name", ""),
@@ -131,6 +159,11 @@ def _class_features(x: dict) -> dict:
 def _class(x: dict) -> dict:
     features = _class_features(x)
     starting = features.get("1", [])
+    # whether this class picks spells (drives the "select spells/cantrips" UI)
+    sc = x.get("spellcasting") or {}
+    is_caster = bool(sc) and sc.get("ability") is not None
+    spell_ability = (sc.get("ability") or {}).get("abbreviation") \
+        if isinstance(sc.get("ability"), dict) else ""
     return {
         "name": x.get("name", ""),
         "hit_die": x.get("hitDies"),
@@ -146,6 +179,8 @@ def _class(x: dict) -> dict:
         "prerequisite": x.get("prerequisite") or "",
         "spellcasting_ability": (x.get("spellcastingAbility") or {}).get("abbreviation")
                                 if isinstance(x.get("spellcastingAbility"), dict) else "",
+        "is_spellcaster": is_caster or spell_ability != "",
+        "spell_ability": spell_ability,
         "starting_features": starting,   # lvl-1 buffs (BG3-style "at 1st level…")
         "subclasses": [{
             "name": sc.get("name", ""),

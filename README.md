@@ -15,7 +15,16 @@ That is the UI in which the player:
 - sees its own char sheet, inventory and so on
 - can get private/hidden/"only for you" messages from the dm
 - can act upon typical actions (pick pocket, ask to trade,...)
-...
+- needs an API to provide/delete items, buffs, skills, xp,...
+
+### Narrator 
+Provide a plattform for AI-based and person-based DMs. Should have access to:
+- API calls to talk to all players and individual player UIs
+- Make API calls to add/remove provide/delete items, buffs, skills, xp,...
+- Try to find a way to reload the AI often/reduce prompt length to reduce costs of running via API
+
+### NPC
+Provide an AI agent for NPCs. One AI agent is sufficent as long as all information stay saved in a json/csv/idc. Must interact with the narrator due to thoughts the npc has an the players havent seen/heard yet, but can if they can read minds for examples or personality/idiology/agengas,...
 
 
 ## Architecture
