@@ -37,20 +37,87 @@ header .brand small{color:var(--muted);font-family:sans-serif;font-size:11px;let
 .saved-strip .chip .del{color:var(--red);opacity:.7;cursor:pointer}
 .saved-strip .chip .del:hover{opacity:1}
 
-.cols{display:grid;grid-template-columns:200px minmax(0,1fr);max-width:1540px;margin:0 auto;gap:0;align-items:start}
-nav.rail{
-  position:sticky;top:62px;align-self:start;height:calc(100vh - 62px);padding:24px 10px 24px 22px;
-  display:flex;flex-direction:column;gap:2px;overflow-y:auto
+.cols {
+  display: grid;
+
+  grid-template-columns:
+    0 minmax(0, 1fr);
+
+  max-width: 1540px;
+
+  margin: 0 auto;
+
+  gap: 0;
+
+  align-items: start;
 }
-nav.rail a{
-  color:var(--muted);text-decoration:none;font-family:"Segoe UI",system-ui,sans-serif;font-size:13px;
-  padding:8px 12px;border-radius:7px;border-left:2px solid transparent;cursor:pointer;
-  display:flex;align-items:center;gap:8px
+.cols.has-context {
+  grid-template-columns:
+    220px minmax(0, 1fr);
 }
-nav.rail a:hover{color:var(--ink);background:var(--panel)}
-nav.rail a.done{color:var(--muted)}
-nav.rail a.done::after{content:"✓";margin-left:auto;color:var(--green);font-size:12px}
-nav.rail a.active{color:var(--gold2);border-left-color:var(--gold);background:var(--panel)}
+av.rail {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+
+  width: 100%;
+  height: auto;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  padding: 8px 16px;
+
+  background: rgba(16, 14, 12, .97);
+  border-bottom: 1px solid var(--line);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  white-space: nowrap;
+}
+
+nav.rail button {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  min-width: max-content;
+
+  padding: 9px 14px;
+
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+
+  background: transparent;
+  color: var(--muted);
+
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+nav.rail button:hover {
+  color: var(--ink);
+  background: var(--panel);
+}
+
+nav.rail button.on {
+  color: var(--gold2);
+  background: var(--panel);
+  border-bottom-color: var(--gold);
+}
 main{padding:22px 20px 90px 10px;min-width:0}
 @media(max-width:860px){.cols{grid-template-columns:1fr}nav.rail{display:none}}
 .build-toggle{position:fixed;right:18px;bottom:18px;z-index:49;box-shadow:0 8px 30px rgba(0,0,0,.35)}
@@ -280,6 +347,467 @@ textarea{resize:vertical;min-height:62px}
 .stat-card .slabel{font:10px sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--faint)}
 .stat-card .svalue{font-size:20px;color:var(--gold2);margin-top:3px}
 .notice{padding:10px 12px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;font:12px/1.5 sans-serif;color:var(--muted)}
+
+```css
+#step-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  margin: 0;
+  background: var(--panel, #171717);
+  border: 1px solid var(--border, #333);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.step-menu-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: center;
+  gap: 0.65rem;
+
+  padding: 0.65rem 0.75rem;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background: transparent;
+  color: inherit;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.step-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border, #333);
+}
+
+.step-menu-item.active {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: currentColor;
+}
+
+.step-menu-item.completed {
+  opacity: 0.75;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+
+  width: 1.75rem;
+  height: 1.75rem;
+
+  border-radius: 50%;
+  border: 1px solid var(--border, #444);
+
+  font-size: 0.8rem;
+}
+
+.step-menu-item.active
+.step-number {
+  font-weight: 700;
+}
+
+.step-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.build-section {
+  margin-bottom: 1rem;
+}
+
+.build-section h4 {
+  margin:
+    0 0 0.5rem;
+}
+
+.build-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.build-item {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--border, #333);
+  border-radius: 8px;
+}
+
+.build-item .muted {
+  margin-top: 0.25rem;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+/* ─────────────────────────────
+   TOP STEP NAVIGATION
+   ───────────────────────────── */
+
+nav.rail {
+  position:sticky;
+  top:0;
+  z-index:40;
+
+  width:100%;
+
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+
+  padding:8px 20px;
+
+  background:rgba(16,14,12,.96);
+  border-bottom:1px solid var(--line);
+
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+
+  overflow-x:auto;
+  overflow-y:hidden;
+
+  gap:4px;
+}
+
+nav.rail button {
+  flex:0 0 auto;
+
+  border:0;
+  border-bottom:2px solid transparent;
+
+  background:transparent;
+  color:var(--muted);
+
+  padding:10px 15px;
+
+  font-family:"Segoe UI",system-ui,sans-serif;
+  font-size:13px;
+
+  cursor:pointer;
+
+  transition:
+    color .18s ease,
+    background .18s ease,
+    border-color .18s ease;
+}
+
+nav.rail button:hover {
+  color:var(--ink);
+  background:var(--panel);
+}
+
+nav.rail button.on {
+  color:var(--gold2);
+  border-bottom-color:var(--gold);
+  background:var(--panel);
+}
+
+
+/* ─────────────────────────────
+   MAIN CONTENT AREA
+   ───────────────────────────── */
+
+.cols {
+  display:grid;
+
+  grid-template-columns:
+    0px
+    minmax(0,1fr);
+
+  max-width:1540px;
+
+  margin:0 auto;
+
+  gap:0;
+
+  align-items:start;
+
+  transition:
+    grid-template-columns .25s ease;
+}
+
+
+/* ─────────────────────────────
+   CONTEXTUAL LEFT PANEL
+   ───────────────────────────── */
+
+.context-rail {
+  position:sticky;
+
+  top:52px;
+
+  height:calc(100vh - 52px);
+
+  overflow:hidden;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .22s ease,
+    width .25s ease;
+
+  background:var(--bg2);
+  border-right:1px solid var(--line);
+}
+
+.context-rail.visible {
+  opacity:1;
+  pointer-events:auto;
+}
+
+.context-rail-inner {
+  width:220px;
+
+  padding:20px 12px;
+
+  transform:translateX(-18px);
+
+  transition:
+    transform .25s ease;
+}
+
+.context-rail.visible
+.context-rail-inner {
+  transform:translateX(0);
+}
+
+
+/* When contextual choices exist,
+   give them actual space. */
+
+.cols.has-context {
+  grid-template-columns:
+    220px
+    minmax(0,1fr);
+}
+
+
+/* ─────────────────────────────
+   CONTEXT ITEMS
+   ───────────────────────────── */
+
+.context-title {
+  color:var(--gold2);
+
+  font-family:Georgia,serif;
+
+  font-size:12px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+  margin:
+    4px 8px
+    10px;
+}
+
+.context-item {
+  width:100%;
+
+  display:block;
+
+  text-align:left;
+
+  border:0;
+
+  border-left:2px solid transparent;
+
+  background:transparent;
+
+  color:var(--muted);
+
+  padding:9px 10px;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+  font-size:13px;
+
+  transition:
+    background .15s ease,
+    color .15s ease,
+    border-color .15s ease;
+}
+
+.context-item:hover {
+  color:var(--ink);
+  background:var(--panel);
+}
+
+.context-item.selected {
+  color:var(--gold2);
+
+  border-left-color:var(--gold);
+
+  background:var(--panel);
+}
+
+
+/* Mobile */
+
+@media(max-width:860px) {
+
+  nav.rail {
+    justify-content:flex-start;
+  }
+
+  .cols,
+  .cols.has-context {
+    grid-template-columns:1fr;
+  }
+
+  .context-rail {
+    position:relative;
+
+    top:auto;
+
+    width:100%;
+    height:auto;
+
+    max-height:0;
+
+    border-right:0;
+    border-bottom:1px solid var(--line);
+
+    transition:
+      max-height .25s ease,
+      opacity .2s ease;
+  }
+
+  .context-rail.visible {
+    max-height:240px;
+  }
+
+  .context-rail-inner {
+    width:auto;
+  }
+}
+.context-section {
+  width: 100%;
+}
+
+.context-title {
+  margin-bottom: 10px;
+  padding: 0 4px;
+  color: var(--gold2);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.context-card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.context-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateX(-12px);
+
+  animation: contextCardIn .22s ease forwards;
+}
+
+.context-card:hover {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.04);
+}
+
+.context-card.selected {
+  border-color: var(--gold);
+  background: rgba(180,140,60,.12);
+}
+
+.context-card-name {
+  margin-bottom: 4px;
+  color: var(--gold2);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.context-card-description {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+@keyframes contextCardIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.context-rail-inner {
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.context-rail-inner.changing {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* Old inline heritage/subclass panels are now shown in the contextual rail */
+#subrace-card,
+#subclass-card2 {
+  display: none !important;
+}
+
+/* Keep ancestry cards at a fixed width and wrap flavor text */
+#race-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+#race-grid .opt-card {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#race-grid .oc-perks,
+#race-grid .perk {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.45;
+}
+#race-narrate {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
 </style>
 </head>
 <body>
@@ -289,10 +817,21 @@ textarea{resize:vertical;min-height:62px}
   <span class="saved-strip" id="saved-strip"></span>
 </header>
 
-<div class="cols">
 <nav class="rail" id="rail"></nav>
 
-<main class="wrap">
+<div class="cols">
+
+  <aside
+    class="context-rail"
+    id="context-rail"
+  >
+    <div
+      class="context-rail-inner"
+      id="context-rail-inner"
+    ></div>
+  </aside>
+
+  <main class="wrap">
 
 <section class="step-panel active" data-step="0">
   <div class="card">
@@ -331,25 +870,18 @@ textarea{resize:vertical;min-height:62px}
     </div>
   </div>
 
-  <div class="card" id="system-info-card">
-    <h2><span class="ico">📚</span> System information</h2>
-    <div id="system-info" class="notice">Select a system to load its rules.</div>
-  </div>
 </section>
 
 <section class="step-panel" data-step="1">
   <div class="card">
     <h2><span class="ico">🧬</span> <span id="lbl-race">Ancestry</span></h2>
-    <p class="hint" id="race-hint">Choose the ancestry or equivalent component supplied by the game system.</p>
+    <p class="hint" id="race-hint">
+      Choose the ancestry or equivalent component supplied by the game system.
+    </p>
+
     <div class="opt-grid" id="race-grid"></div>
-    <div class="narrate" id="race-narrate"></div>
   </div>
-  <div class="card" id="subrace-card" style="display:none">
-    <h2><span class="ico">🧬</span> <span id="lbl-subrace">Heritage</span></h2>
-    <p class="hint" id="subrace-hint">Choose a more specific lineage if this system provides one.</p>
-    <div class="opt-grid" id="subrace-grid"></div>
-    <div class="narrate" id="subrace-narrate"></div>
-  </div>
+
   <div id="dynamic-step-1"></div>
 </section>
 
@@ -358,15 +890,9 @@ textarea{resize:vertical;min-height:62px}
     <h2><span class="ico">⚔</span> <span id="lbl-class">Class</span></h2>
     <p class="hint" id="class-hint">Choose the primary role, profession, archetype or equivalent component supplied by the system.</p>
     <div class="opt-grid" id="class-grid"></div>
-    <div class="narrate" id="class-narrate"></div>
   </div>
 
-  <div class="card" id="subclass-card2" style="display:none">
-    <h2><span class="ico">🌀</span> <span id="lbl-subclass">Specialization</span></h2>
-    <p class="hint" id="subclass-hint">Choose a specialization when the selected game provides one.</p>
-    <div class="opt-grid" id="subclass-grid"></div>
-    <div class="narrate" id="subclass-narrate"></div>
-  </div>
+
 
   <div class="card">
     <h2><span class="ico">🎲</span> Abilities</h2>

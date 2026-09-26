@@ -78,6 +78,7 @@ Output: one JSON file per character
 import json
 import uuid
 import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -150,6 +151,319 @@ def _safe_int(value, default: int) -> int:
     except (TypeError, ValueError):
         return default
 
+
+PF2E_DIR = GAME_DIR / "pathfinder2e"
+
+
+def load_json_file(filename):
+    """Load a PF2e JSON file from utility/games/pathfinder2e."""
+    filepath = PF2E_DIR / filename
+
+    try:
+        with filepath.open("r", encoding="utf-8") as file:
+            return json.load(file)
+
+    except FileNotFoundError:
+        print(f"Warning: {filepath} not found.")
+        return {}
+
+    except json.JSONDecodeError:
+        print(f"Error: {filepath} contains invalid JSON.")
+        return {}
+
+    except OSError as exc:
+        print(f"Error reading {filepath}: {exc}")
+        return {}
+
+def build_pf2e_payload():
+    """Build the PF2e rules payload from the local Pathfinder data files."""
+
+    ancestries_classes = load_json_file(
+        "pf2e_ancestries_classes.json"
+    )
+
+    core_mechanics = load_json_file(
+        "pf2e_core_mechanics.json"
+    )
+
+    skills_actions = load_json_file(
+        "pf2e_skills_actions.json"
+    )
+
+    spellcasting = load_json_file(
+        "pf2e_spellcasting_system.json"
+    )
+
+    ancestry_data = ancestries_classes.get(
+        "ancestry_data",
+        {}
+    )
+
+    heritage_data = ancestries_classes.get(
+        "heritage_data",
+        {}
+    )
+
+    class_data = ancestries_classes.get(
+        "class_data",
+        {}
+    )
+
+    subclass_data = ancestries_classes.get(
+        "subclass_data",
+        {}
+    )
+
+    backgrounds = ancestries_classes.get(
+        "backgrounds",
+        {}
+    )
+
+    progression = ancestries_classes.get(
+        "progression",
+        {}
+    )
+
+    races = []
+
+    for name, data in ancestry_data.items():
+        if not isinstance(data, dict):
+            data = {}
+
+        races.append({
+            "id": name.lower().replace(
+                " ",
+                "_"
+            ),
+            "name": name,
+            **data,
+        })
+
+    classes = []
+
+    for name, data in class_data.items():
+        if not isinstance(data, dict):
+            data = {}
+
+        classes.append({
+            "id": name.lower().replace(
+                " ",
+                "_"
+            ),
+            "name": name,
+            **data,
+        })
+
+    heritage_choices = {}
+
+    for ancestry, heritages in heritage_data.items():
+
+        if not isinstance(
+            heritages,
+            dict
+        ):
+            heritage_choices[
+                ancestry
+            ] = []
+
+            continue
+
+        heritage_choices[
+            ancestry
+        ] = []
+
+        for name, data in heritages.items():
+
+            if not isinstance(
+                data,
+                dict
+            ):
+                data = {}
+
+            heritage_choices[
+                ancestry
+            ].append({
+                "id": name.lower().replace(
+                    " ",
+                    "_"
+                ),
+                "name": name,
+                **data,
+            })
+
+    subclass_choices = {}
+
+    for class_name, subclass in subclass_data.items():
+
+        if not isinstance(
+            subclass,
+            dict
+        ):
+            subclass_choices[
+                class_name
+            ] = []
+
+            continue
+
+        choices = subclass.get(
+            "choices",
+            {}
+        )
+
+        if not isinstance(
+            choices,
+            dict
+        ):
+            subclass_choices[
+                class_name
+            ] = []
+
+            continue
+
+        subclass_choices[
+            class_name
+        ] = []
+
+        for name, data in choices.items():
+
+            if not isinstance(
+                data,
+                dict
+            ):
+                data = {}
+
+            subclass_choices[
+                class_name
+            ].append({
+                "id": name.lower().replace(
+                    " ",
+                    "_"
+                ),
+                "name": name,
+                **data,
+            })
+
+    abilities = core_mechanics.get(
+        "attributes",
+        [
+            {
+                "id": "str",
+                "name": "Strength",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+            {
+                "id": "dex",
+                "name": "Dexterity",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+            {
+                "id": "con",
+                "name": "Constitution",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+            {
+                "id": "int",
+                "name": "Intelligence",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+            {
+                "id": "wis",
+                "name": "Wisdom",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+            {
+                "id": "cha",
+                "name": "Charisma",
+                "type": "attribute",
+                "default": 10,
+                "min": 1,
+                "max": 30,
+            },
+        ]
+    )
+
+    skills = skills_actions.get(
+        "skills",
+        {}
+    )
+
+    return {
+        "systemId": "pathfinder2e",
+
+        "name":
+            "Pathfinder 2nd Edition",
+
+        "capabilities": {
+            "skills": True,
+            "spells": True,
+            "abilities": True,
+            "levels": True,
+            "equipment": False,
+        },
+
+        "races":
+            races,
+
+        "ancestries":
+            races,
+
+        "heritages":
+            heritage_choices,
+
+        "classes":
+            classes,
+
+        "subclasses":
+            subclass_choices,
+
+        "backgrounds":
+            backgrounds,
+
+        "skills":
+            skills,
+
+        "abilities":
+            abilities,
+
+        "progression":
+            progression,
+
+        "ancestry_data":
+            ancestry_data,
+
+        "heritage_data":
+            heritage_data,
+
+        "class_data":
+            class_data,
+
+        "subclass_data":
+            subclass_data,
+
+        "spellcasting":
+            spellcasting,
+
+        "core_mechanics":
+            core_mechanics,
+
+        "skills_actions":
+            skills_actions,
+    }
 
 # --------------------------------------------------------------------------- #
 # Game profile registry                                                        #
@@ -347,28 +661,84 @@ def normalize_game(data: dict, source: str) -> dict:
 
 
 def local_games() -> dict:
-    """All game profiles from games/*.json."""
+    """Load game systems from both JSON files and folders."""
 
     out = {}
 
-    for p in sorted(
-        GAME_DIR.glob("*.json")
-    ):
+    # JSON-based profiles
+    for p in sorted(GAME_DIR.glob("*.json")):
         try:
-            with open(
-                p,
-                encoding="utf-8",
-            ) as f:
+            with open(p, encoding="utf-8") as f:
                 out[p.stem] = normalize_game(
                     json.load(f),
                     "local",
                 )
-
-        except (
-            json.JSONDecodeError,
-            OSError,
-        ):
+        except (json.JSONDecodeError, OSError):
             continue
+
+    # Folder-based systems
+    for p in sorted(GAME_DIR.iterdir()):
+        if not p.is_dir():
+            continue
+
+        system_id = p.name
+
+        # Don't override a JSON profile with a folder.
+        if system_id in out:
+            continue
+
+        if system_id == "pathfinder2e":
+            out[system_id] = normalize_game(
+                {
+                    "id": "pathfinder2e",
+                    "label": "Pathfinder 2nd Edition",
+                    "description": (
+                        "Pathfinder Second Edition"
+                    ),
+                    "fields": {
+                        "race": {
+                            "label": "Ancestry",
+                            "suggestions": [],
+                        },
+                        "class": {
+                            "label": "Class",
+                            "suggestions": [],
+                        },
+                        "alignment": {
+                            "label": "Alignment",
+                            "suggestions": [],
+                        },
+                    },
+                    "background": {
+                        "label": "Background",
+                        "suggestions": [],
+                    },
+                    "abilities": {
+                        "enabled": True,
+                        "scores": list(STD_ABILITIES),
+                        "min": 1,
+                        "max": 30,
+                        "default": 10,
+                    },
+                    "progression": {
+                        "level_field": "identity.level",
+                        "xp_levels": [],
+                    },
+                },
+                "local-folder",
+            )
+
+        else:
+            out[system_id] = normalize_game(
+                {
+                    "id": system_id,
+                    "label": system_id.replace(
+                        "_",
+                        " ",
+                    ).title(),
+                },
+                "local-folder",
+            )
 
     return out
 
@@ -1702,6 +2072,31 @@ def api_game(
     return jsonify(game)
 
 
+@app.get("/api/systems")
+def get_systems():
+    systems = []
+
+    for system_id, game in local_games().items():
+        systems.append({
+            "id": system_id,
+            "label": game.get(
+                "label",
+                system_id,
+            ),
+            "source": game.get(
+                "source",
+                "local",
+            ),
+            "capabilities": {
+                "skills": True,
+                "spells": True,
+                "abilities": True,
+                "levels": True,
+            },
+        })
+
+    return jsonify(systems)
+
 # --------------------------------------------------------------------------- #
 # Rules knowledge                                                              #
 # --------------------------------------------------------------------------- #
@@ -2195,6 +2590,21 @@ def rules_payload(
     base["system"] = system
     base["offline"] = not _want_remote()
     base["character_level"] = level
+
+
+    if system.lower() in (
+    "pathfinder2e",
+    "pf2e",
+    ):
+        base = build_pf2e_payload()
+
+        base["system"] = "pathfinder2e"
+        base["offline"] = not _want_remote()
+        base["character_level"] = level
+        base["source"] = "local-pf2e"
+
+        return base
+
 
     if _want_remote():
 

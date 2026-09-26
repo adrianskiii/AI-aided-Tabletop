@@ -1333,18 +1333,217 @@
     return $$(".step-panel")[index] || null;
   }
 
-  function renderRail() {
-    const rail =
-      $("#rail");
+  function renderContextRail() {
+    const rail = $("#context-rail");
+    const inner = $("#context-rail-inner");
+    const cols = document.querySelector(".cols");
 
-    if (!rail) return;
+    if (!rail || !inner || !cols) return;
 
-    const definitions =
-      stepDefinitions();
+    const render = () => {
+      inner.innerHTML = "";
 
-    const labels =
-      definitions.map(
-        (step, index) =>
+      // -------------------------
+      // ANCESTRY → HERITAGE
+      // -------------------------
+      if (S.step === 1) {
+        const ancestryType =
+          S.rules?.components?.ancestry
+            ? "ancestry"
+            : "race";
+
+        const ancestry = findEntity(
+          ancestryType,
+          S.choices?.[ancestryType]
+        );
+
+        if (ancestry) {
+          const heritageMap =
+            S.rules?.heritages ||
+            S.rules?.heritage_data ||
+            {};
+
+          const ancestryName = getEntityName(ancestry);
+          const ancestryId = getEntityId(ancestry);
+
+          const heritages =
+            heritageMap[ancestryName] ||
+            heritageMap[ancestryId] ||
+            [];
+
+          if (Array.isArray(heritages) && heritages.length) {
+            addContextSection(
+              inner,
+              "Heritage",
+              heritages,
+              S.choices?.heritage ||
+                S.choices?.subrace,
+              value => {
+                pickSubrace(value);
+                renderContextRail();
+              }
+            );
+          }
+        }
+      }
+
+      // -------------------------
+      // CLASS → SUBCLASS
+      // -------------------------
+      if (S.step === 2) {
+        const cls =
+          findEntity(
+            "class",
+            S.choices?.class
+          ) ||
+          S.class;
+
+        if (cls) {
+          const className = getEntityName(cls);
+          const classId = getEntityId(cls);
+
+          const subclassMap =
+            S.rules?.subclasses ||
+            S.rules?.subclass_data ||
+            {};
+
+          const subclasses =
+            subclassMap[className] ||
+            subclassMap[classId] ||
+            [];
+
+          if (
+            Array.isArray(subclasses) &&
+            subclasses.length
+          ) {
+            addContextSection(
+              inner,
+              "Subclass",
+              subclasses,
+              S.choices?.subclass,
+              value => {
+                pickSubclass(value);
+                renderContextRail();
+              }
+            );
+          }
+        }
+      }
+
+      const hasContext =
+        inner.children.length > 0;
+
+      rail.classList.toggle(
+        "visible",
+        hasContext
+      );
+
+      cols.classList.toggle(
+        "has-context",
+        hasContext
+      );
+    };
+
+    // Fade old choices out before replacing them.
+    if (inner.children.length > 0) {
+      inner.classList.add("changing");
+
+      setTimeout(() => {
+        inner.classList.remove("changing");
+        render();
+      }, 160);
+    } else {
+      render();
+    }
+  }
+  function addContextSection(
+  container,
+  title,
+  items,
+  selectedValue,
+  onSelect
+  ) {
+    const section =
+      document.createElement("div");
+
+    section.className =
+      "context-section";
+
+    const heading =
+      document.createElement("div");
+
+    heading.className =
+      "context-title";
+
+    heading.textContent = title;
+
+    section.appendChild(heading);
+
+    const grid =
+      document.createElement("div");
+
+    grid.className =
+      "context-card-grid";
+
+    items.forEach(item => {
+      const id = getEntityId(item);
+
+      const card =
+        document.createElement("button");
+
+      card.type = "button";
+      card.className = "context-card";
+
+      if (
+        String(id).toLowerCase() ===
+        String(selectedValue || "").toLowerCase()
+      ) {
+        card.classList.add("selected");
+      }
+
+      const name =
+        document.createElement("div");
+
+      name.className =
+        "context-card-name";
+
+      name.textContent =
+        getEntityName(item);
+
+      const description =
+        document.createElement("div");
+
+      description.className =
+        "context-card-description";
+
+      description.textContent =
+        entityDescription(item).slice(0, 150) ||
+        "No description available.";
+
+      card.appendChild(name);
+      card.appendChild(description);
+
+      card.addEventListener(
+        "click",
+        () => onSelect(id)
+      );
+
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  }
+
+    function renderRail() {
+      const rail = $("#rail");
+
+      if (!rail) return;
+
+      const definitions = stepDefinitions();
+
+      const labels = definitions.map(
+        (step) =>
           step.label ||
           step.title ||
           (
@@ -1357,43 +1556,38 @@
           )
       );
 
-    rail.innerHTML =
-      labels.map(
-        (label, index) => `
-          <button
-            type="button"
-            class="${
-              index === S.step
-                ? "on"
-                : ""
-            }"
-            data-step="${index}"
-          >
-            <span class="rail-num">
-              ${index + 1}
-            </span>
-            <span>
-              ${esc(label)}
-            </span>
-          </button>
-        `
-      ).join("");
+      rail.innerHTML =
+        labels.map(
+          (label, index) => `
+            <button
+              type="button"
+              class="${
+                index === S.step
+                  ? "on"
+                  : ""
+              }"
+              data-step="${index}"
+            >
+              <span>${esc(label)}</span>
+            </button>
+          `
+        ).join("");
 
-    rail.querySelectorAll(
-      "[data-step]"
-    ).forEach(button => {
-      button.addEventListener(
-        "click",
-        () =>
-          goStep(
-            Number(
-              button.dataset.step
+      rail.querySelectorAll(
+        "[data-step]"
+      ).forEach(button => {
+        button.addEventListener(
+          "click",
+          () =>
+            goStep(
+              Number(
+                button.dataset.step
+              )
             )
-          )
-      );
-    });
-  }
-
+        );
+      });
+    }
+    
   function goStep(index) {
     const count =
       stepCount();
@@ -1444,6 +1638,7 @@
 
     renderRail();
     renderCurrentStep();
+    renderContextRail();  
   }
 
   function renderCurrentStep() {
@@ -2221,170 +2416,14 @@
 
     syncLegacyState();
     renderRaceGrid();
+    renderContextRail();
     renderSubrace();
     renderBuildDock();
     refreshAcquireCount();
   }
 
   function renderSubrace() {
-    const card =
-      $("#subrace-card");
-
-    if (!card) return;
-
-    const type =
-      S.rules?.components?.heritage
-        ? "heritage"
-        : "subrace";
-
-    const parentType =
-      S.rules?.components?.ancestry
-        ? "ancestry"
-        : "race";
-
-    if (
-      !rulesComponent(type).length
-    ) {
-      card.style.display =
-        "none";
-      return;
-    }
-
-    const parent =
-      findEntity(
-        parentType,
-        S.choices?.[
-          parentType
-        ]
-      );
-
-    let entities =
-      rulesComponent(type);
-
-    if (parent) {
-      const parentId =
-        getEntityId(parent);
-
-      const filtered =
-        entities.filter(
-          entity =>
-            String(
-              entity.parent_id ??
-              entity.ancestry_id ??
-              entity.race_id ??
-              ""
-            ) ===
-            String(parentId)
-        );
-
-      if (filtered.length) {
-        entities = filtered;
-      }
-    }
-
-    card.style.display =
-      entities.length
-        ? "block"
-        : "none";
-
-    const grid =
-      $("#subrace-grid");
-
-    if (!grid) return;
-
-    grid.innerHTML =
-      entities.map(entity => {
-        const id =
-          getEntityId(entity);
-
-        const selected =
-          String(
-            S.choices?.[type] ||
-            ""
-          ).toLowerCase() ===
-          id.toLowerCase();
-
-        return `
-          <div
-            class="opt-card ${
-              selected
-                ? "selected"
-                : ""
-            }"
-            data-subrace-id="${esc(id)}"
-          >
-            <div class="oc-name">
-              ${esc(
-                getEntityName(
-                  entity
-                )
-              )}
-            </div>
-
-            <div class="oc-perks">
-              <div class="perk">
-                ${esc(
-                  entityDescription(
-                    entity
-                  ).slice(
-                    0,
-                    160
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join("");
-
-    grid.querySelectorAll(
-      "[data-subrace-id]"
-    ).forEach(element => {
-      element.addEventListener(
-        "click",
-        () =>
-          pickSubrace(
-            element.dataset
-              .subraceId
-          )
-      );
-    });
-
-    const narrative =
-      $("#subrace-narrate");
-
-    const selected =
-      findEntity(
-        type,
-        S.choices?.[type]
-      );
-
-    if (narrative) {
-      narrative.innerHTML =
-        selected
-          ? `
-            <h3>
-              ${esc(
-                getEntityName(
-                  selected
-                )
-              )}
-            </h3>
-            <p>
-              ${esc(
-                entityDescription(
-                  selected
-                ) ||
-                "No overview."
-              )}
-            </p>
-          `
-          : `
-            <p class="empty">
-              Pick a heritage/subrace if applicable.
-            </p>
-          `;
-    }
+  renderContextRail();
   }
 
   function pickSubrace(id) {
@@ -2489,6 +2528,7 @@
     syncLegacyState();
     renderClassGrid();
     renderClassNarrate();
+    renderContextRail();
     renderSubclass();
     renderLevels();
     renderBuildDock();
@@ -3816,12 +3856,9 @@
     if (!card) return;
 
     if (
-      !rulesCapability(
-        "subclasses"
-      )
+      !rulesCapability("subclasses")
     ) {
-      card.style.display =
-        "none";
+      card.style.display = "none";
       return;
     }
 
@@ -3833,96 +3870,123 @@
       S.class;
 
     if (!cls) {
-      card.style.display =
-        "none";
+      card.style.display = "none";
+
+      const grid =
+        $("#subclass-grid");
+
+      if (grid) {
+        grid.innerHTML = "";
+      }
+
       return;
     }
 
-    let subclasses =
-      safeArray(
-        cls.subclasses
-      );
+    const classId =
+      getEntityId(cls);
 
+    const className =
+      getEntityName(cls);
+
+    /*
+    * PF2e stores subclasses grouped
+    * by class:
+    *
+    * S.rules.subclasses["Fighter"]
+    * S.rules.subclasses["Wizard"]
+    * etc.
+    */
+    const subclassMap =
+      S.rules?.subclasses ||
+      S.rules?.subclass_data ||
+      {};
+
+    let subclasses = [];
+
+    const mapped =
+      subclassMap[className] ??
+      subclassMap[classId];
+
+    if (Array.isArray(mapped)) {
+      subclasses = mapped;
+    }
+
+    /*
+    * Fallback for systems where subclasses
+    * are stored as a flat list.
+    */
     if (!subclasses.length) {
-      const classId =
-        getEntityId(cls);
-
       subclasses =
-        rulesComponent(
-          "subclass"
-        ).filter(
-          subclass =>
-            String(
+        rulesComponent("subclass")
+          .filter(subclass => {
+            const parent =
               subclass.parent_id ??
               subclass.class_id ??
-              ""
-            ) ===
-            String(classId)
-        );
-    }
+              subclass.class;
 
-    if (!subclasses.length) {
-      card.style.display =
-        "none";
-      return;
+            return (
+              String(parent) ===
+                String(classId) ||
+              String(parent).toLowerCase() ===
+                String(className).toLowerCase()
+            );
+          });
     }
-
-    card.style.display =
-      "block";
 
     const grid =
       $("#subclass-grid");
 
+    if (!subclasses.length) {
+      card.style.display = "none";
+
+      if (grid) {
+        grid.innerHTML = "";
+      }
+
+      return;
+    }
+
+    card.style.display = "block";
+
     if (!grid) return;
 
     grid.innerHTML =
-      subclasses.map(
-        subclass => {
-          const id =
-            getEntityId(
-              subclass
-            );
+      subclasses.map(subclass => {
+        const id =
+          getEntityId(subclass);
 
-          const selected =
-            String(
-              S.choices?.subclass ||
-              ""
-            ).toLowerCase() ===
-            id.toLowerCase();
+        const selected =
+          String(
+            S.choices?.subclass || ""
+          ).toLowerCase() ===
+          String(id).toLowerCase();
 
-          return `
-            <div
-              class="opt-card ${
-                selected
-                  ? "selected"
-                  : ""
-              }"
-              data-subclass-id="${esc(id)}"
-            >
-              <div class="oc-name">
+        return `
+          <div
+            class="opt-card ${
+              selected
+                ? "selected"
+                : ""
+            }"
+            data-subclass-id="${esc(id)}"
+          >
+            <div class="oc-name">
+              ${esc(
+                getEntityName(subclass)
+              )}
+            </div>
+
+            <div class="oc-perks">
+              <div class="perk">
                 ${esc(
-                  getEntityName(
-                    subclass
-                  )
+                  entityDescription(subclass)
+                    .slice(0, 120)
                 )}
               </div>
-
-              <div class="oc-perks">
-                <div class="perk">
-                  ${esc(
-                    entityDescription(
-                      subclass
-                    ).slice(
-                      0,
-                      120
-                    )
-                  )}
-                </div>
-              </div>
             </div>
-          `;
-        }
-      ).join("");
+          </div>
+        `;
+      }).join("");
 
     grid.querySelectorAll(
       "[data-subclass-id]"
@@ -3931,8 +3995,7 @@
         "click",
         () =>
           pickSubclass(
-            element.dataset
-              .subclassId
+            element.dataset.subclassId
           )
       );
     });
@@ -3952,17 +4015,13 @@
           ? `
             <h3>
               ${esc(
-                getEntityName(
-                  selected
-                )
+                getEntityName(selected)
               )}
             </h3>
 
             <p>
               ${esc(
-                entityDescription(
-                  selected
-                ) ||
+                entityDescription(selected) ||
                 "No overview."
               )}
             </p>
@@ -7349,15 +7408,615 @@
     }
   }
 
-  function bindEvents() {
-    $("#nav-back")
-      ?.addEventListener(
-        "click",
-        () =>
-          goStep(
-            S.step - 1
-          )
+
+  function getSelectedChoiceValue(ids) {
+    for (const id of ids) {
+      const element =
+        document.getElementById(id);
+
+      if (!element) {
+        continue;
+      }
+
+      if (
+        element.value !== undefined &&
+        element.value !== ""
+      ) {
+        return element.value;
+      }
+    }
+
+    return "";
+  }
+
+  function refreshHeritageChoices(
+    ancestry
+  ) {
+    const select =
+      document.getElementById(
+        "f-heritage"
       );
+
+    if (!select) {
+      return;
+    }
+
+    const heritageMap =
+      S.rules.heritages ||
+      S.rules.heritage_data ||
+      {};
+
+    const choices =
+      heritageMap[ancestry] ||
+      [];
+
+    const currentValue =
+      select.value;
+
+    select.innerHTML = "";
+
+    const placeholder =
+      document.createElement("option");
+
+    placeholder.value = "";
+    placeholder.textContent =
+      ancestry
+        ? "Choose a heritage..."
+        : "Choose an ancestry first";
+
+    select.appendChild(
+      placeholder
+    );
+
+    for (const heritage of choices) {
+      const option =
+        document.createElement(
+          "option"
+        );
+
+      const name =
+        typeof heritage === "string"
+          ? heritage
+          : heritage.name ||
+            heritage.label ||
+            heritage.id;
+
+      option.value =
+        name;
+
+      option.textContent =
+        name;
+
+      select.appendChild(
+        option
+      );
+    }
+
+  /*
+   * Preserve the previous choice only
+   * if it is still valid for this ancestry.
+   */
+  const stillValid =
+    choices.some(
+      heritage => {
+        const name =
+          typeof heritage === "string"
+            ? heritage
+            : heritage.name ||
+              heritage.label ||
+              heritage.id;
+
+        return (
+          String(name) ===
+          String(currentValue)
+        );
+      }
+    );
+
+  select.value =
+    stillValid
+      ? currentValue
+      : "";
+}
+
+
+
+
+  function refreshDependentChoices() {
+    if (!S.rules) {
+      return;
+    }
+
+    const ancestry =
+      getSelectedChoiceValue(
+        [
+          "f-ancestry",
+          "f-race"
+        ]
+      );
+
+    const className =
+      getSelectedChoiceValue(
+        [
+          "f-class"
+        ]
+      );
+
+    refreshHeritageChoices(
+      ancestry
+    );
+
+    refreshSubclassChoices(
+      className
+    );
+  }
+
+  function refreshSubclassChoices(
+    className
+  ) {
+    const select =
+      document.getElementById(
+        "f-subclass"
+      );
+
+    if (!select) {
+      return;
+    }
+
+    const subclassMap =
+      S.rules.subclasses ||
+      S.rules.subclass_data ||
+      {};
+
+    const classData =
+      subclassMap[className] ||
+      {};
+
+    let choices = [];
+
+    if (
+      Array.isArray(classData)
+    ) {
+      choices =
+        classData;
+    } else if (
+      Array.isArray(
+        classData.choices
+      )
+    ) {
+      choices =
+        classData.choices;
+    } else if (
+      classData.choices &&
+      typeof classData.choices ===
+        "object"
+    ) {
+      choices =
+        Object.entries(
+          classData.choices
+        ).map(
+          ([name, data]) => ({
+            name,
+            ...(data || {})
+          })
+        );
+    }
+
+  const currentValue =
+    select.value;
+
+  select.innerHTML = "";
+
+  const placeholder =
+    document.createElement(
+      "option"
+    );
+
+  placeholder.value = "";
+  placeholder.textContent =
+    className
+      ? "Choose a subclass..."
+      : "Choose a class first";
+
+  select.appendChild(
+    placeholder
+  );
+
+  for (const subclass of choices) {
+    const option =
+      document.createElement(
+        "option"
+      );
+
+    const name =
+      typeof subclass === "string"
+        ? subclass
+        : subclass.name ||
+          subclass.label ||
+          subclass.id;
+
+    option.value =
+      name;
+
+    option.textContent =
+      name;
+
+    select.appendChild(
+      option
+    );
+  }
+
+  const stillValid =
+    choices.some(
+      subclass => {
+        const name =
+          typeof subclass === "string"
+            ? subclass
+            : subclass.name ||
+              subclass.label ||
+              subclass.id;
+
+        return (
+          String(name) ===
+          String(currentValue)
+        );
+      }
+    );
+
+  select.value =
+    stillValid
+      ? currentValue
+      : "";
+}
+
+  function renderPF2eLevelProgression(
+    level
+  ) {
+    const rules =
+      S.rules || {};
+
+    const container =
+      document.getElementById(
+        "pf2e-level-progression"
+      );
+
+    if (!container) {
+      return;
+    }
+
+    const progression =
+      rules.progression ||
+      {};
+
+    const levelData =
+      progression[level] ||
+      progression[String(level)] ||
+      {};
+
+    container.innerHTML = "";
+
+    if (
+      !levelData ||
+      typeof levelData !==
+        "object"
+    ) {
+      container.innerHTML = `
+        <div class="empty">
+          No progression data for
+          level ${esc(level)}.
+        </div>
+      `;
+
+      return;
+    }
+
+    const sections = [
+      [
+        "Class Features",
+        levelData.class_features ||
+        levelData.features ||
+        []
+      ],
+      [
+        "Subclass Features",
+        levelData.subclass_features ||
+        []
+      ],
+      [
+        "Ancestry Features",
+        levelData.ancestry_features ||
+        []
+      ],
+      [
+        "Skill Increases",
+        levelData.skill_increases ||
+        []
+      ],
+      [
+        "Feats",
+        levelData.feats ||
+        []
+      ],
+      [
+        "Actions",
+        levelData.actions ||
+        []
+      ],
+      [
+        "Spells",
+        levelData.spells ||
+        []
+      ],
+      [
+        "Spell Slots",
+        levelData.spell_slots ||
+        []
+      ],
+      [
+        "Buffs / Conditions",
+        levelData.buffs ||
+        levelData.conditions ||
+        []
+      ]
+    ];
+
+    let rendered =
+      false;
+
+    for (
+      const [
+        title,
+        items
+      ] of sections
+    ) {
+      if (
+        !Array.isArray(items) ||
+        !items.length
+      ) {
+        continue;
+      }
+
+      rendered = true;
+
+      const section =
+        document.createElement(
+          "section"
+        );
+
+      section.className =
+        "build-section";
+
+      const heading =
+        document.createElement(
+          "h4"
+        );
+
+      heading.textContent =
+        title;
+
+      section.appendChild(
+        heading
+      );
+
+      const list =
+        document.createElement(
+          "div"
+        );
+
+      list.className =
+        "build-items";
+
+      for (const item of items) {
+        const row =
+          document.createElement(
+            "div"
+          );
+
+        row.className =
+          "build-item";
+
+        if (
+          typeof item ===
+          "string"
+        ) {
+          row.textContent =
+            item;
+        } else {
+          const name =
+            item.name ||
+            item.label ||
+            item.id ||
+            "Unnamed";
+
+          const description =
+            item.description ||
+            item.desc ||
+            "";
+
+          row.innerHTML = `
+            <strong>
+              ${esc(name)}
+            </strong>
+            ${
+              description
+                ? `
+                  <div class="muted">
+                    ${esc(
+                      description
+                    )}
+                  </div>
+                `
+                : ""
+            }
+          `;
+        }
+
+        list.appendChild(
+          row
+        );
+      }
+
+      section.appendChild(
+        list
+      );
+
+      container.appendChild(
+        section
+      );
+    }
+
+    if (!rendered) {
+      container.innerHTML = `
+        <div class="empty">
+          No recorded unlocks for
+          level ${esc(level)}.
+        </div>
+      `;
+    }
+  }
+
+  function renderStepMenu() {
+    const menu =
+      document.getElementById(
+        "rail"
+      );
+
+    if (!menu) {
+      return;
+    }
+
+    const steps = [
+      {
+        id: "identity",
+        label: "Identity"
+      },
+      {
+        id: "ancestry",
+        label: "Ancestry"
+      },
+      {
+        id: "heritage",
+        label: "Heritage"
+      },
+      {
+        id: "background",
+        label: "Background"
+      },
+      {
+        id: "class",
+        label: "Class"
+      },
+      {
+        id: "subclass",
+        label: "Subclass"
+      },
+      {
+        id: "abilities",
+        label: "Abilities"
+      },
+      {
+        id: "skills",
+        label: "Skills"
+      },
+      {
+        id: "spells",
+        label: "Spells"
+      },
+      {
+        id: "review",
+        label: "Review"
+      }
+    ];
+
+    menu.innerHTML = "";
+
+    for (
+      let index = 0;
+      index < steps.length;
+      index++
+    ) {
+      const step =
+        steps[index];
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+      button.type =
+        "button";
+
+      button.className =
+        "step-menu-item";
+
+      button.dataset.step =
+        index;
+
+      button.innerHTML = `
+        <span class="step-number">
+          ${index + 1}
+        </span>
+
+        <span class="step-label">
+          ${esc(step.label)}
+        </span>
+      `;
+
+      button.addEventListener(
+        "click",
+        () => {
+          goStep(index);
+        }
+      );
+
+      menu.appendChild(
+        button
+      );
+    }
+
+    updateStepMenu();
+  }
+
+  function updateStepMenu() {
+    const menu =
+      document.getElementById(
+        "step-menu"
+      );
+
+    if (!menu) {
+      return;
+    }
+
+    const items =
+      menu.querySelectorAll(
+        ".step-menu-item"
+      );
+
+    items.forEach(
+      (item, index) => {
+        item.classList.toggle(
+          "active",
+          index === S.step
+        );
+
+        item.classList.toggle(
+          "completed",
+          index < S.step
+        );
+      }
+    );
+  }
+
+
+  function bindEvents() {
+  $("#nav-back")
+    ?.addEventListener(
+      "click",
+      () => {
+        goStep(S.step - 1);
+        updateStepMenu();
+      }
+    );
 
     $("#nav-next")
       ?.addEventListener(
@@ -7396,7 +8055,7 @@
           addSecretRow(
             "secret-list"
           )
-      );
+        );
 
     $("#mg-item-add")
       ?.addEventListener(
@@ -7422,22 +8081,28 @@
         mgWhisper
       );
 
-    $("#build-toggle")
-      ?.addEventListener(
-        "click",
-        () => {
-          const dock =
-            $("#build-dock");
+    $("#build-close")
+    ?.addEventListener(
+      "click",
+      () => {
+        const dock = $("#build-dock");
+        const button = $("#build-toggle");
 
-          if (!dock) return;
+        if (!dock) return;
 
-          dock.style.display =
-            dock.style.display ===
-            "none"
-              ? ""
-              : "none";
-        }
-      );
+        dock.classList.remove("open");
+
+        dock.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        button?.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      }
+  );
 
     $("#build-close")
       ?.addEventListener(
@@ -7484,6 +8149,7 @@
         () => {
           renderLevels();
           renderBuildDock();
+          refreshDependentChoices();
         }
       );
 
@@ -7514,23 +8180,54 @@
         "change",
         () => {
           const id =
-            val(
-              "f-campaign"
-            );
+            val("f-campaign");
 
           S.campaign =
             S.campaigns.find(
               campaign =>
-                String(
-                  campaign.id
-                ) ===
+                String(campaign.id) ===
                 String(id)
             ) || null;
 
           renderCampaign();
         }
       );
-  }
+
+  /*
+   * PF2e dependency handling.
+   *
+   * These listeners deliberately use change rather
+   * than input because ancestry/class are selections.
+   */
+
+  [
+    "f-race",
+    "f-ancestry"
+  ].forEach(id => {
+    $(`#${id}`)
+      ?.addEventListener(
+        "change",
+        () => {
+          refreshDependentChoices();
+          renderBuildDock();
+        }
+      );
+  });
+
+  [
+    "f-class"
+  ].forEach(id => {
+    $(`#${id}`)
+      ?.addEventListener(
+        "change",
+        () => {
+          refreshDependentChoices();
+          renderBuildDock();
+        }
+      );
+  });
+}
+
 
   async function boot() {
     try {
