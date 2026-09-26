@@ -4835,21 +4835,14 @@
   }
 
   function renderBuildDock() {
-    const dock =
-      $("#build-dock");
-
-    const body =
-      $("#dock-body");
-
-    const meta =
-      $("#dock-meta");
+    const dock = $("#build-dock");
+    const body = $("#dock-body");
+    const meta = $("#dock-meta");
 
     if (!body) return;
 
     const selected =
-      Object.entries(
-        S.choices || {}
-      ).flatMap(
+      Object.entries(S.choices || {}).flatMap(
         ([type, value]) => {
           const values =
             Array.isArray(value)
@@ -4860,10 +4853,7 @@
             .filter(Boolean)
             .map(id => {
               const entity =
-                findEntity(
-                  type,
-                  id
-                );
+                findEntity(type, id);
 
               return {
                 type,
@@ -4875,40 +4865,28 @@
       );
 
     const rewards =
-      selected.flatMap(
-        item =>
-          collectEntityRewards(
-            item.entity,
-            item.type
-          )
+      selected.flatMap(item =>
+        collectEntityRewards(
+          item.entity,
+          item.type
+        )
       );
 
     const rows = [
-      ...selected.map(
-        item => ({
+      ...selected.map(item => ({
+        label: componentLabel(item.type),
+        value:
+          getEntityName(item.entity) ||
+          item.id
+      })),
+
+      ...Object.entries(S.abilities || {})
+        .map(([key, value]) => ({
           label:
-            componentLabel(
-              item.type
-            ),
-          value:
-            getEntityName(
-              item.entity
-            ) ||
-            item.id
-        })
-      ),
-      ...Object.entries(
-        S.abilities || {}
-      ).map(
-        ([key, value]) => ({
-          label:
-            getAbilityDefinition(
-              key
-            ).name ||
+            getAbilityDefinition(key).name ||
             titleCase(key),
           value
-        })
-      )
+        }))
     ];
 
     if (meta) {
@@ -4921,59 +4899,52 @@
         rows.length
           ? `
             <div class="kb-list">
-              ${rows.map(
-                row => `
-                  <div class="kb-item">
-                    <div class="ti">
-                      ${esc(
-                        row.label
-                      )}
-                    </div>
-                    <div class="sub">
-                      ${esc(
-                        row.value
-                      )}
-                    </div>
+              ${rows.map(row => `
+                <div class="kb-item">
+                  <div class="ti">
+                    ${esc(row.label)}
                   </div>
-                `
-              ).join("")}
+                  <div class="sub">
+                    ${esc(String(row.value))}
+                  </div>
+                </div>
+              `).join("")}
             </div>
           `
-          : '<p class="empty">Nothing selected yet.</p>'
+          : ""
       }
 
       ${
         rewards.length
           ? `
             <div class="kb-list">
-              ${rewards.map(
-                reward => `
-                  <div class="kb-item">
-                    <div class="ti">
-                      ${esc(
-                        reward.name
-                      )}
-                    </div>
-                    <div class="sub">
-                      ${esc(
-                        reward.description
-                      )}
-                    </div>
+              ${rewards.map(reward => `
+                <div class="kb-item">
+                  <div class="ti">
+                    ${esc(reward.name)}
                   </div>
-                `
-              ).join("")}
+                  <div class="sub">
+                    ${esc(reward.description)}
+                  </div>
+                </div>
+              `).join("")}
             </div>
           `
+          : ""
+      }
+
+      ${
+        !rows.length && !rewards.length
+          ? '<p class="empty">Nothing selected yet.</p>'
           : ""
       }
     `;
 
     if (dock) {
-      dock.style.display =
-        rows.length ||
-        rewards.length
-          ? ""
-          : "none";
+      dock.setAttribute(
+        "aria-hidden",
+        "true"
+      );
     }
   }
 
@@ -7669,24 +7640,18 @@
       : "";
 }
 
-  function renderPF2eLevelProgression(
-    level
-  ) {
-    const rules =
-      S.rules || {};
+  function renderPF2eLevelProgression(level) {
+    const rules = S.rules || {};
 
     const container =
       document.getElementById(
         "pf2e-level-progression"
       );
 
-    if (!container) {
-      return;
-    }
+    if (!container) return;
 
     const progression =
-      rules.progression ||
-      {};
+      rules.progression || {};
 
     const levelData =
       progression[level] ||
@@ -7697,8 +7662,7 @@
 
     if (
       !levelData ||
-      typeof levelData !==
-        "object"
+      typeof levelData !== "object"
     ) {
       container.innerHTML = `
         <div class="empty">
@@ -7706,7 +7670,6 @@
           level ${esc(level)}.
         </div>
       `;
-
       return;
     }
 
@@ -7725,6 +7688,11 @@
       [
         "Ancestry Features",
         levelData.ancestry_features ||
+        []
+      ],
+      [
+        "Heritage Features",
+        levelData.heritage_features ||
         []
       ],
       [
@@ -7753,6 +7721,16 @@
         []
       ],
       [
+        "Proficiencies",
+        levelData.proficiencies ||
+        []
+      ],
+      [
+        "Traits",
+        levelData.traits ||
+        []
+      ],
+      [
         "Buffs / Conditions",
         levelData.buffs ||
         levelData.conditions ||
@@ -7760,15 +7738,9 @@
       ]
     ];
 
-    let rendered =
-      false;
+    let rendered = false;
 
-    for (
-      const [
-        title,
-        items
-      ] of sections
-    ) {
+    for (const [title, items] of sections) {
       if (
         !Array.isArray(items) ||
         !items.length
@@ -7779,52 +7751,38 @@
       rendered = true;
 
       const section =
-        document.createElement(
-          "section"
-        );
+        document.createElement("section");
 
       section.className =
         "build-section";
 
       const heading =
-        document.createElement(
-          "h4"
-        );
+        document.createElement("h4");
 
-      heading.textContent =
-        title;
+      heading.textContent = title;
 
-      section.appendChild(
-        heading
-      );
+      section.appendChild(heading);
 
       const list =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
       list.className =
         "build-items";
 
       for (const item of items) {
         const row =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
 
         row.className =
           "build-item";
 
-        if (
-          typeof item ===
-          "string"
-        ) {
-          row.textContent =
-            item;
+        if (typeof item === "string") {
+          row.textContent = item;
         } else {
           const name =
             item.name ||
             item.label ||
+            item.title ||
             item.id ||
             "Unnamed";
 
@@ -7837,13 +7795,12 @@
             <strong>
               ${esc(name)}
             </strong>
+
             ${
               description
                 ? `
                   <div class="muted">
-                    ${esc(
-                      description
-                    )}
+                    ${esc(description)}
                   </div>
                 `
                 : ""
@@ -7851,18 +7808,11 @@
           `;
         }
 
-        list.appendChild(
-          row
-        );
+        list.appendChild(row);
       }
 
-      section.appendChild(
-        list
-      );
-
-      container.appendChild(
-        section
-      );
+      section.appendChild(list);
+      container.appendChild(section);
     }
 
     if (!rendered) {
@@ -8009,80 +7959,81 @@
 
 
   function bindEvents() {
-  $("#nav-back")
-    ?.addEventListener(
+    $("#nav-back")?.addEventListener("click", () => {
+      goStep(S.step - 1);
+      updateStepMenu();
+    });
+
+    $("#nav-next")?.addEventListener("click", () => {
+      goStep(S.step + 1);
+    });
+
+    $("#save-btn")?.addEventListener(
       "click",
-      () => {
-        goStep(S.step - 1);
-        updateStepMenu();
-      }
+      saveCharacter
     );
 
-    $("#nav-next")
-      ?.addEventListener(
-        "click",
-        () =>
-          goStep(
-            S.step + 1
-          )
+    $("#kv-add-btn")?.addEventListener(
+      "click",
+      addKV
+    );
+
+    $("#agenda-add")?.addEventListener(
+      "click",
+      () => addSecretRow("agenda-list")
+    );
+
+    $("#secret-add")?.addEventListener(
+      "click",
+      () => addSecretRow("secret-list")
+    );
+
+    $("#mg-item-add")?.addEventListener(
+      "click",
+      mgAddItem
+    );
+
+    $("#mg-xp-award")?.addEventListener(
+      "click",
+      mgAwardXp
+    );
+
+    $("#mg-msg-send")?.addEventListener(
+      "click",
+      mgSendMessage
+    );
+
+    $("#mg-whisper-send")?.addEventListener(
+      "click",
+      mgWhisper
+    );
+
+
+    /* -------------------------
+      SKILLS & BUILD DOCK
+      ------------------------- */
+
+    $("#build-toggle")?.addEventListener("click", () => {
+      const dock = $("#build-dock");
+      const button = $("#build-toggle");
+
+      if (!dock) return;
+
+      const isOpen =
+        dock.classList.toggle("open");
+
+      dock.setAttribute(
+        "aria-hidden",
+        String(!isOpen)
       );
 
-    $("#save-btn")
-      ?.addEventListener(
-        "click",
-        saveCharacter
+      button?.setAttribute(
+        "aria-expanded",
+        String(isOpen)
       );
+    });
 
-    $("#kv-add-btn")
-      ?.addEventListener(
-        "click",
-        addKV
-      );
-
-    $("#agenda-add")
-      ?.addEventListener(
-        "click",
-        () =>
-          addSecretRow(
-            "agenda-list"
-          )
-      );
-
-    $("#secret-add")
-      ?.addEventListener(
-        "click",
-        () =>
-          addSecretRow(
-            "secret-list"
-          )
-        );
-
-    $("#mg-item-add")
-      ?.addEventListener(
-        "click",
-        mgAddItem
-      );
-
-    $("#mg-xp-award")
-      ?.addEventListener(
-        "click",
-        mgAwardXp
-      );
-
-    $("#mg-msg-send")
-      ?.addEventListener(
-        "click",
-        mgSendMessage
-      );
-
-    $("#mg-whisper-send")
-      ?.addEventListener(
-        "click",
-        mgWhisper
-      );
-
-    $("#build-close")
-    ?.addEventListener(
+    $("#build-close")?.addEventListener(
       "click",
       () => {
         const dock = $("#build-dock");
@@ -8102,56 +8053,58 @@
           "false"
         );
       }
-  );
+    );
 
-    $("#build-close")
-      ?.addEventListener(
-        "click",
-        () => {
-          const dock =
-            $("#build-dock");
 
-          if (dock) {
-            dock.style.display =
-              "none";
-          }
+    /* -------------------------
+      MODAL
+      ------------------------- */
+
+    $("#modal-close")?.addEventListener(
+      "click",
+      modalClose
+    );
+
+    $("#modal-bg")?.addEventListener(
+      "click",
+      event => {
+        if (
+          event.target ===
+          event.currentTarget
+        ) {
+          modalClose();
         }
-      );
+      }
+    );
 
-    $("#modal-close")
-      ?.addEventListener(
-        "click",
-        modalClose
-      );
 
-    $("#modal-bg")
-      ?.addEventListener(
-        "click",
-        event => {
-          if (
-            event.target ===
-            event.currentTarget
-          ) {
-            modalClose();
-          }
-        }
-      );
+    /* -------------------------
+      BACKGROUND
+      ------------------------- */
 
-    $("#f-bg")
-      ?.addEventListener(
-        "input",
-        renderBackground
-      );
+    $("#f-bg")?.addEventListener(
+      "input",
+      renderBackground
+    );
 
-    $("#f-level")
-      ?.addEventListener(
-        "change",
-        () => {
-          renderLevels();
-          renderBuildDock();
-          refreshDependentChoices();
-        }
-      );
+
+    /* -------------------------
+      LEVEL
+      ------------------------- */
+
+    $("#f-level")?.addEventListener(
+      "change",
+      () => {
+        renderLevels();
+        renderBuildDock();
+        refreshDependentChoices();
+      }
+    );
+
+
+    /* -------------------------
+      GENERAL CHARACTER FIELDS
+      ------------------------- */
 
     [
       "f-name",
@@ -8168,65 +8121,62 @@
       "f-skills-extra",
       "f-abil-notes"
     ].forEach(id => {
-      $(`#${id}`)
-        ?.addEventListener(
-          "input",
-          renderBuildDock
-        );
+      $(`#${id}`)?.addEventListener(
+        "input",
+        renderBuildDock
+      );
     });
 
-    $("#f-campaign")
-      ?.addEventListener(
-        "change",
-        () => {
-          const id =
-            val("f-campaign");
 
-          S.campaign =
-            S.campaigns.find(
-              campaign =>
-                String(campaign.id) ===
-                String(id)
-            ) || null;
+    /* -------------------------
+      CAMPAIGN
+      ------------------------- */
 
-          renderCampaign();
-        }
-      );
+    $("#f-campaign")?.addEventListener(
+      "change",
+      () => {
+        const id =
+          val("f-campaign");
 
-  /*
-   * PF2e dependency handling.
-   *
-   * These listeners deliberately use change rather
-   * than input because ancestry/class are selections.
-   */
+        S.campaign =
+          S.campaigns.find(
+            campaign =>
+              String(campaign.id) ===
+              String(id)
+          ) || null;
 
-  [
-    "f-race",
-    "f-ancestry"
-  ].forEach(id => {
-    $(`#${id}`)
-      ?.addEventListener(
-        "change",
-        () => {
-          refreshDependentChoices();
-          renderBuildDock();
-        }
-      );
-  });
+        renderCampaign();
+      }
+    );
 
-  [
-    "f-class"
-  ].forEach(id => {
-    $(`#${id}`)
-      ?.addEventListener(
+
+    /* -------------------------
+      PF2e SELECTIONS
+      ------------------------- */
+
+    /*
+    * The old f-race / f-ancestry / f-class
+    * selectors may not exist anymore because
+    * ancestry and class are now card based.
+    *
+    * Keep these listeners harmlessly optional.
+    */
+
+    [
+      "f-race",
+      "f-ancestry",
+      "f-class"
+    ].forEach(id => {
+      $(`#${id}`)?.addEventListener(
         "change",
         () => {
           refreshDependentChoices();
           renderBuildDock();
+          renderContextRail();
         }
       );
-  });
-}
+    });
+  }
 
 
   async function boot() {
