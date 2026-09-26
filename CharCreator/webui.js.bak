@@ -1,0 +1,823 @@
+/* =========================================================================
+   webui.js — Tabletop Character Forge (client)
+
+   Everything is API-driven; nothing is hardcoded here:
+     /api/games               → system profiles (label, tldr, links, fields,
+                                abilities, background suggestions)
+     /api/campaigns?system=   → local + AI option + 5etools adventures
+     /api/rules/<system>      → live 5e knowledge base (click-to-lookup)
+     /api/adventure/<id>      → full 5etools adventure data (lazy)
+     /api/characters          → list / create / delete / toggle-hidden
+
+   State lives in a single `S` object. Every change funnels through
+   renderAll() (cheap idempotent section renders), so there is one place to
+   look when something is off.
+   ========================================================================= */
+"use strict";
+
+/* ---------------------------------------------------------------------- */
+/*  Helpers                                                               */
+/* ---------------------------------------------------------------------- */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;");
+const val = id => { const el = $(id); return el ? el.value.trim() : ""; };
+const fmtMod = m => (m >= 0 ? "+" : "") + m;
+
+const STD6 = ["strength", "dexterity", "constitution",
+              "intelligence", "wisdom", "charisma"];
+
+const PORTRAITS = ["🧙", "🧝", "🧝‍♀️", "🧌", "🦹", "🧛", "🧟", "🥷", "🧑‍🚀",
+                   "🐉", "🦊", "🦇", "🐺", "🕷️", "🤖", "👹", "😇", "💀"];
+
+/* ---------------------------------------------------------------------- */
+/*  Global state                                                          */
+/* ---------------------------------------------------------------------- */
+const S = {
+  games: {},            // id → game profile
+  campaigns: [],        // merged campaign list
+  rules: null,          // rules knowledge base (or null when offline/none)
+  system: null,         // current game profile
+  campaign: null,       // selected campaign object (or null)
+  prof: {},             // skill name → "base" | "expert"
+  spells: new Set(),    // known spell names
+  portrait: "🧙",
+  kv: [],               // [{k, v}] free-form custom fields
+  abilities: {},        // ability score → number (for the six/score tiles)
+};
+
+const ABILITY_ICONS = { strength: "💪", dexterity: "🤸", constitution: "❤️",
+  intelligence: "🧠", wisdom: "🦉", charisma: "✨",
+  body: "💪", cool: "😎", intuition: "🔮", logic: "🧮", reflexes: "⚡",
+  technical: "🔧", empathy: "💞" };
+
+/* ---------------------------------------------------------------------- */
+/*  Modal                                                                 */
+/* ---------------------------------------------------------------------- */
+function modalOpen(html) {
+  $("modal-content").innerHTML = html;
+  $("modal-bg").classList.add("show");
+}
+function closeModal() { $("modal-bg").classList.remove("show"); }
+
+$("modal-close").onclick = closeModal;
+$("modal-bg").onclick = e => { if (e.target === $("modal-bg")) closeModal(); };
+
+/* ---------------------------------------------------------------------- */
+/*  Boot                                                                  */
+/* ---------------------------------------------------------------------- */
+async function boot() {
+  await loadGames();
+  await refreshSavedStrip();
+}
+
+async function loadGames() {
+  const r = await fetch("/api/games");
+  S.games = await r.json();
+  const sel = $("f-system");
+  const local = Object.values(S.games).filter(g => g.source === "local");
+  const remote = Object.values(S.games).filter(g => g.source === "remote");
+  let html = '<optgroup label="Local systems (games/*.json)">';
+  local.forEach(g => html += `<option value="${esc(g.id)}">${esc(g.label)}</option>`);
+  html += "</optgroup>";
+  if (remote.length) {
+    html += '<optgroup label="Online systems (Dungeon Masters API)">';
+    remote.sort((a, b) => a.label.localeCompare(b.label))
+      .forEach(g => html += `<option value="${esc(g.id)}">${esc(g.label)}</option>`);
+    html += "</optgroup>";
+  } else {
+    html += '<optgroup label="Online (Dungeon Masters API)">' +
+            '<option disabled>offline — local systems only</option></optgroup>';
+  }
+  sel.innerHTML = html;
+  sel.value = "dnd5e";                       // default to the SRD-rich system
+  sel.onchange = onSystemChange;
+  await onSystemChange();                    // initial render
+}
+
+async function onSystemChange() {
+  const id = $("f-system").value;
+  S.system = S.games[id] || null;
+  S.prof = {};                              // new system → clear picks
+  await loadRules(id);
+  await loadCampaigns(id);
+  renderAll();
+}
+
+async function loadRules(systemId) {
+  S.rules = null;
+  try {
+    const r = await fetch(`/api/rules/${encodeURIComponent(systemId)}`);
+    const kb = await r.json();
+    // Only treat it as having rules if at least skills or classes are present
+    const has = (kb.skills || []).length || (kb.classes || []).length ||
+                (kb.races || []).length;
+    S.rules = has ? kb : null;
+  } catch (e) { S.rules = null; }
+}
+
+async function loadCampaigns(systemId) {
+  const sel = $("f-campaign");
+  try {
+    const r = await fetch(`/api/campaigns?system=${encodeURIComponent(systemId)}`);
+    S.campaigns = await r.json();
+  } catch (e) { S.campaigns = []; }
+  const ai = S.campaigns.filter(c => c.ai_generated);
+  const premade = S.campaigns.filter(c => !c.ai_generated);
+  let html = '<option value="">— no campaign (open-ended) —</option>';
+  html += '<optgroup label="✨ AI-generated (invented fresh)">';
+  ai.forEach(c => html += `<option value="${esc(c.id)}">${esc(c.title)}</option>`);
+  html += "</optgroup><optgroup label=\"📚 Premade / database campaigns\">";
+  premade.forEach(c => {
+    const src = c.source === "5etools" ? " · 5etools" : (c.source === "local" ? " · local" : "");
+    html += `<option value="${esc(c.id)}">${esc(c.title)}${src}</option>`;
+  });
+  html += "</optgroup>";
+  sel.innerHTML = html;
+  sel.onchange = () => {
+    S.campaign = S.campaigns.find(c => c.id === sel.value) || null;
+    renderCampaign();
+  };
+  S.campaign = S.campaigns.length ? S.campaigns[0] : null;   // default: AI option
+}
+
+/* ---------------------------------------------------------------------- */
+/*  renderAll — funnel for every render                                    */
+/* ---------------------------------------------------------------------- */
+function renderAll() {
+  renderSystemPanel();
+  renderIdentity();
+  renderAbilities();
+  renderSkills();
+  renderSpells();
+  renderLevels();
+  renderBackground();
+  renderCampaign();
+  updateRailActive();
+}
+
+/* ====================================================================== */
+/*  Section renders                                                        */
+/* ====================================================================== */
+
+/* ---- system panel (tldr + links) ------------------------------------ */
+function renderSystemPanel() {
+  const g = S.system;
+  if (!g) return;
+  $("sys-source").innerHTML =
+    g.source === "remote" ? '<span class="badge remote">online</span>'
+                          : '<span class="badge local">local</span>';
+  $("sys-desc").textContent = g.description || g.label;
+  $("sys-tldr").textContent = g.tldr || g.description || "";
+  // chips (genre)
+  const chips = [];
+  if (g.genre) chips.push(`<span class="chip"><span class="k">genre</span>${esc(g.genre)}</span>`);
+  $("sys-chips").innerHTML = chips.join("") ||
+    '<span class="empty" style="padding:6px 2px">no metadata</span>';
+  // links
+  const L = g.links || {};
+  const lines = [];
+  const rules = Array.isArray(L.rules) ? L.rules : (L.rules ? [L.rules] : []);
+  if (rules.length) {
+    lines.push(`<div class="l"><b>rules</b><span>${rules.map(linkify).join("<br>")}</span></div>`);
+  }
+  if (L.wiki) lines.push(`<div class="l"><b>wiki</b><span>${linkify(L.wiki)}</span></div>`);
+  if (L.data_api) lines.push(`<div class="l"><b>data</b><span>${linkify(L.data_api)}</span></div>`);
+  $("sys-links").innerHTML = lines.join("") || "";
+}
+
+function linkify(t) {
+  t = esc(t);
+  return t.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+}
+
+/* ---- identity -------------------------------------------------------- */
+function renderIdentity() {
+  const g = S.system;
+  const f = (g && g.fields) || {};
+  const bgs = (g && g.backgrounds) || {};
+  $("lbl-race").textContent = (f.race || {}).label || "Race";
+  $("lbl-class").textContent = (f.class || {}).label || "Class";
+  $("lbl-bg").textContent = bgs.label || "Background";
+  fillSug("sug-race", (f.race || {}).suggestions, "f-race");
+  fillSug("sug-class", (f.class || {}).suggestions, "f-class");
+  fillSug("sug-align", (f.alignment || {}).suggestions, "f-align");
+  fillSug("sug-bg", bgs.suggestions, "f-bg");
+
+  // portrait picker
+  $("portrait").textContent = S.portrait;
+  $("portrait-pick").innerHTML = PORTRAITS.map(p =>
+    `<button data-p="${p}" onclick="setPortrait('${p}')">${p}</button>`).join("");
+  setPortrait(S.portrait);
+
+  // identity lookup chips (race / class detail via rules)
+  const id = $("id-chips");
+  const chips = [];
+  if (S.rules) {
+    const raceIn = val("f-race").toLowerCase();
+    const race = S.rules.races.find(r => r.name.toLowerCase() === raceIn);
+    const clsIn = val("f-class").toLowerCase();
+    const cls = S.rules.classes.find(c => c.name.toLowerCase() === clsIn);
+    if (race) chips.push(`<span class="chip lookupable" onclick="lookupRace('${esc(race.name)}')">🩸 race — view traits</span>`);
+    if (cls) chips.push(`<span class="chip lookupable" onclick="lookupClass('${esc(cls.name)}')">⚔ class — view features</span>`);
+  }
+  id.innerHTML = chips.join("");
+}
+
+function setPortrait(p) {
+  S.portrait = p;
+  $("portrait").textContent = p;
+  document.querySelectorAll("#portrait-pick button").forEach(b =>
+    b.style.borderColor = b.dataset.p === p ? "var(--gold)" : "");
+}
+setPortrait = setPortrait; // (referenced by inline onclick)
+
+function fillSug(boxId, list, inputId) {
+  const box = $(boxId); box.innerHTML = "";
+  (list || []).forEach(t => {
+    if (typeof t !== "string") return;
+    if (t === "Custom...") return;
+    const b = document.createElement("button");
+    b.textContent = t;
+    b.onclick = () => { $(inputId).value = t; onIdentityField(inputId); };
+    box.appendChild(b);
+  });
+}
+
+function onIdentityField(inputId) {
+  renderIdentity();  // refresh lookup chips when race/class changes
+}
+
+/* ---- abilities ------------------------------------------------------- */
+function renderAbilities() {
+  const g = S.system;
+  const ab = (g && g.abilities) || { enabled: true, scores: STD6, default: 10 };
+  const wrap = $("ability-grid");
+  const scores = ab.scores || [];
+  const hint = $("ab-hint");
+  if (!ab.enabled || !scores.length) {
+    wrap.innerHTML = '<p class="empty">This system has no fixed ability scores — use the free-form <em>extra fields</em> below (details.custom).</p>';
+    hint.textContent = "Free-form system.";
+    return;
+  }
+  const dflt = ab.default ?? 10, maxV = ab.max ?? 30, minV = ab.min ?? 1;
+  const isStd6 = scores.length === 6 && scores.every((s, i) => s === STD6[i]);
+  const skillsByAb = skillsOnAbilities();
+  let html = "";
+  scores.forEach(k => {
+    const cur = S.abilities[k] ?? dflt;
+    const mod = isStd6 ? fmtMod(Math.floor((cur - 10) / 2)) : "";
+    const skillNames = (skillsByAb[k] || []).slice(0, 3).join(", ");
+    html += `<div class="ab-tile" data-ab="${esc(k)}" onclick="abTileClick('${esc(k)}')">
+      <div class="abname"><span>${esc(k)}</span><span class="ic">${ABILITY_ICONS[k] || "🎲"}</span></div>
+      <input type="number" min="${minV}" max="${maxV}" value="${cur}"
+             oninput="abTileInput('${esc(k)}', this.value)" onfocus="this.select()">
+      <div class="modline">${isStd6 ? `mod <b>${mod}</b>` : `<i style="color:var(--faint)">range ${minV}–${maxV}</i>`}</div>
+      <div class="skills-hint" title="skills on this ability">${esc(skillNames) || "—"}</div>
+    </div>`;
+  });
+  wrap.innerHTML = html;
+  hint.innerHTML = isStd6
+    ? "Click a tile to see its skills. D&D-style modifiers shown for the standard six."
+    : `${esc(g ? g.label : "")} uses ${scores.length} scores (${minV}–${maxV}); no D&D modifiers.`;
+}
+
+function skillsOnAbilities() {
+  const map = {};
+  (S.rules && S.rules.skills || []).forEach(sk => {
+    const ab = (sk.ability || "").toLowerCase().slice(0, 3) || "?";
+    // map 5etools abbreviations (str/dex/con/int/wis/cha) to full names
+    const full = { str: "strength", dex: "dexterity", con: "constitution",
+                   int: "intelligence", wis: "wisdom", cha: "charisma" }[ab];
+    if (!full) return;
+    (map[full] = map[full] || []).push(sk.name);
+  });
+  return map;
+}
+
+function abTileClick(key) {}   // placeholder (tooltip already shows skills)
+
+function abTileInput(key, v) {
+  const g = S.system, ab = (g && g.abilities) || {};
+  const n = parseInt(v);
+  if (!isNaN(n)) {
+    S.abilities[key] = Math.max(ab.min ?? 1, Math.min(ab.max ?? 30, n));
+  }
+  // re-render just the mod lines to keep it snappy
+  renderAbilities();
+}
+
+/* ---- skills & proficiencies ------------------------------------------ */
+function renderSkills() {
+  const wrap = $("skills-body");
+  if (!S.rules || !S.rules.skills.length) {
+    wrap.innerHTML = '<p class="empty">No live skill data (offline). Add proficiencies manually below, or reconnect for the click-through 5e list.</p>';
+    return;
+  }
+  let html = '<div class="kb-toolbar">' +
+    '<input type="text" id="skill-filter" placeholder="filter skills…" oninput="renderSkillList(this.value)" style="flex:1;max-width:240px"></div>' +
+    '<div class="kb-list" id="skill-list">';
+  html += "</div>";
+  wrap.innerHTML = html;
+  renderSkillList("");
+}
+
+function renderSkillList(filter) {
+  const list = $("skill-list");
+  const q = (filter || "").toLowerCase();
+  const rows = S.rules.skills.filter(s => !q || s.name.toLowerCase().includes(q));
+  list.innerHTML = rows.map(sk => {
+    const p = S.prof[sk.name];
+    const ab = sk.ability_label || sk.ability || "—";
+    return `<div class="kb-item">
+      <div class="ti" onclick="lookupSkill('${esc(sk.name)}')">${esc(sk.name)}
+        <span class="tag">${esc(ab)}</span></div>
+      <div class="act">
+        <button class="${p === "base" ? "on" : ""}" onclick="setProf('${esc(sk.name)}','base')">base</button>
+        <button class="${p === "expert" ? "on exp" : ""}" onclick="setProf('${esc(sk.name)}','expert')">expert</button>
+      </div>
+      <div class="sub">${esc((sk.description || "").slice(0, 90))}…</div>
+    </div>`;
+  }).join("") || '<p class="empty">no skills match</p>';
+}
+
+function setProf(name, lvl) {
+  const cur = S.prof[name];
+  S.prof[name] = cur === lvl ? "" : lvl;    // toggle on/off
+  renderSkillList(val("skill-filter") || "");
+}
+
+/* ---- spells ---------------------------------------------------------- */
+function renderSpells() {
+  const wrap = $("spells-body");
+  if (!S.rules || !S.rules.spells.length) {
+    wrap.innerHTML = '<p class="empty">No live spell data (offline). List powers manually in <em>Details → Equipment</em> or reconnect for the full 5e grimoire.</p>';
+    return;
+  }
+  const schools = [...new Set(S.rules.spells.map(s => s.school).filter(Boolean))].sort();
+  let html = '<div class="kb-toolbar">' +
+    `<input type="text" id="spell-filter" placeholder="search spells…" oninput="renderSpellList()" style="flex:1;max-width:240px">` +
+    `<select id="spell-level" onchange="renderSpellList()">
+       <option value="">any level</option>
+       ${[0,1,2,3,4,5,6,7,8,9].map(n => `<option value="${n}">${n === 0 ? "cantrip" : n}</option>`).join("")}
+     </select>` +
+    `<select id="spell-school" onchange="renderSpellList()">
+       <option value="">any school</option>
+       ${schools.map(s => `<option>${esc(s)}</option>`).join("")}
+     </select>` +
+    `<label><input type="checkbox" id="spell-known-only" onchange="renderSpellList()"> known only</label>` +
+    "</div>" +
+    '<div class="kb-list" id="spell-list"></div>';
+  wrap.innerHTML = html;
+  renderSpellList();
+}
+
+function renderSpellList() {
+  const list = $("spell-list");
+  const q = val("spell-filter").toLowerCase();
+  const lvl = $("spell-level").value;
+  const school = $("spell-school").value;
+  const knownOnly = $("spell-known-only").checked;
+  const rows = S.rules.spells.filter(s => {
+    if (q && !s.name.toLowerCase().includes(q)) return false;
+    if (lvl !== "" && String(s.level) !== lvl) return false;
+    if (school && s.school !== school) return false;
+    if (knownOnly && !S.spells.has(s.name)) return false;
+    return true;
+  });
+  list.innerHTML = rows.slice(0, 120).map(sp => {
+    const known = S.spells.has(sp.name);
+    const tags = [];
+    if (sp.ritual) tags.push('<span class="tag r">ritual</span>');
+    if (sp.verbal || sp.somatic || sp.material) {
+      const comps = [sp.verbal && "V", sp.somatic && "S", sp.material && "M"].filter(Boolean).join("");
+      tags.push(`<span class="tag">${comps}</span>`);
+    }
+    return `<div class="kb-item">
+      <div class="ti" onclick="lookupSpell('${esc(sp.name)}')">${esc(sp.name)}
+        <span class="tag">${esc(sp.level_name || sp.level)}</span>
+        <span class="tag">${esc(sp.school)}</span>${tags.join("")}</div>
+      <div class="act"><button class="${known ? "on" : ""}" onclick="toggleSpell('${esc(sp.name)}')">${known ? "✓" : "+"}</button></div>
+      <div class="sub">${esc((sp.description || "").slice(0, 80))}…</div>
+    </div>`;
+  }).join("") || '<p class="empty">no spells match</p>';
+}
+
+function toggleSpell(name) {
+  if (S.spells.has(name)) S.spells.delete(name); else S.spells.add(name);
+  renderSpellList();
+}
+
+/* ---- level-up features ---------------------------------------------- */
+function renderLevels() {
+  const body = $("levels-body");
+  const badge = $("levels-class");
+  const clsName = val("f-class");
+  const cls = (S.rules && S.rules.classes || [])
+    .find(c => c.name.toLowerCase() === clsName.toLowerCase());
+  badge.textContent = cls ? cls.name : "—";
+  if (!cls || !S.rules) {
+    body.innerHTML = '<p class="empty">Pick a class that matches the live 5e data (e.g. Wizard) to see every feature level-by-level.</p>';
+    return;
+  }
+  const lvlNow = parseInt(val("f-level")) || 1;
+  const feats = cls.features || {};
+  const keys = Object.keys(feats).map(Number).filter(n => !isNaN(n)).sort((a, b) => a - b);
+  if (!keys.length) {
+    body.innerHTML = '<p class="empty">No per-level features listed for this class in the data source.</p>';
+    return;
+  }
+  body.innerHTML = keys.map(lvl => {
+    const list = (feats[String(lvl)] || []);
+    const now = lvl === lvlNow;
+    return `<details class="lvlrow ${now ? "now" : ""}" ${lvl <= lvlNow ? "open" : ""}>
+      <summary><span class="lvb">L${lvl}</span>
+        <span>${list.map(f => esc(f.name)).join(" · ") || "—"}</span></summary>
+      <div class="feat">${list.map(f =>
+        `<div><b>${esc(f.name)}</b>${f.prerequisite ? ` <span class="prereq">(req: ${esc(f.prerequisite)})</span>` : ""}
+        <p>${esc(f.description || "no description in data source")}</p></div>`
+      ).join("")}</div>
+    </details>`;
+  }).join("");
+}
+
+/* ---- background ------------------------------------------------------ */
+function renderBackground() {
+  const box = $("bg-detail");
+  const bgName = val("f-bg");
+  const bg = (S.rules && S.rules.backgrounds || [])
+    .find(b => b.name.toLowerCase() === bgName.toLowerCase());
+  if (!bg) { box.classList.remove("show"); box.innerHTML = ""; return; }
+  box.classList.add("show");
+  const skills = (bg.skills || []).map(s =>
+    s.name || (s.options || []).join(" / ") || "").filter(Boolean).join(", ");
+  box.innerHTML = `
+    <div class="worldnotes" style="border-left-color:var(--green)">
+      <b style="color:var(--green)">${esc(bg.name)}</b>
+      ${bg.description ? `<p>${esc(bg.description)}</p>` : ""}
+      ${bg.features ? `<p><b>Feature:</b> ${esc(bg.features)}</p>` : ""}
+      ${skills ? `<p><b>Skill proficiencies:</b> ${esc(skills)}</p>` : ""}
+      ${bg.url ? `<p><a href="${esc(bg.url)}" target="_blank" rel="noopener">open full background ↗</a></p>` : ""}
+    </div>`;
+}
+
+/* ---- campaign -------------------------------------------------------- */
+function renderCampaign() {
+  const c = S.campaign;
+  const box = $("camp-detail");
+  $("ai-seed-box").style.display = (c && c.ai_generated) ? "block" : "none";
+  if (!c || c.id === "ai-generated") {
+    box.classList.remove("show"); box.innerHTML = "";
+    return;
+  }
+  box.classList.add("show");
+  const src = c.source === "5etools" ? '<span class="badge remote">5etools</span>'
+          : c.source === "local" ? '<span class="badge local">local</span>' : "";
+  const notes = c.world_notes ? `<div class="worldnotes">${esc(c.world_notes)}</div>`
+    : (c.description ? `<div class="worldnotes" style="border-left-color:var(--line2)">${esc(c.description)}</div>` : "");
+  box.innerHTML = `
+    <div class="camp-grid">
+      <div class="camp-meta">
+        <div class="row"><b>title</b>${esc(c.title)} ${src}</div>
+        ${c.setting ? `<div class="row"><b>setting</b>${esc(c.setting)}</div>` : ""}
+        ${c.tone ? `<div class="row"><b>tone</b>${esc(c.tone)}</div>` : ""}
+        ${c.recommended_level ? `<div class="row"><b>levels</b>${esc(c.recommended_level)}</div>` : ""}
+      </div>
+      <div>${notes}</div>
+    </div>
+    ${c.source === "5etools" ? `<div class="camp-actions">
+      <button class="btn small" id="adv-load" onclick="loadAdventure('${esc(c.id)}')">📖 load full adventure (chapters & NPCs)</button>
+      <div id="adv-detail"></div></div>` : ""}`;
+}
+
+async function loadAdventure(id) {
+  const btn = $("adv-load");
+  const slot = $("adv-detail");
+  if (btn) btn.disabled = true;
+  try {
+    const r = await fetch(`/api/adventure/${encodeURIComponent(id)}`);
+    const a = await r.json();
+    if (!r.ok) throw new Error(a.error || ("HTTP " + r.status));
+    const chapters = (a.chapters || []).length;
+    const npcs = (a.npcs || []).slice(0, 12).map(n => n.name || n.title || "").filter(Boolean);
+    slot.innerHTML = `<div class="worldnotes" style="border-left-color:var(--purple)">
+      <b style="color:var(--purple)">${esc(a.title)}</b> — ${chapters} chapters · ${(a.npcs || []).length} NPCs
+      ${npcs.length ? `<p><b>Notable NPCs:</b> ${esc(npcs.join(", "))}</p>` : ""}
+      ${a.url ? `<p><a href="${esc(a.url)}" target="_blank" rel="noopener">open on 5etools ↗</a></p>` : ""}
+    </div>`;
+  } catch (e) {
+    slot.innerHTML = `<p class="save-msg err">${esc(String(e))}</p>`;
+  }
+  if (btn) btn.disabled = false;
+}
+
+/* ---- rail active-state ---------------------------------------------- */
+function updateRailActive() {
+  const links = document.querySelectorAll("nav.rail a");
+  window.addEventListener("scroll", () => {
+    let cur = "";
+    document.querySelectorAll("main section.card").forEach(sec => {
+      if (sec.getBoundingClientRect().top <= 140) cur = sec.id;
+    });
+    links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${cur}`));
+  }, { passive: true });
+  window.dispatchEvent(new Event("scroll"));
+}
+
+/* ====================================================================== */
+/*  Hidden items (agendas / secrets)                                       */
+/* ====================================================================== */
+function addSecretRow(listId, item) {
+  const list = $(listId);
+  const row = document.createElement("div");
+  row.className = "secret-row";
+  row.innerHTML = `
+    <input type="text" placeholder="Title" value="${esc((item && item.title) || "")}">
+    <textarea placeholder="Description — what the DM knows" style="min-height:44px">${esc((item && item.description) || "")}</textarea>
+    <button title="Remove" onclick="this.parentNode.remove()">✕</button>`;
+  list.appendChild(row);
+}
+function readSecretRows(listId) {
+  return [...document.querySelectorAll(`#${listId} .secret-row`)].map(r => {
+    const t = r.querySelector("input").value.trim();
+    const d = r.querySelector("textarea").value.trim();
+    return { title: t, description: d, revealed: false };
+  }).filter(s => s.title || s.description);
+}
+
+$("agenda-add").onclick = () => addSecretRow("agenda-list");
+$("secret-add").onclick = () => addSecretRow("secret-list");
+addSecretRow("agenda-list");
+addSecretRow("secret-list");
+
+/* ---- free-form custom fields (kv) ------------------------------------ */
+function renderKV() {
+  const list = $("kv-list");
+  list.innerHTML = S.kv.map((kv, i) =>
+    `<div class="chip" style="margin:3px 6px 3px 0">
+       <span class="k">${esc(kv.k)}</span> ${esc(kv.v)}
+       <span class="del" style="cursor:pointer;color:var(--red)" onclick="dropKV(${i})">✕</span>
+     </div>`).join("");
+}
+function dropKV(i) { S.kv.splice(i, 1); renderKV(); }
+$("kv-add-btn").onclick = () => {
+  const k = val("kv-key"), v = val("kv-val");
+  if (!k) return;
+  S.kv.push({ k, v });
+  $("kv-key").value = ""; $("kv-val").value = "";
+  renderKV();
+};
+renderKV();
+
+/* ====================================================================== */
+/*  Lookups → modal (never hardcoded; pulls from S.rules)                  */
+/* ====================================================================== */
+function _byName(list, name) {
+  return list.find(x => x.name.toLowerCase() === name.toLowerCase());
+}
+function skillByName(name) { return _byName(S.rules.skills || [], name); }
+
+function lookupSkill(name) {
+  const s = skillByName(name);
+  if (!s) return;
+  modalOpen(`
+    <h3>${esc(s.name)}</h3>
+    <div class="msub">${esc(s.ability_label || s.ability || "")} · ${esc(s.sourcebook || "5e SRD")}</div>
+    ${s.description ? `<p>${esc(s.description)}</p>` : '<p class="empty">no description in data source</p>'}
+    <div class="src">${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">source ↗</a>` : ""}</div>`);
+}
+
+function lookupRace(name) {
+  const r = _byName(S.rules.races || [], name);
+  if (!r) return;
+  const traits = (r.traits || []).map(t =>
+    `<li><b>${esc(t.name)}</b> — ${esc(t.description || "")}</li>`).join("");
+  const langs = (r.languages || []).join(", ");
+  modalOpen(`
+    <h3>${esc(r.name)}</h3>
+    <div class="msub">${esc(r.sourcebook || "5e SRD")}</div>
+    <div class="facts">
+      ${r.speed ? `<span class="chip"><span class="k">speed</span>${esc(r.speed)}</span>` : ""}
+      ${langs ? `<span class="chip"><span class="k">langs</span>${esc(langs)}</span>` : ""}
+    </div>
+    ${r.image ? `<img src="${esc(r.image)}" style="max-width:120px;border-radius:8px;margin:4px 0 12px;display:block">` : ""}
+    ${traits ? `<ul>${traits}</ul>` : '<p class="empty">no traits listed</p>'}
+    <div class="src">${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">source ↗</a>` : ""}</div>`);
+}
+
+function lookupClass(name) {
+  const c = _byName(S.rules.classes || [], name);
+  if (!c) return;
+  modalOpen(`
+    <h3>${esc(c.name)}</h3>
+    <div class="msub">hit die ${esc(c.hit_die || "—")} · ${esc(c.sourcebook || "5e SRD")}</div>
+    ${c.skills && c.skills.length ? `<p><b>Proficiencies:</b> ${esc(c.skills.map(s => s.name).join(", "))}</p>` : ""}
+    ${c.image ? `<img src="${esc(c.image)}" style="max-width:120px;border-radius:8px;margin:4px 0 12px;display:block">` : ""}
+    <p>See the <b>Level-Up Features</b> panel for every feature by level.</p>
+    <div class="src">${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">source ↗</a>` : ""}</div>`);
+}
+
+function lookupSpell(name) {
+  const s = _byName(S.rules.spells || [], name);
+  if (!s) return;
+  const comps = [s.verbal && "Verbal", s.somatic && "Somatic", s.material && "Material"].filter(Boolean).join(", ");
+  modalOpen(`
+    <h3>${esc(s.name)} ${s.ritual ? '<span class="badge gold">ritual</span>' : ""}</h3>
+    <div class="msub">${esc(s.level_name || s.level)} · ${esc(s.school)}</div>
+    <div class="facts">
+      ${s.time ? `<span class="chip"><span class="k">cast</span>${esc(s.time)}</span>` : ""}
+      ${s.range ? `<span class="chip"><span class="k">range</span>${esc(s.range)}</span>` : ""}
+      ${s.duration ? `<span class="chip"><span class="k">dur</span>${esc(s.duration)}</span>` : ""}
+      ${comps ? `<span class="chip"><span class="k">comp</span>${esc(comps)}</span>` : ""}
+    </div>
+    ${s.focus ? `<p><b>Focus:</b> ${esc(s.focus)}</p>` : ""}
+    <p>${esc(s.description || "no description in data source")}</p>
+    <div class="src">${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">source ↗</a>` : ""}</div>`);
+}
+
+/* ====================================================================== */
+/*  Collect + save                                                        */
+/* ====================================================================== */
+function collect() {
+  const abilities = {};
+  const g = S.system, ab = (g && g.abilities) || {};
+  (ab.scores || []).forEach(k => { abilities[k] = S.abilities[k] ?? (ab.default ?? 10); });
+
+  const profNames = Object.keys(S.prof).filter(k => S.prof[k]);
+  const skillsText = [
+    ...profNames.map(k => `${k} (${S.prof[k]})`),
+    val("f-skills-extra"),
+  ].filter(Boolean).join(", ");
+
+  const spellsText = [...S.spells].join(", ");
+
+  const campaign = {};
+  if (S.campaign) {
+    campaign.id = S.campaign.id;
+    if (S.campaign.id === "ai-generated") {
+      campaign.title = val("ai-title") || "";
+      campaign.seed = val("ai-seed");
+      campaign.tone = "";
+    }
+  }
+
+  const custom = {};
+  S.kv.forEach(kv => { if (kv.k) custom[kv.k] = kv.v; });
+
+  return {
+    system: S.system ? S.system.id : "dnd5e",
+    visibility: { hidden_revealed: $("h-revealed").checked },
+    campaign,
+    identity: {
+      name: val("f-name"), race: val("f-race"), class: val("f-class"),
+      level: parseInt(val("f-level")) || 1, gender: val("f-gender"),
+      age: val("f-age"), appearance: val("f-appearance"),
+      player_name: val("f-player"), portrait: S.portrait,
+    },
+    abilities: { ...abilities, notes: val("f-abil-notes") },
+    background: { seed: val("f-bg"), summary: val("f-bgs"), details: val("f-bgdetail") },
+    details: {
+      personality: val("f-personality"), goals: val("f-goals"),
+      fears_flaws: val("f-flaws"), traits: val("f-traits"),
+      alignment: val("f-align"), skills: skillsText,
+      equipment: val("f-equipment"), spells: spellsText,
+      languages: val("f-languages"), custom,
+    },
+    public: {
+      known_identity: val("p-identity"), known_backstory: val("p-backstory"),
+      known_relationships: val("p-relations"), known_items: val("p-items"),
+      rumors: val("p-rumors"),
+    },
+    hidden: {
+      hidden_agendas: readSecretRows("agenda-list"),
+      secrets: readSecretRows("secret-list"),
+      dm_notes: val("h-dmnotes"),
+    },
+  };
+}
+
+async function saveCharacter() {
+  const btn = $("save-btn"), msg = $("save-msg");
+  btn.disabled = true; msg.className = ""; msg.textContent = "Saving…";
+  try {
+    const payload = collect();
+    if (!payload.identity.name) {
+      msg.className = "err"; msg.textContent = "Please give your character a name.";
+      btn.disabled = false; return;
+    }
+    const r = await fetch("/api/characters", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const sheet = await r.json();
+    if (!r.ok) throw new Error(sheet.error || ("HTTP " + r.status));
+    msg.className = "ok";
+    msg.textContent = `Saved → char_sheets/char_sheet_${sheet.id}.json · ` +
+      `API /api/characters/${sheet.id} (public: ?view=public)`;
+    $("preview").style.display = "block";
+    $("preview").textContent = JSON.stringify(sheet, null, 2);
+    await refreshSavedStrip();
+  } catch (e) {
+    msg.className = "err"; msg.textContent = "Error: " + e;
+  }
+  btn.disabled = false;
+}
+
+/* ---- saved strip ------------------------------------------------------ */
+async function refreshSavedStrip() {
+  const strip = $("saved-strip");
+  try {
+    const r = await fetch("/api/characters");
+    const list = await r.json();
+    strip.innerHTML = list.map(c =>
+      `<span class="chip" onclick="loadSheet('${esc(c.id)}')" title="load into form">
+         <b>${esc(c.name || "?")}</b> ${esc(c.system_label || "")}
+         <span class="del" onclick="event.stopPropagation();deleteSheet('${esc(c.id)}')">✕</span>
+       </span>`).join("") || "";
+  } catch (e) { strip.innerHTML = ""; }
+}
+
+async function loadSheet(id) {
+  try {
+    const r = await fetch(`/api/characters/${id}`);
+    const s = await r.json();
+    fillFromSheet(s);
+  } catch (e) { alert("load failed: " + e); }
+}
+
+function fillFromSheet(s) {
+  // basic fields
+  $("f-name").value = (s.identity || {}).name || "";
+  $("f-race").value = (s.identity || {}).race || "";
+  $("f-class").value = (s.identity || {}).class || "";
+  $("f-level").value = (s.identity || {}).level || 1;
+  $("f-player").value = (s.identity || {}).player_name || "";
+  $("f-align").value = (s.details || {}).alignment || "";
+  $("f-appearance").value = (s.identity || {}).appearance || "";
+  $("f-gender").value = (s.identity || {}).gender || "";
+  $("f-age").value = (s.identity || {}).age || "";
+  S.portrait = (s.identity || {}).portrait || "🧙";
+  // system
+  if (s.system && S.games[s.system]) {
+    $("f-system").value = s.system;
+    onSystemChange();   // async reload; continue filling after
+  }
+  // abilities
+  S.abilities = Object.assign({}, (s.abilities || {}));
+  delete S.abilities.notes; delete S.abilities.modifiers;
+  $("f-abil-notes").value = (s.abilities || {}).notes || "";
+  // background
+  $("f-bg").value = (s.background || {}).seed || "";
+  $("f-bgs").value = (s.background || {}).summary || "";
+  $("f-bgdetail").value = (s.background || {}).details || "";
+  // details
+  $("f-personality").value = (s.details || {}).personality || "";
+  $("f-goals").value = (s.details || {}).goals || "";
+  $("f-flaws").value = (s.details || {}).fears_flaws || "";
+  $("f-traits").value = (s.details || {}).traits || "";
+  $("f-equipment").value = (s.details || {}).equipment || "";
+  $("f-languages").value = (s.details || {}).languages || "";
+  $("f-skills-extra").value = (s.details || {}).skills || "";
+  // custom kv
+  S.kv = Object.entries((s.details || {}).custom || {}).map(([k, v]) => ({ k, v }));
+  // public
+  $("p-identity").value = (s.public || {}).known_identity || "";
+  $("p-backstory").value = (s.public || {}).known_backstory || "";
+  $("p-relations").value = (s.public || {}).known_relationships || "";
+  $("p-items").value = (s.public || {}).known_items || "";
+  $("p-rumors").value = (s.public || {}).rumors || "";
+  // hidden
+  $("h-dmnotes").value = (s.hidden || {}).dm_notes || "";
+  $("h-revealed").checked = (s.visibility || {}).hidden_revealed || false;
+  $("agenda-list").innerHTML = "";
+  (s.hidden || {}).hidden_agendas?.forEach(a => addSecretRow("agenda-list", a));
+  $("secret-list").innerHTML = "";
+  (s.hidden || {}).secrets?.forEach(a => addSecretRow("secret-list", a));
+  // profile spells / prof
+  S.spells = new Set(((s.details || {}).spells || "").split(",").map(x => x.trim()).filter(Boolean));
+  renderKV();
+  renderIdentity();
+  renderSpells();
+  renderSpellList();
+}
+
+async function deleteSheet(id) {
+  if (!confirm("Delete this character sheet?")) return;
+  await fetch(`/api/characters/${id}`, { method: "DELETE" });
+  refreshSavedStrip();
+}
+
+/* ---- save + field wiring --------------------------------------------- */
+$("save-btn").onclick = saveCharacter;
+$("f-race").addEventListener("input", () => renderIdentity());
+$("f-class").addEventListener("input", () => { renderIdentity(); renderLevels(); });
+$("f-level").addEventListener("input", () => renderLevels());
+$("f-bg").addEventListener("input", () => renderBackground());
+$("camp-clear").onclick = () => {
+  $("f-campaign").value = "";
+  S.campaign = null;
+  renderCampaign();
+};
+
+boot();

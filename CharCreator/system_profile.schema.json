@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tabletop Character Forge System Profile",
+  "type": "object",
+  "required": [
+    "id",
+    "label",
+    "fields",
+    "abilities",
+    "progression",
+    "rewards_schema",
+    "rewards"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "tldr": {
+      "type": "string"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "links": {
+      "type": "object"
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "race": {
+          "$ref": "#/$defs/choiceField"
+        },
+        "class": {
+          "$ref": "#/$defs/choiceField"
+        },
+        "alignment": {
+          "$ref": "#/$defs/choiceField"
+        }
+      },
+      "additionalProperties": true
+    },
+    "backgrounds": {
+      "type": [
+        "object",
+        "array"
+      ]
+    },
+    "abilities": {
+      "type": "object"
+    },
+    "progression": {
+      "type": "object",
+      "properties": {
+        "level_field": {
+          "type": "string"
+        },
+        "max_level": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "xp_levels": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "race_data": {
+      "type": "object"
+    },
+    "subrace_data": {
+      "type": "object"
+    },
+    "class_data": {
+      "type": "object"
+    },
+    "subclass_data": {
+      "type": "object"
+    },
+    "rewards_schema": {
+      "const": "v1"
+    },
+    "rewards": {
+      "type": "object",
+      "description": "Pointers describing where race/subrace/class/subclass rewards live."
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "UI labels for system-native equivalents such as ancestry/heritage or role specialization."
+    }
+  },
+  "$defs": {
+    "choiceField": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "suggestions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

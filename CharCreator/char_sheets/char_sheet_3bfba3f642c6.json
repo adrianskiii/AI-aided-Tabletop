@@ -1,0 +1,211 @@
+{
+  "id": "3bfba3f642c6",
+  "system": "dnd5e",
+  "system_label": "D&D 5e",
+  "campaign": {
+    "id": null,
+    "title": null,
+    "ai_generated": false,
+    "seed": ""
+  },
+  "created_at": "2026-09-26T10:11:47+00:00",
+  "updated_at": "2026-09-26T10:11:47+00:00",
+  "visibility": {
+    "hidden_revealed": false
+  },
+  "identity": {
+    "name": "tav",
+    "race": "Gnome",
+    "class": "Ranger",
+    "level": 1,
+    "gender": "",
+    "age": "",
+    "appearance": "",
+    "player_name": ""
+  },
+  "choices": {},
+  "abilities": {
+    "strength": 8,
+    "dexterity": 8,
+    "constitution": 8,
+    "intelligence": 8,
+    "wisdom": 8,
+    "charisma": 8,
+    "notes": "",
+    "modifiers": {
+      "strength": -1,
+      "dexterity": -1,
+      "constitution": -1,
+      "intelligence": -1,
+      "wisdom": -1,
+      "charisma": -1
+    }
+  },
+  "background": {
+    "seed": "",
+    "summary": "",
+    "details": ""
+  },
+  "details": {
+    "personality": "",
+    "goals": "",
+    "fears_flaws": "",
+    "traits": "",
+    "alignment": "",
+    "languages": "",
+    "skills": "",
+    "equipment": "",
+    "spells": "",
+    "custom": {
+      "race_detail": "Gnome",
+      "subrace": "Forest Gnome",
+      "class_detail": "Ranger"
+    }
+  },
+  "public": {
+    "known_identity": "",
+    "known_backstory": "",
+    "known_relationships": "",
+    "known_items": "",
+    "rumors": ""
+  },
+  "hidden": {
+    "hidden_agendas": [],
+    "secrets": [],
+    "dm_notes": "",
+    "messages": []
+  },
+  "progression": {
+    "xp": 0,
+    "level": 1
+  },
+  "inventory": [],
+  "build": {
+    "race_traits": [
+      "Ability Score Increase: +2 Intelligence",
+      "Darkvision",
+      "Gnome Cunning",
+      "Size: Small",
+      "Speed: 25 feet",
+      "Languages: Common and Gnomish"
+    ],
+    "race_skills": [],
+    "class_features_by_level": {
+      "1": [
+        {
+          "description": "",
+          "name": "Favored Enemy"
+        },
+        {
+          "description": "",
+          "name": "Natural Explorer"
+        }
+      ],
+      "2": [
+        {
+          "description": "",
+          "name": "Fighting Style"
+        },
+        {
+          "description": "",
+          "name": "Spellcasting"
+        }
+      ],
+      "3": [
+        {
+          "description": "",
+          "name": "Ranger Archetype"
+        },
+        {
+          "description": "",
+          "name": "Primeval Awareness"
+        }
+      ],
+      "4": [
+        {
+          "description": "",
+          "name": "Ability Score Improvement"
+        }
+      ],
+      "5": [
+        {
+          "description": "",
+          "name": "Extra Attack"
+        }
+      ],
+      "6": [
+        {
+          "description": "",
+          "name": "Favored Enemy improvement"
+        },
+        {
+          "description": "",
+          "name": "Natural Explorer improvement"
+        }
+      ],
+      "8": [
+        {
+          "description": "",
+          "name": "Ability Score Improvement"
+        },
+        {
+          "description": "",
+          "name": "Land's Stride"
+        }
+      ],
+      "10": [
+        {
+          "description": "",
+          "name": "Natural Explorer improvement"
+        },
+        {
+          "description": "",
+          "name": "Hide in Plain Sight"
+        }
+      ],
+      "12": [
+        {
+          "description": "",
+          "name": "Ability Score Improvement"
+        }
+      ],
+      "14": [
+        {
+          "description": "",
+          "name": "Favored Enemy improvement"
+        },
+        {
+          "description": "",
+          "name": "Vanish"
+        }
+      ],
+      "16": [
+        {
+          "description": "",
+          "name": "Ability Score Improvement"
+        }
+      ],
+      "18": [
+        {
+          "description": "",
+          "name": "Feral Senses"
+        }
+      ],
+      "19": [
+        {
+          "description": "",
+          "name": "Ability Score Improvement"
+        }
+      ],
+      "20": [
+        {
+          "description": "",
+          "name": "Foe Slayer"
+        }
+      ]
+    },
+    "proficiencies": [],
+    "spells": [],
+    "cantrips": []
+  }
+}

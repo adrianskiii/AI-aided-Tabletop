@@ -1,0 +1,294 @@
+{
+  "id": "cyberpunkred",
+  "label": "Cyberpunk RED",
+  "description": "The Time of the Red. A post-4th Corporate War dark future of edgerunners, megacorps, gangs, Nomad packs, Netrunners and desperate survivors fighting to make a life in Night City.",
+  "tldr": "Cyberpunk RED — skills, firearms, cyberware, humanity and Role Abilities define your character. There are ten Roles: Rockerboy, Solo, Netrunner, Tech, Medtech, Media, Exec, Lawman, Fixer and Nomad. Roles provide Role Abilities rather than a conventional subclass system, and RED supports changing Roles during play.",
+  "links": {
+    "rules": "R. Talsorian Games: https://rtalsoriangames.com/cyberpunk/",
+    "wiki": "Cyberpunk RED Wiki: https://cyberpunk.fandom.com/wiki/Cyberpunk_Red",
+    "data_api": "no public data API — local profile only"
+  },
+  "genre": "sci-fi / cyberpunk",
+  "fields": {
+    "race": {
+      "label": "Cultural Origin",
+      "suggestions": [
+        "North American",
+        "South/Central American",
+        "European",
+        "Soviet",
+        "African",
+        "Middle Eastern",
+        "South Asian",
+        "East Asian",
+        "Southeast Asian",
+        "Custom..."
+      ]
+    },
+    "class": {
+      "label": "Role",
+      "suggestions": [
+        "Rockerboy",
+        "Solo",
+        "Netrunner",
+        "Tech",
+        "Medtech",
+        "Media",
+        "Exec",
+        "Lawman",
+        "Fixer",
+        "Nomad",
+        "Custom..."
+      ]
+    },
+    "alignment": {
+      "label": "Ethics",
+      "suggestions": [
+        "Idealistic",
+        "Pragmatic",
+        "Self-interested",
+        "Ruthless",
+        "Custom..."
+      ]
+    }
+  },
+  "flavor": {
+    "races": {
+      "North American": "Raised in the fractured remains of the old United States and its successor territories. You know the language, customs and scars of the continent.",
+      "South/Central American": "You grew up amid the cultures and communities of Central or South America, carrying traditions, languages and connections into the Time of the Red.",
+      "European": "You come from one of the many cultures of Europe, where old-world traditions coexist with corporate power and a rapidly changing future.",
+      "Soviet": "Your upbringing was shaped by the Soviet sphere and its surviving communities, institutions and traditions.",
+      "African": "You grew up within one of Africa's many cultures and communities, bringing your own history and perspective into the fractured world of 2045.",
+      "Middle Eastern": "Your roots lie in the diverse cultures of the Middle East, carrying family traditions and history into the Dark Future.",
+      "South Asian": "Your upbringing comes from the diverse cultures of South Asia, where old traditions and new technology exist side by side.",
+      "East Asian": "You were raised within the cultures of East Asia, surrounded by ancient traditions, modern technology and the influence of powerful corporations.",
+      "Southeast Asian": "Your roots are in the cultures of Southeast Asia, carrying a mixture of old traditions and modern survival skills into the Time of the Red."
+    },
+    "classes": {
+      "Rockerboy": "You use art, music, performance and personality to influence people. Rockerboys can inspire crowds, challenge authority and turn attention into power.",
+      "Solo": "A professional combatant who survives by knowing when to fight, where to stand and how to end a fight before it ends them.",
+      "Netrunner": "You jack directly into NET Architectures and fight through digital defenses. Data, Interface and quick thinking are your weapons.",
+      "Tech": "You build, repair, upgrade and invent. Your hands can turn scrap into working technology and working technology into something better.",
+      "Medtech": "You keep people alive in a world where medical care is expensive, scarce or controlled by corporations. Surgery, pharmaceuticals and cryotechnology are your tools.",
+      "Media": "You investigate, gather rumors and expose information. Your credibility and your story can change what people believe about the world around them.",
+      "Exec": "You operate inside the corporate world. Your position gives you access to resources, a team and corporate support, but also obligations and enemies.",
+      "Lawman": "You work within or around the law, calling on backup when things become dangerous. You might be corporate security, police, federal law enforcement or another kind of authority.",
+      "Fixer": "You connect people, information, services and goods. Contacts and negotiation are your currency, and you know where to find what people need.",
+      "Nomad": "Your family or pack is your foundation. You understand vehicles, logistics and the roads between communities, and you can move people and goods when almost nobody else can."
+    }
+  },
+  "backgrounds": {
+    "label": "Lifepath",
+    "suggestions": [
+      "Street Rat",
+      "Corporate",
+      "Nomad",
+      "Gang",
+      "Military",
+      "Law Enforcement",
+      "Media",
+      "Academic",
+      "Technical",
+      "Entertainment",
+      "Custom..."
+    ]
+  },
+  "abilities": {
+    "enabled": true,
+    "scores": [
+      "intelligence",
+      "reflexes",
+      "dexterity",
+      "technique",
+      "cool",
+      "willpower",
+      "luck",
+      "movement",
+      "body",
+      "empathy"
+    ],
+    "min": 1,
+    "max": 10,
+    "default": 5,
+    "points_buy": null
+  },
+  "progression": {
+    "level_field": "identity.level",
+    "max_level": 10,
+    "xp_levels": []
+  },
+  "rewards_schema": "v1",
+  "rewards": {
+    "race": "race_data.traits",
+    "subrace": "subrace_data.<race>.*.traits",
+    "class": "class_data.<class>.features",
+    "role_ability": "class_data.<class>.role_ability",
+    "subclass": null
+  },
+  "taxonomy": {
+    "race_label": "Cultural Origin",
+    "subrace_label": "Origin Detail",
+    "class_label": "Role",
+    "subclass_label": null,
+    "subclass_system": false
+  },
+  "race_data": {
+    "North American": {
+      "traits": []
+    },
+    "South/Central American": {
+      "traits": []
+    },
+    "European": {
+      "traits": []
+    },
+    "Soviet": {
+      "traits": []
+    },
+    "African": {
+      "traits": []
+    },
+    "Middle Eastern": {
+      "traits": []
+    },
+    "South Asian": {
+      "traits": []
+    },
+    "East Asian": {
+      "traits": []
+    },
+    "Southeast Asian": {
+      "traits": []
+    }
+  },
+  "subrace_data": {
+    "North American": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "South/Central American": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "European": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Soviet": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "African": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Middle Eastern": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "South Asian": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "East Asian": {
+      "Custom detail": {
+        "traits": []
+      }
+    },
+    "Southeast Asian": {
+      "Custom detail": {
+        "traits": []
+      }
+    }
+  },
+  "subclass_data": {},
+  "class_data": {
+    "Rockerboy": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Charismatic Impact"
+    },
+    "Solo": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Combat Awareness"
+    },
+    "Netrunner": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Interface"
+    },
+    "Tech": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Maker"
+    },
+    "Medtech": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Medicine"
+    },
+    "Media": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Credibility"
+    },
+    "Exec": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Teamwork"
+    },
+    "Lawman": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Backup"
+    },
+    "Fixer": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Operator"
+    },
+    "Nomad": {
+      "spellcaster": false,
+      "skills": [],
+      "features": {},
+      "subclass_level": null,
+      "subclass_label": null,
+      "role_ability": "Moto"
+    }
+  }
+}
