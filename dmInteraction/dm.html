@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabletop — DM Dashboard</title>
+<style>
+:root {
+  --bg: #0c0f10; --bg2: #12171a; --panel: #171e21; --panel2: #1e262a;
+  --line: #29343a; --line2: #37464e; --ink: #dfe9ec; --muted: #8fa3ab;
+  --faint: #5c6e75; --gold: #d8a94f; --gold2: #f0c979; --green: #7fae6b;
+  --red: #c05a4a; --blue: #6f9cc9; --purple: #9c7fc9; --shadow: 0 6px 24px rgba(0,0,0,.45);
+}
+* { box-sizing: border-box; }
+body { margin:0; background: var(--bg); color: var(--ink); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; }
+h1,h2,h3 { font-weight: 600; margin: 0 0 10px; }
+input, select { background: var(--bg2); border: 1px solid var(--line2); color: var(--ink);
+  border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+button { background: var(--panel2); border: 1px solid var(--line2); color: var(--ink);
+  border-radius: 6px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
+button:hover { border-color: var(--blue); color: #cfe3f5; }
+button.primary { background: var(--blue); border-color: var(--blue); color: #06131c; font-weight: 600; }
+button.danger:hover { border-color: var(--red); color: var(--red); }
+
+header { position: sticky; top:0; z-index:50; display:flex; align-items:center; gap:14px;
+  padding: 12px 22px; background: rgba(12,15,16,.95); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line2); }
+header .brand { font-size: 18px; color: var(--blue); letter-spacing: 1px; font-weight:600; }
+header .brand small { color: var(--muted); font-size: 11px; margin-left: 8px; font-weight: 400; }
+
+main { max-width: 1400px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 320px 1fr; gap: 18px; }
+@media (max-width: 950px) { main { grid-template-columns: 1fr; } }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow); margin-bottom: 16px; }
+.panel h2 { color: var(--gold2); font-size: 13px; text-transform: uppercase; letter-spacing: .8px;
+  border-bottom: 1px solid var(--line2); padding-bottom: 8px; }
+
+#charList { display: flex; flex-direction: column; gap: 4px; max-height: 60vh; overflow-y: auto; }
+.char-row { display:flex; justify-content:space-between; align-items:center; padding: 8px 10px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; }
+.char-row:hover { background: var(--panel2); }
+.char-row.active { border-color: var(--blue); background: var(--panel2); }
+.char-row .npc-tag { font-size: 10px; color: var(--purple); border: 1px solid var(--purple); border-radius: 4px; padding: 1px 5px; }
+.char-row .hp { font-size: 11px; color: var(--muted); font-family: monospace; }
+
+.row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: left; }
+.muted { color: var(--muted); font-size: 12px; }
+.mono { font-family: 'Cascadia Code', Consolas, monospace; }
+
+.hpbar-wrap { width: 100%; height: 18px; background: var(--bg2); border: 1px solid var(--line2); border-radius: 999px; overflow: hidden; margin: 6px 0; }
+.hpbar { height: 100%; background: linear-gradient(90deg, var(--red), var(--green)); }
+
+.chip { display: inline-flex; align-items: center; gap: 6px; background: var(--panel2);
+  border: 1px solid var(--line2); border-radius: 999px; padding: 3px 10px; font-size: 12px; }
+.chip.debuff { border-color: var(--red); color: #e0a89c; }
+.chip.buff { border-color: var(--green); color: #b7d6ab; }
+.chip .x { cursor: pointer; opacity: .6; }
+.chip .x:hover { opacity: 1; color: var(--red); }
+
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 14px; }
+
+.feed-entry, .log-entry { font-size: 12px; border-left: 2px solid var(--line2); padding: 3px 0 3px 8px; margin-bottom: 4px; }
+.feed-entry .who { color: var(--gold2); font-weight: 600; }
+.feed-entry .t { color: var(--faint); text-transform: uppercase; font-size: 10px; margin-right: 6px; }
+#activityFeed, #logList { max-height: 260px; overflow-y: auto; }
+
+.trade-card { border: 1px solid var(--line2); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; font-size: 12.5px; }
+.trade-card .status { font-size: 10px; text-transform: uppercase; color: var(--muted); }
+.trade-card .status.pending { color: var(--gold2); }
+
+.empty { color: var(--faint); font-style: italic; font-size: 13px; padding: 6px 0; }
+.toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  background: var(--panel2); border: 1px solid var(--blue); color: #cfe3f5;
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; box-shadow: var(--shadow);
+  opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 99; }
+.toast.show { opacity: 1; }
+.toast.err { border-color: var(--red); color: #e0a89c; }
+</style>
+</head>
+<body>
+
+<header><div class="brand">Tabletop <small>DM DASHBOARD</small></div></header>
+
+<main>
+  <div>
+    <div class="panel">
+      <h2>Characters</h2>
+      <div id="charList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>New NPC</h2>
+      <div class="row"><input id="npcName" placeholder="name" style="width:100%"></div>
+      <div class="row"><button id="npcCreate" class="primary" style="width:100%;">Create NPC</button></div>
+    </div>
+
+    <div class="panel">
+      <h2>Activity Feed</h2>
+      <div id="activityFeed"></div>
+    </div>
+  </div>
+
+  <div>
+    <div id="emptyState" class="panel empty" style="display:none;">Select a character on the left.</div>
+
+    <div id="detail" style="display:none;">
+      <div class="panel">
+        <h2 id="charName">—</h2>
+        <div class="muted" id="charSub"></div>
+        <div class="hpbar-wrap"><div class="hpbar" id="hpBar" style="width:0%"></div></div>
+        <div class="row">
+          <span class="mono" id="hpCurrent">—</span>/<span class="mono" id="hpMax">—</span>
+          <input type="number" id="hpDelta" placeholder="±hp" style="width:70px">
+          <button id="hpApply">Apply</button>
+          <input type="number" id="hpMaxInput" placeholder="set max" style="width:90px">
+          <button id="hpMaxApply">Set max</button>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h2>XP</h2>
+          <div class="row"><span class="muted">Current: <b id="xpVal">0</b></span></div>
+          <div class="row">
+            <input type="number" id="xpDelta" placeholder="±xp" style="width:80px">
+            <button id="xpApply" class="primary">Apply</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Whisper</h2>
+          <div class="row"><input id="whisperText" placeholder="private message…" style="width:100%"></div>
+          <div class="row"><button id="whisperSend" class="primary" style="width:100%;">Send</button></div>
+        </div>
+
+        <div class="panel">
+          <h2>Grant Item</h2>
+          <div class="row">
+            <input id="itemName" placeholder="item name" style="width:110px">
+            <input id="itemQty" type="number" placeholder="qty" value="1" style="width:60px">
+            <button id="itemGrant" class="primary">Grant</button>
+          </div>
+          <table id="invTable" style="margin-top:6px;"></table>
+        </div>
+
+        <div class="panel">
+          <h2>Buffs / Conditions</h2>
+          <div id="buffChips" class="row"></div>
+          <div class="row">
+            <input id="buffName" placeholder="name" style="width:90px">
+            <select id="buffKind"><option value="buff">buff</option><option value="debuff">debuff</option><option value="condition">condition</option></select>
+            <input id="buffRounds" type="number" placeholder="rounds" style="width:70px">
+            <button id="buffAdd" class="primary">Add</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Resources</h2>
+          <div id="resourceList"></div>
+          <div class="row">
+            <input id="resKey" placeholder="key (spell_slots_1…)" style="width:130px">
+            <input id="resMax" type="number" placeholder="max" style="width:60px">
+            <button id="resAdd" class="primary">Set</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Character Log</h2>
+          <div class="log" id="logList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Trades (all)</h2>
+      <div id="tradeList"></div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="/dm.js"></script>
+</body>
+</html>

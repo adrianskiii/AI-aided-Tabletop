@@ -1,0 +1,175 @@
+{
+  "system": "Pathfinder 2e (Remastered)",
+  "source_note": "Hand-authored structural rules content — bounded and stable across errata. Not a substitute for spell/feat/monster catalogs, which should be pulled live (see README).",
+
+  "action_economy": {
+    "actions_per_turn": 3,
+    "reactions_per_round": 1,
+    "free_actions": "unlimited, may be used any time their trigger allows, even outside your turn",
+    "action_types": {
+      "single_action": { "symbol": "one-action", "description": "Costs 1 of your 3 actions." },
+      "two_actions": { "symbol": "two-actions", "description": "Costs 2 of your 3 actions." },
+      "three_actions": { "symbol": "three-actions", "description": "Costs all 3 of your actions." },
+      "reaction": { "symbol": "reaction", "description": "Used in response to a trigger, even on another creature's turn. You get 1 per round, refreshed at the start of your turn." },
+      "free_action": { "symbol": "free-action", "description": "Doesn't use any of your actions or your reaction." }
+    },
+    "basic_actions": {
+      "Stride": { "actions": 1, "description": "Move up to your Speed." },
+      "Step": { "actions": 1, "description": "Move 5 feet without triggering reactions." },
+      "Strike": { "actions": 1, "description": "Make a single attack with a weapon or unarmed attack." },
+      "Interact": { "actions": 1, "description": "Manipulate an object: draw a weapon, pick a lock, retrieve an item, etc." },
+      "Ready": { "actions": 2, "description": "Prepare to use a specific action when a trigger you name occurs before your next turn." },
+      "Release": { "actions": 0, "description": "Free action to let go of something you're holding or end a held effect." },
+      "Delay": { "actions": 0, "description": "Hold your turn's actions to use later this round at a point you choose." },
+      "Recall Knowledge": { "actions": 1, "description": "Attempt a skill check to recall relevant lore about a creature, object, or situation." },
+      "Seek": { "actions": 1, "description": "Actively search an area or attempt to find/perceive a creature/object." },
+      "Sense Motive": { "actions": 1, "description": "Perception check to discern if someone is lying, disguised, or otherwise deceiving you." },
+      "Aid": { "actions": "reaction (prepared with 1-action Ready)", "description": "Help an ally's check or attack via a preparatory Ready action." },
+      "Escape": { "actions": 1, "description": "Attempt to get free of a grab, restraint, or similar effect." },
+      "Grapple": { "actions": 1, "description": "Athletics check to grab and restrain a creature (part of Athletics actions)." },
+      "Raise a Shield": { "actions": 1, "description": "Raise a shield you're wielding to add its circumstance bonus to AC until your next turn." },
+      "Take Cover": { "actions": 1, "description": "Increase the benefit of existing cover." }
+    },
+    "multiple_attack_penalty": {
+      "description": "Each attack after the first on your turn takes a cumulative penalty.",
+      "standard": [0, -5, -10],
+      "agile_weapon": [0, -4, -8],
+      "notes": "Resets at the start of your next turn. Some abilities (e.g., certain class features) reduce or ignore MAP."
+    },
+    "flanking": {
+      "description": "If you and an ally are on opposite sides of a foe (or within reach) such that a line between your spaces passes through opposite sides/corners, the foe is off-guard to you.",
+      "effect": "Off-guard creatures take a -2 circumstance penalty to AC."
+    }
+  },
+
+  "degrees_of_success": {
+    "order": ["critical_failure", "failure", "success", "critical_success"],
+    "critical_success_rule": "If your result is 10 or more over the DC, you get a critical success (one degree better than success).",
+    "critical_failure_rule": "If your result is 10 or more under the DC, you get a critical failure (one degree worse than failure).",
+    "natural_20": "Automatically improves your degree of success by one step (even if the total still misses the DC), unless the GM rules the check couldn't possibly succeed.",
+    "natural_1": "Automatically worsens your degree of success by one step.",
+    "default_effects_when_unspecified": {
+      "attack_roll": {
+        "critical_success": "Double damage (roll damage dice twice, or double the result).",
+        "success": "Normal damage.",
+        "failure": "No effect.",
+        "critical_failure": "No effect."
+      },
+      "saving_throw_default": {
+        "critical_success": "No effect / half the listed critical_success effect if specified by the ability.",
+        "success": "Half effect (commonly half damage) unless the ability states otherwise.",
+        "failure": "Full effect.",
+        "critical_failure": "Double effect (e.g., double damage) unless the ability states otherwise."
+      }
+    }
+  },
+
+  "checks_and_dcs": {
+    "roll_formula": "d20 + relevant modifier (ability modifier + proficiency bonus [level + proficiency rank bonus, or just level if untrained] + item/circumstance/status/other bonuses) vs. DC",
+    "proficiency_ranks": {
+      "untrained": { "bonus": 0, "note": "No level added unless a specific feat/ability says otherwise." },
+      "trained": { "bonus": 2, "note": "Add your level." },
+      "expert": { "bonus": 4, "note": "Add your level." },
+      "master": { "bonus": 6, "note": "Add your level." },
+      "legendary": { "bonus": 8, "note": "Add your level." }
+    },
+    "level_based_dc_table": {
+      "-1": 13, "0": 14, "1": 15, "2": 16, "3": 18, "4": 19, "5": 20,
+      "6": 22, "7": 23, "8": 24, "9": 26, "10": 27,
+      "11": 28, "12": 30, "13": 31, "14": 32, "15": 34,
+      "16": 35, "17": 36, "18": 38, "19": 39, "20": 40,
+      "21": 42, "22": 44, "23": 46, "24": 48, "25": 50
+    },
+    "simple_dcs": {
+      "incredibly_easy": 0, "very_easy": 2, "easy": 5, "medium": 10,
+      "hard": 15, "very_hard": 20, "incredibly_hard": 25
+    }
+  },
+
+  "saving_throws": {
+    "types": ["fortitude", "reflex", "will"],
+    "fortitude_ability": "constitution",
+    "reflex_ability": "dexterity",
+    "will_ability": "wisdom",
+    "basic_saving_throw": "A 'basic' save of a given type just uses the default degree-of-success effects (see degrees_of_success.default_effects_when_unspecified.saving_throw_default)."
+  },
+
+  "conditions": {
+    "Blinded": "You can't see. All normal terrain is difficult terrain to you. You automatically critically fail Perception checks that require sight and can't detect anything using vision. You're off-guard, and all creatures/objects are concealed from you.",
+    "Broken": "Applies to objects. A broken object can't be used for its normal function and takes a penalty to relevant checks; if it would take further damage past the Broken Threshold to 0 Hit Points, it's destroyed.",
+    "Clumsy": "You take a status penalty equal to the condition value to Dexterity-based checks and DCs, including AC, Reflex saves, and Dexterity-based skill checks.",
+    "Concealed": "You're difficult to see, though not entirely unseen. A creature can target a concealed creature normally but must succeed at a DC 5 flat check when attacking it or it fails.",
+    "Confused": "You attack the nearest creature (or randomly if none are adjacent) each turn using hostile actions only, and can't use concentrate actions on purpose against your will.",
+    "Controlled": "Another creature or the GM decides your actions for you.",
+    "Dazzled": "Your surroundings are concealed to you due to a vision impairment (not full blindness).",
+    "Deafened": "You can't hear. You automatically critically fail Perception checks requiring hearing, take a -2 status penalty to Perception checks for initiative or that involve sound, and are immune to auditory effects.",
+    "Doomed": "A step toward death; increases the maximum number of successes needed to recover from Dying and lowers the threshold at which you die. Reduces by 1 each time you get a full night's rest.",
+    "Drained": "You've lost vitality. Take a status penalty equal to the condition value on Constitution-based checks, and your maximum HP is reduced by an amount equal to your level x the condition value until it's removed (reduces to 0 with rest, 1 per full night's rest).",
+    "Dying": "You're unconscious and near death. Track a Dying value; at Dying 4 (or lower with certain conditions) you die. Each round on your turn while dying, attempt a recovery check (flat check DC 10 + current dying value).",
+    "Encumbered": "You're carrying more Bulk than you can manage. You're clumsy 1 and take a -10-foot status penalty to all your Speeds.",
+    "Enfeebled": "You take a status penalty equal to the condition value to Strength-based checks and DCs, including melee attack rolls and damage using Strength.",
+    "Fascinated": "You're compelled to focus your attention on something, take a -2 status penalty to Perception and skill checks (except those related to the fascinating thing), and can't use concentrate actions unrelated to it.",
+    "Fatigued": "You take a -1 status penalty to AC and saving throws, and can't spend Hero Points (in games using them) unless stated otherwise. Removed after a full night's rest.",
+    "Off-Guard": "You take a -2 circumstance penalty to AC (formerly called Flat-Footed).",
+    "Fleeing": "You must spend your actions trying to escape a source of fear or danger as directed by the effect that caused it.",
+    "Friendly": "An NPC attitude: generally cooperative and likes you, but not devoted.",
+    "Frightened": "You take a status penalty equal to the condition value to all checks and DCs. Decreases by 1 at the end of each of your turns.",
+    "Grabbed": "You're grabbed by a creature, effect, or hazard. You're off-guard and can't use manipulate actions requiring both hands or Move actions to move away without first Escaping.",
+    "Helpful": "An NPC attitude: goes out of their way to help you within reason.",
+    "Hidden": "You know the space a creature or object occupies but can't see it (e.g., through fog or invisibility with a heard/sensed location). You can attempt to target it but must succeed at a DC 11 flat check or the attack/action fails; you can't use precision damage against it if it's undetected instead.",
+    "Hostile": "An NPC attitude: actively opposed to and may attack you.",
+    "Immobilized": "You can't use any action with the move trait. If forced to move by another effect, you can be damaged/knocked prone depending on the source.",
+    "Indifferent": "An NPC attitude: doesn't especially care about you either way.",
+    "Invisible": "You can't be seen. You're undetected to everyone unless they have a special sense that can detect you; creatures can guess your square to target you with a DC 11 flat check but you remain undetected."
+    ,
+    "Observed": "The default detection state: another creature can see you clearly with no penalty.",
+    "Paralyzed": "You're frozen in place. You take a -5 status penalty to AC, automatically critically fail Reflex saves, and can't act except to Recall Knowledge or use purely mental free actions.",
+    "Persistent Damage": "You take the listed damage at the end of each of your turns. Attempt a DC 15 flat check at that time to remove it (a specific method may allow removal earlier).",
+    "Petrified": "You've been turned to stone. You can't act, are unconscious in effect, gain resistance 10 to all damage (or your usual resistance if higher), and have no need for air, food, water, or sleep.",
+    "Prone": "You're lying on the ground. You're off-guard and take a -2 circumstance penalty to attack rolls; standing up is a 1-action Stand activity.",
+    "Quickened": "You gain 1 extra action each turn, usable only for specific kinds of actions specified by the effect granting it.",
+    "Restrained": "You're tied up or pinned, can't use move actions requiring hands or Escape via Athletics unless stated (use Escape action which may use Acrobatics/Athletics as applicable), off-guard, and can't use manipulate actions.",
+    "Sickened": "You take a status penalty equal to the condition value on all checks and DCs. You can't willingly ingest anything until the condition ends; usually reduced by spending an action to retch (Fortitude save halves/removes)."
+    ,
+    "Slowed": "You lose a number of actions equal to the condition value from your next turn's 3 actions.",
+    "Stunned": "You can't act. Stunned has a value indicating how many actions (or all actions/turns) you lose; it reduces your Slowed value or remaining reaction until used up, taking priority over Slowed.",
+    "Stupefied": "You take a status penalty equal to the condition value on Intelligence-, Wisdom-, and Charisma-based checks (including spell attack rolls and spellcasting-related checks), and must succeed at a flat check equal to 5 + the condition value to cast a spell at all.",
+    "Unconscious": "You're asleep, knocked out, or dying. You take a -4 status penalty to AC, Perception, and Reflex saves, are off-guard, and can't act. You automatically critically fail Reflex saves and Perception checks.",
+    "Undetected": "A creature has no way to perceive you at all. Attackers must guess your square and any attack that would've hit only succeeds on a natural 20 that would otherwise hit (treated as a flat check as well); you're immune to precision damage from that source.",
+    "Unfriendly": "An NPC attitude: actively negative toward you, though not necessarily hostile.",
+    "Unnoticed": "No creature is aware you're present at all (stronger than undetected — they don't know to guess)."
+  },
+
+  "currency": {
+    "denominations": ["copper piece (cp)", "silver piece (sp)", "gold piece (gp)", "platinum piece (pp)"],
+    "conversion": { "1 sp": "10 cp", "1 gp": "10 sp", "1 pp": "10 gp" },
+    "starting_wealth_by_level_gp": {
+      "1": 15, "2": 30, "3": 75, "4": 140, "5": 270,
+      "6": 450, "7": 720, "8": 1100, "9": 1600, "10": 2300,
+      "11": 3200, "12": 4400, "13": 6000, "14": 8000, "15": 10500,
+      "16": 14000, "17": 19000, "18": 25000, "19": 33000, "20": 44000
+    }
+  },
+
+  "bulk": {
+    "description": "Abstract measure of how much a creature can carry. Ten light items (marked 'L') = 1 Bulk. Negligible items don't count.",
+    "carrying_capacity": {
+      "unencumbered_limit": "5 + Strength modifier Bulk (Bulk you can carry without penalty)",
+      "encumbered_limit": "10 + Strength modifier Bulk (beyond this you're Encumbered)",
+      "maximum_limit": "10 + Strength modifier Bulk cannot generally be exceeded (GM discretion)"
+    }
+  },
+
+  "modes_of_play": {
+    "exploration": "Time isn't tracked in exact turns; characters can use one exploration activity each (e.g., Search, Investigate, Defend, Avoid Notice) while traveling or exploring.",
+    "encounter": "Structured round-by-round play using the 3-action economy, rolled initiative, turn order.",
+    "downtime": "Time between adventures for crafting, earning income, retraining, researching, and other long-term activities."
+  },
+
+  "initiative": {
+    "default": "Perception check, unless the situation calls for a different skill (e.g., Stealth if ambushing).",
+    "order": "Highest total acts first each round; ties broken by GM adjudication or a re-roll."
+  },
+
+  "retraining": "During downtime, a character can retrain a class feat, skill feat, general feat, skill, or similar choice, typically requiring downtime days and sometimes a trainer, at the GM's discretion."
+}

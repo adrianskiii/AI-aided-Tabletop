@@ -1,0 +1,76 @@
+{
+  "campaigns": [
+    {
+      "id": "ember_and_ash",
+      "title": "Ember & Ash — one-night inn horror",
+      "system": "dnd5e",
+      "type": "premade",
+      "description": "Narrative one-shot (5e, drop-in ready). Four strangers walk into the Crossroads Inn on the night the moon goes dark. The ale is warm, the barkeep is smiling, and the inn has been out of business for thirty years. Nothing outside has doors anymore.",
+      "setting": "The Crossroads Inn, a road that remembers too much, Year 1492 DR",
+      "tone": "creeping wrongness, cozy horror, low combat",
+      "world_notes": "OPENING: the party arrives at dusk, four strangers, one snowstorm. Barkeep Maren pours freely. Act 1: the inn is empty except for the party — check the guestbook (30 names, all dated today). Act 2: the moon-darks; the windows show the party's own memories instead of snow. Act 3: the inn's real keeper (a ghast in Maren's face) wants a trade: one stranger's name, permanently. ENDING: burn the guestbook in the hearth while all four strangers hold it — the inn is spent, the road reopens, someone's name is gone. NPC: Maren (barkeep, actually the inn's memory, use commoner stats, always smiling, knows everyone's real name). HOOKS: guestbook names; the warm ale (poison, t+1d4 Con, cures when the moon returns); a fourth stranger who is not one of the party (PCs may be playing a fifth).",
+      "ai_generated": false
+    },
+    {
+      "id": "the_last_ledger",
+      "title": "The Last Ledger — mercantile intrigue one-shot",
+      "system": "dnd5e",
+      "type": "premade",
+      "description": "Narrative one-shot (5e, drop-in ready). The Grand Ledger of the city has vanished and with it the city's memory of debts: who owes whom, who owns what. The Guild of Tall Tellers hires the party to find it before the markets open at dawn — when the first coin is spent, a war starts.",
+      "setting": "Velbrana, a city of ledgers, bridges and polite knives",
+      "tone": "heist-comedy, negotiation-first, one big fight at the end",
+      "world_notes": "OPENING: hired by Teller Vessa at the Guild hall; stake is a blank page of the Ledger (a wish for one debt, anyone's). Act 1: three leads — the dock (a 'dead' accountant), the underbridge (the city's memory of itself as a cat-sized wyvern), the auction (a forgery ring selling ledger pages as paintings). Act 2: the Ledger is alive — it is a bound ledger-drake hibernating under the Old Mint; the forger who 'killed' it needs a favor: erase one crime. Act 3: dawn approaches; the drake wakes, the markets ring, the first coin waits. ENDING: return the Ledger with one favor paid (the forger's name erased / the wyvern freed / the debt of the street-urchin guild cancelled). NPC: Teller Vessa (client, sharp, offers a blank page). NPC: the Ledger-Drake (MM dragon wyrmling but mostly talks; it only fights if dawn-breaks-on-it). HOOKS: every NPC the party meets has a secret debt — ask 'what do you owe?' and a plot opens.",
+      "ai_generated": false
+    },
+    {
+      "id": "emeralds_of_the_undercity",
+      "title": "Emeralds of the Undercity",
+      "system": "dnd5e",
+      "type": "premade",
+      "description": "A pre-adventured 5e campaign: a stolen shrine key, a shadow cult in the Undercity, and a warlock's unpaid debt.",
+      "setting": "Waterdeep, the Undercity, Year 1492 DR",
+      "tone": "gritty, conspiratorial",
+      "world_notes": "",
+      "ai_generated": false
+    },
+    {
+      "id": "nightcity_drift",
+      "title": "Night City Drift",
+      "system": "cyberpunk2020",
+      "type": "premade",
+      "description": "A corpo job gone sideways, a stolen prototype ICE, and a chrome-rejecting solo with a price on their head.",
+      "setting": "Night City, 2013 AD",
+      "tone": "neon noir, high stakes",
+      "world_notes": "",
+      "ai_generated": false
+    },
+    {
+      "id": "camp_ai_3c272039",
+      "title": "The Memory Bazaar",
+      "system": "cyberpunk2020",
+      "type": "aigenerated",
+      "description": "AI-invented campaign, seeded by the character creator.",
+      "setting": "",
+      "tone": "neon noir",
+      "world_notes": "",
+      "seed": "a rain-soaked colony world where memories can be traded",
+      "ai_generated": true,
+      "created_at": "2026-09-25T11:33:06+00:00",
+      "source": "ai"
+    },
+    {
+      "id": "camp_ai_5f94999b",
+      "title": "WrapTest Camp",
+      "system": "dnd5e",
+      "type": "aigenerated",
+      "description": "AI-invented campaign, seeded by the character creator.",
+      "setting": "",
+      "tone": "",
+      "world_notes": "",
+      "seed": "test seed",
+      "ai_generated": true,
+      "created_at": "2026-09-25T11:34:28+00:00",
+      "source": "ai"
+    }
+  ]
+}

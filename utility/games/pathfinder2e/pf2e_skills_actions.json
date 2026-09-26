@@ -1,0 +1,181 @@
+{
+  "system": "Pathfinder 2e (Remastered)",
+  "source_note": "Hand-authored — the list of skills and their core actions is fixed by the rules and doesn't grow the way spell/feat lists do.",
+
+  "skills": {
+    "Acrobatics": {
+      "ability": "dexterity",
+      "description": "Balance, tumble, maneuver, and perform agile physical actions.",
+      "actions": {
+        "Balance": { "actions": 1, "trained_only": false, "description": "Move across a narrow or uneven surface." },
+        "Tumble Through": { "actions": 1, "trained_only": false, "description": "Move through an occupied space." },
+        "Maneuver in Flight": { "actions": 1, "trained_only": false, "description": "Perform a difficult maneuver while flying." },
+        "Squeeze": { "actions": "varies", "trained_only": false, "description": "Move through a space narrower than your body." },
+        "Grab an Edge": { "actions": "reaction", "trained_only": false, "description": "Catch yourself when falling next to a surface." }
+      }
+    },
+    "Arcana": {
+      "ability": "intelligence",
+      "description": "Knowledge of arcane magic, theory, and creatures.",
+      "actions": {
+        "Recall Knowledge (Arcana)": { "actions": 1, "trained_only": false, "description": "Recall lore about arcane topics, creatures, or magic items." },
+        "Identify Magic": { "actions": "varies", "trained_only": false, "description": "Determine the properties of a magic item or effect using arcane theory." },
+        "Learn a Spell": { "actions": "downtime", "trained_only": true, "description": "Add an arcane tradition spell to your repertoire/spellbook." },
+        "Decipher Writing": { "actions": 1, "trained_only": false, "description": "Interpret unclear or archaic arcane writing." }
+      }
+    },
+    "Athletics": {
+      "ability": "strength",
+      "description": "Climb, swim, jump, grapple, shove, trip, and perform feats of strength.",
+      "actions": {
+        "Climb": { "actions": 1, "trained_only": false, "description": "Ascend or descend a slope or surface." },
+        "Force Open": { "actions": 1, "trained_only": false, "description": "Break open a stuck, locked, or barred door/object." },
+        "Grapple": { "actions": 1, "trained_only": false, "description": "Attempt to restrain a creature." },
+        "High Jump": { "actions": 2, "trained_only": false, "description": "Jump vertically, requires a Long Jump-style approach." },
+        "Long Jump": { "actions": 2, "trained_only": false, "description": "Jump horizontally after a Stride." },
+        "Shove": { "actions": 1, "trained_only": false, "description": "Push a creature back." },
+        "Swim": { "actions": 1, "trained_only": false, "description": "Move through water." },
+        "Trip": { "actions": 1, "trained_only": false, "description": "Knock a creature prone." },
+        "Disarm": { "actions": 1, "trained_only": false, "description": "Attempt to knock an item out of a creature's grip." }
+      }
+    },
+    "Crafting": {
+      "ability": "intelligence",
+      "description": "Craft objects, identify items via inspection, and repair equipment.",
+      "actions": {
+        "Craft": { "actions": "downtime", "trained_only": true, "description": "Create an item over time using raw materials." },
+        "Repair": { "actions": 1, "trained_only": false, "description": "Fix a damaged item." },
+        "Identify Alchemy": { "actions": 1, "trained_only": false, "description": "Determine the properties of an alchemical item." },
+        "Recall Knowledge (Crafting)": { "actions": 1, "trained_only": false, "description": "Recall lore about construction, alchemy, or engineering." }
+      }
+    },
+    "Deception": {
+      "ability": "charisma",
+      "description": "Lie, disguise, feint, and mislead others.",
+      "actions": {
+        "Create a Diversion": { "actions": 1, "trained_only": false, "description": "Distract a creature to become hidden or slip away." },
+        "Impersonate": { "actions": "varies", "trained_only": false, "description": "Disguise yourself as someone else or a type of creature." },
+        "Lie": { "actions": 1, "trained_only": false, "description": "Convince someone that a falsehood is true." },
+        "Feint": { "actions": 1, "trained_only": false, "description": "Trick a foe in melee to make them off-guard against your next attack." }
+      }
+    },
+    "Diplomacy": {
+      "ability": "charisma",
+      "description": "Persuade and build rapport with others.",
+      "actions": {
+        "Gather Information": { "actions": "varies", "trained_only": false, "description": "Ask around to learn about a subject." },
+        "Make an Impression": { "actions": 1, "trained_only": false, "description": "Improve a creature's attitude toward you." },
+        "Request": { "actions": 1, "trained_only": false, "description": "Ask a creature for aid or a favor." }
+      }
+    },
+    "Intimidation": {
+      "ability": "charisma",
+      "description": "Bully, threaten, and coerce others.",
+      "actions": {
+        "Coerce": { "actions": "varies", "trained_only": false, "description": "Force someone to act via threats." },
+        "Demoralize": { "actions": 1, "trained_only": false, "description": "Frighten a foe, making it frightened 1." }
+      }
+    },
+    "Medicine": {
+      "ability": "wisdom",
+      "description": "Treat wounds, diseases, and poisons.",
+      "actions": {
+        "Administer First Aid": { "actions": 2, "trained_only": false, "description": "Stabilize a dying creature or restore some HP to a wounded one." },
+        "Treat Disease": { "actions": "downtime", "trained_only": true, "description": "Help a diseased creature recover." },
+        "Treat Poison": { "actions": 1, "trained_only": true, "description": "Help a poisoned creature recover." },
+        "Treat Wounds": { "actions": "downtime (10 min)", "trained_only": true, "description": "Restore Hit Points to a wounded creature outside combat." },
+        "Recall Knowledge (Medicine)": { "actions": 1, "trained_only": false, "description": "Recall lore about diseases, poisons, or anatomy." }
+      }
+    },
+    "Nature": {
+      "ability": "wisdom",
+      "description": "Knowledge of animals, plants, and primal magic.",
+      "actions": {
+        "Recall Knowledge (Nature)": { "actions": 1, "trained_only": false, "description": "Recall lore about natural creatures, plants, or primal magic." },
+        "Identify Magic (Primal)": { "actions": "varies", "trained_only": false, "description": "Determine the properties of a primal magic item or effect." },
+        "Learn a Spell (Primal)": { "actions": "downtime", "trained_only": true, "description": "Add a primal tradition spell to your repertoire." },
+        "Command an Animal": { "actions": 1, "trained_only": false, "description": "Direct a trained animal companion or mount to act." }
+      }
+    },
+    "Occultism": {
+      "ability": "intelligence",
+      "description": "Knowledge of occult magic, esoteric phenomena, and cursed or unusual lore.",
+      "actions": {
+        "Recall Knowledge (Occultism)": { "actions": 1, "trained_only": false, "description": "Recall lore about occult creatures, ancient mysteries, or occult magic." },
+        "Identify Magic (Occult)": { "actions": "varies", "trained_only": false, "description": "Determine the properties of an occult magic item or effect." },
+        "Learn a Spell (Occult)": { "actions": "downtime", "trained_only": true, "description": "Add an occult tradition spell to your repertoire." }
+      }
+    },
+    "Performance": {
+      "ability": "charisma",
+      "description": "Impress with music, acting, dance, or oratory.",
+      "actions": {
+        "Perform": { "actions": 1, "trained_only": false, "description": "Put on a show for an audience, often to earn income or influence attitude." }
+      }
+    },
+    "Religion": {
+      "ability": "wisdom",
+      "description": "Knowledge of deities, divine magic, and undeath.",
+      "actions": {
+        "Recall Knowledge (Religion)": { "actions": 1, "trained_only": false, "description": "Recall lore about deities, divine magic, or undead creatures." },
+        "Identify Magic (Divine)": { "actions": "varies", "trained_only": false, "description": "Determine the properties of a divine magic item or effect." },
+        "Learn a Spell (Divine)": { "actions": "downtime", "trained_only": true, "description": "Add a divine tradition spell to your repertoire." }
+      }
+    },
+    "Society": {
+      "ability": "intelligence",
+      "description": "Knowledge of civilizations, laws, and social structures; navigating settlements.",
+      "actions": {
+        "Recall Knowledge (Society)": { "actions": 1, "trained_only": false, "description": "Recall lore about local history, government, or culture." },
+        "Create Forgery": { "actions": "varies", "trained_only": true, "description": "Falsify a document." },
+        "Subsist": { "actions": "downtime", "trained_only": false, "description": "Scrape by in an urban environment for food and shelter." }
+      }
+    },
+    "Stealth": {
+      "ability": "dexterity",
+      "description": "Hide, sneak, and remain undetected.",
+      "actions": {
+        "Sneak": { "actions": 1, "trained_only": false, "description": "Move stealthily while staying hidden or undetected." },
+        "Hide": { "actions": 1, "trained_only": false, "description": "Become hidden from creatures that could otherwise see you, given cover or concealment." },
+        "Conceal an Object": { "actions": 1, "trained_only": false, "description": "Hide a held or worn object from view." }
+      }
+    },
+    "Survival": {
+      "ability": "wisdom",
+      "description": "Track, navigate, and survive in the wilderness.",
+      "actions": {
+        "Sense Direction": { "actions": "varies", "trained_only": false, "description": "Get your bearings in an unfamiliar area." },
+        "Track": { "actions": "varies", "trained_only": false, "description": "Follow a creature's trail." },
+        "Cover Tracks": { "actions": 1, "trained_only": false, "description": "Hide your trail from trackers." },
+        "Subsist (Wilderness)": { "actions": "downtime", "trained_only": false, "description": "Forage for food and build shelter in the wild." }
+      }
+    },
+    "Thievery": {
+      "ability": "dexterity",
+      "description": "Pick locks, disable devices, and steal.",
+      "actions": {
+        "Palm an Object": { "actions": 1, "trained_only": false, "description": "Take an object without being noticed." },
+        "Steal": { "actions": 1, "trained_only": false, "description": "Take a small object from someone without them noticing." },
+        "Disable a Device": { "actions": "varies", "trained_only": false, "description": "Disarm a trap or mechanism." },
+        "Pick a Lock": { "actions": "varies", "trained_only": false, "description": "Open a lock without the key." }
+      }
+    },
+    "Lore": {
+      "ability": "intelligence",
+      "description": "A specialized knowledge subcategory (e.g., 'Academia Lore', 'Warfare Lore') chosen at character creation or via feats/backgrounds.",
+      "actions": {
+        "Recall Knowledge (specific Lore)": { "actions": 1, "trained_only": false, "description": "Recall specialized knowledge within your chosen Lore subject." }
+      },
+      "note": "A character can have multiple Lore skills, each tracked and improved separately."
+    }
+  },
+
+  "perception": {
+    "ability": "wisdom",
+    "note": "Not a skill in PF2e — Perception is its own statistic, but functions like a skill for proficiency purposes and determines initiative by default.",
+    "actions": {
+      "Seek": { "actions": 1, "description": "Actively search for something in an area." },
+      "Sense Motive": { "actions": 1, "description": "Try to detect lies, disguises, or hidden intentions." }
+    }
+  }
+}

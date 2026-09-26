@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabletop — Player</title>
+<style>
+:root {
+  --bg: #100e0c; --bg2: #171410; --panel: #1e1a15; --panel2: #262119;
+  --line: #3a3226; --line2: #4d4232; --ink: #e9dfc8; --muted: #a89a7e;
+  --faint: #776c55; --gold: #d8a94f; --gold2: #f0c979; --green: #7fae6b;
+  --red: #c05a4a; --blue: #6f9cc9; --purple: #9c7fc9; --shadow: 0 6px 24px rgba(0,0,0,.45);
+}
+* { box-sizing: border-box; }
+body { margin:0; background: radial-gradient(1200px 600px at 70% -10%, #1c1812 0%, var(--bg) 55%);
+  color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: 15px; }
+h1,h2,h3 { font-weight: normal; letter-spacing: .5px; margin: 0 0 10px; }
+button, select, input { font-family: 'Segoe UI', system-ui, sans-serif; }
+input, select { background: var(--bg2); border: 1px solid var(--line2); color: var(--ink);
+  border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+button { background: var(--panel2); border: 1px solid var(--line2); color: var(--ink);
+  border-radius: 6px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
+button:hover { border-color: var(--gold); color: var(--gold2); }
+button.primary { background: var(--gold); border-color: var(--gold); color: #201808; font-weight: 600; }
+button.danger:hover { border-color: var(--red); color: var(--red); }
+
+header { position: sticky; top:0; z-index:50; display:flex; align-items:center; gap:14px;
+  padding: 12px 22px; background: rgba(16,14,12,.94); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line2); flex-wrap: wrap; }
+header .brand { font-size: 19px; color: var(--gold); letter-spacing: 1.5px; }
+header .brand small { color: var(--muted); font-family: sans-serif; font-size: 11px; margin-left: 8px; }
+#charSelect { margin-left: auto; min-width: 220px; }
+
+main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 90px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 18px; box-shadow: var(--shadow); }
+.panel h2 { color: var(--gold2); font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
+  border-bottom: 1px solid var(--line2); padding-bottom: 8px; }
+.row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.muted { color: var(--muted); font-size: 12.5px; }
+.mono { font-family: 'Cascadia Code', Consolas, monospace; }
+
+.hpbar-wrap { width: 100%; height: 20px; background: var(--bg2); border: 1px solid var(--line2);
+  border-radius: 999px; overflow: hidden; margin: 8px 0; }
+.hpbar { height: 100%; background: linear-gradient(90deg, var(--red), var(--green)); transition: width .2s; }
+.hpnum { font-family: 'Cascadia Code', Consolas, monospace; font-size: 20px; color: var(--gold2); }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: left; }
+
+.chip { display: inline-flex; align-items: center; gap: 6px; background: var(--panel2);
+  border: 1px solid var(--line2); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; }
+.chip.debuff { border-color: var(--red); color: #e0a89c; }
+.chip.buff { border-color: var(--green); color: #b7d6ab; }
+
+.resource-row { display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:6px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
+.pips { display:flex; gap:4px; }
+.pip { width:14px; height:14px; border-radius:50%; border:1px solid var(--line2); background:var(--bg2); cursor:pointer; }
+.pip.filled { background: var(--gold); border-color: var(--gold); }
+
+.log { max-height: 260px; overflow-y: auto; display:flex; flex-direction: column-reverse; gap:6px; }
+.log-entry { font-size:12.5px; border-left:2px solid var(--line2); padding:3px 0 3px 8px; }
+.log-entry .t { color: var(--faint); font-family: sans-serif; font-size: 10.5px; text-transform: uppercase; margin-right:6px; }
+
+.msg { border-left: 2px solid var(--purple); padding: 6px 10px; margin-bottom: 6px; font-size: 13px; background: var(--panel2); border-radius: 0 6px 6px 0; }
+.msg.unread { border-left-color: var(--gold); }
+.msg .from { color: var(--gold2); font-family: sans-serif; font-size: 11px; }
+
+.trade-card { border: 1px solid var(--line2); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
+.trade-card .status { font-family: sans-serif; font-size: 10.5px; text-transform: uppercase; color: var(--muted); }
+.trade-card .status.accepted { color: var(--green); }
+.trade-card .status.declined, .trade-card .status.cancelled { color: var(--red); }
+.trade-card .status.pending { color: var(--gold2); }
+
+.empty { color: var(--faint); font-style: italic; font-size: 13px; padding: 6px 0; }
+.toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+  background: var(--panel2); border: 1px solid var(--gold); color: var(--gold2);
+  padding: 8px 16px; border-radius: 8px; font-family: sans-serif; font-size: 13px;
+  box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 99; }
+.toast.show { opacity: 1; }
+.toast.err { border-color: var(--red); color: #e0a89c; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Tabletop <small>PLAY AS</small></div>
+  <select id="charSelect"></select>
+</header>
+
+<main>
+  <div id="emptyState" class="empty" style="display:none;">No characters found — build one in the Character Forge first.</div>
+
+  <div id="sheet" style="display:none;">
+    <div class="grid" style="margin-bottom:16px;">
+      <div class="panel">
+        <h2 id="charName">—</h2>
+        <div class="muted" id="charSub"></div>
+        <div class="hpbar-wrap"><div class="hpbar" id="hpBar" style="width:0%"></div></div>
+        <div class="row"><span class="hpnum"><span id="hpCurrent">—</span> / <span id="hpMax">—</span></span>
+          <span class="muted" id="hpTemp"></span></div>
+        <table id="abilitiesTable" style="margin-top:8px;"></table>
+      </div>
+
+      <div class="panel">
+        <h2>Buffs &amp; Conditions</h2>
+        <div id="buffChips" class="row"></div>
+        <h2 style="margin-top:14px;">Resources</h2>
+        <div id="resourceList"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Messages from the DM</h2>
+        <div id="messageList"></div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>Inventory</h2>
+        <table id="invTable"></table>
+      </div>
+
+        <div class="panel">
+        <h2>Available Spells</h2>
+          <div id="spellList" class="spell-list">
+            <div class="empty">No spells available</div>
+          </div>
+        <div class="muted">Leave slot level blank for cantrips / at-will.</div>
+      </div> 
+      <div class="panel">
+        <h2>Act</h2>
+        <div class="row">
+          <select id="actionTarget"><option value="">(no target)</option></select>
+        </div>
+        <div class="row">
+          <select id="actionType">
+            <option value="action">action</option>
+            <option value="attack">attack</option>
+            <option value="skill_check">skill check</option>
+            <option value="social">social</option>
+            <option value="exploration">exploration</option>
+          </select>
+          <input id="actionDesc" placeholder="what are you doing…" style="flex:1; min-width:160px;">
+          <button id="actionAdd">Do it</button>
+        </div>
+      </div>
+
+      <div class="panel" style="grid-column: 1 / -1;">
+        <h2>Trade</h2>
+        <div class="row">
+          <select id="tradeTarget"></select>
+        </div>
+        <div class="row">
+          <span class="muted">Offer (from your inventory):</span>
+          <input id="offerName" placeholder="item name" style="width:120px">
+          <input id="offerQty" type="number" placeholder="qty" value="1" style="width:60px">
+        </div>
+        <div class="row">
+          <span class="muted">Request:</span>
+          <input id="requestName" placeholder="item name" style="width:120px">
+          <input id="requestQty" type="number" placeholder="qty" value="1" style="width:60px">
+        </div>
+        <div class="row">
+          <input id="tradeNote" placeholder="note (optional)" style="flex:1; min-width:160px;">
+          <button id="tradePropose" class="primary">Propose trade</button>
+        </div>
+
+        <div class="grid" style="margin-top:12px;">
+          <div>
+            <h2 style="font-size:13px;">Incoming</h2>
+            <div id="tradeInbox"></div>
+          </div>
+          <div>
+            <h2 style="font-size:13px;">Your offers</h2>
+            <div id="tradeOutbox"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="grid-column: 1 / -1;">
+        <h2>Your Recent Actions</h2>
+        <div class="log" id="logList"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="/player.js"></script>
+</body>
+</html>
