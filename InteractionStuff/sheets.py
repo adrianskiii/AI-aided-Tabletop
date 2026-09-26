@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parent
-SHEET_DIR = BASE_DIR / "char_sheets"
+SHEET_DIR = BASE_DIR / ".."/ "char_sheets"
 SHEET_DIR.mkdir(exist_ok=True)
 
 STD_ABILITIES = [

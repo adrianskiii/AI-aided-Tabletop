@@ -14,10 +14,7 @@ The char creator needs the following:
 
 ### Add extra UI with APIs for characters
 That is the UI in which the player:
-- sees its own char sheet, inventory and so on
-- can get private/hidden/"only for you" messages from the dm
-- can act upon typical actions (pick pocket, ask to trade,...)
-- needs an API to provide/delete items, buffs, skills, xp,...
+- make it so that players have all the spells listed and not free word fields with a cast button
 
 ### Narrator 
 Provide a plattform for AI-based and person-based DMs. Should have access to:

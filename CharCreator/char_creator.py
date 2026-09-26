@@ -93,7 +93,7 @@ from remote import cached_remote
 # --------------------------------------------------------------------------- #
 
 BASE_DIR = Path(__file__).resolve().parent
-SHEET_DIR = BASE_DIR / "char_sheets"
+SHEET_DIR = BASE_DIR / ".." / "char_sheets"
 GAME_DIR = BASE_DIR / "games"
 CAMPAIGNS_FILE = BASE_DIR / "campaigns.json"
 
