@@ -5,18 +5,18 @@ Step 1 done: **Char Creator** — a BG3-style single-page character creator
 with a live, click-through rules knowledge base.
 
 ## TODOs
-### Finish char creator
+### Finish char creator // feature char_creation
 The char creator needs the following:
 - API coverage over skills, buffs, skills and so on so that the players see what they are building
 - Skill/Ability points need to be handled correctly so that you can only allocate the max amount of the provided skill points and also along their logic (some have maybe multiple points for higher Skill levels like above skill lvl 5 it costs 2)
 - subclasses and -races
 - full description of skills
 
-### Add extra UI with APIs for characters
+### Add extra UI with APIs for characters // feature player_char_sheet
 That is the UI in which the player:
 - make it so that players have all the spells listed and not free word fields with a cast button
 
-### Narrator 
+### Narrator  // feature dm_interaction
 Provide a plattform for AI-based and person-based DMs. Should have access to:
 - API calls to talk to all players and individual player UIs
 - Make API calls to add/remove provide/delete items, buffs, skills, xp,...
