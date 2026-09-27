@@ -12,17 +12,18 @@ The char creator needs the following:
 
 ### Add extra UI with APIs for characters // feature player_char_sheet
 That is the UI in which the player:
-- make it so that players have all the spells listed and not free word fields with a cast button
+- when leveling up, there are no level up rewards
 
 ### Narrator  // feature dm_interaction
 Provide a plattform for AI-based and person-based DMs. Should have access to:
-- API calls to talk to all players and individual player UIs
-- Make API calls to add/remove provide/delete items, buffs, skills, xp,...
-- Try to find a way to reload the AI often/reduce prompt length to reduce costs of running via API
-- Make it so that the narrotor fills specific files to keep it up to date and not loose important "stray sentences" in the huge prompts (no idea how)
+- the API currently only provides messanges, but doesnt store them for the DM, only the players see them stored
+- actions ressources should be able to be altered by the DM
+
 ### NPC
 Provide an AI agent for NPCs. One AI agent is sufficent as long as all information stay saved in a json/csv/idc. Must interact with the narrator due to thoughts the npc has an the players havent seen/heard yet, but can if they can read minds for examples or personality/idiology/agengas,...
 
+## World
+- Just an idea for now: DM has a sort of map and players get a tab, where the map is only non-blacked out where the players where. In this way the players can move on their own and trigger a small AI API request after they moved. My idea of moving is that each player has a little dot to move according to their movement rate and walls have clear bounds to either directly block players movement or the an "world agent" checks wether the movement was allowed
 
 ## Architecture
 
