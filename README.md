@@ -18,6 +18,7 @@ That is the UI in which the player:
 Provide a plattform for AI-based and person-based DMs. Should have access to:
 - the API currently only provides messanges, but doesnt store them for the DM, only the players see them stored
 - actions ressources should be able to be altered by the DM
+- API needs to be able to adjust stats
 
 ### NPC
 Provide an AI agent for NPCs. One AI agent is sufficent as long as all information stay saved in a json/csv/idc. Must interact with the narrator due to thoughts the npc has an the players havent seen/heard yet, but can if they can read minds for examples or personality/idiology/agengas,...
