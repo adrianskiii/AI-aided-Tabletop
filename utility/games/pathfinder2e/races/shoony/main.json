@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Shoony",
+  "rarity": "rare",
+  "description": "Diminutive humanoids who resemble squat, bipedal dogs, shoonies are sometimes mistaken for weak and insular pacifists.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 20,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Common", "Shoony"],
+  "traits": ["Humanoid", "Shoony"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "shoony_luck",
+          "name": "Humble Perseverance",
+          "type": "ancestry_feature",
+          "tldr": "You excel at pushing past hazardous conditions despite your small size."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a shoony heritage reflecting your community's trade or craft background."
+        }
+      ]
+    }
+  }
+}

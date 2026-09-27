@@ -1,0 +1,82 @@
+{
+  "class_name": "Sorcerer",
+  "subclass_type": "Sorcerous Origin",
+  "choices": {
+    "Draconic Bloodline": {
+      "description": "Your innate magic comes from draconic heritage, granting resilience, resistance, and elemental affinity.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "dragon_ancestor",
+            "name": "Dragon Ancestor",
+            "tldr": "Choose a type of dragon ancestor, granting language and damage interaction benefits."
+          },
+          {
+            "id": "draconic_resilience",
+            "name": "Draconic Resilience",
+            "tldr": "Your skin is covered in thin dragon scales, increasing your baseline AC and maximum hit points."
+          }
+        ],
+        "6": [
+          {
+            "id": "elemental_affinity",
+            "name": "Elemental Affinity",
+            "tldr": "Add your Charisma modifier to damage rolls of spells that match your dragon ancestor's damage type."
+          }
+        ],
+        "14": [
+          {
+            "id": "dragon_wings",
+            "name": "Dragon Wings",
+            "tldr": "Grow a pair of draconic wings from your back, gaining a flying speed."
+          }
+        ],
+        "18": [
+          {
+            "id": "draconic_presence",
+            "name": "Draconic Presence",
+            "tldr": "Channel the terrifying aura of a dragon to frighten or charm creatures around you."
+          }
+        ]
+      }
+    },
+    "Wild Magic": {
+      "description": "Your magic stems from the chaotic forces of chaos that leave unpredictable magical ripples in your wake.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "wild_magic_surge",
+            "name": "Wild Magic Surge",
+            "tldr": "Casting spells can trigger random, unpredictable surges of wild magic effects."
+          },
+          {
+            "id": "tides_of_chaos",
+            "name": "Tides of Chaos",
+            "tldr": "Gain advantage on an attack roll, ability check, or saving throw, and guarantee a wild magic surge on your next spell."
+          }
+        ],
+        "6": [
+          {
+            "id": "bend_luck",
+            "name": "Bend Luck",
+            "tldr": "Spend sorcery points to subtly manipulate fate, adding or subtracting from another creature's roll."
+          }
+        ],
+        "14": [
+          {
+            "id": "controlled_chaos",
+            "name": "Controlled Chaos",
+            "tldr": "Gain some control over your wild magic surges, rolling twice on the surge table and picking your preferred result."
+          }
+        ],
+        "18": [
+          {
+            "id": "spell_bombardment",
+            "name": "Spell Bombardment",
+            "tldr": "Roll an extra damage die when you deal damage with a spell, multiplying its chaotic destructive potential."
+          }
+        ]
+      }
+    }
+  }
+}

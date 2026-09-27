@@ -1,0 +1,86 @@
+{
+  "class_name": "Thaumaturge",
+  "subclass_type": "Implement",
+  "choices": {
+    "Amulet": {
+      "description": "Ein heiliges Amulett, das magische und physische Angriffe im letzten Moment abwehrt.",
+      "features": [
+        {
+          "id": "implement_amulet",
+          "name": "Amulet Implement",
+          "tldr": "Gewährt eine Reaktion (Reaction), um Schaden gegen Verbündete oder dich selbst zu reduzieren."
+        }
+      ]
+    },
+    "Chalice": {
+      "description": "Ein mystischer Kelch, der heilende Kräfte und Schutz gegen Gifte und Krankheiten kanalisiert.",
+      "features": [
+        {
+          "id": "implement_chalice",
+          "name": "Chalice Implement",
+          "tldr": "Ermöglicht das Erschaffen magischen Heilwassers und die Abwehr von Giften."
+        }
+      ]
+    },
+    "Lantern": {
+      "description": "Eine ewig brennende Laterne, die Illusionen durchdringt und versteckte Feinde oder Gefahren enthüllt.",
+      "features": [
+        {
+          "id": "implement_lantern",
+          "name": "Lantern Implement",
+          "tldr": "Erleuchtet unsichtbare Kreaturen und deckt Schwachstellen in Illusionen auf."
+        }
+      ]
+    },
+    "Mirror": {
+      "description": "Ein rätselhafter Spiegel, der es dir erlaubt, blitzschnell die Position zu tauschen oder Trugbilder zu erzeugen.",
+      "features": [
+        {
+          "id": "implement_mirror",
+          "name": "Mirror Implement",
+          "tldr": "Ermöglicht Teleportation zwischen dem Spiegel und einer Duplikat-Projektion."
+        }
+      ]
+    },
+    "Regalia": {
+      "description": "Ein Symbol königlicher oder göttlicher Macht, das die Moral und die Stärke deiner Verbündeten stärkt.",
+      "features": [
+        {
+          "id": "implement_regalia",
+          "name": "Regalia Implement",
+          "tldr": "Gewährt dir und deinen Verbündeten passive Boni auf Angriffe und Rettungswürfe."
+        }
+      ]
+    },
+    "Tome": {
+      "description": "Ein Foliant voller verbotenem Wissen, das dir plötzliche Einblicke und temporäre Fertigkeiten verleiht.",
+      "features": [
+        {
+          "id": "implement_tome",
+          "name": "Tome Implement",
+          "tldr": "Gibt dir Zugriff auf temporäre Fertigkeiten und analytische Vorteile im Kampf."
+        }
+      ]
+    },
+    "Wand": {
+      "description": "Ein magischer Zauberstab, der elementare Fernkampfangriffe entfesselt.",
+      "features": [
+        {
+          "id": "implement_wand",
+          "name": "Wand Implement",
+          "tldr": "Ermöglicht einen konzentrierten Elementar-Fernangriff auf Distanz."
+        }
+      ]
+    },
+    "Weapon": {
+      "description": "Eine geführte Waffe, die für verheerende Gelegenheitsangriffe und reaktive Hiebe optimiert ist.",
+      "features": [
+        {
+          "id": "implement_weapon",
+          "name": "Weapon Implement",
+          "tldr": "Erweitert deine Möglichkeiten für Gelegenheitsangriffe (Opportunity Attacks) erheblich."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Kobold",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Dragonscaled": {
+      "description": "Hatched near glowing dragon hordes or elemental cauldrons.",
+      "features": [
+        {
+          "id": "heritage_kobold_dragonscaled",
+          "name": "Dragonscaled Kobold",
+          "tldr": "Your scales harden, granting elemental resistance matching a specific dragon type."
+        }
+      ]
+    },
+    "Tunneler": {
+      "description": "Bred to slip through tight subterranean crevices and narrow shafts.",
+      "features": [
+        {
+          "id": "heritage_kobold_tunneler",
+          "name": "Tunneler Kobold",
+          "tldr": "You squeeze through narrow spaces with ease and avoid movement penalties underground."
+        }
+      ]
+    }
+  }
+}

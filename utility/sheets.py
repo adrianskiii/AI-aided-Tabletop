@@ -108,6 +108,32 @@ def derive(sheet: dict) -> dict:
 # (kind: "buff" | "debuff" | "condition"); duration_rounds is optional and
 # decremented by the /buffs/tick endpoint.
 
+# System-aware turn economy — resets every round/turn rather than being a
+# long-rest-style pool. Seeded once per sheet based on `sheet["system"]`;
+# after that the DM is free to add/rename pools via the DM app.
+ACTION_ECONOMY_TEMPLATES = {
+    "pathfinder2e": {
+        "actions": {"max": 3, "label": "Actions"},
+        "reaction": {"max": 1, "label": "Reaction"},
+    },
+    "dnd5e": {
+        "action": {"max": 1, "label": "Action"},
+        "bonus_action": {"max": 1, "label": "Bonus Action"},
+        "reaction": {"max": 1, "label": "Reaction"},
+    },
+}
+
+
+def _default_action_economy(system: str) -> dict:
+    template = ACTION_ECONOMY_TEMPLATES.get(
+        system, {"action": {"max": 1, "label": "Action"}}
+    )
+    return {
+        key: {"current": val["max"], "max": val["max"], "label": val["label"]}
+        for key, val in template.items()
+    }
+
+
 def _default_state() -> dict:
     return {
         "hp": {"current": None, "max": None, "temp": 0},
@@ -115,6 +141,8 @@ def _default_state() -> dict:
         "resources": {},
         "buffs": [],
         "action_log": [],
+        "action_economy": {},
+        "level_up_available": False,
     }
 
 
@@ -131,8 +159,57 @@ def ensure_state(sheet: dict) -> dict:
     hp = state["hp"]
     for k, v in {"current": None, "max": None, "temp": 0}.items():
         hp.setdefault(k, v)
+    if not state["action_economy"]:
+        state["action_economy"] = _default_action_economy(sheet.get("system", ""))
     sheet["state"] = state
     return sheet
+
+
+def reset_action_economy(sheet: dict, key: str | None = None) -> dict:
+    """Refill one action-economy pool (or all of them) back to max — call at
+    the start of a character's turn / a new round."""
+    ensure_state(sheet)
+    econ = sheet["state"]["action_economy"]
+    if key:
+        pool = econ.get(key)
+        if pool is not None:
+            pool["current"] = pool["max"]
+    else:
+        for pool in econ.values():
+            pool["current"] = pool["max"]
+    return econ
+
+
+def known_info(sheet: dict) -> dict:
+    """What the character currently knows/has, derived from the build the
+    DM/creator generated plus progression — class features unlocked so far,
+    proficiencies, race traits/skills, cantrips and spells. Nothing here is
+    granted live by the DM (that's inventory/buffs/resources); this is the
+    'baked in' knowledge from race + class + level."""
+    build = sheet.get("build", {}) or {}
+    level = sheet.get("identity", {}).get("level") or sheet.get("progression", {}).get("level") or 1
+
+    features_by_level = build.get("class_features_by_level", {}) or {}
+    features = []
+    for lvl_key, feats in features_by_level.items():
+        try:
+            lvl = int(lvl_key)
+        except (TypeError, ValueError):
+            continue
+        if lvl <= int(level) and isinstance(feats, list):
+            for f in feats:
+                if isinstance(f, dict):
+                    features.append({**f, "level": lvl})
+    features.sort(key=lambda f: f.get("level", 0))
+
+    return {
+        "class_features": features,
+        "proficiencies": build.get("proficiencies", []) or [],
+        "race_traits": build.get("race_traits", []) or [],
+        "race_skills": build.get("race_skills", []) or [],
+        "cantrips": build.get("cantrips", []) or [],
+        "spells": build.get("spells", []) or [],
+    }
 
 
 def sheet_path(sheet_id: str) -> Path:

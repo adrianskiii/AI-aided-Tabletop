@@ -1,0 +1,36 @@
+{
+  "class_name": "Commander",
+  "subclass_type": "Commander Branch",
+  "choices": {
+    "Tactical Doctrine": {
+      "description": "Mastermind focusing on precise battlefield placement, complex maneuvers, and reactive squad commands.",
+      "features": [
+        {
+          "id": "branch_tactical_doctrine",
+          "name": "Tactical Doctrine Branch",
+          "tldr": "Gain specialized options for tactical signaling and additional ways to manipulate squad movement."
+        }
+      ]
+    },
+    "Strategic Style": {
+      "description": "Vanguard leader who breaks enemy lines, bolsters front-line morale, and leads coordinated charges.",
+      "features": [
+        {
+          "id": "branch_strategic_style",
+          "name": "Strategic Style Branch",
+          "tldr": "Gain heavy assault synergies, defensive banner upgrades, and offensive strike integrations."
+        }
+      ]
+    },
+    "Logistical Specialization": {
+      "description": "Resourceful coordinator specializing in endurance, terrain adaptation, and sustained team support.",
+      "features": [
+        {
+          "id": "branch_logistical_specialization",
+          "name": "Logistical Specialization Branch",
+          "tldr": "Gain utilities for environmental navigation, stamina conservation, and logistical recovery."
+        }
+      ]
+    }
+  }
+}

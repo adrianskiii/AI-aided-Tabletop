@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Merfolk",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Deepsea": {
+      "description": "Thriving in pitch-black ocean trenches under immense pressure.",
+      "features": [
+        {
+          "id": "heritage_merfolk_deepsea",
+          "name": "Deepsea Merfolk",
+          "tldr": "You gain darkvision and resistance to cold environmental conditions."
+        }
+      ]
+    },
+    "Seaperch": {
+      "description": "Comfortable interacting near shorelines and shallow coral reefs.",
+      "features": [
+        {
+          "id": "heritage_merfolk_seaperch",
+          "name": "Seaperch Merfolk",
+          "tldr": "You gain temporary land adaptation capabilities to walk short distances."
+        }
+      ]
+    }
+  }
+}

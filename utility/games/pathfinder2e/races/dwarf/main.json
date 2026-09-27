@@ -1,0 +1,34 @@
+{
+  "ancestry_name": "Dwarf",
+  "rarity": "common",
+  "description": "Dwarves are short and stocky, standing about a foot shorter than most humans.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 20,
+  "boosts": ["constitution", "wisdom", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Common", "Dwarven"],
+  "additional_languages": ["Aklo", "Draconic", "Goblin", "Orcish", "Terran", "Undercommon"],
+  "traits": ["Dwarf", "Humanoid"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "anvils_shield",
+          "name": "Dwarven Resilience",
+          "type": "ancestry_feature",
+          "tldr": "You have deep-rooted sturdiness against poisons and environmental hazards."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a dwarf heritage such as Death Warden or Strong-Blooded."
+        }
+      ]
+    }
+  }
+}

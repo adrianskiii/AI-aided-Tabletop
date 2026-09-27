@@ -1,0 +1,46 @@
+{
+  "class_name": "Rogue",
+  "subclass_type": "Rogue's Racket",
+  "choices": {
+    "Ruffian": {
+      "description": "Ein rauer Schläger der Gosse, der auch mit einfachen Waffen und schwererer Kleidung effektiven Heimtücke-Schaden (Sneak Attack) anrichten kann.",
+      "features": [
+        {
+          "id": "racket_ruffian",
+          "name": "Ruffian Racket",
+          "tldr": "Erlaubt Sneak Attacks mit simplen Waffen und verbessert den Einsatz von Einschüchtern im Kampf."
+        }
+      ]
+    },
+    "Scoundrel": {
+      "description": "Ein charmanter Betrüger und Hochstapler, der Feinde mit Feints und Täuschungen aus dem Konzept bringt, um sie verwundbar zu machen.",
+      "features": [
+        {
+          "id": "racket_scoundrel",
+          "name": "Scoundrel Racket",
+          "tldr": "Lässt Feinde nach einer erfolgreichen Finte für die ganze Runde flachfüßig (flat-footed) zurück."
+        }
+      ]
+    },
+    "Thief": {
+      "description": "Der klassische Meisterdieb und Einbrecher, der flink, präzise und unbemerkt zuschlägt und seinen Geschicklichkeitswert für den Nahkampfschaden nutzt.",
+      "features": [
+        {
+          "id": "racket_thief",
+          "name": "Thief Racket",
+          "tldr": "Fügt den Geschicklichkeitsmodifikator zum Nahkampfschaden mit Finesse-Waffen hinzu."
+        }
+      ]
+    },
+    "Mastermind": {
+      "description": "Ein genialer Stratege, der Gegner aus der Ferne analysiert, ihre Schwachstellen erkennt und Mitstreiter taktisch anleitet.",
+      "features": [
+        {
+          "id": "racket_mastermind",
+          "name": "Mastermind Racket",
+          "tldr": "Ermöglicht Sneak Attacks aus der Distanz, wenn du den Gegner erfolgreich mit der Fertigkeit Erinnerung/Wissen (Recall Knowledge) analysierst."
+        }
+      ]
+    }
+  }
+}

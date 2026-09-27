@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Aasimar",
+  "rarity": "rare",
+  "description": "Races touched by the planes of the upper heavens, aasimar bear the light of the celestial realms within their souls, serving as protectors and guides in a shadowed world.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["charisma", "free"],
+  "flaws": [],
+  "languages": ["Common", "Celestial"],
+  "traits": ["Darkvision", "Celestial Resistance", "Healing Hands"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+        },
+        {
+          "id": "celestial_resistance",
+          "name": "Celestial Resistance",
+          "type": "ancestry_feature",
+          "tldr": "You have resistance to necrotic damage and radiant damage."
+        },
+        {
+          "id": "healing_hands",
+          "name": "Healing Hands",
+          "type": "ancestry_feature",
+          "tldr": "As an action, you can touch a creature and restore a number of hit points equal to your proficiency bonus times your character level once per long rest."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Celestial Revelation",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a celestial revelation subtype reflecting your divine protector or heavenly nature."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "light_bearer",
+          "name": "Light Bearer",
+          "type": "ancestry_feature",
+          "tldr": "You know the *Light* cantrip, and Charisma is your spellcasting ability for it."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "heavenly_transformation",
+          "name": "Celestial Revelation Unleashed",
+          "type": "ancestry_feature",
+          "tldr": "You gain a supernatural transformation ability (such as radiant consumption or flying wings) once per long rest."
+        }
+      ]
+    }
+  }
+}

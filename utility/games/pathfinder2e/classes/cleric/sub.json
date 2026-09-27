@@ -1,0 +1,36 @@
+{
+  "class_name": "Cleric",
+  "subclass_type": "Doctrine",
+  "choices": {
+    "Cloistered Cleric": {
+      "description": "Full divine spellcaster focusing on powerful spellcasting, rituals, and backline support.",
+      "features": [
+        {
+          "id": "doctrine_cloistered",
+          "name": "Cloistered Cleric Doctrine",
+          "tldr": "Gain extra spellcasting slots or domain focus benefits, higher skill training, and specialized spellcaster progression."
+        }
+      ]
+    },
+    "Warpriest": {
+      "description": "Combat-oriented cleric blending divine spellcasting with front-line weapons and heavier armor.",
+      "features": [
+        {
+          "id": "doctrine_warpriest",
+          "name": "Warpriest Doctrine",
+          "tldr": "Gain medium armor proficiency, shielding block options, and faster martial weapon tracking scaling."
+        }
+      ]
+    },
+    "Battle Harbinger": {
+      "description": "Specialized combat doctrinal path utilizing active battle auras and combat strikes.",
+      "features": [
+        {
+          "id": "doctrine_battle_harbinger",
+          "name": "Battle Harbinger Doctrine",
+          "tldr": "Access exclusive battle aura fonts and striking synergies that reward active engagement in combat."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Sarangay",
+  "rarity": "rare",
+  "description": "Sarangay are carabao-headed people who have long survived deep in the forests across Tian Xia.",
+  "hit_points": 10,
+  "size": "Large",
+  "speed": 25,
+  "boosts": ["strength", "charisma", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Common", "Sarangay"],
+  "traits": ["Humanoid", "Sarangay"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "horns_sarangay",
+          "name": "Sarangay Horns",
+          "type": "ancestry_feature",
+          "tldr": "Your sweeping horns provide a natural gore attack for close combat."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a sarangay heritage representing your horn shape or forest habitat."
+        }
+      ]
+    }
+  }
+}

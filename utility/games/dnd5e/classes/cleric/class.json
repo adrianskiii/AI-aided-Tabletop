@@ -1,0 +1,238 @@
+{
+  "class_name": "Cleric",
+  "description": "A priestly champion who wields divine magic in service of a higher power.",
+  "key_ability": ["wisdom"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "full_caster",
+    "ability": "wisdom"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["history", "insight", "medicine", "persuasion", "religion"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "spellcasting",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast divine spells using Wisdom as your spellcasting ability, drawing power from your deity."
+        },
+        {
+          "id": "divine_domain",
+          "name": "Divine Domain",
+          "type": "subclass_choice",
+          "tldr": "Choose a domain related to your deity, granting you specialized spells and features."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "channel_divinity_1",
+          "name": "Channel Divinity (1/rest)",
+          "type": "class_feature",
+          "tldr": "Channel divine energy directly to fuel magical effects like turning undead."
+        },
+        {
+          "id": "domain_feature_2",
+          "name": "Divine Domain Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized Channel Divinity option granted by your chosen domain."
+        }
+      ]
+    },
+    "3": {
+      "features": []
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "destroy_undead_cr_half",
+          "name": "Destroy Undead (CR 1/2 or lower)",
+          "type": "class_feature",
+          "tldr": "When your Turn Undead successfully turns undead of a certain challenge rating, they are instantly destroyed."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "channel_divinity_2",
+          "name": "Channel Divinity (2/rest)",
+          "type": "class_feature",
+          "tldr": "You can use your Channel Divinity feature twice between rests."
+        },
+        {
+          "id": "domain_feature_6",
+          "name": "Divine Domain Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Divine Domain."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        },
+        {
+          "id": "destroy_undead_cr_1",
+          "name": "Destroy Undead (CR 1 or lower)",
+          "type": "class_feature",
+          "tldr": "The threshold for instantly destroying turned undead increases to CR 1."
+        },
+        {
+          "id": "domain_feature_8",
+          "name": "Divine Domain Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Divine Domain."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "divine_intervention",
+          "name": "Divine Intervention",
+          "type": "class_feature",
+          "tldr": "Implore your deity directly to intercede on your behalf when facing dire circumstances."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "destroy_undead_cr_2",
+          "name": "Destroy Undead (CR 2 or lower)",
+          "type": "class_feature",
+          "tldr": "The threshold for instantly destroying turned undead increases to CR 2."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "destroy_undead_cr_3",
+          "name": "Destroy Undead (CR 3 or lower)",
+          "type": "class_feature",
+          "tldr": "The threshold for instantly destroying turned undead increases to CR 3."
+        }
+      ]
+    },
+    "15": {
+      "features": []
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "destroy_undead_cr_4",
+          "name": "Destroy Undead (CR 4 or lower)",
+          "type": "class_feature",
+          "tldr": "The threshold for instantly destroying turned undead increases to CR 4."
+        },
+        {
+          "id": "domain_feature_17",
+          "name": "Divine Domain Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Divine Domain."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "channel_divinity_3",
+          "name": "Channel Divinity (3/rest)",
+          "type": "class_feature",
+          "tldr": "You can use your Channel Divinity feature three times between rests."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "divine_intervention_improvement",
+          "name": "Divine Intervention Improvement",
+          "type": "class_feature",
+          "tldr": "Your call for divine intervention automatically succeeds without needing a percentile roll."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Divine Domain",
+    "level": 1
+  }
+}

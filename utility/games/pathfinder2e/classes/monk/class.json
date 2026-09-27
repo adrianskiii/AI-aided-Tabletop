@@ -1,0 +1,177 @@
+{
+  "class_name": "Monk",
+  "description": "Ein unbewaffneter Kampfkunstmeister, der blitzschnelle Schläge, physische Perfektion und disziplinierte Techniken nutzt, um Gegner zu überwältigen.",
+  "key_ability": ["strength", "dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["acrobatics", "athletics"],
+    "additional_count": "4 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "expert",
+    "reflex": "expert",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "untrained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte herausragende Startfertigkeiten für Rettungswürfe und Wahrnehmung."},
+        {"id": "martial_arts_mastery", "name": "Flurry of Blows", "type": "class_feature", "tldr": "Führe zwei unbewaffnete Angriffe für eine einzige Aktion aus."},
+        {"id": "monk_philosophy", "name": "Monk Path / Stance Choice", "type": "subclass_choice", "tldr": "Wähle deine philosophische oder kampfkunstspezifische Ausrichtung."},
+        {"id": "monk_feat_1", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "monk_feat_2", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "mettle", "name": "Mettle", "type": "defense", "tldr": "Erhalte besondere Resistenzen gegen Effekte, die sonst Schaden bei Erfolg verursachen."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "monk_feat_4", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "vehement_strike", "name": "Weapon Specialization / Striking", "type": "class_feature", "tldr": "Verursache mehr Schaden mit unbewaffneten Angriffen."},
+        {"id": "monk_weapon_expertise", "name": "Monk Weapon Expertise", "type": "class_feature", "tldr": "Unbewaffnete und Mönchswaffen-Fertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "monk_feat_6", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "reflex_mastery_monk", "name": "Lightning Reflexes Master", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Meisterstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "monk_feat_8", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "incredible_movement", "name": "Incredible Movement", "type": "class_feature", "tldr": "Erhöhe deine Basis-Bewegungsrate deutlich."},
+        {"id": "monk_expertise", "name": "Monk Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Experten- bzw. Meisterstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "monk_feat_10", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "greater_juggernaut_monk", "name": "Greater Juggernaut", "type": "defense", "tldr": "Zähigkeits-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "oath_of_peace_or_ki", "name": "Ki Discipline / Defensive Upgrade", "type": "class_feature", "tldr": "Verfeinere deine innere Energie und mentale Stärke."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "monk_feat_12", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_monk", "name": "Weapon Mastery / Strikes Upgrade", "type": "class_feature", "tldr": "Unbewaffnete Angriffe und Mönchswaffen werden noch tödlicher."},
+        {"id": "alertness_monk", "name": "Alertness / Perception Master", "type": "class_feature", "tldr": "Wahrnehmung erreicht die Meisterstufe."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "monk_feat_14", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_resolve_monk", "name": "Greater Resolve", "type": "defense", "tldr": "Willenswürfe verbessern sich auf Meisterstufe."},
+        {"id": "monk_mastery", "name": "Monk Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "monk_feat_16", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "diamond_soul", "name": "Diamond Soul", "type": "defense", "tldr": "Erlange übernatürliche Immunitäten oder verbesserte Rettungswürfe gegen Magie."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "monk_feat_18", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "empty_body", "name": "Empty Body / Perfection Peak", "type": "class_feature", "tldr": "Transzendiere die physische Form und erhalte mächtige Verteidigungs- oder Tarnkräfte."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "monk_feat_20", "name": "Monk Feat", "type": "feat_slot", "tldr": "Erhalte ein Mönchs-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

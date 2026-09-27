@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Tripkee",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Marsh": {
+      "description": "Adapted to swimming through deep murky swamps and thick mud.",
+      "features": [
+        {
+          "id": "heritage_tripkee_marsh",
+          "name": "Marsh Tripkee",
+          "tldr": "You gain a swim speed and ignore difficult terrain in wetlands."
+        }
+      ]
+    },
+    "Arbor": {
+      "description": "Specialized for leaping high up among jungle canopy branches.",
+      "features": [
+        {
+          "id": "heritage_tripkee_arbor",
+          "name": "Arbor Tripkee",
+          "tldr": "You gain bonuses to Acrobatics checks and vertical leaps."
+        }
+      ]
+    }
+  }
+}

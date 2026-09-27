@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Dwarf",
+  "rarity": "common",
+  "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Dwarvish"],
+  "traits": ["Dwarven Resilience", "Stonecunning"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+        },
+        {
+          "id": "dwarven_resilience",
+          "name": "Dwarven Resilience",
+          "type": "ancestry_feature",
+          "tldr": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+        },
+        {
+          "id": "stonecunning",
+          "name": "Stonecunning",
+          "type": "ancestry_feature",
+          "tldr": "You add double your proficiency bonus to History checks related to the origin of stonework."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Dwarven Subrace",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a dwarven subrace such as Hill Dwarf or Mountain Dwarf."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "dwarven_toughness_boost",
+          "name": "Dwarven Fortitude",
+          "type": "ancestry_feature",
+          "tldr": "You can tap into your hardy nature to shrug off wear and tear during rests."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "steadfast_resolve",
+          "name": "Steadfast Resolve",
+          "type": "ancestry_feature",
+          "tldr": "You gain extra resilience against being frightened or knocked prone."
+        }
+      ]
+    }
+  }
+}

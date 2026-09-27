@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Dragonet",
+  "rarity": "rare",
+  "description": "Dragonets are miniature dragons, complete with wings, dagger-like teeth, and magical breath.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 20,
+  "fly_speed": 25,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Draconic", "Common"],
+  "traits": ["Dragon"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "draconic_flight",
+          "name": "Draconic Flight",
+          "type": "ancestry_feature",
+          "tldr": "Your natural wings allow you to take to the air right from the start."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a dragonet heritage based on your draconic elemental color or lineage."
+        }
+      ]
+    }
+  }
+}

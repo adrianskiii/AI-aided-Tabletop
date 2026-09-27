@@ -1,0 +1,120 @@
+{
+  "class_name": "Rogue",
+  "subclass_type": "Roguish Archetype",
+  "choices": {
+    "Thief": {
+      "description": "Hones skills in thievery, acrobatics, and stealth to infiltrate secure locations and outmaneuver foes.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "fast_hands",
+            "name": "Fast Hands",
+            "tldr": "Use Cunning Action to make a Sleight of Hand check, use thieves' tools, or use an object as a bonus action."
+          },
+          {
+            "id": "second_story_work",
+            "name": "Second-Story Work",
+            "tldr": "Gain a climbing speed and improve your running jump distances."
+          }
+        ],
+        "9": [
+          {
+            "id": "supreme_sneak",
+            "name": "Supreme Sneak",
+            "tldr": "Gain advantage on Stealth checks if you move no more than half your speed on the turn."
+          }
+        ],
+        "13": [
+          {
+            "id": "use_magic_device",
+            "name": "Use Magic Device",
+            "tldr": "Ignore all class, race, and level requirements on the use of magic items."
+          }
+        ],
+        "17": [
+          {
+            "id": "thief_reflexes",
+            "name": "Thief's Reflexes",
+            "tldr": "Take two turns during the first round of any combat, one at your normal initiative and one at initiative minus 10."
+          }
+        ]
+      }
+    },
+    "Assassin": {
+      "description": "Focuses on the grim arts of infiltration and sudden, lethal execution from the shadows.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "bonus_proficiencies_assassin",
+            "name": "Bonus Proficiencies",
+            "tldr": "Gain proficiency with disguise kits and poisoner's kits."
+          },
+          {
+            "id": "assassinate",
+            "name": "Assassinate",
+            "tldr": "Gain advantage against creatures who haven't taken a turn yet, and score automatic critical hits against surprised foes."
+          }
+        ],
+        "9": [
+          {
+            "id": "infiltration_expertise",
+            "name": "Infiltration Expertise",
+            "tldr": "Craft false identities complete with documentation and history with ease."
+          }
+        ],
+        "13": [
+          {
+            "id": "imposter",
+            "name": "Imposter",
+            "tldr": "Mimic someone else's speech, writing, and behavior flawlessly to deceive others."
+          }
+        ],
+        "17": [
+          {
+            "id": "death_strike",
+            "name": "Death Strike",
+            "tldr": "Attack a surprised target to force a Constitution save, doubling your attack and sneak attack damage on a failure."
+          }
+        ]
+      }
+    },
+    "Arcane Trickster": {
+      "description": "Combines a rogue's stealth and agility with the utility and deception of wizard spells.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "spellcasting_trickster",
+            "name": "Spellcasting",
+            "tldr": "Cast wizard spells (primarily illusion and enchantment) using Intelligence."
+          },
+          {
+            "id": "mage_hand_legerdemain",
+            "name": "Mage Hand Legerdemain",
+            "tldr": "Control an invisible Mage Hand to pick locks, disarm traps, and steal items stealthily."
+          }
+        ],
+        "9": [
+          {
+            "id": "magical_ambush",
+            "name": "Magical Ambush",
+            "tldr": "Enemies have disadvantage on saving throws against your spells if you cast them while hidden."
+          }
+        ],
+        "13": [
+          {
+            "id": "versatile_trickster",
+            "name": "Versatile Trickster",
+            "tldr": "Use your Mage Hand to distract targets, granting you advantage on attack rolls against them."
+          }
+        ],
+        "17": [
+          {
+            "id": "spell_thief",
+            "name": "Spell Thief",
+            "tldr": "Steal the knowledge of a spell when a creature casts it against you, preventing its use and letting you cast it instead."
+          }
+        ]
+      }
+    }
+  }
+}

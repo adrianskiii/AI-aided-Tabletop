@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Minotaur",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Labyrinthine": {
+      "description": "Gifted with an innate spatial memory that never loses track of paths.",
+      "features": [
+        {
+          "id": "heritage_minotaur_labyrinthine",
+          "name": "Labyrinthine Minotaur",
+          "tldr": "You automatically succeed at checks to recall layouts or avoid getting lost in mazes."
+        }
+      ]
+    },
+    "Gore-Bound": {
+      "description": "Bred with heavy muscle and massive horns optimized for charging into battle.",
+      "features": [
+        {
+          "id": "heritage_minotaur_gorebound",
+          "name": "Gore-Bound Minotaur",
+          "tldr": "Your horn attacks deal increased damage when you finish a movement charge."
+        }
+      ]
+    }
+  }
+}

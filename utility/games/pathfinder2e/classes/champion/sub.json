@@ -1,0 +1,36 @@
+{
+  "class_name": "Champion",
+  "subclass_type": "Cause",
+  "choices": {
+    "Paladin": {
+      "description": "Righteous defender of justice who strikes down enemies threatening their allies with divine wrath.",
+      "features": [
+        {
+          "id": "cause_paladin",
+          "name": "Paladin Cause",
+          "tldr": "Gain the Retributive Strike reaction, punishing enemies that damage your allies."
+        }
+      ]
+    },
+    "Redeemer": {
+      "description": "Merciful peacemaker who softens blows and dampens the aggression of wrongdoers.",
+      "features": [
+        {
+          "id": "cause_redeemer",
+          "name": "Redeemer Cause",
+          "tldr": "Gain the Glimpse of Redemption reaction, forcing attackers to choose between hurting allies or facing resistance/enfeeblement."
+        }
+      ]
+    },
+    "Liberator": {
+      "description": "Champion of freedom who breaks bonds, dispels restraints, and helps allies escape peril.",
+      "features": [
+        {
+          "id": "cause_liberator",
+          "name": "Liberator Cause",
+          "tldr": "Gain the Liberating Step reaction, allowing allies to escape grabs, restraints, or reposition safely when attacked."
+        }
+      ]
+    }
+  }
+}

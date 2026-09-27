@@ -1,0 +1,234 @@
+{
+  "class_name": "Barbarian",
+  "description": "A fierce warrior of primitive background who can enter a battle rage.",
+  "key_ability": ["strength"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["animal_handling", "athletics", "intimidation", "nature", "perception", "survival"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "martial": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "rage",
+          "name": "Rage",
+          "type": "class_feature",
+          "tldr": "In battle, you fight with primal ferocity, gaining resistance to physical damage and bonus damage on melee attacks."
+        },
+        {
+          "id": "unarmored_defense",
+          "name": "Unarmored Defense",
+          "type": "class_feature",
+          "tldr": "While not wearing any armor, your Armor Class calculates as 10 + Dexterity modifier + Constitution modifier."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "reckless_attack",
+          "name": "Reckless Attack",
+          "type": "class_feature",
+          "tldr": "Throw aside concern for defense to gain advantage on melee weapon attack rolls during your turn."
+        },
+        {
+          "id": "danger_sense",
+          "name": "Danger Sense",
+          "type": "class_feature",
+          "tldr": "Gain an uncanny sense of things nearby, giving you advantage on Dexterity saving throws against visible effects."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "primal_path",
+          "name": "Primal Path",
+          "type": "subclass_choice",
+          "tldr": "Choose a path that shapes the nature of your rage, granting specialized features."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "extra_attack",
+          "name": "Extra Attack",
+          "type": "class_feature",
+          "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        },
+        {
+          "id": "fast_movement",
+          "name": "Fast Movement",
+          "type": "class_feature",
+          "tldr": "Your speed increases by 10 feet while you aren't wearing heavy armor."
+        }
+      ]
+    },
+    "6": {
+      "features": []
+    },
+    "7": {
+      "features": [
+        {
+          "id": "feral_instinct",
+          "name": "Feral Instinct",
+          "type": "class_feature",
+          "tldr": "Your instincts sharpen, granting advantage on initiative rolls and letting you act normally if surprised by avoiding ambush conditions."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": [
+        {
+          "id": "brutal_critical_1",
+          "name": "Brutal Critical (1 die)",
+          "type": "class_feature",
+          "tldr": "You can roll one additional weapon damage die when determining the extra damage for a critical hit."
+        }
+      ]
+    },
+    "10": {
+      "features": []
+    },
+    "11": {
+      "features": [
+        {
+          "id": "relentless_rage",
+          "name": "Relentless Rage",
+          "type": "class_feature",
+          "tldr": "Your rage can keep you fighting despite grievous wounds, dropping to 1 hit point instead of 0 on a successful Constitution save."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "brutal_critical_2",
+          "name": "Brutal Critical (2 dice)",
+          "type": "class_feature",
+          "tldr": "The extra damage dice for your critical hits increases to two additional dice."
+        }
+      ]
+    },
+    "14": {
+      "features": []
+    },
+    "15": {
+      "features": [
+        {
+          "id": "persistent_rage",
+          "name": "Persistent Rage",
+          "type": "class_feature",
+          "tldr": "Your rage is so fierce that it only ends early if you fall unconscious or choose to end it."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "brutal_critical_3",
+          "name": "Brutal Critical (3 dice)",
+          "type": "class_feature",
+          "tldr": "The extra damage dice for your critical hits increases to three additional dice."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "indomitable_might",
+          "name": "Indomitable Might",
+          "type": "class_feature",
+          "tldr": "If your total for a Strength check is less than your Strength score, you can use that score in place of the total."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "primal_champion",
+          "name": "Primal Champion",
+          "type": "class_feature",
+          "tldr": "Embody wild power, increasing your Strength and Constitution scores by 4 and raising their maximum to 24."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Primal Path",
+    "level": 3
+  }
+}

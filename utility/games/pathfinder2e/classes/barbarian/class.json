@@ -1,0 +1,176 @@
+{
+  "class_name": "Barbarian",
+  "description": "Fearsome warrior fueled by primal fury, physical might, and powerful rages.",
+  "key_ability": ["strength"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["athletics"],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, and skills."},
+        {"id": "rage", "name": "Rage", "type": "action", "tldr": "Enter a battle fury granting temporary HP, bonus melee damage, and a penalty to AC."},
+        {"id": "instinct", "name": "Instinct", "type": "subclass_choice", "tldr": "Choose your source of fury (Animal, Dragon, Fury, Giant, Spirit, or Superstition)."},
+        {"id": "barbarian_feat_1", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "barbarian_feat_2", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "deny_advantage", "name": "Deny Advantage", "type": "class_feature", "tldr": "Foes don't gain status bonuses from flanking you."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "barbarian_feat_4", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "brutality", "name": "Brutality", "type": "class_feature", "tldr": "Weapon proficiency increases to expert and gain critical specialization access while raging."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "barbarian_feat_6", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Fortitude save success against damage or diseases becomes a critical success."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "barbarian_feat_8", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex save proficiency increases to expert."},
+        {"id": "raging_resistance", "name": "Raging Resistance", "type": "class_feature", "tldr": "Gain physical resistance against specific damage types while raging based on your instinct."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "barbarian_feat_10", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "mighty_rage", "name": "Mighty Rage", "type": "class_feature", "tldr": "Use a free action to use a raging action or free action when you enter a rage."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Will save success against fear or mental effects becomes a critical success."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "barbarian_feat_12", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "furious_grab", "name": "Furious Grab", "type": "class_feature", "tldr": "Grab or shove enemies automatically on successful strikes while raging."},
+        {"id": "weapon_mastery", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Weapon proficiencies improve to master rank."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "barbarian_feat_14", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "greater_raging_resistance", "name": "Greater Raging Resistance", "type": "class_feature", "tldr": "Your raging resistance values and range of damage types expand."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "hardened_form", "name": "Hardened Form", "type": "defense", "tldr": "Armor proficiencies improve to expert rank."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "barbarian_feat_16", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "indomitable_will", "name": "Indomitable Will", "type": "defense", "tldr": "Will save proficiency rank increases to master."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "barbarian_feat_18", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "devastating_strike", "name": "Devastating Strike", "type": "class_feature", "tldr": "Deal massive damage when striking critically."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "barbarian_feat_20", "name": "Barbarian Feat", "type": "feat_slot", "tldr": "Gain a barbarian class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

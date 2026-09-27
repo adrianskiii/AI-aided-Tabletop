@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Kholo",
+  "rarity": "uncommon",
+  "description": "Kholos are hyena-headed humanoids who practice ancestor worship and consume their dead to honor them.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["strength", "intelligence", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Common", "Kholo"],
+  "traits": ["Humanoid", "Kholo"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "kholo_jaws",
+          "name": "Kholo Scavenger",
+          "type": "ancestry_feature",
+          "tldr": "Your powerful jaws provide a natural bite attack and rugged digestive resilience."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a kholo heritage representing your clan's specialization or hunting style."
+        }
+      ]
+    }
+  }
+}

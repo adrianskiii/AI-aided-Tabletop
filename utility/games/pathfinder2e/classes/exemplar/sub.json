@@ -1,0 +1,36 @@
+{
+  "class_name": "Exemplar",
+  "subclass_type": "Epithet",
+  "choices": {
+    "Transcendent Hero": {
+      "description": "Ein legendärer Recke, dessen Taten Geschichten für die Ewigkeit schreiben und der physische Grenzen sprengt.",
+      "features": [
+        {
+          "id": "epithet_transcendent_hero",
+          "name": "Transcendent Hero Epithet",
+          "tldr": "Fokus auf übermenschliche körperliche Leistungen, epische Sprünge und verheerende Nahkampfangriffe."
+        }
+      ]
+    },
+    "Divine Arbiter": {
+      "description": "Ein unerbittlicher Richter über das Schicksal, der göttliches Recht mit eiserner Entschlossenheit durchsetzt.",
+      "features": [
+        {
+          "id": "epithet_divine_arbiter",
+          "name": "Divine Arbiter Epithet",
+          "tldr": "Fokus auf die Kontrolle des Schlachtfelds, das Ahnden von Feindesbewegungen und spirituelle Rechtssprechung."
+        }
+      ]
+    },
+    "Mythic Paragon": {
+      "description": "Ein Herold der alten Mythen, dessen blühender Funke die Welt um ihn herum unmittelbar verändert und Verbündete inspiriert.",
+      "features": [
+        {
+          "id": "epithet_mythic_paragon",
+          "name": "Mythic Paragon Epithet",
+          "tldr": "Fokus auf die Verstärkung von Aura-Effekten, die Anführung von Gefährten und die Erschaffung mythologischer Phänomene."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Halfling",
+  "rarity": "common",
+  "description": "Halflings survive in a world of larger folk by avoiding notice or, barring that, avoiding offense. They are inclined to hospitality, home, and hearth.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Halfling"],
+  "traits": ["Halfling Nimbleness", "Naturally Stealthy", "Lucky"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "lucky",
+          "name": "Lucky",
+          "type": "ancestry_feature",
+          "tldr": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+        },
+        {
+          "id": "brave",
+          "name": "Brave",
+          "type": "ancestry_feature",
+          "tldr": "You have advantage on saving throws against being frightened."
+        },
+        {
+          "id": "halfling_nimbleness",
+          "name": "Halfling Nimbleness",
+          "type": "ancestry_feature",
+          "tldr": "You can move through the space of any creature that is of a size larger than yours."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Halfling Subrace",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a halfling subrace such as Lightfoot or Stout."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "stealthy_step",
+          "name": "Hearth and Home",
+          "type": "ancestry_feature",
+          "tldr": "You gain an innate ability to blend into crowds and find comfort in safety, granting temporary bonuses to stealth or morale."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "second_chance",
+          "name": "Incredible Fortune",
+          "type": "ancestry_feature",
+          "tldr": "Once per rest, when a creature you can see hits you with an attack roll, you can force them to reroll."
+        }
+      ]
+    }
+  }
+}

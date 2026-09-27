@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Surki",
+  "rarity": "uncommon",
+  "description": "Surki are curious, insectoid humanoids with vibrant chitinous shells and a strong drive for discovery.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "intelligence", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Surki"],
+  "traits": ["Humanoid", "Surki"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "chitinous_armor",
+          "name": "Chitinous Shell",
+          "type": "ancestry_feature",
+          "tldr": "Your hard outer shell provides natural protection against minor physical hazards."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a surki heritage representing your shell pigmentation or sensory adaptation."
+        }
+      ]
+    }
+  }
+}

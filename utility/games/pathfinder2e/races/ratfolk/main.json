@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Ratfolk",
+  "rarity": "uncommon",
+  "description": "Ratfolk, or ysoki, pack into tight spaces and are markedly industrious and fastidious.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "intelligence", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Ysokian"],
+  "traits": ["Humanoid", "Ratfolk"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "cheek_pouches",
+          "name": "Cheek Pouches",
+          "type": "ancestry_feature",
+          "tldr": "You have expandable cheek pouches to safely store small items while keeping hands free."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a ratfolk heritage representing your WARREN background or tunneling build."
+        }
+      ]
+    }
+  }
+}

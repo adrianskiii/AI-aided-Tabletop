@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Kholo",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Bonecruncher": {
+      "description": "Bred with massive, crushing bite strength suited for heavy combat.",
+      "features": [
+        {
+          "id": "heritage_kholo_bonecruncher",
+          "name": "Bonecruncher Kholo",
+          "tldr": "Your jaw attack deals increased piercing damage and applies extra wear to armor."
+        }
+      ]
+    },
+    "Stalker": {
+      "description": "Trained to hunt silently across arid dunes and rough brush.",
+      "features": [
+        {
+          "id": "heritage_kholo_stalker",
+          "name": "Stalker Kholo",
+          "tldr": "You gain bonuses to Stealth checks in natural, dry environments."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "class_name": "Swashbuckler",
+  "description": "Ein waghalsiger Akrobat und Duellant, der durch gewagte Manöver (Panache) und spektakuläre Aktionen unvorhersehbar und tödlich im Nahkampf agiert.",
+  "key_ability": ["dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["acrobatics"],
+    "additional_count": "4 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "swashbuckler_style", "name": "Swashbuckler's Style", "type": "subclass_choice", "tldr": "Wähle deinen Kampfstil (Style), der bestimmt, wie du Panache erlangst."},
+        {"id": "panache", "name": "Panache", "type": "class_feature", "tldr": "Führe waghalsige Manöver aus, um in einen Zustand der Eleganz und des Fokus zu gelangen."},
+        {"id": "confident_finisher", "name": "Confident Finisher", "type": "class_feature", "tldr": "Nutze Panache für verheerende Angriffe, die selbst bei verfehlten Treffern Schaden verursachen."},
+        {"id": "swashbuckler_feat_1", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "swashbuckler_feat_2", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "swashbuckler_dodge", "name": "Dodge", "type": "defense", "tldr": "Verbessere deine Abwehr gegen flächendeckende oder schnelle Effekte."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "swashbuckler_feat_4", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "swashbuckler_weapon_expertise", "name": "Swashbuckler Weapon Expertise", "type": "class_feature", "tldr": "Waffen- und unbewaffnete Fertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "swashbuckler_feat_6", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "evasion", "name": "Evasion", "type": "defense", "tldr": "Bei erfolgreichen Reflexwürfen nimmst du keinen Schaden statt halbem Schaden."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "swashbuckler_feat_8", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "swashbuckler_expertise", "name": "Swashbuckler Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Expertenstufe."},
+        {"id": "light_armor_expertise", "name": "Light Armor Expertise", "type": "defense", "tldr": "Leichte Rüstung erreicht die Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "swashbuckler_feat_10", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "alertness_swashbuckler", "name": "Alertness / Perception Master", "type": "class_feature", "tldr": "Wahrnehmung erreicht die Meisterstufe."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "swashbuckler_feat_12", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_swashbuckler", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Experten- oder Meisterstufe."},
+        {"id": "incredible_senses", "name": "Incredible Senses", "type": "class_feature", "tldr": "Deine Sinne sind außergewöhnlich geschärft."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "swashbuckler_feat_14", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_evasion", "name": "Greater Evasion", "type": "defense", "tldr": "Bei einem normalen Erfolg bei Reflexwürfen erleidest du ebenfalls keinen Schaden."},
+        {"id": "swashbuckler_mastery", "name": "Swashbuckler Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "swashbuckler_feat_16", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "reflex_master", "name": "Reflex Master", "type": "defense", "tldr": "Reflex-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "swashbuckler_feat_18", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "resolute_swashbuckler", "name": "Resolute", "type": "defense", "tldr": "Willens-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "swashbuckler_feat_20", "name": "Swashbuckler Feat", "type": "feat_slot", "tldr": "Erhalte ein Degenhelden-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

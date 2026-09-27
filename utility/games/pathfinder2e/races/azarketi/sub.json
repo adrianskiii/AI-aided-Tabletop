@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Azarketi",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Muck": {
+      "description": "Adapted to murky riverbeds and swampy marshes.",
+      "features": [
+        {
+          "id": "heritage_azarketi_muck",
+          "name": "Muckrunner Azarketi",
+          "tldr": "You ignore difficult terrain caused by mud, bogs, and shallow water."
+        }
+      ]
+    },
+    "Deep": {
+      "description": "Descended from populations living in deep ocean trenches.",
+      "features": [
+        {
+          "id": "heritage_azarketi_deep",
+          "name": "Deepwater Azarketi",
+          "tldr": "You gain low-light vision and resistance to cold temperatures."
+        }
+      ]
+    }
+  }
+}

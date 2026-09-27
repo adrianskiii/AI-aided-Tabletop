@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Anadi",
+  "rarity": "rare",
+  "description": "Reclusive, sapient spiders from the jungles of southern Garund who can assume a bipedal human-like form.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "wisdom", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Anadi", "Common"],
+  "traits": ["Anadi", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "change_shape",
+          "name": "Change Shape",
+          "type": "ancestry_feature",
+          "tldr": "You can magically shift between your true spider form and a bipedal form."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an Anadi heritage reflecting your adaptation to the jungle or society."
+        }
+      ]
+    }
+  }
+}

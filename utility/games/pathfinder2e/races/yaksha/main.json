@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Yaksha",
+  "rarity": "rare",
+  "description": "Away from shining citadels and opulent palaces, reticent yakshas shelter Tian Xia’s rural hinterlands from natural disasters and otherworldly depredations.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "charisma", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Common", "Yaksha"],
+  "traits": ["Spirit", "Yaksha"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "guardian_spirit",
+          "name": "Guardian Spirit",
+          "type": "ancestry_feature",
+            "tldr": "Your spiritual resilience shields you and your allies from harmful forces."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a yaksha heritage representing your elemental or regional guardianship."
+        }
+      ]
+    }
+  }
+}

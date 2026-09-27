@@ -1,0 +1,26 @@
+{
+  "class_name": "Guardian",
+  "subclass_type": "Guardian Method / Specialization",
+  "choices": {
+    "Bulwark Protector": {
+      "description": "Ein unbeweglicher Fels in der Brandung, der sich voll auf absolute Schadensreduktion und das Abfangen von Angriffen für Verbündete spezialisiert.",
+      "features": [
+        {
+          "id": "method_bulwark",
+          "name": "Bulwark Protector Method",
+          "tldr": "Fokus auf das Blocken von Wegen, massive Schild- und Rüstungsboni sowie das Abfangen von Schlägen."
+        }
+      ]
+    },
+    "Vanguard Interceptor": {
+      "description": "Ein offensiverer Frontkämpfer, der das Schlachtfeld aktiv kontrolliert, Feinde durch Spott an sich bindet und dynamisch zwischen Zielen wechselt.",
+      "features": [
+        {
+          "id": "method_vanguard",
+          "name": "Vanguard Interceptor Method",
+          "tldr": "Fokus auf verbesserte Spott-Mechaniken (Taunt), Kontrolle von Gegnerpositionen und Reaktionen auf feindliche Bewegungen."
+        }
+      ]
+    }
+  }
+}

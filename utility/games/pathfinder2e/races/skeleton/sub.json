@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Skeleton",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Warskeleton": {
+      "description": "Constructed from military remains with heavy bone structure.",
+      "features": [
+        {
+          "id": "heritage_skeleton_warskeleton",
+          "name": "Warskull Skeleton",
+          "tldr": "You gain additional hit points and heavier physical resistance to physical weapons."
+        }
+      ]
+    },
+    "Fleet": {
+      "description": "Stripped down to lightweight bones built for speed and swift evasion.",
+      "features": [
+        {
+          "id": "heritage_skeleton_fleet",
+          "name": "Fleet Skeleton",
+          "tldr": "Your base speed increases by 5 feet, allowing rapid movement across the battlefield."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Jotunborn",
+  "rarity": "rare",
+  "description": "Jotunborn were forged from the blood of an ancient group of giants called titans, tasked to watch over the Universe.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["strength", "wisdom", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Common", "Jotun"],
+  "traits": ["Giant", "Humanoid", "Jotunborn"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "titanic_endurance",
+          "name": "Titanic Endurance",
+          "type": "ancestry_feature",
+          "tldr": "Your ancient titan blood grants exceptional resilience against physical hardship and force effects."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a jotunborn heritage reflecting your connection to specific titan lineages."
+        }
+      ]
+    }
+  }
+}

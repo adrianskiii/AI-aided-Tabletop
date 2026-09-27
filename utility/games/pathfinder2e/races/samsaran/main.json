@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Samsaran",
+  "rarity": "uncommon",
+  "description": "Samsarans dedicate themselves to achieving enlightenment—a true understanding of everything and everyone in the world around and beyond them.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "wisdom", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Common", "Samsaran"],
+  "traits": ["Humanoid", "Samsaran"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "life_bound",
+          "name": "Life-Bound",
+          "type": "ancestry_feature",
+          "tldr": "Your soul reincarnates across ages, giving you spiritual resistance against death effects."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a samsaran heritage reflecting your spiritual focus or past cycle."
+        }
+      ]
+    }
+  }
+}

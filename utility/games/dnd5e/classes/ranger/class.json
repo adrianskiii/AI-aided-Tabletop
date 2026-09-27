@@ -1,0 +1,259 @@
+{
+  "class_name": "Ranger",
+  "description": "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.",
+  "key_ability": ["dexterity", "wisdom"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "half_caster",
+    "ability": "wisdom"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 3,
+    "available": ["animal_handling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "martial": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "favored_enemy_1",
+          "name": "Favored Enemy",
+          "type": "class_feature",
+          "tldr": "Gain significant expertise in studying, tracking, and hunting a specific type of enemy."
+        },
+        {
+          "id": "natural_explorer_1",
+          "name": "Natural Explorer",
+          "type": "class_feature",
+          "tldr": "Gain specialized navigation, foraging, and survival benefits in a chosen type of terrain."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "fighting_style_ranger",
+          "name": "Fighting Style",
+          "type": "class_feature",
+          "tldr": "Adopt a particular style of fighting as your specialty (Archery, Defense, Dueling, Two-Weapon Fighting)."
+        },
+        {
+          "id": "spellcasting_ranger",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast nature-themed ranger spells using Wisdom as your spellcasting ability."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "ranger_archetype",
+          "name": "Ranger Archetype",
+          "type": "subclass_choice",
+          "tldr": "Choose an archetype that defines your wilderness training and specialized tactics."
+        },
+        {
+          "id": "primeval_awareness",
+          "name": "Primeval Awareness",
+          "type": "class_feature",
+          "tldr": "Focus your mind to sense whether certain types of creatures are present nearby."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "extra_attack_ranger",
+          "name": "Extra Attack",
+          "type": "class_feature",
+          "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "favored_enemy_2",
+          "name": "Favored Enemy (2nd choice)",
+          "type": "class_feature",
+          "tldr": "Choose a second type of favored enemy and gain its linguistic and tracking benefits."
+        },
+        {
+          "id": "natural_explorer_2",
+          "name": "Natural Explorer (2nd terrain)",
+          "type": "class_feature",
+          "tldr": "Choose a second type of terrain type in which you excel as a natural explorer."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "archetype_feature_7",
+          "name": "Ranger Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Ranger Archetype."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "land_stride",
+          "name": "Land's Stride",
+          "type": "class_feature",
+          "tldr": "Move through nonmagical difficult terrain without extra cost and avoid plant-based hazards."
+        },
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "hide_in_plain_sight",
+          "name": "Hide in Plain Sight",
+          "type": "class_feature",
+          "tldr": "Spend a minute camouflaging yourself against a solid surface to gain a massive bonus to stealth checks."
+        },
+        {
+          "id": "natural_explorer_3",
+          "name": "Natural Explorer (3rd terrain)",
+          "type": "class_feature",
+          "tldr": "Choose a third type of terrain type in which you excel as a natural explorer."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "archetype_feature_11",
+          "name": "Ranger Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Ranger Archetype."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "vanish",
+          "name": "Vanish",
+          "type": "class_feature",
+          "tldr": "You can use the Hide action as a bonus action, and magical tracking cannot track you easily."
+        },
+        {
+          "id": "favored_enemy_3",
+          "name": "Favored Enemy (3rd choice)",
+          "type": "class_feature",
+          "tldr": "Choose a third type of favored enemy and gain its benefits."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "archetype_feature_15",
+          "name": "Ranger Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Ranger Archetype."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "feral_senses",
+          "name": "Feral Senses",
+          "type": "class_feature",
+          "tldr": "Preternatural senses help you fight unseen enemies without disadvantage."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "foe_slayer",
+          "name": "Foe Slayer",
+          "type": "class_feature",
+          "tldr": "Become an ultimate hunter, adding your Wisdom modifier to attack or damage rolls against your favored enemies."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Ranger Archetype",
+    "level": 3
+  }
+}

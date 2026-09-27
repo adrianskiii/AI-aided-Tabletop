@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Athamaru",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Abyssal": {
+      "description": "Adapted to the crushing pressures and absolute darkness of the ocean depths.",
+      "features": [
+        {
+          "id": "heritage_athamaru_abyssal",
+          "name": "Abyssal Athamaru",
+          "tldr": "You gain darkvision and resistance to cold environmental pressures."
+        }
+      ]
+    },
+    "Coral": {
+      "description": "Raised near shallow reefs with protective, stony skin coloration.",
+      "features": [
+        {
+          "id": "heritage_athamaru_coral",
+          "name": "Coral Athamaru",
+          "tldr": "Your skin features sharp, calcified edges that grant a natural unarmed attack."
+        }
+      ]
+    }
+  }
+}

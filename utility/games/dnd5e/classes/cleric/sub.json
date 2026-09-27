@@ -1,0 +1,96 @@
+{
+  "class_name": "Cleric",
+  "subclass_type": "Divine Domain",
+  "choices": {
+    "Life Domain": {
+      "description": "Focuses on vitality, healing, and protection against disease and death.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "life_proficiencies",
+            "name": "Bonus Proficiency",
+            "tldr": "Gain proficiency with heavy armor."
+          },
+          {
+            "id": "disciple_of_life",
+            "name": "Disciple of Life",
+            "tldr": "Your healing spells are more effective, restoring extra hit points."
+          }
+        ],
+        "2": [
+          {
+            "id": "cd_preserve_life",
+            "name": "Channel Divinity: Preserve Life",
+            "tldr": "Use divine energy to heal severely injured targets within 30 feet."
+          }
+        ],
+        "6": [
+          {
+            "id": "blessed_healer",
+            "name": "Blessed Healer",
+            "tldr": "When you cast a healing spell on others, you also regain hit points yourself."
+          }
+        ],
+        "8": [
+          {
+            "id": "divine_strike_life",
+            "name": "Divine Strike",
+            "tldr": "Infuse weapon strikes with radiant energy to deal extra damage once per turn."
+          }
+        ],
+        "17": [
+          {
+            "id": "supreme_healing",
+            "name": "Supreme Healing",
+            "tldr": "Maximize the healing output of any healing spell you cast instead of rolling dice."
+          }
+        ]
+      }
+    },
+    "Light Domain": {
+      "description": "Wields intense radiant flames to banish darkness and sear enemies of the faith.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "light_cantrip",
+            "name": "Bonus Cantrip",
+            "tldr": "You learn the Light cantrip."
+          },
+          {
+            "id": "warding_flare",
+            "name": "Warding Flare",
+            "tldr": "Impose disadvantage on an attacker by flashing divine light in their eyes."
+          }
+        ],
+        "2": [
+          {
+            "id": "cd_radiant_dawn",
+            "name": "Channel Divinity: Radiance of the Dawn",
+            "tldr": "Emits a brilliant flash of light that banishes magical darkness and deals radiant damage to foes."
+          }
+        ],
+        "6": [
+          {
+            "id": "improved_warding_flare",
+            "name": "Improved Warding Flare",
+            "tldr": "You can now use your Warding Flare to protect your allies as well as yourself."
+          }
+        ],
+        "8": [
+          {
+            "id": "potent_spellcasting",
+            "name": "Potent Spellcasting",
+            "tldr": "Add your Wisdom modifier to the damage you deal with any cleric cantrip."
+          }
+        ],
+        "17": [
+          {
+            "id": "corona_of_light",
+            "name": "Corona of Light",
+            "tldr": "Emit a fiery aura of bright light that imposes disadvantage on saving throws against radiant or fire damage spells."
+          }
+        ]
+      }
+    }
+  }
+}

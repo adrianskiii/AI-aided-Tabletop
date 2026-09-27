@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Tanuki",
+  "rarity": "uncommon",
+  "description": "Tanuki are short humanoids who resemble bipedal raccoon dogs, usually growing between 3 and 4 feet tall.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["constitution", "charisma", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Common", "Tanuki"],
+  "traits": ["Humanoid", "Tanuki"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "shapechanger_magic",
+          "name": "Tanuki Shapechanging",
+          "type": "ancestry_feature",
+          "tldr": "You possess the natural ability to change your shape into inanimate objects or alternative forms."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a tanuki heritage representing your folkloric adaptations or lifestyle."
+        }
+      ]
+    }
+  }
+}

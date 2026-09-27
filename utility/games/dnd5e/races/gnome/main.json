@@ -1,0 +1,56 @@
+{
+  "ancestry_name": "Gnome",
+  "rarity": "common",
+  "description": "A constant hum of energy vibrates through gnome settlements, where gnomes laugh, tinker, and explore the wonders of the world.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["intelligence", "free"],
+  "flaws": [],
+  "languages": ["Common", "Gnomish"],
+  "traits": ["Gnome Cunning"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+        },
+        {
+          "id": "gnome_cunning",
+          "name": "Gnome Cunning",
+          "type": "ancestry_feature",
+          "tldr": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Gnomish Subrace",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a gnomish subrace such as Forest Gnome or Rock Gnome."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "tinker_intuition",
+          "name": "Inventive Spark",
+          "type": "ancestry_feature",
+          "tldr": "You gain extra versatility with tools or minor illusion magic depending on your heritage."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "master_illusionist",
+          "name": "Elusive Magic",
+          "type": "ancestry_feature",
+          "tldr": "You can weave minor illusions to confound attackers or slip away from danger seamlessly."
+        }
+      ]
+    }
+  }
+}

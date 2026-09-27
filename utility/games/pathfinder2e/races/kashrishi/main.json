@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Kashrishi",
+  "rarity": "rare",
+  "description": "These quiet beings have stout, durable frames and distinctive crystalline horns. Their inherent psychic abilities make them natural empaths.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Kashrishi"],
+  "traits": ["Humanoid", "Kashrishi"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "crystal_horn",
+          "name": "Crystalline Empathy",
+          "type": "ancestry_feature",
+          "tldr": "Your crystal horn allows you to sense the emotional states and psychic echoes of nearby people."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a kashrishi heritage representing your crystalline structure or psychic focus."
+        }
+      ]
+    }
+  }
+}

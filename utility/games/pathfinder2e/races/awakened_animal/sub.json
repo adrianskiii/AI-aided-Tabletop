@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Awakened Animal",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Predator": {
+      "description": "Awakened from a fierce hunting beast.",
+      "features": [
+        {
+          "id": "heritage_animal_predator",
+          "name": "Predator Animal",
+          "tldr": "You possess sharp natural weapons like claws or fangs for unarmed strikes."
+        }
+      ]
+    },
+    "Flight": {
+      "description": "Awakened from an avian or flying creature.",
+      "features": [
+        {
+          "id": "heritage_animal_flight",
+          "name": "Winged Animal",
+          "tldr": "You possess a flutter or glide capability that prevents falling damage."
+        }
+      ]
+    }
+  }
+}

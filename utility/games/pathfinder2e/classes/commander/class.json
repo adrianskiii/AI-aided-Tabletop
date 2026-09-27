@@ -1,0 +1,178 @@
+{
+  "class_name": "Commander",
+  "description": "Frontline tactician and military mastermind who commands squadmates, coordinates movement, and shapes the battlefield.",
+  "key_ability": ["strength", "intelligence"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["society", "warfare_lore"],
+    "additional_count": "2 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, weapons, and skills."},
+        {"id": "commanders_banner", "name": "Commander's Banner", "type": "class_feature", "tldr": "Raise a banner that provides a status bonus to allies' saves against fear within an emanation."},
+        {"id": "tactics", "name": "Tactics", "type": "class_feature", "tldr": "Prepare and issue tactical signals to direct squadmates in combat."},
+        {"id": "drilled_reactions", "name": "Drilled Reactions", "type": "class_feature", "tldr": "Drill squadmates so they can coordinate specific responses to your signals."},
+        {"id": "commander_branch", "name": "Commander Branch", "type": "subclass_choice", "tldr": "Choose your foundational military branch or specialization doctrine."},
+        {"id": "commander_feat_1", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "commander_feat_2", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "warfare_expertise", "name": "Warfare Expertise", "type": "class_feature", "tldr": "Enhance your strategic acumen and combat command proficiency."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "commander_feat_4", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "military_expertise", "name": "Military Expertise", "type": "class_feature", "tldr": "Weapon and class metric improvements."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "commander_feat_6", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "expert_tactician", "name": "Expert Tactician", "type": "class_feature", "tldr": "Expand your folio with expert-level tactics and increase squad flexibility."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "commander_feat_8", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "fortitude_expertise", "name": "Fortitude Expertise", "type": "defense", "tldr": "Fortitude save proficiency increases to expert."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "commander_feat_10", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "armor_expertise", "name": "Armor Expertise", "type": "defense", "tldr": "Medium armor and unarmored defense proficiencies improve."},
+        {"id": "commanding_will", "name": "Commanding Will", "type": "defense", "tldr": "Will save capabilities and resilience against mental domination scale up."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "commander_feat_12", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "perception_mastery", "name": "Perception Mastery", "type": "defense", "tldr": "Perception proficiency increases to master."},
+        {"id": "weapon_mastery", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Proficiency for simple and martial weapons increases."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "commander_feat_14", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "battlefield_intuition", "name": "Battlefield Intuition", "type": "class_feature", "tldr": "Quickly assess combat dynamics and react to threats seamlessly."},
+        {"id": "master_tactician", "name": "Master Tactician", "type": "class_feature", "tldr": "Gain access to master-level maneuvers and tactical options."},
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Deal even greater damage with weapons you master."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "commander_feat_16", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "armor_mastery", "name": "Armor Mastery", "type": "defense", "tldr": "Armor proficiencies scale up to maximize damage mitigation."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "commander_feat_18", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "legendary_tactician", "name": "Legendary Tactician", "type": "class_feature", "tldr": "Unlock legendary tactical orders that can rewrite the flow of large-scale combat."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "commander_feat_20", "name": "Commander Feat", "type": "feat_slot", "tldr": "Gain a commander class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

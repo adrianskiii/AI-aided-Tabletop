@@ -1,0 +1,46 @@
+{
+  "class_name": "Investigator",
+  "subclass_type": "Methodology",
+  "choices": {
+    "Alchemical Sciences": {
+      "description": "Deduction backed by impromptu alchemical item creation.",
+      "features": [
+        {
+          "id": "methodology_alchemical",
+          "name": "Alchemical Sciences Methodology",
+          "tldr": "Quickly brew useful elixirs, poisons, and tools on the fly using your analytical deductions."
+        }
+      ]
+    },
+    "Empiricism": {
+      "description": "Rigorous logic, traps, and technical analysis.",
+      "features": [
+        {
+          "id": "methodology_empiricism",
+          "name": "Empiricism Methodology",
+          "tldr": "Leverage specialized logical analysis to detect hidden traps, secret doors, and exploit environmental flaws."
+        }
+      ]
+    },
+    "Forensic Medicine": {
+      "description": "Medical examiner specializing in trauma and treatment.",
+      "features": [
+        {
+          "id": "methodology_forensic",
+          "name": "Forensic Medicine Methodology",
+          "tldr": "Examine injuries and crime scenes to drastically improve your ability to treat wounds and heal allies."
+        }
+      ]
+    },
+    "Interrogation": {
+      "description": "Psychological profiling and social deduction expert.",
+      "features": [
+        {
+          "id": "methodology_interrogation",
+          "name": "Interrogation Methodology",
+          "tldr": "Read people like an open book, using rapid questioning and psychological insight to uncover lies and motives."
+        }
+      ]
+    }
+  }
+}

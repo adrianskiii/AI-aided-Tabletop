@@ -1,0 +1,56 @@
+{
+  "class_name": "Psychic",
+  "subclass_type": "Conscious Mind",
+  "choices": {
+    "Distant Grasp": {
+      "description": "Fokussiert auf Telekinese, das Bewegen von Objekten aus der Ferne und das Schleudern von Schutt auf Feinde.",
+      "features": [
+        {
+          "id": "mind_distant_grasp",
+          "name": "Distant Grasp Conscious Mind",
+          "tldr": "Verleiht den Psi-Zaubertrick *Telekinetic Projectile*, erweiterte telekinetische Optionen und spezielle Amp-Effekte."
+        }
+      ]
+    },
+    "Infinite Eye": {
+      "description": "Konzentriert sich auf Hellsichtigkeit, Fernwahrnehmung und das Aufdecken verborgener Wahrheiten.",
+      "features": [
+        {
+          "id": "mind_infinite_eye",
+          "name": "Infinite Eye Conscious Mind",
+          "tldr": "Verleiht den Psi-Zaubertrick *Guidance* oder Wahrnehmungs-Manipulationen sowie erweiterte Sinne."
+        }
+      ]
+    },
+    "Oscillating Wave": {
+      "description": "Nutzt die Kontrolle über thermische Energie, um abwechselchend sengende Hitze oder absolute Kälte zu erzeugen.",
+      "features": [
+        {
+          "id": "mind_oscillating_wave",
+          "name": "Oscillating Wave Conscious Mind",
+          "tldr": "Verleiht den Psi-Zaubertrick *Produce Flame* oder Kälte-Optionen und verstärkt Elementarschaden beim Entfesseln der Psyche."
+        }
+      ]
+    },
+    "Silent Whisper": {
+      "description": "Ein Meister der Telepathie, der Gedanken liest, Verbündete mental vernetzt und den Geist von Gegnern manipuliert.",
+      "features": [
+        {
+          "id": "mind_silent_whisper",
+          "name": "Silent Whisper Conscious Mind",
+          "tldr": "Verleiht den Psi-Zaubertrick *Daze*, telepathische Kommunikation und Möglichkeiten zur Gedächtnisbeeinflussung."
+        }
+      ]
+    },
+    "Tangible Dream": {
+      "description": "Erschafft manifestierte psychische Konstrukte, Barrieren und greifbare Illusionen aus reiner Gedankenenergie.",
+      "features": [
+        {
+          "id": "mind_tangible_dream",
+          "name": "Tangible Dream Conscious Mind",
+          "tldr": "Verleiht den Psi-Zaubertrick *Shield*, Schutzschilde und die Fähigkeit, Träume in der Realität physisch werden zu lassen."
+        }
+      ]
+    }
+  }
+}

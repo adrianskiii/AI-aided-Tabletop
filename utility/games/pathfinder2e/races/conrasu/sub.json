@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Conrasu",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Rooted": {
+      "description": "Deeply anchored to the primal stability of earth.",
+      "features": [
+        {
+          "id": "heritage_conrasu_rooted",
+          "name": "Rooted Conrasu",
+          "tldr": "You gain extra resistance against effects that would knock you prone or push you."
+        }
+      ]
+    },
+    "Radiant": {
+      "description": "Infused with bright stellar energy from your cosmic origins.",
+      "features": [
+        {
+          "id": "heritage_conrasu_radiant",
+          "name": "Radiant Conrasu",
+          "tldr": "Your exoskeleton emits a soft, protective glow that deters darkness."
+        }
+      ]
+    }
+  }
+}

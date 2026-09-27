@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Sarangay",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Broadhorn": {
+      "description": "Featuring massive, wide horns designed to shove obstacles and barricades aside.",
+      "features": [
+        {
+          "id": "heritage_sarangay_broadhorn",
+          "name": "Broadhorn Sarangay",
+          "tldr": "You gain bonuses to push or trip opponents using your horn structure."
+        }
+      ]
+    },
+    "Canopy": {
+      "description": "Adapted to moving swiftly through dense, wet jungle undergrowth.",
+      "features": [
+        {
+          "id": "heritage_sarangay_canopy",
+          "name": "Canopy Sarangay",
+          "tldr": "You ignore difficult terrain in forests and thick plant overgrowth."
+        }
+      ]
+    }
+  }
+}

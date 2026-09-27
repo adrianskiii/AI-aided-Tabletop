@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Gnome",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Fey": {
+      "description": "Deeply connected to the vibrant energy of the First World.",
+      "features": [
+        {
+          "id": "heritage_gnome_fey",
+          "name": "Fey-Touched Gnome",
+          "tldr": "You can cast an innate primal cantrip drawn from nature or fey magic."
+        }
+      ]
+    },
+    "Wellspring": {
+      "description": "Imbued with a volatile pool of inner magical potential.",
+      "features": [
+        {
+          "id": "heritage_gnome_wellspring",
+          "name": "Wellspring Gnome",
+          "tldr": "Your inner magic flares under pressure, empowering your spellcasting attempts."
+        }
+      ]
+    }
+  }
+}

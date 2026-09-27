@@ -1,0 +1,178 @@
+{
+  "class_name": "Rogue",
+  "description": "Ein raffinierter Meister der Schatten, der Schwachstellen ausnutzt, um mit verheerendem Heimlicheits-Schaden (Sneak Attack) zuzuschlagen und das Schlachtfeld durch Täuschung oder Geschick zu manipulieren.",
+  "key_ability": ["dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["stealth"],
+    "additional_count": "7 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "sneak_attack", "name": "Sneak Attack", "type": "class_feature", "tldr": "Verursache zusätzlichen Präzisionsschaden gegen flankierte oder unvorbereitete Gegner."},
+        {"id": "rogue_racket", "name": "Rogue's Racket", "type": "subclass_choice", "tldr": "Wähle deinen kriminellen oder professionellen Schwerpunkt (Racket)."},
+        {"id": "surprise_attack", "name": "Surprise Attack", "type": "class_feature", "tldr": "Würfe auf Initiative basieren oft auf Heimlichkeit, und überraschte Gegner sind verwundbar."},
+        {"id": "rogue_feat_1", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "rogue_feat_2", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "rogue_dodge", "name": "Dodge", "type": "defense", "tldr": "Verbessere deine Abwehr gegen flächendeckende oder schnelle Effekte."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "rogue_feat_4", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "rogue_weapon_expertise", "name": "Rogue Weapon Expertise", "type": "class_feature", "tldr": "Waffen- und unbewaffnete Fertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "rogue_feat_6", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "evasion", "name": "Evasion", "type": "defense", "tldr": "Bei erfolgreichen Reflexwürfen nimmst du keinen Schaden statt halbem Schaden."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "rogue_feat_8", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "rogue_expertise", "name": "Rogue Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Expertenstufe."},
+        {"id": "great_fortitude_or_reflex", "name": "Light Armor Expertise", "type": "defense", "tldr": "Leichte Rüstung erreicht die Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "rogue_feat_10", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "greater_sneak_attack", "name": "Greater Sneak Attack", "type": "class_feature", "tldr": "Der verdeckte Schaden durch Sneak Attacks steigt an."},
+        {"id": "alertness_rogue", "name": "Alertness / Perception Master", "type": "class_feature", "tldr": "Wahrnehmung erreicht die Meisterstufe."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "rogue_feat_12", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_rogue", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Experten- oder Meisterstufe."},
+        {"id": "incredible_sneak", "name": "Incredible Sneak", "type": "class_feature", "tldr": "Verstecke dich selbst dann, wenn du kaum Deckung hast."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "rogue_feat_14", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_evasion", "name": "Greater Evasion", "type": "defense", "tldr": "Bei einem normalen Erfolg bei Reflexwürfen erleidest du ebenfalls keinen Schaden."},
+        {"id": "rogue_mastery", "name": "Rogue Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "rogue_feat_16", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "master_strike", "name": "Master Strike", "type": "class_feature", "tldr": "Deine Angriffe können Feinde lähmen, ausschalten oder tödlich treffen."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "rogue_feat_18", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "slippery_mind", "name": "Slippery Mind", "type": "defense", "tldr": "Willens-Rettungswürfe erreichen die Meisterstufe und schützen vor mentaler Kontrolle."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "rogue_feat_20", "name": "Rogue Feat", "type": "feat_slot", "tldr": "Erhalte ein Schurken-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

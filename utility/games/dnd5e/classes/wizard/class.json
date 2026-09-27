@@ -1,0 +1,192 @@
+{
+  "class_name": "Wizard",
+  "description": "A scholarly magic user capable of manipulating the structures of reality through study and formulae.",
+  "key_ability": ["intelligence"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "full_caster",
+    "ability": "intelligence"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["arcana", "history", "insight", "investigation", "medicine", "religion"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "daggers": "trained",
+      "darts": "trained",
+      "slings": "trained",
+      "quarterstaffs": "trained",
+      "light_crossbows": "trained"
+    },
+    "armor": {
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained",
+      "shields": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "spellcasting_wizard",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "Cast arcane spells using Intelligence from a spellbook containing your learned formulae."
+        },
+        {
+          "id": "arcane_recovery",
+          "name": "Arcane Recovery",
+          "type": "class_feature",
+          "tldr": "Regain some expended spell slots during a short rest once per day by studying your spellbook."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "arcane_tradition",
+          "name": "Arcane Tradition",
+          "type": "subclass_choice",
+          "tldr": "Choose a school of magic to specialize in, granting specialized features."
+        }
+      ]
+    },
+    "3": {
+      "features": []
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": []
+    },
+    "6": {
+      "features": [
+        {
+          "id": "tradition_feature_6",
+          "name": "Arcane Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Arcane Tradition."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "tradition_feature_10",
+          "name": "Arcane Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Arcane Tradition."
+        }
+      ]
+    },
+    "11": {
+      "features": []
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "tradition_feature_14",
+          "name": "Arcane Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Arcane Tradition."
+        }
+      ]
+    },
+    "15": {
+      "features": []
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "spell_mastery",
+          "name": "Spell Mastery",
+          "type": "class_feature",
+          "tldr": "Cast a 1st-level and a 2nd-level wizard spell at will without expending spell slots."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "signature_spells",
+          "name": "Signature Spells",
+          "type": "class_feature",
+          "tldr": "Choose two 3rd-level wizard spells to always have prepared and cast once each per rest without slots."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Arcane Tradition",
+    "level": 2
+  }
+}

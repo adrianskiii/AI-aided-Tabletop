@@ -1,0 +1,136 @@
+{
+  "class_name": "Fighter",
+  "subclass_type": "Martial Archetype",
+  "choices": {
+    "Champion": {
+      "description": "Focuses on the development of raw physical power honed to perfection.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "improved_critical",
+            "name": "Improved Critical",
+            "tldr": "Your weapon attack rolls score a critical hit on a roll of 19 or 20."
+          }
+        ],
+        "7": [
+          {
+            "id": "remarkable_athlete",
+            "name": "Remarkable Athlete",
+            "tldr": "Add half your proficiency bonus to any Strength, Dexterity, or Constitution check you make that doesn't use proficiency."
+          }
+        ],
+        "10": [
+          {
+            "id": "additional_fighting_style",
+            "name": "Additional Fighting Style",
+            "tldr": "You can choose a second option from the Fighting Style class feature."
+          }
+        ],
+        "15": [
+          {
+            "id": "superior_critical",
+            "name": "Superior Critical",
+            "tldr": "Your weapon attack rolls score a critical hit on a roll of 18, 19, or 20."
+          }
+        ],
+        "18": [
+          {
+            "id": "survivor",
+            "name": "Survivor",
+            "tldr": "Regain hit points at the start of your turn if you have fewer than half your hit points left and are alive."
+          }
+        ]
+      }
+    },
+    "Battle Master": {
+      "description": "Focuses on martial prowess, utilizing disciplined combat maneuvers in battle.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "combat_superiority",
+            "name": "Combat Superiority",
+            "tldr": "Gain superiority dice and learn specialized combat maneuvers that add tactical effects to attacks."
+          },
+          {
+            "id": "student_of_war",
+            "name": "Student of War",
+            "tldr": "Gain proficiency with one artisan's tool of your choice."
+          }
+        ],
+        "7": [
+          {
+            "id": "know_your_enemy",
+            "name": "Know Your Enemy",
+            "tldr": "Spend time observing a creature to learn information about its combat capabilities compared to your own."
+          }
+        ],
+        "10": [
+          {
+            "id": "improved_combat_superiority_10",
+            "name": "Improved Combat Superiority",
+            "tldr": "Your superiority dice turn into d10s."
+          }
+        ],
+        "15": [
+          {
+            "id": "relentless",
+            "name": "Relentless",
+            "tldr": "When you roll initiative and have no superiority dice remaining, you regain one superiority die."
+          }
+        ],
+        "18": [
+          {
+            "id": "improved_combat_superiority_18",
+            "name": "Improved Combat Superiority",
+            "tldr": "Your superiority dice turn into d12s."
+          }
+        ]
+      }
+    },
+    "Eldritch Knight": {
+      "description": "Combines martial mastery with the ability to cast abjuration and evocation magic.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "spellcasting_ek",
+            "name": "Spellcasting",
+            "tldr": "Cast wizard spells using Intelligence as your spellcasting ability."
+          },
+          {
+            "id": "weapon_bond",
+            "name": "Weapon Bond",
+            "tldr": "Create a magical bond with up to two weapons so they can never be disarmed and can be summoned back instantly."
+          }
+        ],
+        "7": [
+          {
+            "id": "war_magic",
+            "name": "War Magic",
+            "tldr": "When you use your action to cast a cantrip, you can make one weapon attack as a bonus action."
+          }
+        ],
+        "10": [
+          {
+            "id": "eldritch_strike",
+            "name": "Eldritch Strike",
+            "tldr": "When you hit a creature with a weapon attack, it has disadvantage on saving throws against your next spell."
+          }
+        ],
+        "15": [
+          {
+            "id": "arcane_charge",
+            "name": "Arcane Charge",
+            "tldr": "Teleport up to 30 feet when you use your Action Surge."
+          }
+        ],
+        "18": [
+          {
+            "id": "improved_war_magic",
+            "name": "Improved War Magic",
+            "tldr": "When you use your action to cast a spell, you can make one weapon attack as a bonus action."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Orc",
+  "sub_ancestry_type": "Lineage",
+  "choices": {
+    "Mountain Tribe": {
+      "description": "Hardened by harsh frost-peaked environments, specializing in endurance against severe weather and physical wear.",
+      "features": [
+        {
+          "id": "subrace_mountain_tribe_resilience",
+          "name": "Frost-Born Resilience",
+          "tldr": "You gain resistance to cold damage and ignore difficult terrain caused by snow or ice."
+        }
+      ]
+    },
+    "Plainstrider": {
+      "description": "Nomadic hunters of wide-open steppes, specializing in tracking, speed, and mounted combat.",
+      "features": [
+        {
+          "id": "subrace_plainstrider_speed",
+          "name": "Steppe Momentum",
+          "tldr": "Your base walking speed increases by 5 feet, and you gain proficiency in the Survival skill."
+        }
+      ]
+    }
+  }
+}

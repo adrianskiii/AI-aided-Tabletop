@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Elf",
+  "rarity": "common",
+  "description": "Elves are a magical people of otherworldly grace, living in places of ethereal beauty, amidst ancient forests or in silvery spires.",
+  "hit_points": 6,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Elvish"],
+  "traits": ["Fey Ancestry", "Trance"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You have superior vision in dark and dim conditions, seeing in dim light as if it were bright light, and darkness as if it were dim light."
+        },
+        {
+          "id": "fey_ancestry",
+          "name": "Fey Ancestry",
+          "type": "ancestry_feature",
+          "tldr": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        },
+        {
+          "id": "trance",
+          "name": "Trance",
+          "type": "ancestry_feature",
+          "tldr": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Elven Subrace",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a subrace to reflect your upbringing, such as High Elf or Wood Elf."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "elven_magic_upgrade",
+          "name": "Elven Lineage Magic",
+          "type": "ancestry_feature",
+          "tldr": "Depending on your subrace choice, you unlock innate spellcasting or expanded environmental movement options."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "step_of_the_wood",
+          "name": "Step of the Ancients",
+          "type": "ancestry_feature",
+          "tldr": "You gain the ability to cast *Pass Without Trace* or a similar innate magical ward once per long rest without expending spell slots."
+        }
+      ]
+    }
+  }
+}

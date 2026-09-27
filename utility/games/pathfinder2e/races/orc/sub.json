@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Orc",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Badlands": {
+      "description": "Hardened by extreme temperatures and blistering winds in dry badlands.",
+      "features": [
+        {
+          "id": "heritage_orc_badlands",
+          "name": "Badlands Orc",
+          "tldr": "You gain resistance to fire and navigate rough terrain without penalty."
+        }
+      ]
+    },
+    "Winter": {
+      "description": "Tough survivors who endure freezing mountain peaks and snowstorms.",
+      "features": [
+        {
+          "id": "heritage_orc_winter",
+          "name": "Winter Orc",
+          "tldr": "You gain resistance to cold and ignore environmental ice movement penalties."
+        }
+      ]
+    }
+  }
+}

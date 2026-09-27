@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Conrasu",
+  "rarity": "rare",
+  "description": "Conrasus are shards of cosmic force given consciousness who construct intricate exoskeletons to interface with the mortal world.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "wisdom", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Conrasu", "Common"],
+  "traits": ["Aeon", "Conrasu", "Plant"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "living_exoskeleton",
+          "name": "Living Exoskeleton",
+          "type": "ancestry_feature",
+          "tldr": "Your plant-like core is protected by a sturdy wooden frame that grows with you."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a conrasu heritage reflecting your cosmic or physical alignment."
+        }
+      ]
+    }
+  }
+}

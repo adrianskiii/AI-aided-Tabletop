@@ -1,0 +1,250 @@
+{
+  "class_name": "Fighter",
+  "description": "A master of martial combat, skilled with a variety of weapons and armor.",
+  "key_ability": ["strength", "dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["acrobatics", "animal_handling", "athletics", "history", "insight", "intimidation", "perception", "survival"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "martial": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "fighting_style_1",
+          "name": "Fighting Style",
+          "type": "class_feature",
+          "tldr": "Adopt a particular style of fighting as your specialty (e.g., Archery, Defense, Dueling, Great Weapon Fighting)."
+        },
+        {
+          "id": "second_wind",
+          "name": "Second Wind",
+          "type": "class_feature",
+          "tldr": "You have a limited well of physical stamina that you can draw on to protect yourself from harm, regaining hit points."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "action_surge",
+          "name": "Action Surge",
+          "type": "class_feature",
+          "tldr": "Push yourself beyond your normal limits for a moment, taking one additional action on your turn."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "martial_archetype",
+          "name": "Martial Archetype",
+          "type": "subclass_choice",
+          "tldr": "Choose an archetype that you strive to emulate in your combat styles and techniques."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "extra_attack_1",
+          "name": "Extra Attack",
+          "type": "class_feature",
+          "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "asi_6",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "archetype_feature_7",
+          "name": "Martial Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Martial Archetype."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": [
+        {
+          "id": "indomitable_1",
+          "name": "Indomitable",
+          "type": "class_feature",
+          "tldr": "Reroll a saving throw that you fail, and you must use the new roll."
+        }
+      ]
+    },
+    "10": {
+      "features": [
+        {
+          "id": "archetype_feature_10",
+          "name": "Martial Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Martial Archetype."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "extra_attack_2",
+          "name": "Extra Attack (2)",
+          "type": "class_feature",
+          "tldr": "You can attack three times whenever you take the Attack action on your turn."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "indomitable_2",
+          "name": "Indomitable (2 uses)",
+          "type": "class_feature",
+          "tldr": "You can use Indomitable twice between long rests."
+        }
+      ]
+    },
+    "14": {
+      "features": [
+        {
+          "id": "asi_14",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "archetype_feature_15",
+          "name": "Martial Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Martial Archetype."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "action_surge_2",
+          "name": "Action Surge (2 uses)",
+          "type": "class_feature",
+          "tldr": "You can use Action Surge twice between rests."
+        },
+        {
+          "id": "indomitable_3",
+          "name": "Indomitable (3 uses)",
+          "type": "class_feature",
+          "tldr": "You can use Indomitable three times between long rests."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "archetype_feature_18",
+          "name": "Martial Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Martial Archetype."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "extra_attack_3",
+          "name": "Extra Attack (3)",
+          "type": "class_feature",
+          "tldr": "You can attack four times whenever you take the Attack action on your turn."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Martial Archetype",
+    "level": 3
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Stitch Flesh",
+  "rarity": "rare",
+  "description": "Stitch flesh beings are constructed or reanimated humanoids held together by heavy thread, metal staples, and dark arts.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "strength", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Common", "Necril"],
+  "traits": ["Construct", "Humanoid", "Stitch Flesh"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "reconstructed_form",
+          "name": "Reconstructed Resilience",
+          "type": "ancestry_feature",
+          "tldr": "Your heavily reinforced body shrugs off severe physical trauma and standard bleeding effects."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a stitch flesh heritage representing how your body was assembled or enhanced."
+        }
+      ]
+    }
+  }
+}

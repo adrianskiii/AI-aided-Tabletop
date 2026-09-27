@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Leshy",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Leaf": {
+      "description": "Crafted from soft canopy foliage and autumn leaves.",
+      "features": [
+        {
+          "id": "heritage_leshy_leaf",
+          "name": "Leaf Leshy",
+          "tldr": "You can catch the wind to glide safely across gaps and slow your falls."
+        }
+      ]
+    },
+    "Fungus": {
+      "description": "Spun from subterranean mushrooms and resilient spore clusters.",
+      "features": [
+        {
+          "id": "heritage_leshy_fungus",
+          "name": "Fungus Leshy",
+          "tldr": "You gain darkvision and resistance to disease and decay."
+        }
+      ]
+    }
+  }
+}

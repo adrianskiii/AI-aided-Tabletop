@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Fleshwarp",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Alchemical": {
+      "description": "Mutated by volatile chemicals and experimental brews.",
+      "features": [
+        {
+          "id": "heritage_fleshwarp_alchemical",
+          "name": "Alchemical Fleshwarp",
+          "tldr": "You gain resistance to poison and acid due to your hardened cellular structure."
+        }
+      ]
+    },
+    "Monstrous": {
+      "description": "Shaped by terrifying magical curses or physical distortion.",
+      "features": [
+        {
+          "id": "heritage_fleshwarp_monstrous",
+          "name": "Monstrous Fleshwarp",
+          "tldr": "You grow natural weaponry like a specialized bite or extra defensive spikes."
+        }
+      ]
+    }
+  }
+}

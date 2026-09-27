@@ -1,0 +1,46 @@
+{
+  "class_name": "Gunslinger",
+  "subclass_type": "Gunslinger's Way",
+  "choices": {
+    "Way of the Drifter": {
+      "description": "Ein dynamischer Nah- und Fernkämpfer, der Schusswaffen fließend mit Klingenwaffen oder Nahkampfangriffen kombiniert.",
+      "features": [
+        {
+          "id": "way_drifter",
+          "name": "Way of the Drifter",
+          "tldr": "Ermöglicht flüssiges Nachladen im Nahkampf und spezielle Kombinationsangriffe aus Nah- und Fernkampf."
+        }
+      ]
+    },
+    "Way of the Pistolero": {
+      "description": "Ein charismatischer Revolverheld, der Gegner durch Einschüchtern, schnelle Duelle und psychologische Tricks dominiert.",
+      "features": [
+        {
+          "id": "way_pistolero",
+          "name": "Way of the Pistolero",
+          "tldr": "Fokus auf Einschüchtern (Demoralize), Nachladen durch schnelle Taschenspielertricks und Bonusschaden bei geschwächtem Gegnerwillen."
+        }
+      ]
+    },
+    "Way of the Sniper": {
+      "description": "Ein geduldiger Scharfschütze aus dem Verborgenen, der auf maximale Distanz und verheerende kritische Treffer aus dem Hinterhalt setzt.",
+      "features": [
+        {
+          "id": "way_sniper",
+          "name": "Way of the Sniper",
+          "tldr": "Fokus auf Verstecken (Hide), Heimlichkeit, erhöhte Reichweite und Bonusschaden bei Zielen, die dich nicht bemerken."
+        }
+      ]
+    },
+    "Way of the Vanguard": {
+      "description": "Ein robuster Frontkämpfer mit schweren Schusswaffen (wie Musketen oder Schrotflinten), der das Schlachtfeld kontrolliert und Feinde zurückdrängt.",
+      "features": [
+        {
+          "id": "way_vanguard",
+          "name": "Way of the Vanguard",
+          "tldr": "Fokus auf wuchtige Schusswaffen, das Wegschubsen von Gegnern und taktische Bewegungen an vorderster Front."
+        }
+      ]
+    }
+  }
+}

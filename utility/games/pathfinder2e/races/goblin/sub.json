@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Goblin",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Razortooth": {
+      "description": "Blessed with exceptionally massive, jagged fangs.",
+      "features": [
+        {
+          "id": "heritage_goblin_razortooth",
+          "name": "Razortooth Goblin",
+          "tldr": "Your jaw attack deals higher piercing damage than standard teeth."
+        }
+      ]
+    },
+    "Unbreakable": {
+      "description": "Possessing absurdly rubbery bones and extreme resilience to physical impact.",
+      "features": [
+        {
+          "id": "heritage_goblin_unbreakable",
+          "name": "Unbreakable Goblin",
+          "tldr": "You take less damage from falls and bounce back from trauma with ease."
+        }
+      ]
+    }
+  }
+}

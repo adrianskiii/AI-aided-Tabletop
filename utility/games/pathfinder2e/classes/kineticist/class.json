@@ -1,0 +1,183 @@
+{
+  "class_name": "Kineticist",
+  "description": "Ein Meister der elementaren Kräfte, der ein Tor zu den Elementarebenen in sich trägt und elementare Energien, Strahlen und Stürme entfesselt, ohne traditionelle Zauberplätze zu verbrauchen.",
+  "key_ability": ["constitution"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["nature"],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "untrained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "kinetic_gate", "name": "Kinetic Gate", "type": "subclass_choice", "tldr": "Öffne dein kinetisches Tor und wähle deine anfänglichen Elemente (Air, Earth, Fire, Metal, Water oder Wood)."},
+        {"id": "kinetic_aura", "name": "Kinetic Aura", "type": "class_feature", "tldr": "Aktiviere deine elementare Aura, um deine Impulse zu leiten."},
+        {"id": "impulses_1", "name": "Impulses (Elemental Blast & Base Kinesis)", "type": "class_feature", "tldr": "Erhalte magische elementare Aktionen wie den Elemental Blast."},
+        {"id": "kineticist_feat_1", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "kineticist_feat_2", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "extract_element", "name": "Extract Element", "type": "class_feature", "tldr": "Ziehe Elemente aus deiner Umgebung ab."},
+        {"id": "will_expertise", "name": "Will Expertise", "type": "defense", "tldr": "Willens-Rettungswürfe erhöhen sich auf Expertenstufe."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "kineticist_feat_4", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "gates_threshold_5", "name": "Gate's Threshold", "type": "class_feature", "tldr": "Erweitere deine elementare Meisterschaft und erhalte neue Impulse."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "kineticist_feat_6", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "kinetic_durability", "name": "Kinetic Durability", "type": "defense", "tldr": "Erhöhe deine Trefferpunkte und Widerstandskraft durch elementare Energie."},
+        {"id": "kinetic_expertise", "name": "Kinetic Expertise", "type": "class_feature", "tldr": "Klassen-DC und Impuls-Angriffswürfe erreichen die Expertenstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "kineticist_feat_8", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "gates_threshold_9", "name": "Gate's Threshold", "type": "class_feature", "tldr": "Vertiefe deine Verbindung zu den Elementen weiter."},
+        {"id": "perception_expertise", "name": "Perception Expertise", "type": "defense", "tldr": "Wahrnehmung erhöht sich auf Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "kineticist_feat_10", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "kinetic_quickness", "name": "Kinetic Quickness", "type": "class_feature", "tldr": "Erhöhe deine Bewegungsrate oder Flexibilität durch elementare Strömungen."},
+        {"id": "reflow_elements", "name": "Reflow Elements", "type": "class_feature", "tldr": "Ändere im Kampf flexibel deine fokussierten Elemente."},
+        {"id": "weapon_expertise_kineticist", "name": "Weapon Expertise", "type": "class_feature", "tldr": "Waffen- und unbewaffnete Fertigkeiten verbessern sich."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "kineticist_feat_12", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "gates_threshold_13", "name": "Gate's Threshold", "type": "class_feature", "tldr": "Erreiche eine noch mächtigere Stufe deines Tors."},
+        {"id": "light_armor_expertise", "name": "Light Armor Expertise", "type": "defense", "tldr": "Rüstungsfertigkeiten erreichen die Expertenstufe."},
+        {"id": "weapon_specialization_kineticist", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Erhöhe den Schaden mit deinen Angriffen."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "kineticist_feat_14", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_kinetic_durability", "name": "Greater Kinetic Durability", "type": "defense", "tldr": "Deine physische und elementare Zähigkeit steigt weiter an."},
+        {"id": "kinetic_mastery", "name": "Kinetic Mastery", "type": "class_feature", "tldr": "Klassen-DC und Impuls-Angriffswürfe erreichen die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "kineticist_feat_16", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "double_reflow", "name": "Double Reflow", "type": "class_feature", "tldr": "Erlaube flexibleres Umschalten deiner Elemente im Feld."},
+        {"id": "gates_threshold_17", "name": "Gate's Threshold", "type": "class_feature", "tldr": "Erreiche fast vollständige Meisterschaft über dein Tor."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "kineticist_feat_18", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "final_gate", "name": "Final Gate", "type": "class_feature", "tldr": "Vollende dein kinetisches Tor und erhalte Zugang zu den ultimativen Kräften deiner Elemente."},
+        {"id": "kinetic_legend", "name": "Kinetic Legend", "type": "class_feature", "tldr": "Deine Beherrschung der Impulse erreicht legendäre Dimensionen."},
+        {"id": "light_armor_mastery", "name": "Light Armor Mastery", "type": "defense", "tldr": "Leichte Rüstung erreicht Meisterstufe."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "kineticist_feat_20", "name": "Kineticist Feat", "type": "feat_slot", "tldr": "Erhalte ein Kinetiker-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

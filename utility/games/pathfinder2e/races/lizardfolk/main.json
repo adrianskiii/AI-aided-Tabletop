@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Lizardfolk",
+  "rarity": "uncommon",
+  "description": "Lizardfolk, or iruxi, have fanged snouts, long tails, and rich oral traditions.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["strength", "wisdom", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Iruxi", "Common"],
+  "additional_languages": ["Aquan", "Boggard", "Draconic", "Gysultan", "Sudanese"],
+  "traits": ["Humanoid", "Lizardfolk"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "lizardfolk_tail",
+          "name": "Tail and Claws",
+          "type": "ancestry_feature",
+          "tldr": "You possess natural unarmed attacks using your teeth, claws, or tail."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a lizardfolk heritage reflecting your aquatic or terrestrial adaptation."
+        }
+      ]
+    }
+  }
+}

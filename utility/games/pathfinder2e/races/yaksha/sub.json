@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Yaksha",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Earthbound": {
+      "description": "Rooted in the unyielding stability of mountains and fertile soil.",
+      "features": [
+        {
+          "id": "heritage_yaksha_earthbound",
+          "name": "Earthbound Yaksha",
+          "tldr": "You gain bonuses to resist physical shoves and movement restrictions."
+        }
+      ]
+    },
+    "Wildspirit": {
+      "description": "Connected to flowing streams and untamed wilderness growth.",
+      "features": [
+        {
+          "id": "heritage_yaksha_wildspirit",
+          "name": "Wildspirit Yaksha",
+          "tldr": "You gain minor magical resistance against environmental hazards."
+        }
+      ]
+    }
+  }
+}

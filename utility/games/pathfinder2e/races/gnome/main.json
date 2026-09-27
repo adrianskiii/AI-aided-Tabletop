@@ -1,0 +1,34 @@
+{
+  "ancestry_name": "Gnome",
+  "rarity": "common",
+  "description": "Most gnomes stand just over 3 feet in height and weigh little more than a human child.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["constitution", "charisma", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Gnome", "Sylvan"],
+  "additional_languages": ["Aklo", "Draconic", "Elven", "Goblin", "Necril"],
+  "traits": ["Gnome", "Humanoid"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "gnome_obsession",
+          "name": "Gnome Obsession",
+          "type": "ancestry_feature",
+          "tldr": "You dive deep into specialized topics, granting trained proficiency in a lore skill of your choice."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a gnome heritage representing your magical or eccentric upbringing."
+        }
+      ]
+    }
+  }
+}

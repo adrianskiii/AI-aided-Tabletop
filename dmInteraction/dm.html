@@ -80,7 +80,9 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
 </head>
 <body>
 
-<header><div class="brand">Tabletop <small>DM DASHBOARD</small></div></header>
+<header><div class="brand">Tabletop <small>DM DASHBOARD</small></div>
+  <button id="newRound" style="margin-left:auto;">⟳ New Round (reset all actions)</button>
+</header>
 
 <main>
   <div>
@@ -93,6 +95,11 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
       <h2>New NPC</h2>
       <div class="row"><input id="npcName" placeholder="name" style="width:100%"></div>
       <div class="row"><button id="npcCreate" class="primary" style="width:100%;">Create NPC</button></div>
+    </div>
+
+    <div class="panel">
+      <h2>Messages from Players</h2>
+      <div id="dmInbox"></div>
     </div>
 
     <div class="panel">
@@ -120,11 +127,29 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
 
       <div class="grid2">
         <div class="panel">
-          <h2>XP</h2>
-          <div class="row"><span class="muted">Current: <b id="xpVal">0</b></span></div>
+          <h2>XP &amp; Level</h2>
+          <div class="row"><span class="muted">XP: <b id="xpVal">0</b> · Level <b id="levelVal">1</b></span></div>
           <div class="row">
             <input type="number" id="xpDelta" placeholder="±xp" style="width:80px">
             <button id="xpApply" class="primary">Apply</button>
+          </div>
+          <div class="row">
+            <button id="levelUpUnlock" class="primary" style="width:100%;">Unlock level up</button>
+          </div>
+          <div class="muted" id="levelUpStatus"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Action Economy</h2>
+          <div id="actionEconList"></div>
+          <div class="row">
+            <button id="actionEconReset" style="width:100%;">Reset this character's actions</button>
+          </div>
+          <div class="row">
+            <input id="actKey" placeholder="key (bonus_action…)" style="width:110px">
+            <input id="actMax" type="number" placeholder="max" style="width:50px">
+            <input id="actLabel" placeholder="label" style="width:90px">
+            <button id="actAdd" class="primary">Set</button>
           </div>
         </div>
 
@@ -170,6 +195,11 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
           <div class="log" id="logList"></div>
         </div>
       </div>
+    </div>
+
+    <div class="panel">
+      <h2>Pending Requests</h2>
+      <div id="requestList"></div>
     </div>
 
     <div class="panel">

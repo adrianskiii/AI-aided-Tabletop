@@ -1,0 +1,34 @@
+{
+  "ancestry_name": "Halfling",
+  "rarity": "common",
+  "description": "Halflings are short humanoids who look vaguely like smaller humans.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "wisdom", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Halfling"],
+  "additional_languages": ["Draconic", "Dwarven", "Elven", "Gnome", "Goblin"],
+  "traits": ["Halfling", "Humanoid"],
+  "core_senses": {
+    "keen_senses": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "halfling_luck",
+          "name": "Halfling Luck",
+          "type": "ancestry_feature",
+          "tldr": "Your innate fortune lets you reroll critical failures or avoid misfortune."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a halfling heritage reflecting your background or cultural upbringing."
+        }
+      ]
+    }
+  }
+}

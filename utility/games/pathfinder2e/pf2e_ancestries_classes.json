@@ -1,37 +1,15 @@
 {
   "id": "pathfinder2e",
   "label": "Pathfinder 2e",
-  "description": "Pathfinder Second Edition — tactical fantasy roleplaying in Golarion. The Remastered rules use a three-action economy, four degrees of success, proficiency ranks, explicit modifiers, ancestry and heritage choices, backgrounds, classes, class feats, skill feats, ancestry feats, and class-specific specialization systems.",
+  "description": "Pathfinder Second Edition — complete catalog of ancestries, heritages, versatile heritages, classes, and class specializations according to Remaster (Player Core 1 & 2) and expansion rulesets.",
   "ruleset": "remastered",
-  "edition": "Player Core / Player Core 2",
-  "tldr": "Pathfinder 2e is a mathematically tight fantasy RPG built around three actions per turn, four degrees of success, proficiency ranks, and extensive character customization. Characters combine ancestry, heritage, background, class, ability boosts, skills, feats, and equipment.",
+  "edition": "Player Core / Player Core 2 / Complete Expansions",
+  "tldr": "Pathfinder 2e is a mathematically tight fantasy RPG built around three actions per turn, four degrees of success, proficiency ranks, and extensive character customization.",
   "links": {
     "rules": "https://2e.aonprd.com",
-    "wiki": "https://2e.aonprd.com",
-    "data_api": null
+    "wiki": "https://2e.aonprd.com"
   },
   "genre": "fantasy",
-
-  "catalog_status": {
-    "this_file_is_authoritative_for": [
-      "ancestry_data (playable ancestries and their traits/HP/speed/boosts)",
-      "heritage_data (per-ancestry heritage options)",
-      "class_data (class chassis: key ability, skills, level-by-level feature slots)",
-      "subclass_data (1st-level class specializations: doctrines, instincts, mysteries, etc.)",
-      "backgrounds (starting backgrounds and their boosts/skills/skill feat)"
-    ],
-    "NOT_included_here_by_design": [
-      "The full class feat list per class per level (thousands of entries) — pull live.",
-      "The full skill feat list (hundreds of entries) — pull live.",
-      "The full general feat list (dozens, but still growing with each book) — pull live.",
-      "The full spell list (900+ spells across 4 traditions) — see pf2e_spellcasting_system.json for the slot/rank mechanics, but pull the spell catalog itself live.",
-      "Monster stat blocks / Bestiary content — pull live.",
-      "Equipment, weapons, armor, and magic items — pull live."
-    ],
-    "why": "These categories are large, actively errata'd, and expand with every new Paizo book. Hand-typing them from memory risks inventing or misstating rules, which is worse than not having them at all for a tool meant to run a real game. See the accompanying README for the recommended live-fetch approach (pf2ools-data bundles).",
-    "last_manually_verified_against_training_knowledge": "content reflects Player Core / Player Core 2 era classes as of the assistant's knowledge cutoff (~Jan 2026); newer classes (e.g., Runesmith, Necromancer, Animist, Commander, Exemplar, Guardian) are included where known but should be spot-checked against a live source before relying on them for an actual session."
-  },
-
   "terminology": {
     "race": "ancestry",
     "subrace": "heritage",
@@ -40,7 +18,6 @@
     "spellcaster": "casting",
     "level": "character level"
   },
-
   "core_rules": {
     "actions_per_turn": 3,
     "reaction_per_round": 1,
@@ -51,69 +28,27 @@
       "success",
       "critical_success"
     ],
-    "critical_success_rule": "A result at least 10 higher than the DC is a critical success.",
-    "critical_failure_rule": "A result at least 10 lower than the DC is a critical failure.",
-    "natural_20": "Increase the degree of success by one step.",
-    "natural_1": "Decrease the degree of success by one step.",
     "proficiency_ranks": [
       "untrained",
       "trained",
       "expert",
       "master",
       "legendary"
-    ],
-    "see_also": "pf2e_core_mechanics.json for the complete, non-truncated version of this section (actions, conditions, saves, DCs, currency, bulk)."
+    ]
   },
-
-  "fields": {
-    "ancestry": {
-      "label": "Ancestry",
-      "suggestions": [
-        "Human", "Elf", "Dwarf", "Halfling", "Gnome", "Orc", "Goblin",
-        "Leshy", "Tengu", "Catfolk", "Hobgoblin", "Shoony", "Custom..."
-      ]
-    },
-    "heritage": {
-      "label": "Heritage",
-      "suggestions": []
-    },
-    "background": {
-      "label": "Background",
-      "suggestions": [
-        "Academic", "Artisan", "Criminal", "Cultist", "Farmer", "Guard",
-        "Hermit", "Hunter", "Laborer", "Merchant", "Noble", "Nomad",
-        "Sailor", "Scholar", "Scout", "Street Urchin", "Warrior", "Custom..."
-      ]
-    },
-    "class": {
-      "label": "Class",
-      "suggestions": [
-        "Alchemist", "Animist", "Barbarian", "Bard", "Champion", "Cleric",
-        "Commander", "Druid", "Exemplar", "Fighter", "Gunslinger", "Guardian",
-        "Inventor", "Investigator", "Kineticist", "Magus", "Monk", "Necromancer",
-        "Oracle", "Psychic", "Ranger", "Rogue", "Runesmith", "Sorcerer",
-        "Summoner", "Swashbuckler", "Thaumaturge", "Witch", "Wizard", "Custom..."
-      ]
-    }
-  },
-
   "abilities": {
     "enabled": true,
     "scores": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
     "min": 1,
     "max": 30,
     "default": 10,
-    "points_buy": null,
     "creation_system": "ability_boosts"
   },
-
   "progression": {
     "level_field": "identity.level",
     "max_level": 20,
-    "xp_per_level": 1000,
-    "xp_levels": [0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000]
+    "xp_per_level": 1000
   },
-
   "taxonomy": {
     "race_label": "Ancestry",
     "subrace_label": "Heritage",
@@ -123,155 +58,32 @@
     "alignment_system": false
   },
 
-  "ancestry_data": {
-    "Human": { "description": "Adaptable and ambitious people found throughout Golarion. Humans are exceptionally versatile and can develop in almost any direction.", "rarity": "common", "traits": ["human","humanoid"], "hit_points": 8, "size": "Medium", "speed": 25, "ability_boosts": ["free","free"], "ability_flaws": [], "languages": ["Common"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": [], "features": ["Human ancestry feats","Human heritage"] },
-    "Elf": { "description": "Long-lived people known for their grace, curiosity, magical traditions, and deep connection to ancient cultures.", "rarity": "common", "traits": ["elf","humanoid"], "hit_points": 6, "size": "Medium", "speed": 30, "ability_boosts": ["dexterity","intelligence","free"], "ability_flaws": ["constitution"], "languages": ["Common","Elven"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["low-light vision"], "features": ["Elven Lore","Elven Weapon Familiarity","Elf ancestry feats"] },
-    "Dwarf": { "description": "Hardy and tradition-minded people renowned for craftsmanship, resilience, clan loyalty, and endurance.", "rarity": "common", "traits": ["dwarf","humanoid"], "hit_points": 10, "size": "Medium", "speed": 20, "ability_boosts": ["constitution","wisdom","free"], "ability_flaws": ["charisma"], "languages": ["Common","Dwarven"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["darkvision"], "features": ["Clan Dagger","Dwarven Lore","Dwarven Weapon Familiarity","Dwarf ancestry feats"] },
-    "Halfling": { "description": "Small, adaptable, resilient people known for their luck, curiosity, community, and ability to thrive wherever they settle.", "rarity": "common", "traits": ["halfling","humanoid"], "hit_points": 6, "size": "Small", "speed": 25, "ability_boosts": ["dexterity","wisdom","free"], "ability_flaws": ["strength"], "languages": ["Common","Halfling"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": [], "features": ["Keen Eyes","Halfling Luck","Halfling Weapon Familiarity","Halfling ancestry feats"] },
-    "Gnome": { "description": "Curious and eccentric people with a strong connection to wonder, creativity, primal magic, and the First World.", "rarity": "common", "traits": ["gnome","humanoid"], "hit_points": 8, "size": "Small", "speed": 25, "ability_boosts": ["constitution","charisma","free"], "ability_flaws": ["strength"], "languages": ["Common","Gnomish"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["low-light vision"], "features": ["Gnome Obsession","Gnome Weapon Familiarity","Gnome ancestry feats"] },
-    "Orc": { "description": "Strong and resilient people whose cultures emphasize endurance, self-reliance, community, and overcoming adversity.", "rarity": "common", "traits": ["orc","humanoid"], "hit_points": 10, "size": "Medium", "speed": 25, "ability_boosts": ["free","free"], "ability_flaws": [], "languages": ["Common","Orcish"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["darkvision"], "features": ["Orc Ferocity","Orc Weapon Familiarity","Orc ancestry feats"] },
-    "Goblin": { "description": "Energetic, resilient, inventive small humanoids with diverse traditions and a reputation for enthusiasm and chaos.", "rarity": "common", "traits": ["goblin","humanoid"], "hit_points": 6, "size": "Small", "speed": 25, "ability_boosts": ["dexterity","charisma","free"], "ability_flaws": ["wisdom"], "languages": ["Common","Goblin"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["darkvision"], "features": ["Goblin Scuttle","Goblin Weapon Familiarity","Goblin ancestry feats"] },
-    "Leshy": { "description": "Nature spirits inhabiting plant bodies, usually created or awakened through primal magic.", "rarity": "uncommon", "traits": ["leshy","plant"], "hit_points": 8, "size": "Small", "speed": 25, "ability_boosts": ["constitution","wisdom","free"], "ability_flaws": ["intelligence"], "languages": ["Common","Fey"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": [], "features": ["Leshy ancestry feats","Plant nature"] },
-    "Tengu": { "description": "Resourceful avian humanoids known for adaptability, travel, storytelling, scavenging, and mastery of unusual weapons.", "rarity": "uncommon", "traits": ["tengu","humanoid"], "hit_points": 6, "size": "Medium", "speed": 25, "ability_boosts": ["dexterity","wisdom","free"], "ability_flaws": ["constitution"], "languages": ["Common","Tengu"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["low-light vision"], "features": ["Tengu Weapon Familiarity","Tengu ancestry feats"] },
-    "Catfolk": { "description": "Feline humanoids characterized by curiosity, sociability, mobility, keen senses, and a strong desire to explore.", "rarity": "uncommon", "traits": ["catfolk","humanoid"], "hit_points": 8, "size": "Medium", "speed": 25, "ability_boosts": ["dexterity","charisma","free"], "ability_flaws": ["wisdom"], "languages": ["Common","Catfolk"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["low-light vision"], "features": ["Cat's Luck","Catfolk Weapon Familiarity","Catfolk ancestry feats"] },
-    "Hobgoblin": { "description": "Hardy humanoids traditionally associated with disciplined communities, military organization, resilience, and hierarchy.", "rarity": "uncommon", "traits": ["hobgoblin","humanoid"], "hit_points": 8, "size": "Medium", "speed": 25, "ability_boosts": ["constitution","intelligence","free"], "ability_flaws": ["wisdom"], "languages": ["Common","Goblin"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["darkvision"], "features": ["Hobgoblin Weapon Familiarity","Hobgoblin ancestry feats"] },
-    "Shoony": { "description": "Small doglike humanoids known for cooperation, persistence, hospitality, and strong community bonds.", "rarity": "uncommon", "traits": ["shoony","humanoid"], "hit_points": 6, "size": "Small", "speed": 25, "ability_boosts": ["dexterity","charisma","free"], "ability_flaws": ["constitution"], "languages": ["Common","Shoony"], "additional_languages": "Additional languages equal to Intelligence modifier.", "senses": ["low-light vision"], "features": ["Shoony ancestry feats"], "legacy": true }
-  },
-
-  "heritage_data": {
-    "Human": {
-      "Skilled Human": { "description": "You become trained in one skill of your choice and gain a skill feat associated with that skill.", "traits": ["human"] },
-      "Versatile Human": { "description": "You gain a general feat for which you qualify.", "traits": ["human"] },
-      "Wintertouched Human": { "description": "A human heritage associated with supernatural affinity for winter and cold.", "traits": ["human"], "legacy": true }
-    },
-    "Elf": {
-      "Ancient Elf": { "description": "Your long lifespan has exposed you to another adventuring tradition. You gain a multiclass dedication feat at 1st level.", "traits": ["elf"] },
-      "Arctic Elf": { "description": "You are adapted to extreme cold and gain resistance or other benefits against cold environmental effects.", "traits": ["elf"] },
-      "Cavern Elf": { "description": "You are adapted to life underground and gain enhanced ability to navigate dark subterranean environments.", "traits": ["elf"] },
-      "Seer Elf": { "description": "Your senses are unusually perceptive and attuned to supernatural phenomena.", "traits": ["elf"] },
-      "Whisper Elf": { "description": "You have heightened hearing and can use subtle sounds to perceive creatures and information.", "traits": ["elf"] }
-    },
-    "Dwarf": {
-      "Ancient-Blooded Dwarf": { "description": "Your ancestors possessed unusual resistance to magic. You gain a reaction that can improve a saving throw against magical effects.", "traits": ["dwarf"] },
-      "Death Warden Dwarf": { "description": "You possess ancestral resistance to death and void energies.", "traits": ["dwarf"] },
-      "Elemental Heart Dwarf": { "description": "Elemental power runs through your blood and provides a defensive elemental benefit.", "traits": ["dwarf"] },
-      "Forge Dwarf": { "description": "You have a strong connection to metalworking, crafting, and forged objects.", "traits": ["dwarf"] },
-      "Strong-Blooded Dwarf": { "description": "Your hardy physiology helps you resist toxins and harmful substances.", "traits": ["dwarf"] }
-    },
-    "Halfling": {
-      "Gutsy Halfling": { "description": "Your courage and resolve help you resist fear and emotion effects.", "traits": ["halfling"] },
-      "Hillock Halfling": { "description": "You are especially hardy and gain benefits connected to endurance and resilience.", "traits": ["halfling"] },
-      "Jinxed Halfling": { "description": "You can manipulate luck and impose misfortune on creatures that threaten you.", "traits": ["halfling"] },
-      "Nomadic Halfling": { "description": "You grew up traveling and gain abilities associated with movement and survival.", "traits": ["halfling"] },
-      "Twilight Halfling": { "description": "You are adapted to dim light and shadowy environments.", "traits": ["halfling"] },
-      "Wildwood Halfling": { "description": "You are comfortable in forests and wilderness environments.", "traits": ["halfling"] }
-    },
-    "Gnome": {
-      "Chameleon Gnome": { "description": "You can alter your coloration and blend into appropriate surroundings.", "traits": ["gnome"] },
-      "Fey-Touched Gnome": { "description": "You possess an especially strong connection to the First World and fey magic.", "traits": ["gnome"] },
-      "Sensate Gnome": { "description": "Your senses are unusually acute and you are strongly affected by sensory experiences.", "traits": ["gnome"] },
-      "Umbral Gnome": { "description": "You are adapted to shadow and darkness.", "traits": ["gnome"] }
-    },
-    "Goblin": {
-      "Charhide Goblin": { "description": "Your skin is resistant to fire and you are especially adapted to surviving burns.", "traits": ["goblin"] },
-      "Dokkaebi Goblin": { "description": "Your heritage is associated with supernatural disguise and trickery.", "traits": ["goblin"] },
-      "Irongut Goblin": { "description": "Your unusually strong stomach allows you to survive foods and substances that would harm others.", "traits": ["goblin"] },
-      "Razortooth Goblin": { "description": "Your sharp teeth provide a natural weapon.", "traits": ["goblin"] },
-      "Snow Goblin": { "description": "You are adapted to cold climates and gain resistance to cold.", "traits": ["goblin"] },
-      "Unbreakable Goblin": { "description": "Your body is unusually resilient and resistant to physical harm.", "traits": ["goblin"] },
-      "Very Sneaky Goblin": { "description": "You are exceptionally skilled at remaining unnoticed.", "traits": ["goblin"] }
-    },
-    "Orc": {
-      "Badlands Orc": { "description": "You are adapted to harsh environments and difficult terrain.", "traits": ["orc"] },
-      "Battle-Ready Orc": { "description": "You were trained for combat and gain a martial skill benefit.", "traits": ["orc"] },
-      "Deep Orc": { "description": "You are adapted to subterranean environments.", "traits": ["orc"] },
-      "Grave Orc": { "description": "Your ancestry has a strong connection to death and the dead.", "traits": ["orc"] },
-      "Hold-Scarred Orc": { "description": "Hardship has made you exceptionally resilient.", "traits": ["orc"] },
-      "Rainfall Orc": { "description": "You are adapted to wet environments and gain benefits associated with water and rain.", "traits": ["orc"] }
-    },
-    "Tengu": {
-      "Dogtooth Tengu": { "description": "Your beak and teeth are especially dangerous, giving you an enhanced natural attack.", "traits": ["tengu"] },
-      "Jinxed Tengu": { "description": "You possess a supernatural relationship with curses and misfortune.", "traits": ["tengu"] },
-      "Mountainkeeper Tengu": { "description": "You have a connection to mountain spirits and elemental magic.", "traits": ["tengu"] }
-    },
-    "Catfolk": {
-      "Clawed Catfolk": { "description": "You possess sharp claws that function as natural agile weapons.", "traits": ["catfolk"] },
-      "Hunting Catfolk": { "description": "Your senses and instincts make you especially effective at tracking prey.", "traits": ["catfolk"] },
-      "Jungle Catfolk": { "description": "You are adapted to dense vegetation and jungle terrain.", "traits": ["catfolk"] }
-    }
-  },
-
-  "class_data": {
-    "Alchemist": { "description": "A versatile martial and support character who uses alchemical items, bombs, elixirs, mutagens, poisons, and other concoctions.", "key_ability": ["intelligence"], "spellcaster": false, "casting": {"is_spellcaster": false, "system": "alchemy"}, "subclass_level": 1, "subclass_label": "Research Field", "skills": {"mandatory": ["crafting"], "additional_count": "3 + intelligence_modifier", "suggested": ["medicine","nature","occultism","society","stealth"]} },
-    "Barbarian": { "description": "A powerful martial combatant who enters Rage to gain increased offensive power and specialized abilities from an Instinct.", "key_ability": ["strength"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Instinct", "skills": {"mandatory": ["athletics"], "additional_count": "3 + intelligence_modifier"} },
-    "Bard": { "description": "A Charisma-based occult spellcaster who uses compositions, performance, knowledge, and magic to empower allies and hinder enemies.", "key_ability": ["charisma"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "occult", "type": "spontaneous", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Muse", "skills": {"mandatory": ["occultism","performance"], "additional_count": "4 + intelligence_modifier"} },
-    "Champion": { "description": "A heavily armored divine martial character devoted to a cause and capable of protecting allies through powerful reactions.", "key_ability": ["strength","dexterity"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "divine", "type": "prepared", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Cause", "skills": {"mandatory": ["religion"], "additional_count": "2 + intelligence_modifier"} },
-    "Cleric": { "description": "A divine spellcaster devoted to a deity, combining powerful divine magic with a Doctrine that determines martial or spell-focused development.", "key_ability": ["wisdom"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "divine", "type": "prepared", "ability": "wisdom"}, "subclass_level": 1, "subclass_label": "Doctrine", "skills": {"mandatory": ["religion"], "additional_count": "2 + intelligence_modifier"} },
-    "Druid": { "description": "A primal spellcaster connected to nature, elemental forces, animals, and the natural world.", "key_ability": ["wisdom"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "primal", "type": "prepared", "ability": "wisdom"}, "subclass_level": 1, "subclass_label": "Order", "skills": {"mandatory": ["nature"], "additional_count": "2 + intelligence_modifier"} },
-    "Fighter": { "description": "A highly specialized martial combatant with exceptional weapon proficiency, strong reactions, and a large selection of combat feats.", "key_ability": ["strength","dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": null, "subclass_label": null, "skills": {"mandatory_choice": ["acrobatics","athletics"], "additional_count": "3 + intelligence_modifier"} },
-    "Gunslinger": { "description": "A firearm-focused martial class specializing in ranged attacks, reload actions, positioning, and specialized gunplay.", "key_ability": ["dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Way", "skills": {"mandatory": ["gunsmithing"], "additional_count": "3 + intelligence_modifier"} },
-    "Inventor": { "description": "An intelligence-based martial inventor who builds a powerful Innovation and pushes technology beyond conventional limits.", "key_ability": ["intelligence"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Innovation", "skills": {"mandatory": ["crafting"], "additional_count": "3 + intelligence_modifier"} },
-    "Investigator": { "description": "An intelligence-based martial investigator who studies clues, predicts outcomes, and turns careful preparation into combat advantages.", "key_ability": ["intelligence"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Methodology", "skills": {"mandatory": ["society"], "additional_count": "5 + intelligence_modifier"} },
-    "Kineticist": { "description": "A Constitution-based elemental martial character who channels elemental forces through impulses rather than spells.", "key_ability": ["constitution"], "spellcaster": false, "casting": {"is_spellcaster": false, "system": "kinetic_impulses", "ability": "constitution"}, "subclass_level": 1, "subclass_label": "Elemental Gate", "skills": {"mandatory": ["nature"], "additional_count": "2 + intelligence_modifier"} },
-    "Magus": { "description": "A martial spellcaster who combines weapon attacks and arcane magic through Spellstrike and Arcane Cascade.", "key_ability": ["strength","dexterity"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "arcane", "type": "bounded_prepared", "ability": "intelligence"}, "subclass_level": 1, "subclass_label": "Hybrid Study", "skills": {"mandatory": ["arcana"], "additional_count": "2 + intelligence_modifier"} },
-    "Monk": { "description": "A highly mobile martial artist specializing in unarmed attacks, stances, disciplined movement, and powerful physical techniques.", "key_ability": ["strength","dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": null, "subclass_label": null, "skills": {"mandatory": ["acrobatics"], "additional_count": "4 + intelligence_modifier"} },
-    "Oracle": { "description": "A spontaneous divine spellcaster whose magical power comes with a supernatural mystery and associated curse.", "key_ability": ["charisma"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "divine", "type": "spontaneous", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Mystery", "skills": {"mandatory": ["religion"], "additional_count": "3 + intelligence_modifier"} },
-    "Psychic": { "description": "An occult spellcaster who channels mental power through a Conscious Mind and Subconscious Mind, using amps to modify psychic spells.", "key_ability": ["charisma"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "occult", "type": "spontaneous", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Conscious Mind / Subconscious Mind", "skills": {"mandatory": ["occultism"], "additional_count": "3 + intelligence_modifier"} },
-    "Ranger": { "description": "A martial hunter specializing in tracking, wilderness survival, ranged or melee combat, and hunting designated prey.", "key_ability": ["strength","dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Hunter's Edge", "skills": {"mandatory": ["nature","survival"], "additional_count": "4 + intelligence_modifier"} },
-    "Rogue": { "description": "A highly skilled martial character who excels at stealth, precision attacks, mobility, deception, and skill-based problem solving.", "key_ability": ["dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Racket", "skills": {"mandatory": ["stealth","thievery"], "additional_count": "7 + intelligence_modifier"} },
-    "Sorcerer": { "description": "A spontaneous spellcaster whose magic arises from a magical bloodline or other inherent source of power.", "key_ability": ["charisma"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "bloodline_dependent", "type": "spontaneous", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Bloodline", "skills": {"mandatory": ["bloodline_associated_skill"], "additional_count": "3 + intelligence_modifier"} },
-    "Summoner": { "description": "A Charisma-based bounded spellcaster who fights alongside a powerful eidolon through a shared action economy.", "key_ability": ["charisma"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "eidolon_dependent", "type": "bounded_spontaneous", "ability": "charisma"}, "subclass_level": 1, "subclass_label": "Eidolon", "skills": {"mandatory": ["tradition_associated_skill"], "additional_count": "3 + intelligence_modifier"} },
-    "Swashbuckler": { "description": "A mobile martial duelist who builds Panache through skillful actions and spends it on powerful Finishers.", "key_ability": ["dexterity"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Style", "skills": {"mandatory": ["acrobatics"], "additional_count": "4 + intelligence_modifier"} },
-    "Thaumaturge": { "description": "An occult martial character who uses esoteric lore, implements, relics, symbols, and supernatural knowledge to exploit creature weaknesses.", "key_ability": ["charisma"], "spellcaster": false, "casting": {"is_spellcaster": false}, "subclass_level": 1, "subclass_label": "Implement", "skills": {"mandatory": ["esoteric_lore"], "additional_count": "3 + intelligence_modifier"} },
-    "Witch": { "description": "An Intelligence-based spellcaster empowered by a mysterious patron and accompanied by a magical familiar.", "key_ability": ["intelligence"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "patron_dependent", "type": "prepared", "ability": "intelligence"}, "subclass_level": 1, "subclass_label": "Patron", "skills": {"mandatory": ["patron_associated_skill"], "additional_count": "3 + intelligence_modifier"} },
-    "Wizard": { "description": "A prepared arcane spellcaster who learns magic through study, spellbooks, Arcane Schools, and an Arcane Thesis.", "key_ability": ["intelligence"], "spellcaster": true, "casting": {"is_spellcaster": true, "tradition": "arcane", "type": "prepared", "ability": "intelligence"}, "subclass_level": 1, "subclass_label": "Arcane School / Arcane Thesis", "skills": {"mandatory": ["arcana"], "additional_count": "2 + intelligence_modifier"} },
-    "note_on_2025_classes": "Commander, Exemplar, Guardian, Necromancer, Animist, and Runesmith are newer Player Core 2 / War of Immortals-era classes. Their chassis (key ability, casting type, subclass label) are known at a high level but should be verified against a live source before use — they are intentionally omitted in full detail here rather than guessed."
-  },
-
-  "subclass_data": {
-    "Alchemist": { "label": "Research Field", "level": 1, "choices": { "Bomber": {"description": "Specializes in bombs, improving their use and effectiveness."}, "Chirurgeon": {"description": "Specializes in alchemical healing and medicinal preparations."}, "Mutagenist": {"description": "Specializes in mutagens and transformational alchemy."}, "Toxicologist": {"description": "Specializes in poisons and toxic alchemical effects."} } },
-    "Barbarian": { "label": "Instinct", "level": 1, "choices": { "Animal": {"description": "Draws on an animalistic rage and grants animal-themed abilities."}, "Dragon": {"description": "Channels draconic power, gaining elemental resistance and a draconic breath ability."}, "Fury": {"description": "A straightforward and adaptable rage focused on raw martial power."}, "Giant": {"description": "Draws upon giant strength, allowing powerful oversized weapon attacks."}, "Spirit": {"description": "Channels ancestral and spiritual power."}, "Superstition": {"description": "Gains defenses and abilities against magic."} } },
-    "Bard": { "label": "Muse", "level": 1, "choices": { "Enigma": {"description": "A scholarly bard focused on knowledge, mysteries, and occult lore."}, "Maestro": {"description": "A performance-focused bard specializing in improving composition magic."}, "Polymath": {"description": "A versatile bard capable of adapting spells, skills, and performances."}, "Warrior": {"description": "A martial bard trained to combine performance and weapon combat."} } },
-    "Champion": { "label": "Cause", "level": 1, "choices": { "Justice": {"description": "A righteous cause focused on defending others and punishing wrongdoing."}, "Liberator": {"description": "A cause dedicated to freedom and liberating allies from oppression."}, "Redeemer": {"description": "A cause centered on mercy, redemption, and reducing harm."} }, "legacy_choices": { "Paladin": {"description": "The legacy lawful-good champion cause.", "legacy": true} } },
-    "Cleric": { "label": "Doctrine", "level": 1, "choices": { "Cloistered Cleric": {"description": "A spell-focused cleric emphasizing divine magic."}, "Warpriest": {"description": "A martial cleric with improved armor and weapon capabilities."} } },
-    "Druid": { "label": "Order", "level": 1, "choices": { "Animal": {"description": "Forms a bond with an animal companion."}, "Leaf": {"description": "Emphasizes plants, healing, and a leshy familiar."}, "Storm": {"description": "Channels weather and lightning through primal magic."}, "Wild": {"description": "Specializes in transforming into animals and other forms."} } },
-    "Investigator": { "label": "Methodology", "level": 1, "choices": { "Alchemical Sciences": {"description": "Uses alchemical items to supplement investigative abilities."}, "Empiricism": {"description": "Specializes in deduction, observation, and careful analysis."}, "Interrogation": {"description": "Uses conversation, questioning, and social investigation."}, "Forensic Medicine": {"description": "Uses medical knowledge to investigate injuries, death, and evidence."} } },
-    "Ranger": { "label": "Hunter's Edge", "level": 1, "choices": { "Flurry": {"description": "Reduces multiple-attack penalties against a hunted prey."}, "Outwit": {"description": "Uses preparation, knowledge, and tactical defenses against hunted prey."}, "Precision": {"description": "Deals additional precision damage against the ranger's hunted prey."} } },
-    "Rogue": { "label": "Racket", "level": 1, "choices": { "Scoundrel": {"description": "A socially skilled rogue specializing in deception and tactical positioning."}, "Thief": {"description": "A dexterity-focused rogue who adds Dexterity to damage with agile or finesse weapons."}, "Mastermind": {"description": "A knowledge-focused rogue who exploits a target's weaknesses."}, "Ruffian": {"description": "A strength-oriented rogue trained with simple weapons and able to use Sneak Attack with qualifying weapons."} } },
-    "Sorcerer": { "label": "Bloodline", "level": 1, "choices": { "Aberrant": {"tradition": "occult", "description": "Your magic comes from an alien or otherwise inexplicable source."}, "Angelic": {"tradition": "divine", "description": "Your bloodline carries celestial and angelic power."}, "Demonic": {"tradition": "divine", "description": "Your magic is associated with demons and destructive Abyssal power."}, "Diabolic": {"tradition": "divine", "description": "Your bloodline is connected to devils and infernal magic."}, "Draconic": {"tradition": "arcane", "description": "Your bloodline carries draconic magic."}, "Elemental": {"tradition": "primal", "description": "Your magic derives from elemental power."}, "Fey": {"tradition": "primal", "description": "Your bloodline is touched by the First World and fey magic."}, "Hag": {"tradition": "occult", "description": "Your magic derives from hag ancestry or influence."}, "Imperial": {"tradition": "arcane", "description": "Your bloodline carries powerful magical and scholarly heritage."}, "Undead": {"tradition": "divine", "description": "Your bloodline carries the power of undeath."} } },
-    "Swashbuckler": { "label": "Style", "level": 1, "choices": { "Battledancer": {"description": "Uses Performance to gain Panache through captivating combat."}, "Braggart": {"description": "Uses Intimidation and boasts to gain Panache."}, "Fencer": {"description": "Uses Deception and feints to gain Panache."}, "Gymnast": {"description": "Uses Athletics maneuvers such as Grapple, Shove, and Trip."}, "Wit": {"description": "Uses mental skills and clever banter to gain Panache."} } },
-    "Witch": { "label": "Patron", "level": 1, "choices": { "Faith's Flamekeeper": {"description": "A patron associated with faith, fire, protection, and guidance."}, "Fervor": {"description": "A patron granting passionate and forceful magical abilities."}, "Rune": {"description": "A patron focused on magical symbols, language, and arcane knowledge."}, "Silence in Snow": {"description": "A patron associated with winter, silence, cold, and survival."}, "Spinner of Threads": {"description": "A patron associated with fate, destiny, and manipulation of events."} } },
-    "Wizard": { "label": "Arcane School / Arcane Thesis", "level": 1, "schools": { "School of Ars Grammatica": {"description": "Specializes in language, magical writing, and manipulating words."}, "School of Battle Magic": {"description": "Specializes in direct offensive combat magic."}, "School of Mentalism": {"description": "Specializes in mental, sensory, and mind-affecting magic."}, "School of Protean Form": {"description": "Specializes in transformation and changing physical form."} } }
-  },
-
   "backgrounds": {
-    "Academic": { "description": "You spent your formative years studying a field of knowledge.", "ability_boosts": ["intelligence","free"], "skills": ["academia_lore"], "skill_feat": "Additional Lore" },
-    "Artisan": { "description": "You learned a craft or trade and spent years producing useful goods.", "ability_boosts": ["strength","free"], "skills": ["crafting"], "skill_feat": "Specialty Crafting" },
-    "Criminal": { "description": "You survived through illegal work, deception, theft, or criminal connections.", "ability_boosts": ["dexterity","free"], "skills": ["thievery"], "skill_feat": "Pickpocket" },
-    "Far Traveler": { "description": "You traveled widely and developed familiarity with foreign cultures.", "ability_boosts": ["wisdom","free"], "skills": ["survival"], "skill_feat": "Forager" },
-    "Mystic": { "description": "You spent time studying spiritual, occult, religious, or supernatural traditions.", "ability_boosts": ["wisdom","free"], "skills": ["religion"], "skill_feat": "Student of the Canon" },
-    "Noble": { "description": "You were raised among wealth, privilege, or political influence.", "ability_boosts": ["charisma","free"], "skills": ["society"], "skill_feat": "Courtly Graces" },
-    "Outlander": { "description": "You lived away from settled society and learned to survive in the wilderness.", "ability_boosts": ["constitution","free"], "skills": ["survival"], "skill_feat": "Forager" },
-    "Sailor": { "description": "You worked aboard ships and became accustomed to travel, danger, and life at sea.", "ability_boosts": ["strength","free"], "skills": ["athletics"], "skill_feat": "Underwater Marauder" },
-    "Soldier": { "description": "You received military training and learned discipline, weapons, and battlefield tactics.", "ability_boosts": ["strength","free"], "skills": ["intimidation"], "skill_feat": "Group Coercion" },
-    "Streetwise": { "description": "You grew up navigating urban environments and learned how to find information and survive on the streets.", "ability_boosts": ["dexterity","free"], "skills": ["society"], "skill_feat": "Streetwise" },
-    "Veteran of the Lost Kingdom": { "description": "You survived the fall of a kingdom and carry knowledge of war, loss, and the world that came before.", "ability_boosts": ["constitution","free"], "skills": ["war_lore"], "skill_feat": "Battle Medicine" }
+    "Acolyte": { "description": "You spent time in a temple or cloister serving a deity.", "ability_boosts": ["intelligence", "wisdom"], "skills": ["religion"], "skill_feat": "Student of the Canon" },
+    "Acrobat": { "description": "You trained in gymnastics, tumbling, and aerial performances.", "ability_boosts": ["dexterity", "strength"], "skills": ["acrobatics"], "skill_feat": "Cat Fall" },
+    "Animal Whisperer": { "description": "You have a natural affinity for training and handling animals.", "ability_boosts": ["wisdom", "charisma"], "skills": ["nature"], "skill_feat": "Train Animal" },
+    "Artisan": { "description": "You spent years learning a trade, crafting goods for a living.", "ability_boosts": ["strength", "intelligence"], "skills": ["crafting"], "skill_feat": "Crafter's Appraisal" },
+    "Barkeep": { "description": "You ran or worked in a tavern, learning how to talk to anyone.", "ability_boosts": ["constitution", "charisma"], "skills": ["diplomacy"], "skill_feat": "Hobnob" },
+    "Barrister": { "description": "You studied laws, contracts, and legal precedent.", "ability_boosts": ["intelligence", "charisma"], "skills": ["society"], "skill_feat": "Group Impression" },
+    "Emissary": { "description": "You represented a ruler, nation, or organization in diplomatic matters.", "ability_boosts": ["dexterity", "charisma"], "skills": ["society"], "skill_feat": "Multilingual" },
+    "Entertainer": { "description": "You captivated crowds with music, acting, or storytelling.", "ability_boosts": ["dexterity", "charisma"], "skills": ["performance"], "skill_feat": "Fascinating Performance" },
+    "Farmhand": { "description": "You worked long hours on farms doing heavy manual labor.", "ability_boosts": ["constitution", "strength"], "skills": ["athletics"], "skill_feat": "Assurance" },
+    "Gladiator": { "description": "You fought in arenas for the amusement of spectators.", "ability_boosts": ["constitution", "strength"], "skills": ["performance"], "skill_feat": "Impressive Performance" },
+    "Guard": { "description": "You served as a city watchman, caravan guard, or gatekeeper.", "ability_boosts": ["constitution", "strength"], "skills": ["intimidation"], "skill_feat": "Quick Coercion" },
+    "Hermit": { "description": "You lived away from civilization, finding peace or hardship in solitude.", "ability_boosts": ["constitution", "wisdom"], "skills": ["survival"], "skill_feat": "Forager" },
+    "Hunter": { "description": "You tracked and hunted wild beasts for food, pelts, or sport.", "ability_boosts": ["dexterity", "wisdom"], "skills": ["survival"], "skill_feat": "Survey Wildlife" },
+    "Laborer": { "description": "You performed grueling physical labor in construction or mining.", "ability_boosts": ["constitution", "strength"], "skills": ["athletics"], "skill_feat": "Heave" },
+    "Merchant": { "description": "You bought and sold goods, navigating trade routes and markets.", "ability_boosts": ["intelligence", "charisma"], "skills": ["society"], "skill_feat": "Bargain Hunter" },
+    "Noble": { "description": "You were born into a ruling family with wealth, status, and responsibilities.", "ability_boosts": ["intelligence", "charisma"], "skills": ["society"], "skill_feat": "Courtly Graces" },
+    "Nomad": { "description": "You traveled constantly across wild lands without a permanent home.", "ability_boosts": ["constitution", "wisdom"], "skills": ["survival"], "skill_feat": "Assurance" },
+    "Sailor": { "description": "You spent your life on the open water navigating ships and battling storms.", "ability_boosts": ["strength", "dexterity"], "skills": ["acrobatics"], "skill_feat": "Steady Balance" },
+    "Scholar": { "description": "You spent years reading tomes and researching academic topics.", "ability_boosts": ["intelligence", "wisdom"], "skills": ["arcana"], "skill_feat": "Assurance" },
+    "Scout": { "description": "You guided groups through dangerous wilderness and spotted threats.", "ability_boosts": ["dexterity", "wisdom"], "skills": ["survival"], "skill_feat": "Forager" },
+    "Street Urchin": { "description": "You grew up orphaned or poor, surviving on city streets.", "ability_boosts": ["dexterity", "constitution"], "skills": ["thievery"], "skill_feat": "Pickpocket" },
+    "Warrior": { "description": "You trained for war and fought on battlefields.", "ability_boosts": ["strength", "constitution"], "skills": ["intimidation"], "skill_feat": "Intimidating Glare" }
   },
-
-  "rewards_schema": "v2",
-  "rewards": {
-    "ancestry": "ancestry_data.<ancestry>.features",
-    "heritage": "heritage_data.<ancestry>.<heritage>",
-    "class": "class_data.<class>.features",
-    "specialization": "subclass_data.<class>",
-    "class_feat": "class_feats.<class> — LIVE FETCH REQUIRED, see README",
-    "skill_feat": "skill_feats — LIVE FETCH REQUIRED, see README",
-    "general_feat": "general_feats — LIVE FETCH REQUIRED, see README",
-    "ancestry_feat": "ancestry_feats.<ancestry> — LIVE FETCH REQUIRED, see README"
-  },
-
   "legacy_content": {
-    "alignment": { "supported": false, "description": "The nine-alignment system is legacy content and should not be used for a Remastered character creator." },
-    "old_terms": { "race": "ancestry", "subrace": "heritage", "subclass": "class specialization" }
-  }
+    "alignment": { "supported": false, "description": "Replaced by Holy/Unholy sanctification traits in Remaster rules." }
+  },
+  "TODO": "Backgrounds are not getting read correctly in the web UI"
 }

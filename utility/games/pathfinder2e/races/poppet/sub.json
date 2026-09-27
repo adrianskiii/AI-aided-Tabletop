@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Poppet",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Stitch": {
+      "description": "Made of sewn cloth and cotton padding that cushions heavy impacts.",
+      "features": [
+        {
+          "id": "heritage_poppet_stitch",
+          "name": "Stitch Poppet",
+          "tldr": "You take less damage from bludgeoning trauma and falls."
+        }
+      ]
+    },
+    "Wicker": {
+      "description": "Built from tightly woven twigs and flexible wooden stalks.",
+      "features": [
+        {
+          "id": "heritage_poppet_wicker",
+          "name": "Wicker Poppet",
+          "tldr": "You gain a lightweight frame that allows quick scrambling and climbing."
+        }
+      ]
+    }
+  }
+}

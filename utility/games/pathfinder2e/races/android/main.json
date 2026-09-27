@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Android",
+  "rarity": "rare",
+  "description": "Technological wonders from another world, androids have synthetic bodies and living souls.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "intelligence", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Androffan", "Common"],
+  "traits": ["Android", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "construct_crafting",
+          "name": "Constructed Body",
+          "type": "ancestry_feature",
+          "tldr": "Your synthetic nature grants you unique resilience against disease and poison."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an android heritage reflecting your technological build or design."
+        }
+      ]
+    }
+  }
+}

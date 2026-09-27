@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Yaoguai",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Flora": {
+      "description": "Awakened from a ancient plant, tree, or mystical flower.",
+      "features": [
+        {
+          "id": "heritage_yaoguai_flora",
+          "name": "Flora Yaoguai",
+          "tldr": "You gain plant traits and minor healing from sunlight exposure."
+        }
+      ]
+    },
+    "Fauna": {
+      "description": "Awakened from an intelligent animal or beast of the wild.",
+      "features": [
+        {
+          "id": "heritage_yaoguai_fauna",
+          "name": "Fauna Yaoguai",
+          "tldr": "You gain natural weapons like claws or fangs and keen senses."
+        }
+      ]
+    }
+  }
+}

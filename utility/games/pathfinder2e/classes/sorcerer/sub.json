@@ -1,0 +1,61 @@
+{
+  "class_name": "Sorcerer",
+  "subclass_type": "Bloodline",
+  "choices": {
+    "Aberrant": {
+      "description": "Deine Magie stammt aus den unheimlichen, verzerrten Tiefen des Kosmos oder des Dunklen Tapetts.",
+      "tradition": "occult",
+      "features": [
+        {
+          "id": "bloodline_aberrant",
+          "name": "Aberrant Bloodline",
+          "tldr": "Verleiht okkulte Zauber, Tentakel-Fähigkeiten und Anpassungen an fremdartige Gedanken."
+        }
+      ]
+    },
+    "Angelic": {
+      "description": "Du trägst die himmlische Gnade oder das Erbe eines Engels in dir, was göttliche Heilkraft und Licht entfesselt.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "bloodline_angelic",
+          "name": "Angelic Bloodline",
+          "tldr": "Verleiht göttliche Zauber, himmlischen Schutz und die Macht des Lichts und der Heilung."
+        }
+      ]
+    },
+    "Demonic": {
+      "description": "Feurige, destruktive und korrumpierende Macht aus den Abgründen der Höllen oder des Abyss pulsiert in deinen Adern.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "bloodline_demonic",
+          "name": "Demonic Bloodline",
+          "tldr": "Verleiht göttliche Zauber, Zornesausbrüche und dämonische Widerstände."
+        }
+      ]
+    },
+    "Draconic": {
+      "description": "Du besitzt das stolze und mächtige Blut eines Drachen, das dir elementare Angriffe und schuppenartige Zähigkeit verleiht.",
+      "tradition": "arcane",
+      "features": [
+        {
+          "id": "bloodline_draconic",
+          "name": "Draconic Bloodline",
+          "tldr": "Verleiht arkane Zauber, Elementar-Atemwaffen und drachische Präsenz."
+        }
+      ]
+    },
+    "Imperial": {
+      "description": "Eine direkte Verbindung zu uralten Reichen, Magieherrschern oder purer arkaner Tradition formt deinen Geist.",
+      "tradition": "arcane",
+      "features": [
+        {
+          "id": "bloodline_imperial",
+          "name": "Imperial Bloodline",
+          "tldr": "Verleiht arkane Zauber und erweiterte arkane Flexibilität beim Wirken."
+        }
+      ]
+    }
+  }
+}

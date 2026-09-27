@@ -1,0 +1,28 @@
+{
+  "ancestry_name": "Human",
+  "sub_ancestry_type": "Variant",
+  "choices": {
+    "Standard Human": {
+      "description": "Well-rounded and broadly capable across all disciplines of life.",
+      "features": [
+        {
+          "id": "subrace_standard_human_boosts",
+          "name": "Broad Potential",
+          "type": "sub_ancestry_feature",
+          "tldr": "You receive a +1 bonus to all six ability scores."
+        }
+      ]
+    },
+    "Variant Human": {
+      "description": "Focused and specialized, gaining early mastery through a specific feat and customized skills.",
+      "features": [
+        {
+          "id": "subrace_variant_human_feat",
+          "name": "Skilled Pioneer",
+          "type": "sub_ancestry_feature",
+          "tldr": "You gain one feat of your choice, proficiency in one skill of your choice, and a +1 bonus to two different ability scores."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Anadi",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Jungle": {
+      "description": "Adapted deeply to the deep, tangled canopies of the Mwangi jungles.",
+      "features": [
+        {
+          "id": "heritage_anadi_jungle",
+          "name": "Jungle Anadi",
+          "tldr": "You gain a climb Speed equal to your land Speed and a bonus against venom."
+        }
+      ]
+    },
+    "Spore": {
+      "description": "Tuned to symbiotic fungus and deep-earth spores.",
+      "features": [
+        {
+          "id": "heritage_anadi_spore",
+          "name": "Spore Anadi",
+          "tldr": "You emit protective spores that grant resistance to poison and environmental decay."
+        }
+      ]
+    }
+  }
+}

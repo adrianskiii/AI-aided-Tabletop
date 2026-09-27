@@ -1,0 +1,178 @@
+{
+  "class_name": "Gunslinger",
+  "description": "Ein meisterhafter Schütze, der Feuerwaffen und Armbrüste mit tödlicher Präzision, Stil und waghalsigen Manövern einsetzt.",
+  "key_ability": ["dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["acrobatics", "stealth"],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "expert",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "firearms": "trained",
+      "crossbows": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "gunslinger_way", "name": "Gunslinger's Way", "type": "subclass_choice", "tldr": "Wähle deinen Schützen-Weg (Way), der deine Taktik und Nachlade-Tricks prägt."},
+        {"id": "deeds", "name": "Deeds", "type": "class_feature", "tldr": "Erhalte Zugriff auf kühne Taten (Deeds) für Fokus-Punkte und Spezialmanöver."},
+        {"id": "gunslinger_feat_1", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "gunslinger_feat_2", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "slinger_reload", "name": "Slinger's Reload Progression", "type": "class_feature", "tldr": "Vertiefe deine Nachlademanöver."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "gunslinger_feat_4", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "gun_slinger_weapon_expertise", "name": "Gunslinger Weapon Expertise", "type": "class_feature", "tldr": "Waffenfertigkeiten für Feuerwaffen und Armbrüste steigen auf Expertenstufe."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache zusätzlichen Schaden mit Waffen, bei denen du geübt bist."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "gunslinger_feat_6", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Meisterstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "gunslinger_feat_8", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "itorios_perseverance", "name": "Alertness / Defensive Evolution", "type": "defense", "tldr": "Erhöhte Abwehrwerte und Wahrnehmung."},
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Willenswürfe verbessern sich gegen mentale Effekte."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "gunslinger_feat_10", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Erhöhe den Bonusschaden mit deinen Kernwaffen deutlich."},
+        {"id": "slinger_mastery", "name": "Slinger's Mastery", "type": "class_feature", "tldr": "Klassen-DC und kritische Schützen-Effekte werden verbessert."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "gunslinger_feat_12", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_gunslinger", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Feuerwaffen- und Armbrustfertigkeiten steigen auf Meisterstufe auf."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "gunslinger_feat_14", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_juggernaut", "name": "Greater Juggernaut", "type": "defense", "tldr": "Zähigkeits-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "legendary_striker_gun", "name": "Legendary Striker", "type": "class_feature", "tldr": "Deine Treffsicherheit mit Feuerwaffen erreicht legendäres Niveau."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "gunslinger_feat_16", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "armor_mastery_gunslinger", "name": "Armor Mastery", "type": "defense", "tldr": "Leichte und mittelschwere Rüstungen erreichen Experten- bzw. Meisterstufe."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "gunslinger_feat_18", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "perfevt_strike_slinger", "name": "True Sniper / Slinger Peak", "type": "class_feature", "tldr": "Ultimative Fähigkeiten bei Fernkampfangriffen."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "gunslinger_feat_20", "name": "Gunslinger Feat", "type": "feat_slot", "tldr": "Erhalte ein Schützen-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

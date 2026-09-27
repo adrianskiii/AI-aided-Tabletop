@@ -1,0 +1,46 @@
+{
+  "class_name": "Fighter",
+  "subclass_type": "Fighting Style / Specialization",
+  "choices": {
+    "Two-Handed Weapon": {
+      "description": "Devastating brawler utilizing massive greatswords, mauls, or polearms to smash targets in single, powerful blows.",
+      "features": [
+        {
+          "id": "style_two_handed",
+          "name": "Two-Handed Weapon Style",
+          "tldr": "Synergizes with power attacks, forceful weapon traits, and sweeping cleaves."
+        }
+      ]
+    },
+    "Weapon and Shield": {
+      "description": "Defensive bastion combining active shield blocking with reliable striking options.",
+      "features": [
+        {
+          "id": "style_shield",
+          "name": "Weapon and Shield Style",
+          "tldr": "Enhances shield durability, reactive interpositions, and defensive retaliation."
+        }
+      ]
+    },
+    "Dual Wielding": {
+      "description": "Flurry master wielding two weapons simultaneously to overwhelm defenses with a torrent of steel.",
+      "features": [
+        {
+          "id": "style_dual_wield",
+          "name": "Dual Wielding Style",
+          "tldr": "Unlocks rapid twin strikes, paired weapon interactions, and coordinated multi-attacks."
+        }
+      ]
+    },
+    "Ranged": {
+      "description": "Sharpshooting marksman controlling distances with longbows, crossbows, or firearms.",
+      "features": [
+        {
+          "id": "style_ranged",
+          "name": "Ranged Style",
+          "tldr": "Grants specialized overwatch maneuvers, covering fire, and precision distance shots."
+        }
+      ]
+    }
+  }
+}

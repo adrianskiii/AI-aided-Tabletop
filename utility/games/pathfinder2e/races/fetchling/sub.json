@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Fetchling",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Twilight": {
+      "description": "Infused with the fading light between sun and absolute dark.",
+      "features": [
+        {
+          "id": "heritage_fetchling_twilight",
+          "name": "Twilight Fetchling",
+          "tldr": "You easily conceal yourself in dim light and shadows, gaining bonus stealth capabilities."
+        }
+      ]
+    },
+    "Gloom": {
+      "description": "Deeply acclimated to the pitch-black vaults of the dark realm.",
+      "features": [
+        {
+          "id": "heritage_fetchling_gloom",
+          "name": "Gloom Fetchling",
+          "tldr": "Your low-light vision upgrades into darkvision."
+        }
+      ]
+    }
+  }
+}

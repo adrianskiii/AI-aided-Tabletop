@@ -1,0 +1,82 @@
+{
+  "class_name": "Wizard",
+  "subclass_type": "Arcane Tradition",
+  "choices": {
+    "School of Evocation": {
+      "description": "Focuses on manipulating energy to create explosions of fire, crackling lightning, and brilliant force.",
+      "level_progression": {
+        "2": [
+          {
+            "id": "evocation_savant",
+            "name": "Evocation Savant",
+            "tldr": "The gold and time you must spend to copy an evocation spell into your spellbook is halved."
+          },
+          {
+            "id": "sculpt_spells",
+            "name": "Sculpt Spells",
+            "tldr": "Create pockets of safety in your evocation area-of-effect spells so your allies take no damage."
+          }
+        ],
+        "6": [
+          {
+            "id": "potent_cantrip",
+            "name": "Potent Cantrip",
+            "tldr": "Targets take half damage even if they succeed on their saving throw against your wizard cantrips."
+          }
+        ],
+        "10": [
+          {
+            "id": "empowered_evocation",
+            "name": "Empowered Evocation",
+            "tldr": "Add your Intelligence modifier to one damage roll of any wizard evocation spell you cast."
+          }
+        ],
+        "14": [
+          {
+            "id": "overchannel",
+            "name": "Overchannel",
+            "tldr": "Maximize the damage of a 1st- through 5th-level wizard spell at the cost of taking necrotic feedback damage."
+          }
+        ]
+      }
+    },
+    "School of Abjuration": {
+      "description": "Focuses on magical wards, protective barriers, and the negation of hostile spells.",
+      "level_progression": {
+        "2": [
+          {
+            "id": "abjuration_savant",
+            "name": "Abjuration Savant",
+            "tldr": "The gold and time you must spend to copy an abjuration spell into your spellbook is halved."
+          },
+          {
+            "id": "arcane_ward",
+            "name": "Arcane Ward",
+            "tldr": "Weave a magical ward around yourself that absorbs damage, recharging whenever you cast abjuration spells."
+          }
+        ],
+        "6": [
+          {
+            "id": "projected_ward",
+            "name": "Projected Ward",
+            "tldr": "Interpose your Arcane Ward to protect an ally within 30 feet from taking damage."
+          }
+        ],
+        "10": [
+          {
+            "id": "improved_abjuration",
+            "name": "Improved Abjuration",
+            "tldr": "Add your proficiency bonus to any ability check you make when casting Counterspell or Dispel Magic."
+          }
+        ],
+        "14": [
+          {
+            "id": "spell_resistance",
+            "name": "Spell Resistance",
+            "tldr": "Gain advantage on saving throws against spells, and resistance to damage dealt by spells."
+          }
+        ]
+      }
+    }
+  }
+}

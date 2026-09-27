@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Surki",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Iridescent": {
+      "description": "Covered in shimmering scales that refract light and confuse attackers.",
+      "features": [
+        {
+          "id": "heritage_surki_iridescent",
+          "name": "Iridescent Surki",
+          "tldr": "You can flash your shell to create a momentary distraction against foes."
+        }
+      ]
+    },
+    "Burrower": {
+      "description": "Equipped with strong claws and sensory antennae for underground excavation.",
+      "features": [
+        {
+          "id": "heritage_surki_burrower",
+          "name": "Burrower Surki",
+          "tldr": "You gain a burrow speed through loose earth and bonuses to touch perception."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Fleshwarp",
+  "rarity": "rare",
+  "description": "Fleshwarps are people whose forms were created or radically transformed by magic, alchemy, or unnatural energies.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "free"],
+  "flaws": [],
+  "languages": ["Common"],
+  "traits": ["Aberration", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "mutated_physiology",
+          "name": "Mutated Physiology",
+          "type": "ancestry_feature",
+          "tldr": "Your unnatural physical structure provides bizarre defensive resistance against standard ailments."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a fleshwarp heritage reflecting the nature of your transformation."
+        }
+      ]
+    }
+  }
+}

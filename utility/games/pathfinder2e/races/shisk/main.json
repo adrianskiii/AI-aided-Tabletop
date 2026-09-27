@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Shisk",
+  "rarity": "rare",
+  "description": "Shisks are secretive mountain-dwellers, bone-feathered humanoids who lurk underground in dark tunnels and caverns.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["intelligence", "free"],
+  "flaws": [],
+  "languages": ["Common", "Shisk"],
+  "traits": ["Humanoid", "Shisk"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "bone_spines",
+          "name": "Bone Feathers",
+          "type": "ancestry_feature",
+          "tldr": "Your body is covered in specialized keratinous spines that protect you from physical blows."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a shisk heritage representing your cavern culture or spine density."
+        }
+      ]
+    }
+  }
+}

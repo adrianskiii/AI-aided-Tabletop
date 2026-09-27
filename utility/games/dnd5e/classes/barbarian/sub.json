@@ -1,0 +1,77 @@
+{
+  "class_name": "Barbarian",
+  "subclass_type": "Primal Path",
+  "choices": {
+    "Path of the Berserker": {
+      "description": "A path of untamed fury, allowing you to enter a destructive frenzy.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "frenzy",
+            "name": "Frenzy",
+            "tldr": "You can fly into a frenzy when you rage, gaining additional attacks at the cost of exhaustion."
+          }
+        ],
+        "6": [
+          {
+            "id": "mindless_rage",
+            "name": "Mindless Rage",
+            "tldr": "You cannot be charmed or frightened while raging, and effects that caused them are suppressed."
+          }
+        ],
+        "10": [
+          {
+            "id": "retaliation",
+            "name": "Retaliation",
+            "tldr": "When you take damage from a creature within 5 feet, you can use your reaction to make a melee weapon attack against it."
+          }
+        ],
+        "14": [
+          {
+            "id": "intimidating_presence",
+            "name": "Intimidating Presence",
+            "tldr": "Use an action to terrify enemies with a terrifying presence, frightening foes within 30 feet."
+          }
+        ]
+      }
+    },
+    "Path of the Totem Warrior": {
+      "description": "A path incorporating animal totem spirits to guide your combat style.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "spirit_seeker",
+            "name": "Spirit Seeker",
+            "tldr": "You can cast Speak with Animals and Beast Sense ritualistically."
+          },
+          {
+            "id": "totem_spirit_3",
+            "name": "Totem Spirit",
+            "tldr": "Choose a totem animal (Bear for damage resistance, Eagle for tactical mobility, Wolf for pack combat tactics)."
+          }
+        ],
+        "6": [
+          {
+            "id": "aspect_of_the_beast",
+            "name": "Aspect of the Beast",
+            "tldr": "Gain a physical or sensory benefit inspired by your chosen animal (e.g., Bear endurance, Eagle sight, Wolf stealth)."
+          }
+        ],
+        "10": [
+          {
+            "id": "spirit_walker",
+            "name": "Spirit Walker",
+            "tldr": "You can cast the Commune with Nature spell as a ritual to learn about the surrounding land."
+          }
+        ],
+        "14": [
+          {
+            "id": "totemic_attunement",
+            "name": "Totemic Attunement",
+            "tldr": "Gain a powerful combat aura or disruptive combat capability based on your animal totem."
+          }
+        ]
+      }
+    }
+  }
+}

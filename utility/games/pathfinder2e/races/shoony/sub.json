@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Shoony",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Fisher": {
+      "description": "Raised along coastal tides with exceptional balancing skills.",
+      "features": [
+        {
+          "id": "heritage_shoony_fisher",
+          "name": "Fisher Shoony",
+          "tldr": "You gain bonuses to balance checks and resist being knocked down on slippery terrain."
+        }
+      ]
+    },
+    "Tinker": {
+      "description": "Gifted with manual dexterity and quick repair habits for tools.",
+      "features": [
+        {
+          "id": "heritage_shoony_tinker",
+          "name": "Tinker Shoony",
+          "tldr": "You gain trained proficiency in Crafting and bonuses when repairing gear."
+        }
+      ]
+    }
+  }
+}

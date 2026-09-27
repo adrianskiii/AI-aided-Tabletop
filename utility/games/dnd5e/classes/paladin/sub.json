@@ -1,0 +1,120 @@
+{
+  "class_name": "Paladin",
+  "subclass_type": "Sacred Oath",
+  "choices": {
+    "Oath of Devotion": {
+      "description": "The Oath of Devotion binds a paladin to the loftiest ideals of justice, virtue, and order.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "cd_sacred_weapon",
+            "name": "Channel Divinity: Sacred Weapon",
+            "tldr": "Imbue your weapon with positive energy to add your Charisma bonus to attack rolls and shed bright light."
+          },
+          {
+            "id": "cd_turn_the_unholy",
+            "name": "Channel Divinity: Turn the Unholy",
+            "tldr": "Utter a holy prayer to turn fiends and undead, forcing them to flee from you."
+          }
+        ],
+        "7": [
+          {
+            "id": "aura_of_devotion",
+            "name": "Aura of Devotion",
+            "tldr": "You and friendly creatures within range cannot be charmed while you are conscious."
+          }
+        ],
+        "15": [
+          {
+            "id": "purity_of_spirit",
+            "name": "Purity of Spirit",
+            "tldr": "You are permanently protected by a constant protection from evil and good spell effect."
+          }
+        ],
+        "20": [
+          {
+            "id": "holy_nimbus",
+            "name": "Holy Nimbus",
+            "tldr": "Emitting an aura of sunlight, you blind enemies, gain advantage on saves against spells, and deal radiant damage."
+          }
+        ]
+      }
+    },
+    "Oath of the Ancients": {
+      "description": "The Oath of the Ancients binds paladins to submerge themselves in the light and green music of the wilderness.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "cd_nature_wrath",
+            "name": "Channel Divinity: Nature's Wrath",
+            "tldr": "Invoke primeval forces to summon spectral vines that restrain a creature."
+          },
+          {
+            "id": "cd_turn_the_faithless",
+            "name": "Channel Divinity: Turn the Faithless",
+            "tldr": "Utter ancient words to turn fey and fiends away from your presence."
+          }
+        ],
+        "7": [
+          {
+            "id": "aura_of_warding",
+            "name": "Aura of Warding",
+            "tldr": "Ancient magic surrounds you, granting you and friendly creatures resistance to damage from spells."
+          }
+        ],
+        "15": [
+          {
+            "id": "undying_sentinel",
+            "name": "Undying Sentinel",
+            "tldr": "When you are reduced to 0 hit points, you can drop to 1 hit point instead once per long rest."
+          }
+        ],
+        "20": [
+          {
+            "id": "elder_champion",
+            "name": "Elder Champion",
+            "tldr": "Assume the form of an ancient force of nature to regenerate health, cast spells quickly, and impose disadvantage on enemies."
+          }
+        ]
+      }
+    },
+    "Oath of Vengeance": {
+      "description": "The Oath of Vengeance is a fierce, relentless commitment to punish those who have committed grievous sins.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "cd_abjure_enemy",
+            "name": "Channel Divinity: Abjure Enemy",
+            "tldr": "Frighten and freeze a target in place using your holy wrath and divine presence."
+          },
+          {
+            "id": "cd_vow_of_enmity",
+            "name": "Channel Divinity: Vow of Enmity",
+            "tldr": "Issue a supernatural vow of hostility against a creature to gain advantage on all attack rolls against it."
+          }
+        ],
+        "7": [
+          {
+            "id": "relentless_avenger",
+            "name": "Relentless Avenger",
+            "tldr": "Move half your speed without provoking opportunity attacks immediately after hitting a creature with an opportunity attack."
+          }
+        ],
+        "15": [
+          {
+            "id": "soul_of_vengeance",
+            "name": "Soul of Vengeance",
+            "tldr": "Make a reaction attack against any creature under the effect of your Vow of Enmity whenever it attacks."
+          }
+        ],
+        "20": [
+          {
+            "id": "avenging_angel",
+            "name": "Avenging Angel",
+            "tldr": "Transform into an avenging angel with flying wings, emitting an aura of awe or dread that frightens enemies."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Centaur",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Steppe": {
+      "description": "Raised roaming the sweeping, open plains.",
+      "features": [
+        {
+          "id": "heritage_centaur_steppe",
+          "name": "Steppe Centaur",
+          "tldr": "Your land speed increases further across wide, open fields."
+        }
+      ]
+    },
+    "Woodland": {
+      "description": "Adapted to weaving through dense forests and rugged brush.",
+      "features": [
+        {
+          "id": "heritage_centaur_woodland",
+          "name": "Woodland Centaur",
+          "tldr": "You navigate rough undergrowth and natural obstacles without slowing down."
+        }
+      ]
+    }
+  }
+}

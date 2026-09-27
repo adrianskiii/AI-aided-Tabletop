@@ -1,0 +1,220 @@
+{
+  "class_name": "Druid",
+  "description": "A priest of the Old Faith, wielding the powers of nature and adopting animal forms.",
+  "key_ability": ["wisdom"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "full_caster",
+    "ability": "wisdom"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["arcana", "animal_handling", "insight", "medicine", "nature", "perception", "religion", "survival"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "clubs": "trained",
+      "daggers": "trained",
+      "darts": "trained",
+      "javelins": "trained",
+      "maces": "trained",
+      "quarterstaffs": "trained",
+      "scimitars": "trained",
+      "sickles": "trained",
+      "slings": "trained",
+      "spears": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "druidic",
+          "name": "Druidic",
+          "type": "class_feature",
+          "tldr": "You know Druidic, the secret language of druids, and can use it to leave hidden messages."
+        },
+        {
+          "id": "spellcasting",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast divine nature spells using Wisdom as your spellcasting ability."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "wild_shape_2",
+          "name": "Wild Shape",
+          "type": "class_feature",
+          "tldr": "Magically assume the shape of a beast you have seen before twice per short rest."
+        },
+        {
+          "id": "druid_circle",
+          "name": "Druid Circle",
+          "type": "subclass_choice",
+          "tldr": "Choose a mystical circle that shapes your connection to nature and wild shaping."
+        }
+      ]
+    },
+    "3": {
+      "features": []
+    },
+    "4": {
+      "features": [
+        {
+          "id": "wild_shape_swim",
+          "name": "Wild Shape Improvement",
+          "type": "class_feature",
+          "tldr": "Your Wild Shape improves to allow swimming beasts."
+        },
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": []
+    },
+    "6": {
+      "features": [
+        {
+          "id": "circle_feature_6",
+          "name": "Druid Circle Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Druid Circle."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "wild_shape_fly",
+          "name": "Wild Shape Improvement",
+          "type": "class_feature",
+          "tldr": "Your Wild Shape improves to allow flying beasts."
+        },
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "circle_feature_10",
+          "name": "Druid Circle Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Druid Circle."
+        }
+      ]
+    },
+    "11": {
+      "features": []
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "circle_feature_14",
+          "name": "Druid Circle Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Druid Circle."
+        }
+      ]
+    },
+    "15": {
+      "features": []
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "timeless_body",
+          "name": "Timeless Body",
+          "type": "class_feature",
+          "tldr": "The magic of nature grants you slow aging, so you suffer none of the frailty of old age."
+        },
+        {
+          "id": "beast_spells",
+          "name": "Beast Spells",
+          "type": "class_feature",
+          "tldr": "You can cast many of your druid spells while in your wild shape animal form."
+        }
+      ]
+    },
+    "19": {
+        "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "archdruid",
+          "name": "Archdruid",
+          "type": "class_feature",
+          "tldr": "You can use your Wild Shape an unlimited number of times, and can use verbal/somatic components without material limits."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Druid Circle",
+    "level": 2
+  }
+}

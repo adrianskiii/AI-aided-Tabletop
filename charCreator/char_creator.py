@@ -175,53 +175,275 @@ def load_json_file(filename):
         print(f"Error reading {filepath}: {exc}")
         return {}
 
+
+def _slugify(name: str) -> str:
+    return (
+        str(name)
+        .strip()
+        .lower()
+        .replace(" ", "_")
+        .replace("'", "")
+    )
+
+
+def _load_json_at(path: Path) -> dict:
+    """Load an arbitrary JSON file, returning {} on any failure."""
+
+    if not path.is_file():
+        return {}
+
+    try:
+        with path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"Warning: could not read {path}: {exc}")
+        return {}
+
+    return data if isinstance(data, dict) else {}
+
+
+def _merge_choice_features(
+    primary: dict,
+    secondary: dict,
+) -> dict:
+    """
+    Merge two `choices` maps (subclass/heritage options), keyed by
+    option name. Features from both sources are combined and
+    de-duplicated by id/name so that a `sub.json` companion file can
+    add to, without clobbering, what's already in the main file.
+    """
+
+    primary = _as_dict(primary)
+    secondary = _as_dict(secondary)
+
+    out = {}
+
+    for key in list(primary.keys()) + [
+        k for k in secondary.keys() if k not in primary
+    ]:
+        a = _as_dict(primary.get(key))
+        b = _as_dict(secondary.get(key))
+
+        features = []
+        seen = set()
+
+        for feat in _as_list(a.get("features")) + _as_list(b.get("features")):
+            if not isinstance(feat, dict):
+                continue
+
+            fid = feat.get("id") or feat.get("name")
+
+            if not fid or fid in seen:
+                continue
+
+            seen.add(fid)
+            features.append(feat)
+
+        out[key] = {
+            **b,
+            **a,
+            "description": a.get("description") or b.get("description") or "",
+            "features": features,
+        }
+
+    return out
+
+
+def _load_class_folder(dirpath: Path) -> dict | None:
+    """
+    Load one class from `classes/<slug>/class.json` (+ optional
+    `sub.json` with additional research-field/subclass detail).
+    """
+
+    class_data = _load_json_at(dirpath / "class.json")
+
+    if not class_data:
+        return None
+
+    sub_data = _load_json_at(dirpath / "sub.json")
+
+    subclass_block = _as_dict(class_data.get("subclass_data"))
+    merged_choices = _merge_choice_features(
+        subclass_block.get("choices"),
+        sub_data.get("choices"),
+    )
+
+    if merged_choices:
+        subclass_block = {
+            "label": subclass_block.get("label")
+                or sub_data.get("subclass_type")
+                or "Subclass",
+            "level": subclass_block.get("level", 1),
+            "choices": merged_choices,
+        }
+        class_data["subclass_data"] = subclass_block
+
+    class_data.setdefault(
+        "id",
+        _slugify(class_data.get("class_name", dirpath.name)),
+    )
+    class_data.setdefault(
+        "name",
+        class_data.get("class_name", dirpath.name.replace("_", " ").title()),
+    )
+    class_data.setdefault("folder", dirpath.name)
+
+    return class_data
+
+
+def _load_race_folder(dirpath: Path) -> tuple[dict, dict] | None:
+    """
+    Load one ancestry/race from `races/<slug>/main.json` (+ optional
+    `sub.json` with heritage/sub-ancestry choices).
+
+    Returns (ancestry_dict, heritage_choices_dict) or None.
+    """
+
+    main_data = _load_json_at(dirpath / "main.json")
+
+    if not main_data:
+        return None
+
+    sub_data = _load_json_at(dirpath / "sub.json")
+
+    heritage_choices = _merge_choice_features(
+        sub_data.get("choices"),
+        {},
+    )
+
+    main_data.setdefault(
+        "id",
+        _slugify(main_data.get("ancestry_name", dirpath.name)),
+    )
+    main_data.setdefault(
+        "name",
+        main_data.get("ancestry_name", dirpath.name.replace("_", " ").title()),
+    )
+    main_data.setdefault("folder", dirpath.name)
+    main_data["heritage_label"] = (
+        sub_data.get("sub_ancestry_type") or "Heritage"
+    )
+
+    return main_data, heritage_choices
+
+
+def _load_classes_and_races_from_folders(system_dir: Path) -> dict:
+    """
+    Scan `<system_dir>/classes/*/` and `<system_dir>/races/*/` for
+    per-class and per-race folders (each `class.json`/`main.json` plus
+    an optional `sub.json`) and assemble a stable data shape:
+
+        {class_data, subclass_data, ancestry_data, heritage_data}
+
+    This works for any game system laid out with that same 1:1
+    folder convention — not just Pathfinder 2e.
+    """
+
+    class_data = {}
+    subclass_data = {}
+
+    classes_dir = system_dir / "classes"
+
+    if classes_dir.is_dir():
+        for entry in sorted(classes_dir.iterdir()):
+
+            if not entry.is_dir():
+                continue
+
+            loaded = _load_class_folder(entry)
+
+            if not loaded:
+                continue
+
+            name = (
+                loaded.get("class_name")
+                or loaded.get("name")
+                or entry.name.replace("_", " ").title()
+            )
+
+            class_data[name] = loaded
+
+            subclass_block = _as_dict(loaded.get("subclass_data"))
+
+            if subclass_block.get("choices"):
+                subclass_data[name] = subclass_block
+
+    ancestry_data = {}
+    heritage_data = {}
+
+    races_dir = system_dir / "races"
+
+    if races_dir.is_dir():
+        for entry in sorted(races_dir.iterdir()):
+
+            if not entry.is_dir():
+                continue
+
+            loaded = _load_race_folder(entry)
+
+            if not loaded:
+                continue
+
+            data, heritage_choices = loaded
+
+            name = (
+                data.get("ancestry_name")
+                or data.get("race_name")
+                or data.get("name")
+                or entry.name.replace("_", " ").title()
+            )
+
+            ancestry_data[name] = data
+
+            if heritage_choices:
+                heritage_data[name] = heritage_choices
+
+    return {
+        "class_data": class_data,
+        "subclass_data": subclass_data,
+        "ancestry_data": ancestry_data,
+        "heritage_data": heritage_data,
+    }
+
+
 def build_pf2e_payload():
     """Build the PF2e rules payload from the local Pathfinder data files."""
 
-    ancestries_classes = load_json_file(
-        "pf2e_ancestries_classes.json"
-    )
+    folder_data = _load_classes_and_races_from_folders(PF2E_DIR)
+
+    class_data = folder_data["class_data"]
+    subclass_data = folder_data["subclass_data"]
+    ancestry_data = folder_data["ancestry_data"]
+    heritage_data = folder_data["heritage_data"]
+
+    backgrounds = {}
+    progression = {}
+
+    # Fall back to a legacy monolithic file if no class/race folders
+    # were found at all (keeps older setups working).
+    if not class_data and not ancestry_data:
+        ancestries_classes = load_json_file(
+            "pf2e_ancestries_classes.json"
+        )
+
+        ancestry_data = ancestries_classes.get("ancestry_data", {})
+        heritage_data = ancestries_classes.get("heritage_data", {})
+        class_data = ancestries_classes.get("class_data", {})
+        subclass_data = ancestries_classes.get("subclass_data", {})
+        backgrounds = ancestries_classes.get("backgrounds", {})
+        progression = ancestries_classes.get("progression", {})
 
     core_mechanics = load_json_file(
         "pf2e_core_mechanics.json"
     )
 
-    skills_actions = load_json_file(
-        "pf2e_skills_actions.json"
+    skills_actions = (
+        load_json_file("pf2e_skills_actions.json")
+        or load_json_file("pf2e_skill_action_spell_connections.json")
     )
 
     spellcasting = load_json_file(
         "pf2e_spellcasting_system.json"
-    )
-
-    ancestry_data = ancestries_classes.get(
-        "ancestry_data",
-        {}
-    )
-
-    heritage_data = ancestries_classes.get(
-        "heritage_data",
-        {}
-    )
-
-    class_data = ancestries_classes.get(
-        "class_data",
-        {}
-    )
-
-    subclass_data = ancestries_classes.get(
-        "subclass_data",
-        {}
-    )
-
-    backgrounds = ancestries_classes.get(
-        "backgrounds",
-        {}
-    )
-
-    progression = ancestries_classes.get(
-        "progression",
-        {}
     )
 
     races = []
@@ -1464,43 +1686,21 @@ def _augment_class_choices(
     system: str,
     level: int = 1,
 ) -> dict:
-    """
-    Attach generic class choices to the rules payload.
-
-    No special subclass filtering happens here.
-
-    Every choice whose declared level is <= the requested character level
-    is returned.
-    """
-
-    game = local_games().get(
-        system
-    ) or {}
-
+    game = local_games().get(system) or {}
+    
+    # Use rules class_data (which includes folder/live data) if available
     class_data = (
-        game.get("class_data")
+        rules.get("class_data")
+        or game.get("class_data")
         or {}
     )
 
-    for cls in rules.get(
-        "classes",
-        [],
-    ):
-
-        if not isinstance(
-            cls,
-            dict,
-        ):
+    for cls in rules.get("classes", []):
+        if not isinstance(cls, dict):
             continue
 
-        class_name = cls.get(
-            "name",
-            "",
-        )
-
-        profile = class_data.get(
-            class_name
-        )
+        class_name = cls.get("name", "")
+        profile = class_data.get(class_name)
 
         _merge_class_profile(
             cls,
@@ -1680,34 +1880,18 @@ def _modify(
     ) // 2
 
 
-def derive(
-    sheet: dict,
-) -> dict:
-    """
-    Recompute derived fields.
+def derive(sheet: dict) -> dict:
+    ab = sheet.get("abilities", {})
 
-    Only standard six-ability fantasy systems get D&D-style modifiers.
-    """
-
-    ab = sheet.get(
-        "abilities",
-        {},
-    )
-
-    if set(STD_ABILITIES).issubset(
-        set(ab)
-    ):
-
-        sheet["abilities"][
-            "modifiers"
-        ] = {
+    if set(STD_ABILITIES).issubset(set(ab)):
+        sheet["abilities"]["modifiers"] = {
             k: _modify(ab[k])
             for k in STD_ABILITIES
-            if isinstance(
-                ab.get(k),
-                (int, float),
-            )
+            if isinstance(ab.get(k), (int, float))
         }
+
+    # Automatically apply subclass & choice features to the build menu
+    sheet = _derive_build(sheet)
 
     return sheet
 
@@ -2112,6 +2296,285 @@ _RULE_KEYS = (
     "alignments",
 )
 
+def _find_by_slug(mapping: dict, slug) -> tuple[str | None, dict | None]:
+    """
+    Look up an entry in a `{name: data}` mapping (ancestry_data,
+    class_data, heritage choices, subclass choices, ...) by a slug that
+    may not match the display name exactly — e.g. choices.class =
+    "wizard" needs to find the "Wizard" key.
+
+    Matches against the mapping key itself, or against the entry's own
+    "id"/"name" fields, all compared as slugs so spacing/case/apostrophes
+    don't matter.
+    """
+
+    if not slug:
+        return None, None
+
+    for name, data in _as_dict(mapping).items():
+        data = _as_dict(data)
+
+        if (
+            _slugify(name) == _slugify(slug)
+            or _slugify(data.get("id", "")) == _slugify(slug)
+            or _slugify(data.get("name", "")) == _slugify(slug)
+        ):
+            return name, data
+
+    return None, None
+
+
+def _append_unique(items: list, entry, key_fields=("id", "name")) -> None:
+    """Append `entry` to `items` unless something with the same
+    key_fields (e.g. same id/name, or same name/source) is already
+    present. Keeps repeated saves/level-ups idempotent instead of
+    piling up duplicate features every time the sheet is re-derived."""
+
+    if isinstance(entry, str):
+        entry = {"name": entry}
+
+    if not isinstance(entry, dict):
+        return
+
+    entry_key = tuple(entry.get(k) for k in key_fields)
+
+    for existing in items:
+        if not isinstance(existing, dict):
+            continue
+
+        if tuple(existing.get(k) for k in key_fields) == entry_key:
+            return
+
+    items.append(entry)
+
+
+def _features_up_to_level(level_progression, level: int) -> dict:
+    """{level_str: [features]} for every level from 1 up to `level`."""
+
+    out = {}
+
+    for lvl_str, block in _as_dict(level_progression).items():
+        lvl = _safe_int(lvl_str, None)
+
+        if lvl is None or lvl > level:
+            continue
+
+        feats = _as_list(_as_dict(block).get("features"))
+
+        if feats:
+            out[str(lvl)] = feats
+
+    return out
+
+
+_PROF_LABEL_OVERRIDES = {"class_dc": "Class DC"}
+
+
+def _proficiency_entries(core_profs, source: str) -> list:
+    """Flatten a class.json `core_proficiencies` block (saves,
+    perception, class DC, and nested weapons/armor categories) into a
+    flat list of {name, rank, category, source} entries."""
+
+    entries = []
+
+    for key, value in _as_dict(core_profs).items():
+        if isinstance(value, str):
+            name = _PROF_LABEL_OVERRIDES.get(key, key.replace("_", " ").title())
+
+            entries.append({
+                "name": name,
+                "rank": value,
+                "category": "core",
+                "source": source,
+            })
+
+        elif isinstance(value, dict):
+            # e.g. "weapons": {"simple": "trained", "martial": "trained", ...}
+            for sub_key, sub_rank in value.items():
+                if not isinstance(sub_rank, str):
+                    continue
+
+                entries.append({
+                    "name": f"{sub_key.replace('_', ' ').title()} {key.replace('_', ' ').title()}",
+                    "rank": sub_rank,
+                    "category": key,
+                    "source": source,
+                })
+
+    return entries
+
+
+def _apply_class_to_build(build: dict, class_name: str, class_data: dict, level: int, source_label: str) -> None:
+    """Flatten one class's core proficiencies, mandatory skills and
+    level-1..level features into `build`. Used for both the primary
+    class and any multiclass archetypes."""
+
+    for entry in _proficiency_entries(class_data.get("core_proficiencies"), source_label):
+        _append_unique(build["proficiencies"], entry, key_fields=("name", "source"))
+
+    for skill in _as_list(_as_dict(class_data.get("skills")).get("mandatory")):
+        _append_unique(build["proficiencies"], {
+            "name": str(skill).replace("_", " ").title(),
+            "rank": "trained",
+            "category": "skill",
+            "source": source_label,
+        }, key_fields=("name", "source"))
+
+    class_feats = build.setdefault("class_features_by_level", {})
+
+    for lvl_str, feats in _features_up_to_level(class_data.get("level_progression"), level).items():
+        level_list = class_feats.setdefault(lvl_str, [])
+
+        for feat in feats:
+            tagged = {**feat, "source": source_label} if isinstance(feat, dict) else {"name": str(feat), "source": source_label}
+            _append_unique(level_list, tagged, key_fields=("id", "name"))
+
+
+def _apply_subclass_to_build(build: dict, class_name: str, class_data: dict, subclass_slug, level: int) -> None:
+    subclass_block = _as_dict(class_data.get("subclass_data"))
+    options = _as_dict(subclass_block.get("choices"))
+
+    opt_name, opt_val = _find_by_slug(options, subclass_slug)
+
+    if not opt_val:
+        return
+
+    lvl = str(opt_val.get("level", subclass_block.get("level", 1)))
+    source_label = f"{class_name} — {opt_name}"
+
+    class_feats = build.setdefault("class_features_by_level", {})
+    level_list = class_feats.setdefault(lvl, [])
+
+    for feat in _as_list(opt_val.get("features")):
+        tagged = {**feat, "source": source_label} if isinstance(feat, dict) else {"name": str(feat), "source": source_label}
+        _append_unique(level_list, tagged, key_fields=("id", "name"))
+
+    for prof in _as_list(opt_val.get("proficiencies")):
+        tagged = {**prof, "source": source_label} if isinstance(prof, dict) else {"name": str(prof), "source": source_label}
+        _append_unique(build["proficiencies"], tagged, key_fields=("name", "source"))
+
+
+def _apply_ancestry_to_build(build: dict, ancestry_name: str, ancestry_data: dict, level: int) -> None:
+    for trait in _as_list(ancestry_data.get("traits")):
+        tagged = {**trait, "source": ancestry_name} if isinstance(trait, dict) else {"name": str(trait), "source": ancestry_name}
+        _append_unique(build["race_traits"], tagged, key_fields=("name", "source"))
+
+    for lvl_str, feats in _features_up_to_level(ancestry_data.get("level_progression"), level).items():
+        for feat in feats:
+            tagged = {**feat, "source": ancestry_name} if isinstance(feat, dict) else {"name": str(feat), "source": ancestry_name}
+            _append_unique(build["race_traits"], tagged, key_fields=("id", "name"))
+
+    for skill in _as_list(ancestry_data.get("skill_proficiencies")):
+        tagged = {**skill, "source": ancestry_name} if isinstance(skill, dict) else {"name": str(skill), "rank": "trained", "source": ancestry_name}
+        _append_unique(build["race_skills"], tagged, key_fields=("name", "source"))
+
+
+def _apply_heritage_to_build(build: dict, ancestry_name: str, heritage_name: str, heritage_block: dict) -> None:
+    source_label = f"{ancestry_name} — {heritage_name}"
+
+    for feat in _as_list(heritage_block.get("features")):
+        tagged = {**feat, "source": source_label} if isinstance(feat, dict) else {"name": str(feat), "source": source_label}
+        _append_unique(build["race_traits"], tagged, key_fields=("id", "name"))
+
+
+def _derive_build(sheet: dict) -> dict:
+    """
+    Flatten the sheet's ancestry/heritage/class/subclass (and any
+    multiclass archetypes) choices into `build`, so the player sheet
+    always shows the full set of proficiencies, race traits/skills and
+    class features a character is entitled to at their current level —
+    without the player having to hand-pick things like "trained in
+    Perception" that come free with the class.
+
+    This is additive and idempotent: it never removes or overwrites
+    entries the player chose directly (spells, cantrips, bonus skill
+    proficiencies picked in the webui) — it only fills in what the
+    rules say the character already has, skipping anything that's
+    already present (matched by id/name/source) so repeated saves and
+    level-ups don't pile up duplicates.
+    """
+
+    system = sheet.get("system")
+
+    if not system:
+        return sheet
+
+    level = _safe_int(sheet.get("identity", {}).get("level"), 1)
+    rules = rules_payload(system, level)
+    choices = sheet.get("choices", {})
+
+    build = sheet.setdefault("build", {})
+    for key in ("race_traits", "race_skills", "proficiencies", "spells", "cantrips"):
+        build.setdefault(key, [])
+    build.setdefault("class_features_by_level", {})
+
+    # -- Ancestry & heritage ------------------------------------------------ #
+    ancestry_slug = choices.get("ancestry") or choices.get("race")
+    ancestry_name, ancestry_data = _find_by_slug(rules.get("ancestry_data", {}), ancestry_slug)
+
+    if ancestry_data:
+        _apply_ancestry_to_build(build, ancestry_name, ancestry_data, level)
+
+        heritage_slug = choices.get("heritage") or choices.get("subrace")
+        heritage_map = _as_dict(rules.get("heritage_data", {})).get(ancestry_name, {})
+        heritage_name, heritage_block = _find_by_slug(heritage_map, heritage_slug)
+
+        if heritage_block:
+            _apply_heritage_to_build(build, ancestry_name, heritage_name, heritage_block)
+
+    # -- Primary class & subclass -------------------------------------------- #
+    class_slug = choices.get("class")
+    class_name, class_data = _find_by_slug(rules.get("class_data", {}), class_slug)
+
+    if class_data:
+        _apply_class_to_build(build, class_name, class_data, level, class_name)
+        _apply_subclass_to_build(build, class_name, class_data, choices.get("subclass"), level)
+
+    # -- Multiclassing -------------------------------------------------------- #
+    #
+    # choices.classes is a list of extra classes taken alongside the
+    # primary one, e.g.:
+    #
+    #   "classes": [{"class": "fighter", "level": 3}]
+    #
+    # Each is resolved and flattened the same way as the primary class,
+    # tagged so the player sheet can tell which class granted what, and
+    # capped to the character's current level so a multiclass dip taken
+    # "at level 3" doesn't grant its features before the character gets
+    # there.
+    for extra in _as_list(choices.get("classes")):
+        extra = _as_dict(extra)
+        extra_slug = extra.get("class") or extra.get("id") or extra.get("name")
+        extra_name, extra_data = _find_by_slug(rules.get("class_data", {}), extra_slug)
+
+        if not extra_data:
+            continue
+
+        extra_level = min(_safe_int(extra.get("level"), 1), level)
+        source_label = f"{extra_name} (multiclass)"
+
+        _apply_class_to_build(build, extra_name, extra_data, extra_level, source_label)
+        _apply_subclass_to_build(build, extra_name, extra_data, extra.get("subclass"), extra_level)
+
+    # -- Normalize spells/cantrips -------------------------------------------- #
+    #
+    # Safety net: if a client ever sends everything through `spells`
+    # without separating out level-0 cantrips (older webui payloads did
+    # this), split them out here so the sheet — and the player view —
+    # show cantrips and spells in the right place.
+    spells = build.get("spells", [])
+    still_spells, moved_cantrips = [], []
+
+    for spell in spells:
+        lvl = spell.get("level") if isinstance(spell, dict) else None
+        (moved_cantrips if lvl == 0 else still_spells).append(spell)
+
+    if moved_cantrips:
+        build["spells"] = still_spells
+        for cantrip in moved_cantrips:
+            _append_unique(build["cantrips"], cantrip, key_fields=("id", "name"))
+
+    return sheet
 
 def _empty_rules() -> dict:
     return {
@@ -2641,6 +3104,58 @@ def rules_payload(
             base["source"] = (
                 "local-profile"
             )
+
+    # Pick up any per-class / per-race folders for this system, laid
+    # out the same way as Pathfinder's (classes/<slug>/class.json +
+    # sub.json, races/<slug>/main.json + sub.json). Folder-authored
+    # data takes priority over remote/local duplicates of the same
+    # name.
+    folder_data = _load_classes_and_races_from_folders(
+        GAME_DIR / system
+    )
+
+    if folder_data["class_data"] or folder_data["ancestry_data"]:
+
+        folder_races = [
+            {"id": _slugify(name), "name": name, **data}
+            for name, data in folder_data["ancestry_data"].items()
+        ]
+
+        folder_classes = [
+            {"id": _slugify(name), "name": name, **data}
+            for name, data in folder_data["class_data"].items()
+        ]
+
+        base["races"] = folder_races + _as_list(base.get("races"))
+        base["classes"] = folder_classes + _as_list(base.get("classes"))
+
+        base.setdefault("heritages", {})
+        base.setdefault("subclasses", {})
+        base.setdefault("ancestry_data", {})
+        base.setdefault("heritage_data", {})
+        base.setdefault("class_data", {})
+        base.setdefault("subclass_data", {})
+
+        for name, choices in folder_data["heritage_data"].items():
+            base["heritage_data"][name] = choices
+            base["heritages"][name] = [
+                {"id": _slugify(cname), "name": cname, **_as_dict(cdata)}
+                for cname, cdata in choices.items()
+            ]
+
+        for name, block in folder_data["subclass_data"].items():
+            base["subclass_data"][name] = block
+            base["subclasses"][name] = [
+                {"id": _slugify(cname), "name": cname, **_as_dict(cdata)}
+                for cname, cdata in _as_dict(block.get("choices")).items()
+            ]
+
+        base["ancestry_data"].update(folder_data["ancestry_data"])
+        base["class_data"].update(folder_data["class_data"])
+
+        base["source"] = (
+            str(base.get("source", "local-profile")) + "+folders"
+        )
 
     # Deduplicate live/local rule entries.
     base["races"] = _dedup_by_name(

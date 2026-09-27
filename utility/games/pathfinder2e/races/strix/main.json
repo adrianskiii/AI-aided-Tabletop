@@ -1,0 +1,35 @@
+{
+  "ancestry_name": "Strix",
+  "rarity": "uncommon",
+  "description": "Strix are winged, avian humanoids with dark feathers who fiercely protect their mountain homes and sky territories.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "fly_speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Strix"],
+  "additional_languages": ["Auran", "Giant", "Gnome", "Goblin", "Varisian"],
+  "traits": ["Humanoid", "Strix"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "strix_flight",
+          "name": "Winged Flight",
+          "type": "ancestry_feature",
+          "tldr": "Your large feathered wings grant you natural flight capabilities in open spaces."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a strix heritage representing your roost culture or wing adaptations."
+        }
+      ]
+    }
+  }
+}

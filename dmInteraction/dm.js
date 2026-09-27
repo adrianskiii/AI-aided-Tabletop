@@ -23,7 +23,65 @@ async function api(path, opts = {}) {
 }
 
 async function boot() {
-  await Promise.all([loadCharacterList(), loadActivity(), loadTrades()]);
+  await Promise.all([loadCharacterList(), loadActivity(), loadTrades(), loadDmInbox(), loadRequests()]);
+}
+
+async function loadRequests() {
+  const items = await api("/api/requests?status=pending").catch(() => []);
+  $("requestList").innerHTML =
+    items.map((r) => {
+      const costStr = (r.costs || []).map((c) =>
+        c.kind === "resource" ? `${c.amount}x ${c.label || c.key}` : `${c.qty}x ${c.name}`
+      ).join(", ") || "nothing";
+      const target = r.target_name ? ` → <b>${r.target_name}</b>` : "";
+      return `<div class="trade-card" data-id="${r.id}">
+        <div class="status pending">${r.type.replace("_", " ")}</div>
+        <div><b>${r.character_name}</b>${target}: ${r.description}</div>
+        <div class="muted">costs: ${costStr}</div>
+        <div class="row">
+          <input class="reqNote" data-id="${r.id}" placeholder="note / reason (optional)" style="flex:1; min-width:140px;">
+          <button data-id="${r.id}" class="primary reqApprove">Approve</button>
+          <button data-id="${r.id}" class="danger reqDeny">Deny</button>
+        </div>
+      </div>`;
+    }).join("") || `<div class="empty">nothing pending</div>`;
+
+  $("requestList").querySelectorAll(".reqApprove").forEach((btn) =>
+    btn.addEventListener("click", async () => {
+      const noteEl = document.querySelector(`.reqNote[data-id="${btn.dataset.id}"]`);
+      const note = noteEl ? noteEl.value.trim() : "";
+      await api(`/api/requests/${btn.dataset.id}/approve`, { method: "POST", body: JSON.stringify({ note }) });
+      toast("Request approved");
+      await loadRequests();
+      if (selected) await refreshSelected();
+    })
+  );
+  $("requestList").querySelectorAll(".reqDeny").forEach((btn) =>
+    btn.addEventListener("click", async () => {
+      const noteEl = document.querySelector(`.reqNote[data-id="${btn.dataset.id}"]`);
+      const reason = noteEl ? noteEl.value.trim() : "";
+      await api(`/api/requests/${btn.dataset.id}/deny`, { method: "POST", body: JSON.stringify({ reason }) });
+      toast("Request denied");
+      await loadRequests();
+      if (selected) await refreshSelected();
+    })
+  );
+}
+
+async function loadDmInbox() {
+  const items = await api("/api/dm/inbox").catch(() => []);
+  $("dmInbox").innerHTML =
+    items.map((m) => `<div class="feed-entry ${m.read ? "" : ""}" data-id="${m.id}">
+      <span class="who">${m.from_name}</span> — ${m.text}
+      ${m.read ? "" : '<button class="markRead" data-id="' + m.id + '" style="margin-left:6px;">mark read</button>'}
+    </div>`).join("") || `<div class="empty">no messages</div>`;
+
+  $("dmInbox").querySelectorAll(".markRead").forEach((btn) =>
+    btn.addEventListener("click", async () => {
+      await api(`/api/dm/inbox/${btn.dataset.id}/read`, { method: "POST" });
+      await loadDmInbox();
+    })
+  );
 }
 
 async function loadCharacterList() {
@@ -73,11 +131,30 @@ function renderDetail() {
   $("hpMax").textContent = hp.max ?? "—";
 
   $("xpVal").textContent = progression?.xp ?? 0;
+  $("levelVal").textContent = identity?.level ?? 1;
+  $("levelUpStatus").textContent = state.level_up_available ? "Level up available — waiting on player" : "";
 
   renderBuffs(state.buffs);
   renderResources(state.resources);
   renderInventory(inventory);
   renderLog(state.action_log);
+  renderActionEconomy(state.action_economy);
+}
+
+function renderActionEconomy(econ) {
+  const entries = Object.entries(econ || {});
+  $("actionEconList").innerHTML =
+    entries.map(([key, p]) => `<div class="row" style="justify-content:space-between;">
+      <span>${p.label || key} <span class="muted">(${p.current}/${p.max})</span></span>
+      <button data-key="${key}" class="actRemove danger">✕</button>
+    </div>`).join("") || `<div class="empty">none set</div>`;
+
+  $("actionEconList").querySelectorAll(".actRemove").forEach((btn) =>
+    btn.addEventListener("click", async () => {
+      await api(`/api/characters/${selected.id}/action-economy/${btn.dataset.key}`, { method: "DELETE" });
+      await refreshSelected();
+    })
+  );
 }
 
 function renderBuffs(buffs) {
@@ -231,6 +308,35 @@ function wireControls() {
     await refreshSelected();
   };
 
+  $("levelUpUnlock").onclick = async () => {
+    await api(`/api/characters/${selected.id}/level-up/unlock`, { method: "POST" });
+    toast("Level up unlocked");
+    await refreshSelected();
+  };
+
+  $("actionEconReset").onclick = async () => {
+    await api(`/api/characters/${selected.id}/action-economy/reset`, { method: "POST" });
+    await refreshSelected();
+  };
+
+  $("actAdd").onclick = async () => {
+    const key = $("actKey").value.trim();
+    const max = parseInt($("actMax").value || "0", 10);
+    if (!key || !max) return;
+    await api(`/api/characters/${selected.id}/action-economy`, {
+      method: "POST",
+      body: JSON.stringify({ key, max, label: $("actLabel").value.trim() || key }),
+    });
+    $("actKey").value = ""; $("actMax").value = ""; $("actLabel").value = "";
+    await refreshSelected();
+  };
+
+  $("newRound").onclick = async () => {
+    await api("/api/action-economy/reset-all", { method: "POST" });
+    toast("New round — all actions refreshed");
+    if (selected) await refreshSelected();
+  };
+
   $("resAdd").onclick = async () => {
     const key = $("resKey").value.trim();
     const max = parseInt($("resMax").value || "0", 10);
@@ -244,3 +350,5 @@ function wireControls() {
 wireControls();
 boot();
 setInterval(loadActivity, 8000); // light polling so the DM sees player actions show up
+setInterval(loadDmInbox, 8000);
+setInterval(loadRequests, 6000);

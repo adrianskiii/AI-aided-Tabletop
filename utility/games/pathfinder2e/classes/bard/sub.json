@@ -1,0 +1,46 @@
+{
+  "class_name": "Bard",
+  "subclass_type": "Muse",
+  "choices": {
+    "Enigma": {
+      "description": "Seeker of deep lore, secrets, and answers to the universe's greatest mysteries.",
+      "features": [
+        {
+          "id": "muse_enigma",
+          "name": "Enigma Muse",
+          "tldr": "Gain extra trained skills, lore training scaling, and the 'True Strike' or 'Known Weakness' style advantages."
+        }
+      ]
+    },
+    "Maestro": {
+      "description": "Master of performance longevity, resonant echoes, and powerful composition scaling.",
+      "features": [
+        {
+          "id": "muse_maestro",
+          "name": "Maestro Muse",
+          "tldr": "Extend the duration of your composition spells and gain access to inspiring crescendo effects."
+        }
+      ]
+    },
+    "Polymath": {
+      "description": "Jack-of-all-trades versatile scholar who blends arcane flexibility with performance.",
+      "features": [
+        {
+          "id": "muse_polymath",
+          "name": "Polymath Muse",
+          "tldr": "Use Performance checks in place of diplomacy and cast spells from magical items or diverse repertoires easier."
+        }
+      ]
+    },
+    "Warrior": {
+      "description": "Combative skald blending martial weapons with inspiring battle anthems.",
+      "features": [
+        {
+          "id": "muse_warrior",
+          "name": "Warrior Muse",
+          "tldr": "Gain martial weapon proficiency, medium armor training, and fierce martial composition feats."
+        }
+      ]
+    }
+  }
+}

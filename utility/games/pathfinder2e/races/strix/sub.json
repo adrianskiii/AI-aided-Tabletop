@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Strix",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Nocturnal": {
+      "description": "Adapted to soaring through pitch-black night skies and hunting in deep shadows.",
+      "features": [
+        {
+          "id": "heritage_strix_nocturnal",
+          "name": "Nocturnal Strix",
+          "tldr": "Your low-light vision upgrades to darkvision, allowing clear sight in absolute darkness."
+        }
+      ]
+    },
+    "Gale": {
+      "description": "Built with lightweight bones and powerful flight muscles designed for high-altitude gales.",
+      "features": [
+        {
+          "id": "heritage_strix_gale",
+          "name": "Gale Strix",
+          "tldr": "You gain bonuses on checks against high winds and turbulence while flying."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Poppet",
+  "rarity": "rare",
+  "description": "Poppets are small, basic constructs that typically help their owners with simple tasks.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 20,
+  "boosts": ["constitution", "charisma", "free"],
+  "flaws": ["dexterity"],
+  "languages": ["Common"],
+  "traits": ["Construct", "Humanoid", "Poppet"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "constructed_body",
+          "name": "Constructed Body",
+          "type": "ancestry_feature",
+          "tldr": "Your stuffed or wooden frame provides unique immunities to standard biological ailments."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a poppet heritage reflecting the material used to stuff or build your frame."
+        }
+      ]
+    }
+  }
+}

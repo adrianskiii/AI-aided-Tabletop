@@ -1715,6 +1715,7 @@
     renderClassGrid();
     renderClassNarrate();
     renderSubclass();
+    renderMulticlass();
     renderAbilities();
     renderLevels();
     renderSkills();
@@ -2520,20 +2521,178 @@
   }
 
   function pickClass(id) {
-    S.choices.class =
-      id;
+  S.choices.class = id;
+  delete S.choices.subclass; // Reset subclass dependency when base class changes
 
-    delete S.choices.subclass;
+  // A class can't be both your primary class and a multiclass pick —
+  // drop it from the multiclass list if it's there.
+  if (Array.isArray(S.choices.classes)) {
+    S.choices.classes = S.choices.classes.filter(
+      entry =>
+        String(entry?.class || "").toLowerCase() !==
+        String(id).toLowerCase()
+    );
+  }
 
-    syncLegacyState();
-    renderClassGrid();
-    renderClassNarrate();
-    renderContextRail();
-    renderSubclass();
-    renderLevels();
+  syncLegacyState();
+  renderClassGrid();
+  renderClassNarrate();
+  renderContextRail();
+  renderSubclass();
+  renderLevels();
+  renderMulticlass();
+  
+  // Directly trigger immediate preview update for level 1 of the new class
+  renderBuildDock();
+  refreshAcquireCount();
+}
+
+  // ---------------------------------------------------------------------
+  // Multiclassing — take levels in additional classes alongside the
+  // primary one. Stored as choices.classes = [{class, level}], a
+  // generic list the backend (_derive_build) resolves the same way it
+  // resolves the primary class, just tagged "(multiclass)".
+  // ---------------------------------------------------------------------
+
+  function renderMulticlass() {
+    const card = $("#multiclass-card");
+    const list = $("#multiclass-list");
+    const addSelect = $("#multiclass-add-class");
+    const addBtn = $("#multiclass-add-btn");
+    const countBadge = $("#multiclass-count");
+
+    if (!card || !list || !addSelect) return;
+
+    const allClasses = rulesComponent("class");
+    const primaryId = String(
+      S.choices?.class || ""
+    ).toLowerCase();
+
+    // Multiclassing only makes sense once a system with classes and a
+    // primary class are chosen.
+    if (!allClasses.length || !primaryId) {
+      card.style.display = "none";
+      return;
+    }
+    card.style.display = "";
+
+    if (!Array.isArray(S.choices.classes)) {
+      S.choices.classes = [];
+    }
+
+    const taken = new Set(
+      S.choices.classes.map(entry =>
+        String(entry?.class || "").toLowerCase()
+      )
+    );
+
+    const available = allClasses.filter(entity => {
+      const id = getEntityId(entity).toLowerCase();
+      return id !== primaryId && !taken.has(id);
+    });
+
+    addSelect.innerHTML = available.length
+      ? available
+          .map(
+            entity => `
+              <option value="${esc(getEntityId(entity))}">
+                ${esc(getEntityName(entity))}
+              </option>
+            `
+          )
+          .join("")
+      : `<option value="">No other classes available</option>`;
+
+    addSelect.disabled = !available.length;
+    if (addBtn) addBtn.disabled = !available.length;
+
+    if (countBadge) {
+      countBadge.textContent = S.choices.classes.length
+        ? `${S.choices.classes.length} extra`
+        : "";
+    }
+
+    list.innerHTML = S.choices.classes.length
+      ? S.choices.classes
+          .map((entry, idx) => {
+            const entity = findEntity(
+              "class",
+              entry?.class
+            );
+
+            const name = getEntityName(
+              entity || { name: entry?.class || "?" }
+            );
+
+            return `
+              <div class="acquire-item" data-multiclass-idx="${idx}">
+                <span class="nm">
+                  ${esc(name)}
+                  <span class="tag">from level ${esc(
+                    entry?.level || 1
+                  )}</span>
+                </span>
+                <button type="button" data-remove-multiclass="${idx}">
+                  remove
+                </button>
+              </div>
+            `;
+          })
+          .join("")
+      : '<p class="empty">No additional classes yet — this character is single-classed.</p>';
+
+    list
+      .querySelectorAll("[data-remove-multiclass]")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          const idx = Number(
+            button.dataset.removeMulticlass
+          );
+
+          S.choices.classes.splice(idx, 1);
+
+          renderMulticlass();
+          renderBuildDock();
+          refreshAcquireCount();
+        });
+      });
+  }
+
+  function addMulticlassClass() {
+    const select = $("#multiclass-add-class");
+    const levelInput = $("#multiclass-add-level");
+
+    if (!select || !select.value) return;
+
+    if (!Array.isArray(S.choices.classes)) {
+      S.choices.classes = [];
+    }
+
+    S.choices.classes.push({
+      class: select.value,
+      level: Math.max(
+        1,
+        Number(levelInput?.value) || 1
+      )
+    });
+
+    renderMulticlass();
     renderBuildDock();
     refreshAcquireCount();
   }
+
+function setLevel(level) {
+  const input = $("#f-level");
+  if (!input) return;
+
+  input.value = Math.max(
+    1,
+    Math.min(rulesMaxLevel(), Number(level) || 1)
+  );
+
+  renderLevels();
+  renderBuildDock(); // Refreshes the dock to display newly unlocked features for the selected level
+}
 
   function renderClassNarrate() {
     const box =
@@ -4834,119 +4993,141 @@
     return output;
   }
 
-  function renderBuildDock() {
-    const dock = $("#build-dock");
-    const body = $("#dock-body");
-    const meta = $("#dock-meta");
+  let _dockFeatureCache = [];
 
-    if (!body) return;
-
-    const selected =
-      Object.entries(S.choices || {}).flatMap(
-        ([type, value]) => {
-          const values =
-            Array.isArray(value)
-              ? value
-              : [value];
-
-          return values
-            .filter(Boolean)
-            .map(id => {
-              const entity =
-                findEntity(type, id);
-
-              return {
-                type,
-                id,
-                entity
-              };
-            });
-        }
-      );
-
-    const rewards =
-      selected.flatMap(item =>
-        collectEntityRewards(
-          item.entity,
-          item.type
-        )
-      );
-
-    const rows = [
-      ...selected.map(item => ({
-        label: componentLabel(item.type),
-        value:
-          getEntityName(item.entity) ||
-          item.id
-      })),
-
-      ...Object.entries(S.abilities || {})
-        .map(([key, value]) => ({
-          label:
-            getAbilityDefinition(key).name ||
-            titleCase(key),
-          value
-        }))
-    ];
-
-    if (meta) {
-      meta.textContent =
-        `${rows.length} choices · ${rewards.length} resolved features`;
-    }
-
-    body.innerHTML = `
-      ${
-        rows.length
-          ? `
-            <div class="kb-list">
-              ${rows.map(row => `
-                <div class="kb-item">
-                  <div class="ti">
-                    ${esc(row.label)}
-                  </div>
-                  <div class="sub">
-                    ${esc(String(row.value))}
-                  </div>
-                </div>
-              `).join("")}
-            </div>
-          `
-          : ""
-      }
-
-      ${
-        rewards.length
-          ? `
-            <div class="kb-list">
-              ${rewards.map(reward => `
-                <div class="kb-item">
-                  <div class="ti">
-                    ${esc(reward.name)}
-                  </div>
-                  <div class="sub">
-                    ${esc(reward.description)}
-                  </div>
-                </div>
-              `).join("")}
-            </div>
-          `
-          : ""
-      }
-
-      ${
-        !rows.length && !rewards.length
-          ? '<p class="empty">Nothing selected yet.</p>'
-          : ""
-      }
+  function _dockFeatureCard(feat, idx) {
+    return `
+      <div
+        class="kb-item feature-card ${feat.isNew ? 'highlight-new-feature' : ''}"
+        style="${feat.isNew ? 'border-left: 3px solid var(--green);' : ''} cursor:pointer;"
+        data-feat-idx="${idx}"
+        role="button"
+        tabindex="0"
+      >
+        <div class="ti">
+          ${esc(getEntityName(feat))}
+          <span class="tag">L${feat.unlockedAtLevel}</span>
+          ${feat.source ? `<span class="tag source-tag" title="Where this comes from">${esc(feat.source)}</span>` : ''}
+          ${feat.isNew ? '<span class="tag" style="background:var(--green); color:#fff;">NEW</span>' : ''}
+        </div>
+        <div class="sub">${esc(feat.tldr || entityDescription(feat) || "No description")}</div>
+      </div>
     `;
-
-    if (dock) {
-      dock.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-    }
   }
+
+  function _dockSection(title, features, emptyText) {
+    return `
+      <div class="kb-list" style="margin-top: 12px;">
+        <div class="section-title" style="padding: 4px 8px; font-weight: bold; color: var(--accent);">${esc(title)}</div>
+        ${
+          features.length
+            ? features.map(feat => {
+                const idx = _dockFeatureCache.length;
+                _dockFeatureCache.push(feat);
+                return _dockFeatureCard(feat, idx);
+              }).join("")
+            : `<p class="empty">${esc(emptyText)}</p>`
+        }
+      </div>
+    `;
+  }
+
+  function openFeatureDetail(feat) {
+    if (!feat) return;
+
+    const metaBits = [
+      feat.source
+        ? `${feat.sourceType ? feat.sourceType + ": " : ""}${feat.source}`
+        : feat.sourceType,
+      feat.unlockedAtLevel != null ? `Level ${feat.unlockedAtLevel}` : null,
+      feat.type ? titleCase(String(feat.type).replace(/_/g, " ")) : null,
+      feat.action_cost ? titleCase(String(feat.action_cost).replace(/_/g, " ")) : null
+    ].filter(Boolean);
+
+    modalOpen(`
+      <h3>${esc(getEntityName(feat))}</h3>
+      <div class="msub">${esc(metaBits.join(" · "))}</div>
+      <p>${esc(feat.tldr || entityDescription(feat) || "No further details available.")}</p>
+    `);
+  }
+
+  function renderBuildDock() {
+  const dock = $("#build-dock");
+  const body = $("#dock-body");
+  const meta = $("#dock-meta");
+
+  if (!body) return;
+
+  const currentLevel = getCurrentLevel();
+  const progressionData = getBuildProgressionForLevel(currentLevel);
+
+  const byCategory = cat =>
+    progressionData.features.filter(f => f.category === cat);
+
+  const selected = Object.entries(S.choices || {}).flatMap(([type, value]) => {
+    const values = Array.isArray(value) ? value : [value];
+    return values.filter(Boolean).map(id => ({
+      type,
+      id,
+      entity: findEntity(type, id)
+    }));
+  });
+
+  const rows = [
+    ...selected.map(item => ({
+      label: componentLabel(item.type),
+      value: getEntityName(item.entity) || item.id
+    })),
+    {
+      label: "Progression Level",
+      value: `Level ${currentLevel} (${progressionData.classEntity ? getEntityName(progressionData.classEntity) : "No Class"})`
+    },
+    ...Object.entries(S.abilities || {}).map(([key, value]) => ({
+      label: getAbilityDefinition(key).name || titleCase(key),
+      value
+    }))
+  ];
+
+  if (meta) {
+    meta.textContent = `${rows.length} choices · ${progressionData.features.length} active features at L${currentLevel}`;
+  }
+
+  _dockFeatureCache = [];
+
+  body.innerHTML = `
+    <div class="kb-list">
+      <div class="section-title" style="padding: 4px 8px; font-weight: bold; color: var(--accent);">Current Build & Stats</div>
+      ${rows.map(row => `
+        <div class="kb-item">
+          <div class="ti">${esc(row.label)}</div>
+          <div class="sub">${esc(String(row.value))}</div>
+        </div>
+      `).join("")}
+    </div>
+
+    ${_dockSection("Race", byCategory("race"), "No ancestry/race chosen yet.")}
+    ${_dockSection("Subrace", byCategory("subrace"), "No heritage/subrace chosen yet.")}
+    ${_dockSection("Class", byCategory("class"), "No class chosen yet.")}
+    ${_dockSection("Subclass", byCategory("subclass"), "No subclass chosen yet, or its unlock level hasn't been reached.")}
+  `;
+
+  body.querySelectorAll("[data-feat-idx]").forEach(el => {
+    const idx = Number(el.dataset.featIdx);
+    const feat = _dockFeatureCache[idx];
+
+    el.addEventListener("click", () => openFeatureDetail(feat));
+    el.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openFeatureDetail(feat);
+      }
+    });
+  });
+
+  if (dock) {
+    dock.setAttribute("aria-hidden", "false");
+  }
+}
 
   function refreshAcquireCount() {
     const count =
@@ -5177,6 +5358,38 @@
         );
     }
 
+    // Mirror the chosen ancestry/class into plain display-name strings
+    // on `identity`, the same fields the party roster and DM view read
+    // (`identity.race` / `identity.class`) — `choices` only stores
+    // slugs, so without this the roster shows a blank race/class.
+    const identityRaceName =
+      custom.race_detail || "";
+
+    const multiclassNames = (
+      S.choices?.classes || []
+    )
+      .map(entry =>
+        getEntityName(
+          findEntity(
+            "class",
+            entry?.class || entry
+          ) || {
+            name:
+              entry?.class ||
+              entry ||
+              ""
+          }
+        )
+      )
+      .filter(Boolean);
+
+    const identityClassName = [
+      custom.class_detail,
+      ...multiclassNames
+    ]
+      .filter(Boolean)
+      .join(" / ");
+
     const abilities =
       collectAbilities();
 
@@ -5287,6 +5500,10 @@
           val("f-name"),
         player_name:
           val("f-player"),
+        race:
+          identityRaceName,
+        class:
+          identityClassName,
         level,
         portrait:
           S.portrait,
@@ -5360,13 +5577,14 @@
           val("h-dmnotes")
       },
 
-      build: {
-        choices:
-          clone(
-            S.choices || {}
-          ),
-
-        proficiencies:
+      // Note: `race_traits` / `race_skills` / `class_features_by_level`
+      // are NOT sent here — the backend derives those automatically
+      // from the chosen ancestry/heritage/class/subclass rules data on
+      // every save (see `_derive_build` in char_creator.py). Only the
+      // things the player actually picked by hand — bonus skill
+      // proficiencies and known spells/cantrips — are collected here.
+      build: (() => {
+        const proficiencies =
           Object.entries(
             S.selections?.skills ||
             {}
@@ -5376,36 +5594,68 @@
                 value
             )
             .map(
-              ([skill, level]) => ({
-                skill,
-                level
+              ([skill, rank]) => ({
+                name:
+                  getEntityName(
+                    findEntity(
+                      "skill",
+                      skill
+                    ) || {
+                      name: skill
+                    }
+                  ),
+                rank,
+                category: "skill",
+                source: "chosen"
               })
-            ),
+            );
 
-        spells:
-          powerIds.map(id => ({
-            id,
-            name:
-              getEntityName(
-                findEntity(
-                  "spell",
-                  id
-                ) || {
-                  name: id
-                }
-              ),
-            level:
+        const knownPowers =
+          powerIds.map(id => {
+            const entity =
               findEntity(
                 "spell",
                 id
-              )?.level ??
-              0,
-            acquired_at:
-              S.spellLevels[id] ||
-              level ||
-              1
-          }))
-      }
+              );
+
+            return {
+              id,
+              name:
+                getEntityName(
+                  entity || {
+                    name: id
+                  }
+                ),
+              level:
+                entity?.level ??
+                0,
+              school:
+                entity?.school ||
+                "",
+              acquired_at:
+                S.spellLevels[id] ||
+                level ||
+                1
+            };
+          });
+
+        // Level 0 entries are cantrips; everything else is a leveled
+        // spell. Splitting here (rather than leaving it to the
+        // backend) keeps the two lists in sync with whatever the
+        // "Powers, abilities & special options" step actually shows
+        // the player as a cantrip vs. a spell.
+        return {
+          proficiencies,
+          spells:
+            knownPowers.filter(
+              power => power.level > 0
+            ),
+          cantrips:
+            knownPowers.filter(
+              power => power.level === 0
+            )
+        };
+      })()
     };
   }
 
@@ -7957,6 +8207,173 @@
     );
   }
 
+  // Pulls a list of {..feature, unlockedAtLevel} out of any entity that
+  // exposes a level_progression / features_by_level / level_rewards map,
+  // up through `uptoLevel`.
+  function _levelFeaturesFrom(entity, uptoLevel) {
+    if (!entity) return [];
+
+    const table =
+      entity.level_progression ||
+      entity.features_by_level ||
+      entity.level_rewards ||
+      {};
+
+    const out = [];
+
+    for (let l = 1; l <= uptoLevel; l++) {
+      const bucket = table[String(l)] ?? table[l];
+
+      let feats = [];
+      if (Array.isArray(bucket)) {
+        feats = bucket;
+      } else if (bucket && Array.isArray(bucket.features)) {
+        feats = bucket.features;
+      }
+
+      feats.forEach(feat => {
+        if (feat && typeof feat === "object") {
+          out.push({ ...feat, unlockedAtLevel: l });
+        }
+      });
+    }
+
+    return out;
+  }
+
+  // Finds the {name, data} entry for a chosen sub-option (subclass or
+  // heritage) inside a `choices` map, matching by id or by key name.
+  function _findChoiceEntry(choicesMap, chosenId) {
+    if (!choicesMap || !chosenId) return null;
+
+    const needle = String(chosenId).toLowerCase();
+
+    if (Array.isArray(choicesMap)) {
+      const hit = choicesMap.find(
+        item =>
+          getEntityId(item).toLowerCase() === needle ||
+          getEntityName(item).toLowerCase() === needle
+      );
+      return hit ? [getEntityName(hit), hit] : null;
+    }
+
+    const entry = Object.entries(choicesMap).find(
+      ([key, val]) =>
+        key.toLowerCase() === needle ||
+        getEntityId(val).toLowerCase() === needle
+    );
+
+    return entry || null;
+  }
+
+  // Gathers every feature the current build has actually earned by
+  // `targetLevel` — from class, chosen subclass, ancestry/race, and
+  // chosen heritage/subrace — each tagged with where it came from.
+  function getBuildProgressionForLevel(targetLevel) {
+    const ancestryType =
+      S.rules?.components?.ancestry ? "ancestry" : "race";
+
+    const heritageType =
+      S.rules?.components?.heritage ? "heritage" : "subrace";
+
+    const cls = findEntity("class", S.choices?.class) || S.class;
+    const ancestry =
+      findEntity(ancestryType, S.choices?.[ancestryType]) || null;
+
+    const activeFeatures = [];
+
+    if (cls) {
+      const clsName = getEntityName(cls);
+
+      _levelFeaturesFrom(cls, targetLevel).forEach(feat => {
+        activeFeatures.push({
+          ...feat,
+          source: clsName,
+          sourceType: "Class",
+          category: "class",
+          isNew: feat.unlockedAtLevel === targetLevel
+        });
+      });
+
+      const subclassBlock = cls.subclass_data || {};
+      const subclassChoices =
+        subclassBlock.choices ||
+        S.rules?.subclass_data?.[clsName]?.choices ||
+        S.rules?.subclasses?.[clsName] ||
+        {};
+
+      const subclassLevel = Number(subclassBlock.level) || 1;
+      const chosenSubclass = _findChoiceEntry(
+        subclassChoices,
+        S.choices?.subclass
+      );
+
+      if (chosenSubclass && targetLevel >= subclassLevel) {
+        const [subclassName, subclassData] = chosenSubclass;
+
+        safeArray(subclassData?.features).forEach(feat => {
+          activeFeatures.push({
+            ...feat,
+            unlockedAtLevel: subclassLevel,
+            source: subclassName,
+            sourceType: subclassBlock.label || "Subclass",
+            category: "subclass",
+            isNew: subclassLevel === targetLevel
+          });
+        });
+      }
+    }
+
+    if (ancestry) {
+      const ancestryName = getEntityName(ancestry);
+
+      _levelFeaturesFrom(ancestry, targetLevel).forEach(feat => {
+        activeFeatures.push({
+          ...feat,
+          source: ancestryName,
+          sourceType: "Ancestry",
+          category: "race",
+          isNew: feat.unlockedAtLevel === targetLevel
+        });
+      });
+
+      const heritageChoices =
+        S.rules?.heritage_data?.[ancestryName] ||
+        S.rules?.heritages?.[ancestryName] ||
+        {};
+
+      const chosenHeritage = _findChoiceEntry(
+        heritageChoices,
+        S.choices?.[heritageType]
+      );
+
+      if (chosenHeritage) {
+        const [heritageName, heritageData] = chosenHeritage;
+
+        safeArray(heritageData?.features).forEach(feat => {
+          activeFeatures.push({
+            ...feat,
+            unlockedAtLevel: 1,
+            source: heritageName,
+            sourceType: ancestry.heritage_label || "Heritage",
+            category: "subrace",
+            isNew: targetLevel === 1
+          });
+        });
+      }
+    }
+
+    activeFeatures.sort(
+      (a, b) => (a.unlockedAtLevel || 0) - (b.unlockedAtLevel || 0)
+    );
+
+    return {
+      classEntity: cls,
+      ancestryEntity: ancestry,
+      features: activeFeatures,
+      level: targetLevel
+    };
+  }
 
   function bindEvents() {
     $("#nav-back")?.addEventListener("click", () => {
@@ -7976,6 +8393,11 @@
     $("#kv-add-btn")?.addEventListener(
       "click",
       addKV
+    );
+
+    $("#multiclass-add-btn")?.addEventListener(
+      "click",
+      addMulticlassClass
     );
 
     $("#agenda-add")?.addEventListener(

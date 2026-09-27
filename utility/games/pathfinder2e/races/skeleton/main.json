@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Skeleton",
+  "rarity": "rare",
+  "description": "Skeletons are considered among the lowest types of undead.",
+  "hit_points": 6,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Common", "Necril"],
+  "traits": ["Skeleton", "Undead"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "undead_immunities",
+          "name": "Undead Nature",
+          "type": "ancestry_feature",
+          "tldr": "You are immune to disease, poison, bleeding, and death effects, but susceptible to positive energy healing."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a skeleton heritage representing your past life's training or build."
+        }
+      ]
+    }
+  }
+}

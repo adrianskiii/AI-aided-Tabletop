@@ -1,0 +1,61 @@
+{
+  "class_name": "Witch",
+  "subclass_type": "Patron",
+  "choices": {
+    "Curse": {
+      "description": "Dein Patron ist eine Wesenheit des Unglücks, der Misere und des schleichenden Verfalls.",
+      "tradition": "occult",
+      "features": [
+        {
+          "id": "patron_curse",
+          "name": "Curse Patron",
+          "tldr": "Verleiht okkulte Zaubertradition und die Macht, Gegner mit verheerenden Flüchen zu belegen."
+        }
+      ]
+    },
+    "Fate": {
+      "description": "Du bist an die Spinnerinnen des Schicksals, kosmische Gesetzmäßigkeiten oder Orakelkräfte gebunden.",
+      "tradition": "occult",
+      "features": [
+        {
+          "id": "patron_fate",
+          "name": "Fate Patron",
+          "tldr": "Verleiht okkulte Zaubertradition und die Fähigkeit, Würfe und Wahrscheinlichkeiten zu manipulieren."
+        }
+      ]
+    },
+    "Night": {
+      "description": "Dein Patron herrscht über die Dunkelheit, Träume, Schatten und die Geheimnisse der Nacht.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "patron_night",
+          "name": "Night Patron",
+          "tldr": "Verleiht göttliche Zaubertradition, Schattenmagie und nächtliche Schutzmechanismen."
+        }
+      ]
+    },
+    "Ruin": {
+      "description": "Eine entropische Kraft oder ein Wesen der Zerstörung treibt dich an, um Bestehendes niederzureißen.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "patron_ruin",
+          "name": "Ruin Patron",
+          "tldr": "Verleiht göttliche Zaubertradition sowie Fähigkeiten, Rüstungen und Barrieren zu zerbrechen."
+        }
+      ]
+    },
+    "Wild": {
+      "description": "Du stehst im Bund mit den ungezähmten Kräften der Natur, der Wildnis oder den Geistern der Elemente.",
+      "tradition": "primal",
+      "features": [
+        {
+          "id": "patron_wild",
+          "name": "Wild Patron",
+          "tldr": "Verleiht primale Zaubertradition und mächtige Natur- oder Tierverbundenheit."
+        }
+      ]
+    }
+  }
+}

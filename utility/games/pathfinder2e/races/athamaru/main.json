@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Athamaru",
+  "rarity": "uncommon",
+  "description": "Athamarus are fish-like humanoids who form tight-knit communities underseas, with villages of siblings led by a common matriarch.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 20,
+  "swim_speed": 25,
+  "boosts": ["strength", "wisdom", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Athamaru", "Common"],
+  "traits": ["Amphibious", "Athamaru", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "amphibious",
+          "name": "Amphibious Nature",
+          "type": "ancestry_feature",
+          "tldr": "You can breathe both air and water effortlessly."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an athamaru heritage reflecting your aquatic sub-culture or biology."
+        }
+      ]
+    }
+  }
+}

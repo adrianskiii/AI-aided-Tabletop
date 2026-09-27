@@ -1,0 +1,105 @@
+{
+  "class_name": "Monk",
+  "subclass_type": "Monastic Tradition",
+  "choices": {
+    "Way of the Open Hand": {
+      "description": "Monks of the Open Hand are the ultimate masters of martial arts combat, using subtle techniques to manipulate foes.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "open_hand_technique",
+            "name": "Open Hand Technique",
+            "tldr": "Add tactical effects (knock prone, push away, or strip reactions) whenever you hit with Flurry of Blows."
+          }
+        ],
+        "6": [
+          {
+            "id": "wholeness_of_body",
+            "name": "Wholeness of Body",
+            "tldr": "Gain a pooled well of self-healing energy to recover hit points as an action."
+          }
+        ],
+        "11": [
+          {
+            "id": "tranquility",
+            "name": "Tranquility",
+            "tldr": "Cast the Sanctuary spell on yourself as if starting a long rest, protecting you from attacks."
+          }
+        ],
+        "17": [
+          {
+            "id": "quivering_palm",
+            "name": "Quivering Palm",
+            "tldr": "Set up lethal vibrations in a target's body with an unarmed strike, unleashing instant death or massive damage."
+          }
+        ]
+      }
+    },
+    "Way of Shadow": {
+      "description": "Monks of the Way of Shadow follow a tradition that values stealth, espionage, and sudden ambushes.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "shadow_arts",
+            "name": "Shadow Arts",
+            "tldr": "Cast dark spells (Minor Illusion, Darkness, Darkvision, Pass Without Trace, Silence) and use shadows for stealth."
+          }
+        ],
+        "6": [
+          {
+            "id": "shadow_step",
+            "name": "Shadow Step",
+            "tldr": "Teleport from one area of dim light or darkness to another as a bonus action with advantage on your next attack."
+          }
+        ],
+        "11": [
+          {
+            "id": "cloak_of_shadows",
+            "name": "Cloak of Shadows",
+            "tldr": "Weave shadows around yourself to become completely invisible in dim light or darkness."
+          }
+        ],
+        "17": [
+          {
+            "id": "opportunist",
+            "name": "Opportunist",
+            "tldr": "Exploit enemy openings to make a reaction attack whenever a creature near you is hit by someone else."
+          }
+        ]
+      }
+    },
+    "Way of the Four Elements": {
+      "description": "Monks who harness the primal elements, bending earth, fire, water, and air to their martial will.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "disciple_of_the_elements",
+            "name": "Disciple of the Elements",
+            "tldr": "Learn elemental disciplines that let you cast magical elemental spells by spending ki points."
+          }
+        ],
+        "6": [
+          {
+            "id": "elemental_discipline_6",
+            "name": "Elemental Discipline",
+            "tldr": "Learn an additional elemental discipline option."
+          }
+        ],
+        "11": [
+          {
+            "id": "elemental_discipline_11",
+            "name": "Elemental Discipline",
+            "tldr": "Learn another advanced elemental discipline option."
+          }
+        ],
+        "17": [
+          {
+            "id": "elemental_discipline_17",
+            "name": "Elemental Discipline",
+            "tldr": "Learn a final master-tier elemental discipline option."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Leshy",
+  "rarity": "common",
+  "description": "Leshies are as varied as the material used to create their vessels, usually appearing as a bizarre mishmash of various plants or fungi.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["constitution", "wisdom", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Common", "Druidic", "Sylvan"],
+  "traits": ["Leshy", "Plant"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "leshy_immunity",
+          "name": "Plant Physiology",
+          "type": "ancestry_feature",
+          "tldr": "Your botanical form grants unique resistance against mental effects and poisons."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a leshy heritage representing the type of plant or fungus used for your body."
+        }
+      ]
+    }
+  }
+}

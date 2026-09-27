@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Ghoran",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Bramble": {
+      "description": "Cultivated with tough, thorny vines woven into your outer layer.",
+      "features": [
+        {
+          "id": "heritage_ghoran_bramble",
+          "name": "Bramble Ghoran",
+          "tldr": "Your body reacts to close-quarters attacks by pricking attackers with sharp thorns."
+        }
+      ]
+    },
+    "Blossom": {
+      "description": "Features colorful, sweet-smelling floral displays that soothe emotions.",
+      "features": [
+        {
+          "id": "heritage_ghoran_blossom",
+          "name": "Blossom Ghoran",
+          "tldr": "You can emit a calming aroma that grants bonuses against mental charm effects."
+        }
+      ]
+    }
+  }
+}

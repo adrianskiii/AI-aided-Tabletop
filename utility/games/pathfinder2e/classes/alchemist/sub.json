@@ -1,0 +1,46 @@
+{
+  "class_name": "Alchemist",
+  "subclass_type": "Research Field",
+  "choices": {
+    "Bomber": {
+      "description": "Explosive splash weapon specialist.",
+      "features": [
+        {
+          "id": "field_bomber",
+          "name": "Bomber Research Field",
+          "tldr": "Increase bomb splash damage, range, and accuracy to blast groups of enemies."
+        }
+      ]
+    },
+    "Chirurgeon": {
+      "description": "Medical and healing elixir expert.",
+      "features": [
+        {
+          "id": "field_chirurgeon",
+          "name": "Chirurgeon Research Field",
+          "tldr": "Use Crafting instead of Medicine for healing and treat wounds using alchemical elixirs."
+        }
+      ]
+    },
+    "Mutagenist": {
+      "description": "Physical transformation mutagen brawler.",
+      "features": [
+        {
+          "id": "field_mutagenist",
+          "name": "Mutagenist Research Field",
+          "tldr": "Enhance mutagens to grant superior physical attributes while mitigating drawbacks."
+        }
+      ]
+    },
+    "Toxicologist": {
+      "description": "Poison and venom coating specialist.",
+      "features": [
+        {
+          "id": "field_toxicologist",
+          "name": "Toxicologist Research Field",
+          "tldr": "Potently apply contact and injury poisons to weapons with extended durations."
+        }
+      ]
+    }
+  }
+}

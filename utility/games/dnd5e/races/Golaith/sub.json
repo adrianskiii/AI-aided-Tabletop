@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Goliath",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Peak Climber": {
+      "description": "Adapted to scaling vertical cliff faces and navigating treacherous frozen ledges with absolute sure-footedness.",
+      "features": [
+        {
+          "id": "subrace_peak_climber_speed",
+          "name": "Summit Grip",
+          "tldr": "You gain a climbing speed equal to your walking speed, and difficult terrain made of ice or snow doesn't slow you down."
+        }
+      ]
+    },
+    "Glacial Warden": {
+      "description": "Trained to protect high-altitude passes from frost giants and avalanches, possessing extra defensive bulk.",
+      "features": [
+        {
+          "id": "subrace_glacial_warden_armor",
+          "name": "Glacial Fortitude",
+          "tldr": "Your maximum hit points increase by an amount equal to your character level, bolstering your frontline staying power."
+        }
+      ]
+    }
+  }
+}

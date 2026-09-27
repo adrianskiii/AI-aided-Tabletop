@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Dwarf",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "DeathWarden": {
+      "description": "Trained to fight undead and safeguard ancestral tombs.",
+      "features": [
+        {
+          "id": "heritage_dwarf_deathwarden",
+          "name": "Death Warden Dwarf",
+          "tldr": "Your checks against necromancy and undead effects are exceptionally potent."
+        }
+      ]
+    },
+    "StrongBlooded": {
+      "description": "Possessing blood thick with elemental endurance.",
+      "features": [
+        {
+          "id": "heritage_dwarf_strongblooded",
+          "name": "Strong-Blooded Dwarf",
+          "tldr": "You gain resistance to poison and conditions that cause you to become sickened."
+        }
+      ]
+    }
+  }
+}

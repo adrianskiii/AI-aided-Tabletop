@@ -1,0 +1,66 @@
+{
+  "class_name": "Kineticist",
+  "subclass_type": "Kinetic Gate Elements",
+  "choices": {
+    "Air (Aerokineticist)": {
+      "description": "Fokussiert auf die Macht des Windes, Blitzschläge und rasante Beweglichkeit, um Gegner wegzublasen oder im Handumdrehen das Schlachtfeld zu durchqueren.",
+      "features": [
+        {
+          "id": "element_air",
+          "name": "Air Element & Junction",
+          "tldr": "Verleiht luftbasierte Angriffe, Blitzschaden, hohe Mobilität und die Luft-Junction (Zusatzreichweite oder Sturmwicringe)."
+        }
+      ]
+    },
+    "Earth (Geokineticist)": {
+      "description": "Nutzt Stein, Felsen und Metall/Mineralien, um undurchdringliche Barrieren zu errichten, Schutt auf Feinde zu schleudern und standhaft wie ein Berg zu bleiben.",
+      "features": [
+        {
+          "id": "element_earth",
+          "name": "Earth Element & Junction",
+          "tldr": "Verleiht erdbasierte Deckung, physischen Wumms, temporäre Trefferpunkte und die Erde-Junction."
+        }
+      ]
+    },
+    "Fire (Pyrokineticist)": {
+      "description": "Entfesselt verheerende Flammen und sengende Hitze, um Gruppen von Feinden mit unaufhaltsamem Feuerschaden einzuheizen.",
+      "features": [
+        {
+          "id": "element_fire",
+          "name": "Fire Element & Junction",
+          "tldr": "Verleiht pure Feuerangriffe, Flächenschaden und die Feuer-Junction (zusätzlicher Brandschaden)."
+        }
+      ]
+    },
+    "Metal (Metallokineticist)": {
+      "description": "Manipuliert scharfe Metallklingen, Späne und magnetische Felder, um Rüstungen zu durchbohren und tödliche Splitterregen zu erzeugen.",
+      "features": [
+        {
+          "id": "element_metal",
+          "name": "Metal Element & Junction",
+          "tldr": "Verleiht metallische Klingen, Durchschlagskraft und die Metall-Junction (Schwachstellen-Ausnutzung)."
+        }
+      ]
+    },
+    "Water (Hydrokineticist)": {
+      "description": "Kontrolliert Strömungen, Eis und heilendes Wasser, um Verbündete zu unterstützen, Feinde festzusetzen und Kälteschaden auszuteilen.",
+      "features": [
+        {
+          "id": "element_water",
+          "name": "Water Element & Junction",
+          "tldr": "Verleiht Wasser- und Eiskräfte, Heilunterstützung, Hindernisse und die Wasser-Junction."
+        }
+      ]
+    },
+    "Wood (Phytokineticist)": {
+      "description": "Nutzt die Kraft der Pflanzenwelt, Ranken und des Wachstums, um Gegner einzunetzen, zu heilen und lebendige Barrieren sprießen zu lassen.",
+      "features": [
+        {
+          "id": "element_wood",
+          "name": "Wood Element & Junction",
+          "tldr": "Verleiht Pflanzen- und Holzmanipulation, Heilung, Lebenskraft und die Holz-Junction."
+        }
+      ]
+    }
+  }
+}

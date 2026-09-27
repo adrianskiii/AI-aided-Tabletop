@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Hobgoblin",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Smilodon": {
+      "description": "Trained heavily in aggressive front-line shock tactics.",
+      "features": [
+        {
+          "id": "heritage_hobgoblin_smilodon",
+          "name": "Smilodon Hobgoblin",
+          "tldr": "You strike with coordinated precision when adjacent to allies."
+        }
+      ]
+    },
+    "Teqnict": {
+      "description": "Engineered or drilled in strict tactical discipline and physical toughness.",
+      "features": [
+        {
+          "id": "heritage_hobgoblin_teqnict",
+          "name": "Corsair Hobgoblin",
+          "tldr": "You gain bonuses on checks to resist forced movement or repositioning."
+        }
+      ]
+    }
+  }
+}

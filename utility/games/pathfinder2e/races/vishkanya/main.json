@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Vishkanya",
+  "rarity": "rare",
+  "description": "Largely misunderstood due to old tales of their toxicity and natural finesse, vishkanyas work to grow into more than just what stories paint them to be.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Vishkanya"],
+  "traits": ["Humanoid", "Vishkanya"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "toxic_heritage",
+          "name": "Toxicity and Finesse",
+          "type": "ancestry_feature",
+          "tldr": "Your body contains natural defensive toxins and extraordinary physical grace."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a vishkanya heritage reflecting your toxin type or stealth training."
+        }
+      ]
+    }
+  }
+}

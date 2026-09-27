@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Vanara",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Canopy": {
+      "description": "Expert climbers who spend most of their lives soaring across treetops.",
+      "features": [
+        {
+          "id": "heritage_vanara_canopy",
+          "name": "Canopy Vanara",
+          "tldr": "You gain a climb speed and bonuses to prevent falling."
+        }
+      ]
+    },
+    "Nimble": {
+      "description": "Blessed with quick reflexes and slippery evasion tactics.",
+      "features": [
+        {
+          "id": "heritage_vanara_nimble",
+          "name": "Nimble Vanara",
+          "tldr": "You gain bonuses on checks to escape grabs and maneuvers."
+        }
+      ]
+    }
+  }
+}

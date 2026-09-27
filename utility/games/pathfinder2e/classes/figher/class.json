@@ -1,0 +1,176 @@
+{
+  "class_name": "Fighter",
+  "description": "Unmatched martial master of weapons and tactical combat maneuvers, capable of landing devastating strikes.",
+  "key_ability": ["strength", "dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "expert",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "expert",
+      "martial": "expert",
+      "advanced": "trained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, defenses, and expert weapon mastery."},
+        {"id": "attack_of_opportunity", "name": "Attack of Opportunity", "type": "class_feature", "tldr": "Gain the iconic reaction to strike foes when they manipulate items, make ranged attacks, or leave a square."},
+        {"id": "shield_block", "name": "Shield Block", "type": "feat_slot", "tldr": "Gain the Shield Block general feat as a bonus class feature."},
+        {"id": "fighter_feat_1", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "fighter_feat_2", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "bravery", "name": "Bravery", "type": "defense", "tldr": "Will save proficiency increases to expert, and successes against fear become critical successes."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "fighter_feat_4", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "fighter_weapon_mastery", "name": "Fighter Weapon Mastery", "type": "class_feature", "tldr": "Proficiency for simple, martial, and unarmed attacks increases to master."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "fighter_feat_6", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Fortitude save success against damage or disease becomes a critical success."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex save proficiency increases to master."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "fighter_feat_8", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "Medium_armor_mastery", "name": "Armor Expertise", "type": "defense", "tldr": "Armor proficiencies scale up for light, medium, heavy, and unarmored defense."},
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Will save proficiency increases to master."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "fighter_feat_10", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Deal even more damage with weapons you have master or expert proficiency in."},
+        {"id": "weapon_legendary", "name": "Weapon Mastery Extension", "type": "class_feature", "tldr": "Advanced weapons and select groups push further in scaling capability."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "fighter_feat_12", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "felling_strike_or_tactical_apex", "name": "Combat Flexibility Upgrade", "type": "class_feature", "tldr": "Adapt combat feats on a daily basis."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "fighter_feat_14", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "greater_juggernaut", "name": "Greater Juggernaut", "type": "defense", "tldr": "Fortitude save proficiency increases to master, and successes become critical successes."},
+        {"id": "legendary_striker", "name": "Legendary Striker", "type": "class_feature", "tldr": "Proficiency for your core weapons reaches legendary status."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "fighter_feat_16", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "armor_mastery_fighter", "name": "Armor Mastery", "type": "defense", "tldr": "Armor proficiencies reach master tier."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "fighter_feat_18", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "perplexing_2e_update", "name": "Ultimate Defense/Offense Perk", "type": "class_feature", "tldr": "Peak combat prowess refinements."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "fighter_feat_20", "name": "Fighter Feat", "type": "feat_slot", "tldr": "Gain a fighter class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Kitsune",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Celestial": {
+      "description": "Blessed with holy spiritual energy from celestial realms.",
+      "features": [
+        {
+          "id": "heritage_kitsune_celestial",
+          "name": "Celestial Kitsune",
+          "tldr": "You gain an innate divine cantrip and bonus protection against evil effects."
+        }
+      ]
+    },
+    "Wild": {
+      "description": "Deeply connected to untamed forests and foxfire magic.",
+      "features": [
+        {
+          "id": "heritage_kitsune_wild",
+          "name": "Wild Kitsune",
+          "tldr": "You can manifest magical foxfire to illuminate areas or strike foes."
+        }
+      ]
+    }
+  }
+}

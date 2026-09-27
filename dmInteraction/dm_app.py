@@ -5,10 +5,16 @@ Everything the player app deliberately withholds lives here: full visibility
 into every character (players AND NPCs), and the power to grant or take away
 XP, items, buffs/conditions, resources (spell slots, rages, ...), HP, and
 free-form stats on ANY character. Also: create bare NPC sheets, whisper a
-private message to a player, and oversee (or force-cancel) trades.
+private message to a player, oversee (or force-cancel) trades, unlock level
+ups, run the per-round action economy, and — the important one — approve or
+deny the requests players file for anything that would spend a resource or
+an item. Approval is the only place those deductions actually happen; a
+player has no endpoint that mutates their own hp/resources/buffs/xp/
+inventory directly.
 
 Does not import or modify char_creator.py or player_app.py. Reads/writes
-the same char_sheets/*.json via sheets.py, and trades.json via trades.py.
+the same char_sheets/*.json via sheets.py, trades.json via trades.py,
+requests.json via requests_store.py, and dm_inbox.json via dm_inbox.py.
 
 REST API
 --------
@@ -33,6 +39,20 @@ DELETE /api/characters/<id>/inventory/<int:index>  take an item away entirely
 
 POST   /api/characters/<id>/xp                    {"amount"} — positive or negative
 POST   /api/characters/<id>/messages               {"text","kind"} — private whisper to that player
+POST   /api/characters/<id>/level-up/unlock         lets that player apply their next level up
+
+GET    /api/characters/<id>/action-economy
+POST   /api/characters/<id>/action-economy          upsert a pool {"key","max","current","label"}
+DELETE /api/characters/<id>/action-economy/<key>
+POST   /api/characters/<id>/action-economy/reset     refill one character's pools
+POST   /api/action-economy/reset-all                 "new round" — refill everyone's pools
+
+GET    /api/requests?status=pending                every player-filed action request
+POST   /api/requests/<id>/approve                    {"note"?} — validates + deducts the declared cost, notifies the player
+POST   /api/requests/<id>/deny                       {"reason"?} — nothing is deducted, notifies the player
+
+GET    /api/dm/inbox                                messages FROM players TO the DM
+POST   /api/dm/inbox/<id>/read
 
 GET    /api/activity?limit=50                     merged, time-sorted action log across every character
 GET    /api/trades                                 every trade, any status (oversight)
@@ -40,24 +60,30 @@ POST   /api/trades/<trade_id>/cancel               DM can force-cancel a pending
 
 GET    /health
 """
-
+import sys
+from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory
+sys.path.append(str(Path(__file__).resolve().parent.parent / "utility"))
 
 from sheets import (
-    BASE_DIR,
+
     load_sheet,
     save_sheet,
     list_sheet_ids,
     log_action,
     new_message,
     is_npc,
+    take_items,
+    reset_action_economy,
     _now,
 )
 import trades as trade_store
+import dm_inbox
+import requests_store
 import uuid
 
 app = Flask(__name__)
-
+BASE_DIR = Path(__file__).resolve().parent
 
 def _not_found():
     return jsonify({"error": "character not found"}), 404
@@ -404,6 +430,234 @@ def api_whisper(sheet_id: str):
     sheet.setdefault("hidden", {}).setdefault("messages", []).append(msg)
     save_sheet(sheet)
     return jsonify(msg), 201
+
+
+# --------------------------------------------------------------------------- #
+# Level up — the DM unlocks it, the player applies it in their own app       #
+# --------------------------------------------------------------------------- #
+
+@app.post("/api/characters/<sheet_id>/level-up/unlock")
+def api_unlock_level_up(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    sheet["state"]["level_up_available"] = True
+    name = sheet.get("identity", {}).get("name", sheet_id)
+    msg = new_message(
+        f"You can level up now! Head to the Progression tab.",
+        from_name="DM", kind="level_up",
+    )
+    sheet.setdefault("hidden", {}).setdefault("messages", []).append(msg)
+    log_action(sheet, "level_up_unlocked", "DM unlocked a level up")
+    save_sheet(sheet)
+    return jsonify({"level_up_available": True})
+
+
+# --------------------------------------------------------------------------- #
+# Action economy — per-turn action/bonus-action/reaction (5e), 3-actions     #
+# (PF2e), etc. The DM can add/rename pools and reset them for a new round.   #
+# --------------------------------------------------------------------------- #
+
+@app.get("/api/characters/<sheet_id>/action-economy")
+def api_get_action_economy(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    return jsonify(sheet["state"]["action_economy"])
+
+
+@app.post("/api/characters/<sheet_id>/action-economy")
+def api_upsert_action_pool(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    payload = request.get_json(silent=True) or {}
+    key = str(payload.get("key", "")).strip()
+    if not key:
+        return _bad("key required")
+
+    econ = sheet["state"]["action_economy"]
+    existing = econ.get(key, {})
+    max_val = _num(payload.get("max", existing.get("max", 1)), 1)
+    current = payload.get("current", max_val)
+
+    econ[key] = {
+        "current": _num(current, max_val),
+        "max": max_val,
+        "label": payload.get("label", existing.get("label", key)),
+    }
+    save_sheet(sheet)
+    return jsonify(econ[key]), 201
+
+
+@app.delete("/api/characters/<sheet_id>/action-economy/<key>")
+def api_delete_action_pool(sheet_id: str, key: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    removed = sheet["state"]["action_economy"].pop(key, None)
+    if removed is None:
+        return _bad("no such action pool", 404)
+    save_sheet(sheet)
+    return jsonify({"removed": key})
+
+
+@app.post("/api/characters/<sheet_id>/action-economy/reset")
+def api_reset_action_economy(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    key = (request.get_json(silent=True) or {}).get("key")
+    econ = reset_action_economy(sheet, key)
+    save_sheet(sheet)
+    return jsonify(econ)
+
+
+@app.post("/api/action-economy/reset-all")
+def api_reset_all_action_economy():
+    """'New round' — refresh every character's action pools at once."""
+    updated = []
+    for sheet_id in list_sheet_ids():
+        sheet = load_sheet(sheet_id)
+        if sheet is None:
+            continue
+        reset_action_economy(sheet)
+        save_sheet(sheet)
+        updated.append(sheet_id)
+    return jsonify({"reset": updated})
+
+
+# --------------------------------------------------------------------------- #
+# Pending action requests — the only place a resource/item ever actually    #
+# gets spent for a player-initiated action. Approve deducts (re-validated   #
+# against the sheet as it stands right now) and logs it; deny changes       #
+# nothing. Either way the player is notified via a message.                 #
+# --------------------------------------------------------------------------- #
+
+def _apply_costs(sheet: dict, costs: list) -> None:
+    """Validate then apply every declared cost, atomically. Raises
+    ValueError (nothing mutated) if anything can no longer be afforded —
+    pools may have changed since the request was filed."""
+    resources = sheet["state"]["resources"]
+    inventory = sheet.get("inventory", [])
+
+    # validate everything first
+    for c in costs:
+        if c.get("kind") == "resource":
+            pool = resources.get(c.get("key"))
+            if pool is None:
+                raise ValueError(f"no such resource '{c.get('key')}' anymore")
+            if pool["current"] < _num(c.get("amount", 1), 1):
+                raise ValueError(f"not enough '{c.get('key')}' left ({pool['current']} available)")
+
+    item_costs = [{"name": c.get("name"), "qty": c.get("qty", 1)} for c in costs if c.get("kind") == "item"]
+    if item_costs:
+        inventory = take_items(inventory, item_costs)  # raises ValueError if insufficient
+
+    # everything checked out — apply it
+    for c in costs:
+        if c.get("kind") == "resource":
+            resources[c.get("key")]["current"] -= _num(c.get("amount", 1), 1)
+    sheet["inventory"] = inventory
+
+
+def _fmt_costs(costs: list) -> str:
+    parts = []
+    for c in costs:
+        if c.get("kind") == "resource":
+            parts.append(f"{c.get('amount', 1)} x {c.get('label', c.get('key'))}")
+        elif c.get("kind") == "item":
+            parts.append(f"{c.get('qty', 1)} x {c.get('name')}")
+    return ", ".join(parts) or "nothing"
+
+
+@app.get("/api/requests")
+def api_list_requests():
+    status = request.args.get("status")
+    items = requests_store.load_requests()
+    if status:
+        items = [r for r in items if r["status"] == status]
+    items.sort(key=lambda r: r["created_at"], reverse=True)
+    return jsonify(items)
+
+
+@app.post("/api/requests/<request_id>/approve")
+def api_approve_request(request_id: str):
+    req = requests_store.find_request(request_id)
+    if req is None:
+        return _bad("no such request", 404)
+    if req["status"] != "pending":
+        return _bad(f"request already {req['status']}", 409)
+
+    sheet = load_sheet(req["character_id"])
+    if sheet is None:
+        return _bad("that character no longer exists", 404)
+
+    try:
+        _apply_costs(sheet, req["costs"])
+    except ValueError as e:
+        return _bad(f"can't approve: {e}", 409)
+
+    payload = request.get_json(silent=True) or {}
+    note = str(payload.get("note", "")).strip()
+
+    cost_str = _fmt_costs(req["costs"])
+    log_action(sheet, req["type"], f"[Approved] {req['description']} (spent {cost_str})" if req["costs"] else f"[Approved] {req['description']}")
+    msg = new_message(
+        f"Approved: {req['description']}" + (f" — {note}" if note else ""),
+        from_name="DM", kind="request_resolved",
+    )
+    sheet.setdefault("hidden", {}).setdefault("messages", []).append(msg)
+    save_sheet(sheet)
+
+    req = requests_store.update_request(request_id, status="approved", resolution_note=note, resolved_at=_now())
+    return jsonify(req)
+
+
+@app.post("/api/requests/<request_id>/deny")
+def api_deny_request(request_id: str):
+    req = requests_store.find_request(request_id)
+    if req is None:
+        return _bad("no such request", 404)
+    if req["status"] != "pending":
+        return _bad(f"request already {req['status']}", 409)
+
+    payload = request.get_json(silent=True) or {}
+    reason = str(payload.get("reason", "")).strip()
+
+    sheet = load_sheet(req["character_id"])
+    if sheet is not None:
+        log_action(sheet, req["type"], f"[Denied] {req['description']}" + (f" — {reason}" if reason else ""))
+        msg = new_message(
+            f"Denied: {req['description']}" + (f" — {reason}" if reason else ""),
+            from_name="DM", kind="request_resolved",
+        )
+        sheet.setdefault("hidden", {}).setdefault("messages", []).append(msg)
+        save_sheet(sheet)
+
+    req = requests_store.update_request(request_id, status="denied", resolution_note=reason, resolved_at=_now())
+    return jsonify(req)
+
+
+# --------------------------------------------------------------------------- #
+# DM inbox — messages FROM players TO the DM                                 #
+# --------------------------------------------------------------------------- #
+
+@app.get("/api/dm/inbox")
+def api_dm_inbox():
+    items = dm_inbox.load_inbox()
+    items.sort(key=lambda m: m["created_at"], reverse=True)
+    return jsonify(items)
+
+
+@app.post("/api/dm/inbox/<msg_id>/read")
+def api_dm_inbox_read(msg_id: str):
+    msg = dm_inbox.mark_read(msg_id)
+    if msg is None:
+        return _bad("no such message", 404)
+    return jsonify(msg)
 
 
 # --------------------------------------------------------------------------- #

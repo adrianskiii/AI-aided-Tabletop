@@ -1,0 +1,76 @@
+{
+  "class_name": "Oracle",
+  "subclass_type": "Mystery",
+  "choices": {
+    "Ancestors": {
+      "description": "Dein Geist wird von den Seelen und Stimmen unzähliger Vorfahren heimgesucht, die dir in kritischen Momenten helfen oder deine Handlungen unberechenbar beeinflussen.",
+      "features": [
+        {
+          "id": "mystery_ancestors",
+          "name": "Ancestors Mystery",
+          "tldr": "Verleiht geisterhafte Einblicke, wechselnde Boni/Mali durch den Einfluss der Ahnen und spezielle Ahnen-Fokuszauber."
+        }
+      ]
+    },
+    "Battle": {
+      "description": "Du bist von den brutalen Energien des ewigen Krieges und Konflikts durchdrungen, was dich zu einem unerbittlichen Frontkämpfer macht.",
+      "features": [
+        {
+          "id": "mystery_battle",
+          "name": "Battle Mystery",
+          "tldr": "Erhöht Kampfkraft und Nahkampf-Resilienz im Austausch gegen Verwundbarkeit gegenüber feindlicher Magie."
+        }
+      ]
+    },
+    "Bones": {
+      "description": "Du wandelst an der Grenze zwischen Leben und Untod und verstehst die makabre Mechanik von Verwesung und nekromantischer Energie.",
+      "features": [
+        {
+          "id": "mystery_bones",
+          "name": "Bones Mystery",
+          "tldr": "Fokussiert auf Nekromantie, den Umgang mit negativer Energie und das Überwinden sterblicher Grenzen."
+        }
+      ]
+    },
+    "Cosmos": {
+      "description": "Du trägst die Weite, Kälte und Schwere der Sternenbilder und des interstellaren Raums in deinem Körper.",
+      "features": [
+        {
+          "id": "mystery_cosmos",
+          "name": "Cosmos Mystery",
+          "tldr": "Gewährt astrale Kräfte, schwebende Bewegungen und kosmischen Schutz gegen physische Angriffe."
+        }
+      ]
+    },
+    "Flame": {
+      "description": "Ein unbändiges inneres Feuer verzehrt dich langsam, verleiht dir aber zerstörerische pyromantische Macht.",
+      "features": [
+        {
+          "id": "mystery_flame",
+          "name": "Flame Mystery",
+          "tldr": "Verursacht ständige Hitzeerscheinungen und gewährt mächtige Feuerzauber im Austausch gegen elementare Verwundbarkeit."
+        }
+      ]
+    },
+    "Life": {
+      "description": "Du bist ein Gefäß für die pulsierende Fülle der Lebenskraft, das Wunden anderer auf sich zieht und heilt.",
+      "features": [
+        {
+          "id": "mystery_life",
+          "name": "Life Mystery",
+          "tldr": "Verstärkt göttliche Heilzauber drastisch, belastet deinen Körper jedoch mit den Schmerzen der Geheilten."
+        }
+      ]
+    },
+    "Lore": {
+      "description": "Dein Verstand ist überflutet mit dem gesamten Wissen des Kosmos, was dich zu einem nahezu unerschöpflichen Archiv macht.",
+      "features": [
+        {
+          "id": "mystery_lore",
+          "name": "Lore Mystery",
+          "tldr": "Erlaubt dir, fast jedes Wissen abzurufen und geheimnisvolle Wahrheiten aufzudecken."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "class_name": "Monk",
+  "description": "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection.",
+  "key_ability": ["dexterity", "wisdom"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["acrobatics", "athletics", "history", "insight", "religion", "stealth"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "shortswords": "trained"
+    },
+    "armor": {
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "unarmored_defense_monk",
+          "name": "Unarmored Defense",
+          "type": "class_feature",
+          "tldr": "While you are not wearing any armor and not wielding a shield, your AC includes your Wisdom modifier."
+        },
+        {
+          "id": "martial_arts",
+          "name": "Martial Arts",
+          "type": "class_feature",
+          "tldr": "Gain mastery of combat styles using unarmed strikes and monk weapons, scaling your damage die and granting bonus attacks."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "ki",
+          "name": "Ki",
+          "type": "class_feature",
+          "tldr": "Harness a pool of ki energy to fuel mystical martial feats like Flurry of Blows, Patient Defense, and Step of the Wind."
+        },
+        {
+          "id": "unarmored_movement_2",
+          "name": "Unarmored Movement",
+          "type": "class_feature",
+          "tldr": "Your speed increases by 10 feet while you are not wearing armor or wielding a shield."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "deflect_missiles",
+          "name": "Deflect Missiles",
+          "type": "class_feature",
+          "tldr": "Use your reaction to deflect or catch missiles when you are hit by a ranged weapon attack."
+        },
+        {
+          "id": "monastic_tradition",
+          "name": "Monastic Tradition",
+          "type": "subclass_choice",
+          "tldr": "Choose a tradition that shapes your spiritual and martial philosophy."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "slow_fall",
+          "name": "Slow Fall",
+          "type": "class_feature",
+          "tldr": "Use your reaction when you fall to reduce any falling damage you take."
+        },
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "extra_attack_monk",
+          "name": "Extra Attack",
+          "type": "class_feature",
+          "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        },
+        {
+          "id": "stunning_strike",
+          "name": "Stunning Strike",
+          "type": "class_feature",
+          "tldr": "Interfere with the flow of ki in an opponent's body, forcing a Constitution save or stunning them."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "ki_empowered_strikes",
+          "name": "Ki-Empowered Strikes",
+          "type": "class_feature",
+          "tldr": "Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity."
+        },
+        {
+          "id": "tradition_feature_6",
+          "name": "Monastic Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Monastic Tradition."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "evasion",
+          "name": "Evasion",
+          "type": "class_feature",
+          "tldr": "Your instinctive agility lets you dodge out of the way of certain area effects, taking no damage on a success."
+        },
+        {
+          "id": "stillness_of_mind",
+          "name": "Stillness of Mind",
+          "type": "class_feature",
+          "tldr": "Use an action to end one effect on yourself that is causing you to be charmed or frightened."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": [
+        {
+          "id": "unarmored_movement_improvement",
+          "name": "Unarmored Movement Improvement",
+          "type": "class_feature",
+          "tldr": "You gain the ability to move along vertical surfaces and across liquids on your turn without falling."
+        }
+      ]
+    },
+    "10": {
+      "features": [
+        {
+          "id": "purity_of_body",
+          "name": "Purity of Body",
+          "type": "class_feature",
+          "tldr": "Your mastery of the ki flowing through you makes you immune to disease and poison."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "tradition_feature_11",
+          "name": "Monastic Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Monastic Tradition."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "tongue_of_the_sun_and_moon",
+          "name": "Tongue of the Sun and Moon",
+          "type": "class_feature",
+          "tldr": "Learn to touch the ki of other minds so that you understand all spoken languages."
+        }
+      ]
+    },
+    "14": {
+      "features": [
+        {
+          "id": "diamond_soul",
+          "name": "Diamond Soul",
+          "type": "class_feature",
+          "tldr": "Gain proficiency in all saving throws, and spend ki to reroll a failed save."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "timeless_body_monk",
+          "name": "Timeless Body",
+          "type": "class_feature",
+          "tldr": "Your ki sustains you so that you suffer none of the frailty of old age and don't need food or water."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "tradition_feature_17",
+          "name": "Monastic Tradition Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Monastic Tradition."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "empty_body",
+          "name": "Empty Body",
+          "type": "class_feature",
+          "tldr": "Spend ki to become invisible and resistant to all damage except force, or cast Astral Projection."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "perfect_self",
+          "name": "Perfect Self",
+          "type": "class_feature",
+          "tldr": "When you roll for initiative and have no ki points remaining, you regain 4 ki points."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Monastic Tradition",
+    "level": 3
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "class_name": "Sorcerer",
+  "description": "A spellcaster who draws on inherent magic from a gift or bloodline.",
+  "key_ability": ["charisma"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "full_caster",
+    "ability": "charisma"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["arcana", "deception", "insight", "intimidation", "persuasion", "religion"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "daggers": "trained",
+      "darts": "trained",
+      "slings": "trained",
+      "quarterstaffs": "trained",
+      "light_crossbows": "trained"
+    },
+    "armor": {
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained",
+      "shields": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "spellcasting_sorcerer",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast innate arcane spells using Charisma as your spellcasting ability."
+        },
+        {
+          "id": "sorcerous_origin",
+          "name": "Sorcerous Origin",
+          "type": "subclass_choice",
+          "tldr": "Choose the source of your innate magical power, shaping your magical features."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "font_of_magic",
+          "name": "Font of Magic",
+          "type": "class_feature",
+          "tldr": "Tap into a flexible well of magic that lets you store and convert energy between sorcery points and spell slots."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "metamagic",
+          "name": "Metamagic",
+          "type": "class_feature",
+          "tldr": "Gain the ability to twist and modify your spells to suit your needs using sorcery points."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": []
+    },
+    "6": {
+      "features": [
+        {
+          "id": "origin_feature_6",
+          "name": "Sorcerous Origin Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Sorcerous Origin."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "metamagic_improvement",
+          "name": "Metamagic (Additional Options)",
+          "type": "class_feature",
+          "tldr": "Learn additional Metamagic options to further customize your spellcasting."
+        }
+      ]
+    },
+    "11": {
+      "features": []
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "origin_feature_14",
+          "name": "Sorcerous Origin Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Sorcerous Origin."
+        }
+      ]
+    },
+    "15": {
+      "features": []
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "metamagic_improvement_17",
+          "name": "Metamagic (Final Option)",
+          "type": "class_feature",
+          "tldr": "Learn your final Metamagic option."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "origin_feature_18",
+          "name": "Sorcerous Origin Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Sorcerous Origin."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "sorcerous_restoration",
+          "name": "Sorcerous Restoration",
+          "type": "class_feature",
+          "tldr": "Regain 4 expended sorcery points whenever you finish a short rest."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Sorcerous Origin",
+    "level": 1
+  }
+}

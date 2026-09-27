@@ -1,0 +1,188 @@
+{
+  "class_name": "Artificer",
+  "subclass_type": "Artificer Specialist",
+  "choices": {
+    "Alchemist": {
+      "description": "A specialist in the creation of magical elixirs and mutagenic concoctions.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "alchemist_tool_proficiency",
+            "name": "Tool Proficiency",
+            "tldr": "Gain proficiency with alchemist's supplies, or expertise in them if already proficient."
+          },
+          {
+            "id": "alchemist_spells",
+            "name": "Alchemist Spells",
+            "tldr": "Always have a set list of alchemy-themed spells prepared, not counting against your number of prepared spells."
+          },
+          {
+            "id": "experimental_elixir",
+            "name": "Experimental Elixir",
+            "tldr": "Magically create random beneficial elixirs, such as healing or resistance, whenever you finish a long rest."
+          }
+        ],
+        "5": [
+          {
+            "id": "alchemical_savant",
+            "name": "Alchemical Savant",
+            "tldr": "Add your Intelligence modifier to the damage or healing of certain spells cast while holding alchemist's supplies."
+          }
+        ],
+        "9": [
+          {
+            "id": "restorative_reagents",
+            "name": "Restorative Reagents",
+            "tldr": "Your experimental elixirs can grant temporary hit points, and creatures healed by your spells regain additional hit points."
+          }
+        ],
+        "15": [
+          {
+            "id": "chemical_mastery",
+            "name": "Chemical Mastery",
+            "tldr": "Gain resistance to acid and poison damage, immunity to the poisoned condition, and the ability to craft rare potions."
+          }
+        ]
+      }
+    },
+    "Armorer": {
+      "description": "A specialist who fashions a suit of powered armor into a magical, weaponized exoskeleton.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "armorer_tool_proficiency",
+            "name": "Tool Proficiency",
+            "tldr": "Gain proficiency with heavy armor, or expertise with an existing armor proficiency."
+          },
+          {
+            "id": "armorer_spells",
+            "name": "Armorer Spells",
+            "tldr": "Always have a set list of defense-themed spells prepared, not counting against your number of prepared spells."
+          },
+          {
+            "id": "arcane_armor",
+            "name": "Arcane Armor",
+            "tldr": "Turn a suit of armor into a set of powered arcane armor that you can don or doff quickly and that replaces your other armor proficiencies."
+          },
+          {
+            "id": "armor_model",
+            "name": "Armor Model",
+            "tldr": "Choose a model for your arcane armor, the Guardian (built for close-quarters battle) or the Infiltrator (built for stealth and mobility)."
+          }
+        ],
+        "5": [
+          {
+            "id": "armorer_extra_attack",
+            "name": "Extra Attack",
+            "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+          }
+        ],
+        "9": [
+          {
+            "id": "armor_modifications",
+            "name": "Armor Modifications",
+            "tldr": "Install extra magical infusions directly into your arcane armor, and share some of the armor's benefits with a nearby ally."
+          }
+        ],
+        "15": [
+          {
+            "id": "perfected_armor",
+            "name": "Perfected Armor",
+            "tldr": "Your arcane armor model gains an additional, more powerful ability depending on whether it's a Guardian or an Infiltrator."
+          }
+        ]
+      }
+    },
+    "Artillerist": {
+      "description": "A specialist who conjures a magical cannon to unleash bursts of elemental damage.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "artillerist_tool_proficiency",
+            "name": "Tool Proficiency",
+            "tldr": "Gain proficiency with woodcarver's tools, or expertise if already proficient."
+          },
+          {
+            "id": "artillerist_spells",
+            "name": "Artillerist Spells",
+            "tldr": "Always have a set list of blasting-themed spells prepared, not counting against your number of prepared spells."
+          },
+          {
+            "id": "eldritch_cannon",
+            "name": "Eldritch Cannon",
+            "tldr": "Spend an hour to magically create a small mobile cannon that can attack, shield allies, or heal, and that you can command."
+          }
+        ],
+        "5": [
+          {
+            "id": "arcane_firearm",
+            "name": "Arcane Firearm",
+            "tldr": "Turn one of your magic items with a spellcasting focus into an arcane firearm, adding a die of damage to your artificer spells."
+          }
+        ],
+        "9": [
+          {
+            "id": "explosive_cannon",
+            "name": "Explosive Cannon",
+            "tldr": "Your eldritch cannon deals extra damage, and you can cause it to explode for a burst of force damage when destroyed."
+          }
+        ],
+        "15": [
+          {
+            "id": "fortified_position",
+            "name": "Fortified Position",
+            "tldr": "You and your allies gain half cover from any eldritch cannon you've created, and you can maintain two cannons at once."
+          }
+        ]
+      }
+    },
+    "Battle Smith": {
+      "description": "A specialist who forges a steel companion and channels battle magic to protect their allies.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "battle_smith_tool_proficiency",
+            "name": "Tool Proficiency",
+            "tldr": "Gain proficiency with smith's tools, or expertise if already proficient."
+          },
+          {
+            "id": "battle_smith_spells",
+            "name": "Battle Smith Spells",
+            "tldr": "Always have a set list of protection-themed spells prepared, not counting against your number of prepared spells."
+          },
+          {
+            "id": "battle_ready",
+            "name": "Battle Ready",
+            "tldr": "Gain proficiency with martial weapons, and can use Intelligence instead of Strength or Dexterity for attack and damage rolls with magic weapons."
+          },
+          {
+            "id": "steel_defender",
+            "name": "Steel Defender",
+            "tldr": "Magically create a loyal steel defender construct that fights alongside you and can be commanded as a bonus action."
+          }
+        ],
+        "5": [
+          {
+            "id": "battle_smith_extra_attack",
+            "name": "Extra Attack",
+            "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+          }
+        ],
+        "9": [
+          {
+            "id": "arcane_jolt",
+            "name": "Arcane Jolt",
+            "tldr": "When you or your steel defender hits with an attack, deal extra force damage or restore hit points to a creature."
+          }
+        ],
+        "15": [
+          {
+            "id": "improved_defender",
+            "name": "Improved Defender",
+            "tldr": "Your steel defender gains a boost to its abilities, and your arcane jolt grows more powerful."
+          }
+        ]
+      }
+    }
+  }
+}

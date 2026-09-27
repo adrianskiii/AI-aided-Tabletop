@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Tengu",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Taloned": {
+      "description": "Possessing razor-sharp feet and claws for agile climbing and tearing strikes.",
+      "features": [
+        {
+          "id": "heritage_tengu_taloned",
+          "name": "Taloned Tengu",
+          "tldr": "You gain a natural unarmed claw attack."
+        }
+      ]
+    },
+    "Feathered": {
+      "description": "Covered in thick protective plumage that wards off light weather hazards.",
+      "features": [
+        {
+          "id": "heritage_tengu_feathered",
+          "name": "Feathered Tengu",
+          "tldr": "You gain minor environmental resistances based on your feather coat."
+        }
+      ]
+    }
+  }
+}

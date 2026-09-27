@@ -1,0 +1,66 @@
+{
+  "class_name": "Barbarian",
+  "subclass_type": "Instinct",
+  "choices": {
+    "Animal": {
+      "description": "Emulate wild beasts, gaining lethal natural unarmed attacks.",
+      "features": [
+        {
+          "id": "instinct_animal",
+          "name": "Animal Instinct",
+          "tldr": "Gain special unarmed combat attack choices (ape, bear, bull, frog, etc.) with unique traits."
+        }
+      ]
+    },
+    "Dragon": {
+      "description": "Channel draconic wrath, elemental resistance, and dragon breath.",
+      "features": [
+        {
+          "id": "instinct_dragon",
+          "name": "Dragon Instinct",
+          "tldr": "Gain dragon tail or jaw attacks, elemental damage bonuses, and a draconic breath weapon."
+        }
+      ]
+    },
+    "Fury": {
+      "description": "Pure unadulterated emotional rage without specific thematic restrictions.",
+      "features": [
+        {
+          "id": "instinct_fury",
+          "name": "Fury Instinct",
+          "tldr": "Gain extra barbarian feat selections and absolute freedom of emotional expression."
+        }
+      ]
+    },
+    "Giant": {
+      "description": "Channel titan blood to wield massively oversized weapons with devastating reach.",
+      "features": [
+        {
+          "id": "instinct_giant",
+          "name": "Giant Instinct",
+          "tldr": "Wield weapons one size larger than you with extra damage output and reach advantages."
+        }
+      ]
+    },
+    "Spirit": {
+      "description": "Channel ancestral or wandering spirits to strike ethereal foes.",
+      "features": [
+        {
+          "id": "instinct_spirit",
+          "name": "Spirit Instinct",
+          "tldr": "Deal spirit damage and protect yourself against spiritual and mental interferences."
+        }
+      ]
+    },
+    "Superstition": {
+      "description": "Fueled by deep distrust and hatred of magic and spellcasters.",
+      "features": [
+        {
+          "id": "instinct_superstition",
+          "name": "Superstition Instinct",
+          "tldr": "Gain massive saving throw bonuses against spells and magical effects while raging."
+        }
+      ]
+    }
+  }
+}

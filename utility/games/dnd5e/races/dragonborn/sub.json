@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Dragonborn",
+  "sub_ancestry_type": "Lineage",
+  "choices": {
+    "Chromatic": {
+      "description": "Descended from chaotic or brutal dragon types like Red, Blue, or Black, wielding raw, elemental fury.",
+      "features": [
+        {
+          "id": "subrace_chromatic_ward",
+          "name": "Chromatic Warding",
+          "tldr": "You can temporarily immunize yourself to the damage type associated with your chromatic ancestry."
+        }
+      ]
+    },
+    "Metallic": {
+      "description": "Descended from noble and righteous dragon types like Gold, Silver, or Bronze, wielding protective or coercive presence.",
+      "features": [
+        {
+          "id": "subrace_metallic_breath",
+          "name": "Metallic Breath Weapons",
+          "tldr": "You gain access to a secondary specialized breath weapon that can push targets back or incapacitate them."
+        }
+      ]
+    }
+  }
+}

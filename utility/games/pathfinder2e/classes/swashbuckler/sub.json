@@ -1,0 +1,56 @@
+{
+  "class_name": "Swashbuckler",
+  "subclass_type": "Swashbuckler's Style",
+  "choices": {
+    "Battledancer": {
+      "description": "Du nutzt akrobatische Bewegungen und Aufführungen im Kampf, um Gegner zu faszinieren und Panache zu erlangen.",
+      "features": [
+        {
+          "id": "style_battledancer",
+          "name": "Battledancer Style",
+          "tldr": "Ermöglicht es dir, über Darbietung (Performance) Panache zu erlangen."
+        }
+      ]
+    },
+    "Braggart": {
+      "description": "Du setzt Einschüchterung, Spott und psychologische Kriegsführung ein, um Feinde zu demoralisieren.",
+      "features": [
+        {
+          "id": "style_braggart",
+          "name": "Braggart Style",
+          "tldr": "Ermöglicht es dir, über Einschüchtern (Intimidation) Panache zu erlangen."
+        }
+      ]
+    },
+    "Fencer": {
+      "description": "Der klassische Fechtmeister, der Finten und schlaue Manöver nutzt, um Schwachstellen aufzudecken.",
+      "features": [
+        {
+          "id": "style_fencer",
+          "name": "Fencer Style",
+          "tldr": "Ermöglicht es dir, über Finte (Feint) oder Täuschung Panache zu erlangen."
+        }
+      ]
+    },
+    "Gymnast": {
+      "description": "Du setzt physische Kraft, Ringen, Stolpern und Akrobatik ein, um den Gegner im Nahkampf zu kontrollieren.",
+      "features": [
+        {
+          "id": "style_gymnast",
+          "name": "Gymnast Style",
+          "tldr": "Ermöglicht es dir, über Manöver wie Stoßen, Ringen oder Stolpern Panache zu erlangen."
+        }
+      ]
+    },
+    "Wit": {
+      "description": "Mit scharfem Verstand, bissigen Witzen oder cleveren Bemerkungen bringst du Gegner aus dem Konzept.",
+      "features": [
+        {
+          "id": "style_wit",
+          "name": "Wit Style",
+          "tldr": "Ermöglicht es dir, über Bonmots / geistreiche Bemerkungen (Diplomacy) Panache zu erlangen."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Kashrishi",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Amethyst": {
+      "description": "Inlaid with deep purple crystals that guard against mental manipulation.",
+      "features": [
+        {
+          "id": "heritage_kashrishi_amethyst",
+          "name": "Amethyst Kashrishi",
+          "tldr": "You gain strong resistance against mental effects and psychic intrusion."
+        }
+      ]
+    },
+    "Quartz": {
+      "description": "Resonating with clear quartz that sharpens your everyday senses.",
+      "features": [
+        {
+          "id": "heritage_kashrishi_quartz",
+          "name": "Quartz Kashrishi",
+          "tldr": "You gain low-light vision and an intuitive bonus to notice hidden creatures."
+        }
+      ]
+    }
+  }
+}

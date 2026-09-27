@@ -1,0 +1,171 @@
+{
+  "class_name": "Exemplar",
+  "description": "Ein seltener göttlicher Krieger mit einem Funken Unsterblichkeit in seiner Seele, der mächtige Ikons einsetzt und epische Heldentaten vollbringt.",
+  "key_ability": ["strength", "charisma"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["religion"],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "divine_spark_and_ikons", "name": "Divine Spark and Ikons", "type": "class_feature", "tldr": "Trage einen göttlichen Funken in dir und erhalte drei mächtige Ikons (Körper, Amulett/Rüstung, Waffe), die du ermächtigen kannst."},
+        {"id": "epithet", "name": "Epithet", "type": "subclass_choice", "tldr": "Wähle dein göttliches Epithet, das deinen legendären Weg und Stil prägt."},
+        {"id": "exemplar_feat_1", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "exemplar_feat_2", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "exemplar_feat_4", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "spirit_striking", "name": "Spirit Striking", "type": "class_feature", "tldr": "Dein göttlicher Funke entlädt sich in zusätzlichens Geist-Schaden bei Angriffen."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "exemplar_feat_6", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "exemplar_feat_8", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "exemplar_feat_10", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Willenswürfe gegen Furcht und mentale Effekte werden bei Erfolg zu kritischen Erfolgen."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "exemplar_feat_12", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Experten- oder Meisterstufe."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "exemplar_feat_14", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Erhöhe den Waffenschaden weiter."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "exemplar_feat_16", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "legendary_striker", "name": "Legendary Striker", "type": "class_feature", "tldr": "Waffenfertigkeiten erreichen den legendären Bereich."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "exemplar_feat_18", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "perfection_of_essence", "name": "Perfection of Essence", "type": "class_feature", "tldr": "Deine göttliche Natur verleiht dir ultimative Zähigkeit und Standhaftigkeit."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "exemplar_feat_20", "name": "Exemplar Feat", "type": "feat_slot", "tldr": "Erhalte ein Exemplar-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

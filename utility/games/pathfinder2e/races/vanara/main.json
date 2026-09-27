@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Vanara",
+  "rarity": "uncommon",
+  "description": "Vanaras are inquisitive and mischievous monkey-like humanoids with short, soft fur, expressive eyes, and long, prehensile tails.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Vanaran"],
+  "traits": ["Humanoid", "Vanara"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "prehensile_tail",
+          "name": "Prehensile Tail",
+          "type": "ancestry_feature",
+          "tldr": "Your long tail assists with balance and can retrieve light objects."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a vanara heritage reflecting your acrobatics or forest upbringing."
+        }
+      ]
+    }
+  }
+}

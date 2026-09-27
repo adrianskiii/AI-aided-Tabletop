@@ -1,0 +1,3063 @@
+{
+  "schema_version": "0.1.0",
+  "game": "Pathfinder Second Edition",
+  "ruleset": "Remaster",
+  "purpose": "UI and rules/AI-DM catalog foundation",
+  "notes": [
+    "Descriptions are intentionally concise paraphrases suitable for UI/tooltips.",
+    "This file separates action economy, prerequisites, resolution, effects, and countermeasures so an engine can reason over them.",
+    "A truly complete PF2e corpus should be generated/imported from a licensed structured rules dataset rather than hand-maintained."
+  ],
+  "source_strategy": {
+    "rules_reference": "Archives of Nethys",
+    "structured_reference": "Foundry VTT PF2e system data",
+    "license_note": "Check the applicable Paizo/ORC/Community Use and Foundry licenses before redistributing copied game text or trademarks."
+  },
+  "enums": {
+    "action_cost": [
+      "free",
+      "reaction",
+      "1",
+      "2",
+      "3",
+      "activity",
+      "exploration",
+      "downtime",
+      "varies"
+    ],
+    "check_types": [
+      "attack",
+      "skill",
+      "perception",
+      "saving_throw",
+      "flat_check",
+      "counteract",
+      "none"
+    ],
+    "save_types": [
+      "fortitude",
+      "reflex",
+      "will",
+      "none"
+    ],
+    "duration_units": [
+      "rounds",
+      "minutes",
+      "hours",
+      "days",
+      "unlimited",
+      "until_discharged",
+      "conditional",
+      "instantaneous"
+    ]
+  },
+  "entity_schema": {
+    "id": "stable-slug",
+    "name": "Display name",
+    "kind": "action|activity|reaction|free_action|skill_action|spell|condition|effect|trait|feat|ability|item_activation",
+    "source": [
+      "Player Core"
+    ],
+    "level": 0,
+    "rarity": "common",
+    "traits": [],
+    "action": {
+      "cost": "1",
+      "trigger": null,
+      "requirements": [],
+      "subordinate_actions": []
+    },
+    "access": {
+      "proficiency": null,
+      "class": [],
+      "feat": [],
+      "ancestry": [],
+      "heritage": [],
+      "level_min": 0,
+      "other": []
+    },
+    "targeting": {
+      "range": null,
+      "targets": null,
+      "area": null,
+      "origin": "self|point|target|object|creature",
+      "valid_target_rules": []
+    },
+    "resolution": {
+      "check": "none",
+      "skill": null,
+      "dc": null,
+      "save": "none",
+      "degree_of_success": {}
+    },
+    "effects": [],
+    "countermeasures": [],
+    "interactions": [],
+    "automation": {
+      "tags": [],
+      "conditions_added": [],
+      "conditions_removed": [],
+      "damage": [],
+      "modifiers": [],
+      "movement": [],
+      "resource_costs": []
+    },
+    "ui": {
+      "short_description": "",
+      "keywords": []
+    }
+  },
+  "conditions": [
+    {
+      "id": "blinded",
+      "name": "Blinded",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You cannot see; vision-dependent actions and targeting are severely restricted.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_senses": [
+          "vision"
+        ],
+        "targeting_restriction": "vision"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "broken",
+      "name": "Broken",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An item is damaged enough that it cannot perform its normal function.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "item_unusable"
+        ]
+      },
+      "removal": [
+        "repair",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "clumsy",
+      "name": "Clumsy",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your body is less coordinated, imposing a status penalty on Dexterity-based checks and DCs.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "dexterity_checks_and_dcs",
+            "type": "status",
+            "value": "-value"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "concealed",
+      "name": "Concealed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "A target is difficult to see; attacks and other checks against it can require a flat check.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "concealment"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "confused",
+      "name": "Confused",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You have impaired control and may attack or affect creatures indiscriminately.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "restricted_targeting",
+          "randomized_behavior"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "controlled",
+      "name": "Controlled",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Another creature determines your actions within the limits of the controlling effect.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "action_control"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "dazzled",
+      "name": "Dazzled",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Everything is concealed from you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_senses": [
+          "vision"
+        ],
+        "targeting_restriction": "concealment"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "deafened",
+      "name": "Deafened",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You cannot hear normally and have difficulty with auditory effects.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_senses": [
+          "hearing"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "doomed",
+      "name": "Doomed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your connection to death is weakened; it makes dying more dangerous.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "dying_value",
+            "type": "status",
+            "value": "+value"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "drained",
+      "name": "Drained",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Loss of vitality reduces your maximum and current Hit Points.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "max_hp",
+            "type": "status",
+            "value": "-value*level"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "dying",
+      "name": "Dying",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are near death and must recover or risk death.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "dying"
+        ],
+        "death_rule": "increase_dying_value_to_max"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "encumbered",
+      "name": "Encumbered",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are carrying too much, reducing movement and imposing a Strength/Dexterity penalty.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_movement": [
+          "speed_reduced"
+        ],
+        "modifiers": [
+          {
+            "stat": "strength_and_dexterity_checks_and_dcs",
+            "type": "status",
+            "value": "-1"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "enfeebled",
+      "name": "Enfeebled",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your physical strength is reduced, penalizing Strength-based checks and DCs.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "strength_checks_and_dcs",
+            "type": "status",
+            "value": "-value"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "fascinated",
+      "name": "Fascinated",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your attention is strongly drawn to a particular subject.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attention_restricted"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "fatigued",
+      "name": "Fatigued",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are worn down, taking a penalty to AC and saving throws and unable to use exploration activities that require focus.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "ac_and_saves",
+            "type": "status",
+            "value": "-1"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "flat_footed",
+      "name": "Off-Guard",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are less able to defend yourself, taking a circumstance penalty to AC.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "ac",
+            "type": "circumstance",
+            "value": "-2"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "fleeing",
+      "name": "Fleeing",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You must spend your actions trying to escape the source of fear or compulsion.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "forced_escape"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "friendly",
+      "name": "Friendly",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An NPC has a positive attitude toward you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attitude"
+        ],
+        "attitude": "friendly"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "grabbed",
+      "name": "Grabbed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your movement is restricted; you cannot use actions with the manipulate trait unless they meet the relevant restriction.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_movement": [
+          "immobilized"
+        ],
+        "changes_state": [
+          "manipulate_restriction"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "helpful",
+      "name": "Helpful",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An NPC has a strongly positive attitude and is inclined to assist you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attitude"
+        ],
+        "attitude": "helpful"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "hidden",
+      "name": "Hidden",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "A creature knows your approximate location but cannot see you directly.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "hidden"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An NPC has a negative attitude and may actively oppose you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attitude"
+        ],
+        "attitude": "hostile"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "immobilized",
+      "name": "Immobilized",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You cannot use actions with the move trait.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_movement": [
+          "none"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "indifferent",
+      "name": "Indifferent",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An NPC has no strong positive or negative attitude toward you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attitude"
+        ],
+        "attitude": "indifferent"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "invisible",
+      "name": "Invisible",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You cannot be seen normally; creatures generally need other senses or special effects to locate you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "invisible"
+        ],
+        "changes_senses": [
+          "visual"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "observed",
+      "name": "Observed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "A creature is plainly visible to you.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "observed"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "paralyzed",
+      "name": "Paralyzed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Your body is immobilized and you cannot act normally.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_movement": [
+          "none"
+        ],
+        "changes_state": [
+          "action_restriction"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "persistent_damage",
+      "name": "Persistent Damage",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You take recurring damage at the specified interval until the persistent damage is removed or ends.",
+        "keywords": []
+      },
+      "automation": {
+        "creates_persistent_damage": [
+          "typed",
+          "amount",
+          "interval"
+        ]
+      },
+      "removal": [
+        "flat_check",
+        "appropriate_treatment",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "petrified",
+      "name": "Petrified",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You have been turned to stone and are unable to act normally.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "stone"
+        ],
+        "changes_movement": [
+          "none"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "prone",
+      "name": "Prone",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are on the ground; movement is restricted and you are easier to attack.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "ac",
+            "type": "circumstance",
+            "value": "-2"
+          }
+        ],
+        "changes_movement": [
+          "crawl"
+        ],
+        "changes_state": [
+          "off_guard"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "quickened",
+      "name": "Quickened",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You gain one additional action each turn, limited by the effect granting it.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_action_economy": [
+          "extra_action"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "restrained",
+      "name": "Restrained",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are tightly held, preventing normal movement and imposing stronger restrictions than grabbed.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_movement": [
+          "none"
+        ],
+        "changes_state": [
+          "manipulate_restriction"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "sickened",
+      "name": "Sickened",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Nausea imposes penalties and makes it harder to continue acting until you retch or recover.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "all_checks_and_dcs",
+            "type": "status",
+            "value": "-value"
+          }
+        ],
+        "changes_state": [
+          "retch_required"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "slowed",
+      "name": "Slowed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You lose actions from your turn according to the condition's value.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_action_economy": [
+          "remove_actions"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "stunned",
+      "name": "Stunned",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You lose actions and usually cannot use reactions while stunned.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_action_economy": [
+          "remove_actions"
+        ],
+        "changes_state": [
+          "no_reactions"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "stupefied",
+      "name": "Stupefied",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "Mental impairment penalizes Intelligence, Wisdom, and Charisma checks and makes spellcasting unreliable.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "int_wis_cha_checks_and_dcs",
+            "type": "status",
+            "value": "-value"
+          }
+        ],
+        "changes_state": [
+          "spellcasting_flat_check"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "unconscious",
+      "name": "Unconscious",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You are unable to act normally and are typically off-guard.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "no_actions",
+          "asleep_or_knocked_out"
+        ],
+        "changes_movement": [
+          "none"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "undetected",
+      "name": "Undetected",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "A creature does not know your location.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "unknown_location"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "unfriendly",
+      "name": "Unfriendly",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "An NPC has a negative attitude toward you but is not necessarily actively hostile.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_state": [
+          "attitude"
+        ],
+        "attitude": "unfriendly"
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "unnoticed",
+      "name": "Unnoticed",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "A creature is completely unaware that you are present.",
+        "keywords": []
+      },
+      "automation": {
+        "changes_targeting": [
+          "unknown_presence"
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    },
+    {
+      "id": "wounded",
+      "name": "Wounded",
+      "kind": "condition",
+      "traits": [],
+      "ui": {
+        "short_description": "You have been brought back from dying and are at increased risk if you fall dying again.",
+        "keywords": []
+      },
+      "automation": {
+        "modifiers": [
+          {
+            "stat": "dying_value",
+            "type": "circumstance",
+            "value": "+value"
+          }
+        ]
+      },
+      "removal": [
+        "duration_expiry",
+        "source_specific_rule"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "aid",
+      "name": "Aid",
+      "kind": "reaction",
+      "traits": [
+        "fortune"
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": "ally is about to attempt the supported check",
+        "requirements": [
+          "ally has accepted your aid",
+          "you prepared to help"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill_or_attack",
+        "skill": null,
+        "dc": 15,
+        "save": "none",
+        "degree_of_success": {
+          "critical_success": "+2 circumstance bonus (higher at master/legendary)",
+          "success": "+1 circumstance bonus",
+          "critical_failure": "-1 circumstance penalty"
+        }
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Help an ally with a check or attack when its trigger occurs.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "escape",
+      "name": "Escape",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you are affected by a relevant restraining effect"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "attack_or_skill",
+        "skill": "Acrobatics/Athletics",
+        "dc": "effect DC",
+        "save": "none",
+        "degree_of_success": {
+          "critical_success": "free; remove relevant conditions; may Step 5 feet",
+          "success": "free; remove relevant conditions",
+          "critical_failure": "remain affected; cannot retry until next turn"
+        }
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Attempt to free yourself from a grab, immobilization, restraint, or similar impediment.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "interact",
+      "name": "Interact",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Manipulate an object or nearby terrain: draw, stow, open, pick up, swap, or similar tasks.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "leap",
+      "name": "Leap",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "sufficient Speed for horizontal Leap"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "movement": [
+          "jump"
+        ]
+      },
+      "ui": {
+        "short_description": "Make a short jump, normally up to 10 feet horizontally or 3 feet vertically.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "ready",
+      "name": "Ready",
+      "kind": "action",
+      "traits": [
+        "concentrate"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "chosen action is legal to use",
+          "chosen trigger can occur"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "prepared_reaction"
+        ]
+      },
+      "ui": {
+        "short_description": "Prepare one action to use as a reaction when a chosen trigger occurs.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "release",
+      "name": "Release",
+      "kind": "free_action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "free",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "object_released"
+        ]
+      },
+      "ui": {
+        "short_description": "Let go of an object or remove a hand from something you hold.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "seek",
+      "name": "Seek",
+      "kind": "action",
+      "traits": [
+        "concentrate",
+        "secret"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "perception",
+        "skill": "Perception",
+        "dc": "Stealth DC or detection DC",
+        "save": "none",
+        "degree_of_success": {
+          "critical_success": "observe hidden/undetected target or locate object",
+          "success": "improve detection state or locate object"
+        }
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Search a defined area for creatures, objects, hazards, or other hidden things.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "stride",
+      "name": "Stride",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "movement": [
+          "speed"
+        ]
+      },
+      "ui": {
+        "short_description": "Move up to your Speed.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "step",
+      "name": "Step",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "space is available"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "movement": [
+          "5ft_safe_step"
+        ]
+      },
+      "ui": {
+        "short_description": "Move 5 feet without triggering reactions that respond to movement.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "strike",
+      "name": "Strike",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "appropriate weapon/unarmed attack"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "attack",
+        "skill": null,
+        "dc": "target AC",
+        "save": "none",
+        "degree_of_success": {
+          "critical_success": "critical hit",
+          "success": "deal weapon/unarmed damage",
+          "failure": "miss",
+          "critical_failure": "critical miss"
+        }
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Make a melee or ranged attack with a weapon or unarmed attack.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "stand",
+      "name": "Stand",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you are prone"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "remove_prone"
+        ]
+      },
+      "ui": {
+        "short_description": "Get up from prone.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "drop_prone",
+      "name": "Drop Prone",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "add_prone"
+        ]
+      },
+      "ui": {
+        "short_description": "Drop to the ground voluntarily.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "crawl",
+      "name": "Crawl",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you are prone"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "movement": [
+          "crawl"
+        ]
+      },
+      "ui": {
+        "short_description": "Move a short distance while prone.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "take_cover",
+      "name": "Take Cover",
+      "kind": "action",
+      "traits": [],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "appropriate cover or terrain"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "cover"
+        ]
+      },
+      "ui": {
+        "short_description": "Use available cover or terrain to improve your defenses against attacks.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "raise_shield",
+      "name": "Raise a Shield",
+      "kind": "action",
+      "traits": [],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "shield is wielded"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "shield_raised"
+        ]
+      },
+      "ui": {
+        "short_description": "Raise a wielded shield to gain its defensive benefit until your next turn.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "delay",
+      "name": "Delay",
+      "kind": "free_action",
+      "traits": [],
+      "action": {
+        "cost": "free",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "initiative_shift"
+        ]
+      },
+      "ui": {
+        "short_description": "Choose to take your turn later in the initiative order.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "point_out",
+      "name": "Point Out",
+      "kind": "action",
+      "traits": [
+        "auditory",
+        "linguistic"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "perception",
+        "skill": "Perception",
+        "dc": "context-dependent",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Indicate a creature or feature to help allies detect and understand what you noticed.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "avert_gaze",
+      "name": "Avert Gaze",
+      "kind": "action",
+      "traits": [],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_targeting": [
+          "visual_protection"
+        ]
+      },
+      "ui": {
+        "short_description": "Look away to reduce the impact of visual effects.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "grab_an_edge",
+      "name": "Grab an Edge",
+      "kind": "reaction",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": "you fall past a ledge or handhold",
+        "requirements": [
+          "a reachable edge/handhold"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "Reflex or relevant check",
+        "dc": "effect-dependent",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "fall_arrested"
+        ]
+      },
+      "ui": {
+        "short_description": "Catch a ledge or handhold while falling past it.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "arrest_a_fall",
+      "name": "Arrest a Fall",
+      "kind": "reaction",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "reaction",
+        "trigger": "you begin to fall",
+        "requirements": [
+          "an applicable fall-arrest ability or circumstance"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "none",
+        "skill": null,
+        "dc": null,
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {
+        "changes_state": [
+          "fall_arrested"
+        ]
+      },
+      "ui": {
+        "short_description": "Use an available reaction or ability to reduce or prevent falling consequences.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "balance",
+      "name": "Balance",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "surface is narrow, uneven, or unstable"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "acrobatics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Move carefully across a narrow or unstable surface.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "tumble_through",
+      "name": "Tumble Through",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you have enough movement"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "acrobatics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Move through an enemy's space using Acrobatics.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "climb",
+      "name": "Climb",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "climbable surface"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Move upward or across a climbable surface.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "force_open",
+      "name": "Force Open",
+      "kind": "action",
+      "traits": [],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "appropriate object"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Use brute force to open a stuck, locked, or barred object.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "grapple",
+      "name": "Grapple",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "a creature within reach"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Attempt to grab a creature.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "high_jump",
+      "name": "High Jump",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "you have room to jump"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Jump upward using Athletics to reach an elevated position.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "long_jump",
+      "name": "Long Jump",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "you have room to run/jump"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Jump a long horizontal distance.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "reposition",
+      "name": "Reposition",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target is within reach"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Force a creature to move a short distance.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "shove",
+      "name": "Shove",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target within reach"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Push a creature away from you.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "swim",
+      "name": "Swim",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you are in water"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Move through water.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "trip",
+      "name": "Trip",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target within reach"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Knock a creature prone.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "disarm",
+      "name": "Disarm",
+      "kind": "action",
+      "traits": [
+        "attack"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target holds an item"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "athletics",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Attempt to make a held item easier for its wielder to lose.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "create_a_diversion",
+      "name": "Create a Diversion",
+      "kind": "action",
+      "traits": [
+        "mental"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "deception",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Distract creatures so you can become harder to notice.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "feint",
+      "name": "Feint",
+      "kind": "action",
+      "traits": [
+        "mental"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target can perceive you"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "deception",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Mislead a foe, making your next attack against it more effective.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "lie",
+      "name": "Lie",
+      "kind": "activity",
+      "traits": [
+        "auditory",
+        "linguistic"
+      ],
+      "action": {
+        "cost": "varies",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "deception",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Give a false statement intended to make another creature believe it.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "impersonate",
+      "name": "Impersonate",
+      "kind": "activity",
+      "traits": [
+        "auditory",
+        "linguistic"
+      ],
+      "action": {
+        "cost": "varies",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "deception",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Present yourself as another creature or role.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "gather_information",
+      "name": "Gather Information",
+      "kind": "activity",
+      "traits": [],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "diplomacy",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Question people to learn useful information about a topic.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "make_an_impression",
+      "name": "Make an Impression",
+      "kind": "activity",
+      "traits": [
+        "auditory",
+        "linguistic"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "diplomacy",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Improve another creature's attitude through social interaction.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "request",
+      "name": "Request",
+      "kind": "action",
+      "traits": [
+        "auditory",
+        "linguistic"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "diplomacy",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Ask a creature for cooperation.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "coerce",
+      "name": "Coerce",
+      "kind": "activity",
+      "traits": [
+        "auditory",
+        "linguistic",
+        "emotion"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "intimidation",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Use threats to force a creature toward compliance.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "demoralize",
+      "name": "Demoralize",
+      "kind": "action",
+      "traits": [
+        "auditory",
+        "concentrate",
+        "emotion",
+        "fear",
+        "mental"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target can hear you"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "intimidation",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Attempt to frighten a creature.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "recall_knowledge",
+      "name": "recall_knowledge",
+      "kind": "action",
+      "traits": [
+        "concentrate",
+        "secret"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "arcana/occultism/nature/religion/society/lore",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Recall relevant knowledge about a creature, object, location, or subject.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "hide",
+      "name": "Hide",
+      "kind": "action",
+      "traits": [
+        "secret"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "cover or concealment"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "stealth",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Conceal yourself from creatures that can see you.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "sneak",
+      "name": "Sneak",
+      "kind": "action",
+      "traits": [
+        "move"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "you are hidden or have suitable concealment"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "stealth",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Move while attempting to remain hidden or undetected.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "conceal_an_object",
+      "name": "Conceal an Object",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "object can reasonably be concealed"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "stealth",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Hide a small object on your person.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "perform",
+      "name": "Perform",
+      "kind": "action",
+      "traits": [
+        "auditory"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "performance",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Use an artistic performance to entertain or otherwise influence an audience.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "sense_direction",
+      "name": "Sense Direction",
+      "kind": "activity",
+      "traits": [],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "survival",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Determine cardinal direction or orientation.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "subsist",
+      "name": "Subsist",
+      "kind": "activity",
+      "traits": [],
+      "action": {
+        "cost": "downtime",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "society/survival",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Find enough food, water, and shelter to survive.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "track",
+      "name": "Track",
+      "kind": "activity",
+      "traits": [],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [
+          "a trackable trail"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "survival",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Follow the trail of creatures or objects.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "cover_tracks",
+      "name": "Cover Tracks",
+      "kind": "activity",
+      "traits": [],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "survival",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Make your trail harder to follow.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "palm_an_object",
+      "name": "Palm an Object",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "small object"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "thievery",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Conceal a small object in your hand without obvious notice.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "steal",
+      "name": "Steal",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "object accessible to you"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "thievery",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Take an unattended or poorly guarded object without being noticed.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "pick_a_lock",
+      "name": "Pick a Lock",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "thieves' tools",
+          "lock is accessible"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "thievery",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Use thieves' tools to open a lock.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "disable_a_device",
+      "name": "Disable a Device",
+      "kind": "action",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "appropriate tools",
+          "device accessible"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "thievery",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Use tools and skill to disable a trap or other mechanism.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "repair",
+      "name": "Repair",
+      "kind": "activity",
+      "traits": [
+        "manipulate"
+      ],
+      "action": {
+        "cost": "varies",
+        "trigger": null,
+        "requirements": [
+          "repairable item",
+          "appropriate tools"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "crafting",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Restore a damaged item so it can function normally.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "craft",
+      "name": "Craft",
+      "kind": "activity",
+      "traits": [
+        "downtime"
+      ],
+      "action": {
+        "cost": "downtime",
+        "trigger": null,
+        "requirements": [
+          "formula",
+          "tools",
+          "materials"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "crafting",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Create an item using Crafting and appropriate formulas/materials.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "earn_income",
+      "name": "Earn Income",
+      "kind": "activity",
+      "traits": [
+        "downtime"
+      ],
+      "action": {
+        "cost": "downtime",
+        "trigger": null,
+        "requirements": [],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "crafting/lore/performance/other",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Perform skilled work to earn money during downtime.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "identify_magic",
+      "name": "Identify Magic",
+      "kind": "activity",
+      "traits": [
+        "concentrate",
+        "secret"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [
+          "appropriate magical knowledge"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "arcana/nature/occultism/religion",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Determine the nature and properties of a magical effect or item.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "learn_a_spell",
+      "name": "Learn a Spell",
+      "kind": "activity",
+      "traits": [
+        "concentrate"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [
+          "spellcasting ability",
+          "spell source",
+          "appropriate proficiency"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "arcana/occultism/nature/religion",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Add a spell to your repertoire or spellbook using the appropriate magical tradition.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "decipher_writing",
+      "name": "Decipher Writing",
+      "kind": "activity",
+      "traits": [
+        "concentrate",
+        "secret"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [
+          "text is available"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "arcana/occultism/religion/society",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Understand a difficult, coded, archaic, or magical text.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "treat_wounds",
+      "name": "Treat Wounds",
+      "kind": "activity",
+      "traits": [
+        "healing",
+        "manipulate"
+      ],
+      "action": {
+        "cost": "exploration",
+        "trigger": null,
+        "requirements": [
+          "medical tools"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "medicine",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Treat a living creature's injuries with Medicine.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "treat_poison",
+      "name": "Treat Poison",
+      "kind": "action",
+      "traits": [
+        "healing",
+        "manipulate"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "medical tools"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "medicine",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Treat a creature suffering from poison.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "treat_disease",
+      "name": "Treat Disease",
+      "kind": "activity",
+      "traits": [
+        "downtime",
+        "healing",
+        "manipulate"
+      ],
+      "action": {
+        "cost": "downtime",
+        "trigger": null,
+        "requirements": [
+          "medical tools"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "medicine",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Treat a creature suffering from disease.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "administer_first_aid",
+      "name": "Administer First Aid",
+      "kind": "action",
+      "traits": [
+        "healing",
+        "manipulate"
+      ],
+      "action": {
+        "cost": "2",
+        "trigger": null,
+        "requirements": [
+          "medical tools or appropriate circumstance"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "medicine",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Stabilize a dying creature or reduce certain immediate medical dangers.",
+        "keywords": []
+      }
+    },
+    {
+      "id": "command_an_animal",
+      "name": "Command an Animal",
+      "kind": "action",
+      "traits": [
+        "auditory",
+        "concentrate",
+        "linguistic",
+        "mental"
+      ],
+      "action": {
+        "cost": "1",
+        "trigger": null,
+        "requirements": [
+          "target is an animal and can understand the command"
+        ],
+        "subordinate_actions": []
+      },
+      "resolution": {
+        "check": "skill",
+        "skill": "nature",
+        "dc": "GM/target DC",
+        "save": "none",
+        "degree_of_success": {}
+      },
+      "effects": [],
+      "countermeasures": [],
+      "automation": {},
+      "ui": {
+        "short_description": "Issue a command to an animal companion or other animal.",
+        "keywords": []
+      }
+    }
+  ],
+  "interaction_rules": {
+    "condition_removal": [
+      "duration_expiry",
+      "explicit_removal",
+      "counteract",
+      "successful_skill_action",
+      "successful_save",
+      "rest_or_recovery",
+      "source_specific_rule"
+    ],
+    "generic_effect_fields": [
+      "adds_condition",
+      "removes_condition",
+      "modifies_stat",
+      "modifies_roll",
+      "changes_action_economy",
+      "changes_senses",
+      "changes_movement",
+      "changes_targeting",
+      "changes_damage",
+      "creates_persistent_damage",
+      "creates_aura",
+      "creates_reaction",
+      "changes_state"
+    ],
+    "condition_relations": {
+      "grabbed": {
+        "typically_removed_by": [
+          "escape",
+          "effect_expiry",
+          "source_specific_rule"
+        ],
+        "prevents_or_restricts": [
+          "move_actions",
+          "some_manipulate_actions"
+        ]
+      },
+      "restrained": {
+        "typically_removed_by": [
+          "escape",
+          "source_specific_rule"
+        ],
+        "prevents_or_restricts": [
+          "move_actions",
+          "many_manipulate_actions"
+        ]
+      },
+      "prone": {
+        "typically_removed_by": [
+          "stand"
+        ],
+        "commonly_applies": [
+          "off_guard"
+        ]
+      },
+      "persistent_damage": {
+        "typically_removed_by": [
+          "appropriate_treatment",
+          "flat_check",
+          "counteracting_effect",
+          "source_specific_rule"
+        ],
+        "repeats": "according_to_damage_interval"
+      },
+      "dying": {
+        "interacts_with": [
+          "wounded",
+          "doomed",
+          "recovery",
+          "stabilization"
+        ],
+        "terminal_state": "death_when_dying_reaches_system_limit"
+      },
+      "sickened": {
+        "common_recovery_action": "retch",
+        "typical_rule": "reduce_condition_value_after_successful_recovery_attempt"
+      },
+      "frightened": {
+        "common_recovery": "reduce_by_1_at_end_of_turn",
+        "can_be_removed_by": [
+          "source_specific_rule"
+        ]
+      }
+    }
+  }
+}

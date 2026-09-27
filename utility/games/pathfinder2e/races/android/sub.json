@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Android",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Artisan": {
+      "description": "Designed for specialized manual labor and precise engineering tasks.",
+      "features": [
+        {
+          "id": "heritage_android_artisan",
+          "name": "Artisan Android",
+          "tldr": "You gain trained proficiency in a Crafting skill and specialized tools."
+        }
+      ]
+    },
+    "Monitor": {
+      "description": "Built with components linked to cosmic monitoring and surveillance technology.",
+      "features": [
+        {
+          "id": "heritage_android_monitor",
+          "name": "Monitor Android",
+          "tldr": "You gain low-light vision and a bonus to perception checks against hidden objects."
+        }
+      ]
+    }
+  }
+}

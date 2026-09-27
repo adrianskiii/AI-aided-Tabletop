@@ -1,0 +1,96 @@
+{
+  "class_name": "Wizard",
+  "subclass_type": "Arcane School",
+  "choices": {
+    "Universalist": {
+      "description": "Du lehnst es ab, dich auf eine einzige Schule festzulegen, und studierst die arkane Magie in ihrer gesamten Breite.",
+      "features": [
+        {
+          "id": "school_universalist",
+          "name": "Universalist School",
+          "tldr": "Gewährt zusätzliche Fokuspunkte und die Fähigkeit, vorbereitete Zauber flexibler anzupassen."
+        }
+      ]
+    },
+    "Abjuration": {
+      "description": "Die Schule des Schutzes, der Bannung und des Abwehrens schädlicher Effekte.",
+      "features": [
+        {
+          "id": "school_abjuration",
+          "name": "Abjuration School",
+          "tldr": "Spezialisierung auf Schutzmagie, Barrieren und das Neutralisieren feindlicher Zauber."
+        }
+      ]
+    },
+    "Conjuration": {
+      "description": "Die Schule der Beschwörung, mit der du Kreaturen, Gegenstände oder Energie aus anderen Ebenen herbeirufst.",
+      "features": [
+        {
+          "id": "school_conjuration",
+          "name": "Conjuration School",
+          "tldr": "Spezialisierung auf Teleportation und das Herbeirufen von Verbündeten oder physischen Objekten."
+        }
+      ]
+    },
+    "Divination": {
+      "description": "Die Schule der Wahrnehmung, die dir Einblicke in die Zukunft, verborgene Geheimnisse und ferne Orte gewährt.",
+      "features": [
+        {
+          "id": "school_divination",
+          "name": "Divination School",
+          "tldr": "Spezialisierung auf Informationsgewinnung, magische Aufklärung und das Durchschauen von Täuschungen."
+        }
+      ]
+    },
+    "Enchantment": {
+      "description": "Die Schule der Beeinflussung, mit der du Gedanken, Emotionen und den Willen anderer kontrollierst.",
+      "features": [
+        {
+          "id": "school_enchantment",
+          "name": "Enchantment School",
+          "tldr": "Spezialisierung auf Gedankenkontrolle, Bezauberung und soziale Manipulation."
+        }
+      ]
+    },
+    "Evocation": {
+      "description": "Die Schule der rohen Energie, mit der du zerstörerische Feuerbälle, Blitze und Kraftfeld-Effekte entfesselst.",
+      "features": [
+        {
+          "id": "school_evocation",
+          "name": "Evocation School",
+          "tldr": "Spezialisierung auf elementaren Schadenszauber und flächendeckende Zerstörung."
+        }
+      ]
+    },
+    "Illusion": {
+      "description": "Die Schule der Trugbilder, mit der du Sinne täuschst, falsche Bilder erzeugst und Realitäten verfälschst.",
+      "features": [
+        {
+          "id": "school_illusion",
+          "name": "Illusion School",
+          "tldr": "Spezialisierung auf Sinnestäuschungen, Unsichtbarkeit und trügerische Phantome."
+        }
+      ]
+    },
+    "Necromancy": {
+      "description": "Die Schule der Lebens- und Todeskräfte, mit der du Untote kontrollierst, Seelen absaugst oder Energie manipulierst.",
+      "features": [
+        {
+          "id": "school_necromancy",
+          "name": "Necromancy School",
+          "tldr": "Spezialisierung auf nekromantische Energie, negative Effekte und die Handhabung von Leben und Tod."
+        }
+      ]
+    },
+    "Transmutation": {
+      "description": "Die Schule der Verwandlung, mit der du Eigenschaften von Materie, Gestalt und physikalischen Gesetzen alterierst.",
+      "features": [
+        {
+          "id": "school_transmutation",
+          "name": "Transmutation School",
+          "tldr": "Spezialisierung auf Formveränderung, Buffs und das Modifizieren physischer Objekte."
+        }
+      ]
+    }
+  }
+}

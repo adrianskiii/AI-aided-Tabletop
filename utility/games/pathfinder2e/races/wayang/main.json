@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Wayang",
+  "rarity": "uncommon",
+  "description": "Wayangs are diasporic sojourners from the Netherworld where they lived and worked alongside their allies, light-weaving d’ziriaks.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Common", "Shadow", "Wayang"],
+  "traits": ["Humanoid", "Shadow", "Wayang"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "shadow_affinity",
+          "name": "Shadow Magic",
+          "type": "ancestry_feature",
+          "tldr": "Your deep ties to the Netherworld grant you innate shadow-manipulation cantrips."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a wayang heritage representing your connection to darkness or light-weaving."
+        }
+      ]
+    }
+  }
+}

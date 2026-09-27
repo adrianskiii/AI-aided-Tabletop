@@ -1,0 +1,82 @@
+{
+  "class_name": "Druid",
+  "subclass_type": "Druid Circle",
+  "choices": {
+    "Circle of the Land": {
+      "description": "Druids who guard sacred ancient knowledge tied to specific geographical terrain types.",
+      "level_progression": {
+        "2": [
+          {
+            "id": "bonus_cantrip",
+            "name": "Bonus Cantrip",
+            "tldr": "You learn one additional druid cantrip of your choice."
+          },
+          {
+            "id": "natural_recovery",
+            "name": "Natural Recovery",
+            "tldr": "Regain some expended spell slots during a short rest once per day."
+          }
+        ],
+        "6": [
+          {
+            "id": "land_stride",
+            "name": "Land's Stride",
+            "tldr": "Move through nonmagical difficult terrain without extra movement cost and avoid plant-based hazards."
+          }
+        ],
+        "10": [
+          {
+            "id": "nature_ward",
+            "name": "Nature's Ward",
+            "tldr": "Become immune to poison and disease, and resistant to being charmed or frightened by elementals or fey."
+          }
+        ],
+        "14": [
+          {
+            "id": "natures_sanctuary",
+            "name": "Nature's Sanctuary",
+            "tldr": "Animals and plant creatures hesitate to attack you unless you attack them first."
+          }
+        ]
+      }
+    },
+    "Circle of the Moon": {
+      "description": "Fierce protectors of the wild who specialize in transforming into powerful beasts.",
+      "level_progression": {
+        "2": [
+          {
+            "id": "combat_wild_shape",
+            "name": "Combat Wild Shape",
+            "tldr": "Use Wild Shape as a bonus action and expend spell slots to heal hit points while in beast form."
+          },
+          {
+            "id": "circle_forms_2",
+            "name": "Circle Forms",
+            "tldr": "Transform into more powerful beast forms with higher challenge ratings."
+          }
+        ],
+        "6": [
+          {
+            "id": "primal_strike",
+            "name": "Primal Strike",
+            "tldr": "Your attacks in beast form count as magical for the purpose of overcoming resistance and immunity."
+          }
+        ],
+        "10": [
+          {
+            "id": "elemental_wild_shape",
+            "name": "Elemental Wild Shape",
+            "tldr": "Expend two uses of Wild Shape simultaneously to transform into a powerful elemental creature."
+          }
+        ],
+        "14": [
+          {
+            "id": "thousand_forms",
+            "name": "Thousand Forms",
+            "tldr": "You can cast the Alter Self spell at will without expending spell slots."
+          }
+        ]
+      }
+    }
+  }
+}

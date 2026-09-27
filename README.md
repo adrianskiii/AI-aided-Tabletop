@@ -7,10 +7,8 @@ with a live, click-through rules knowledge base.
 ## TODOs
 ### Finish char creator // feature char_creation
 The char creator needs the following:
-- API coverage over skills, buffs, skills and so on so that the players see what they are building
-- Skill/Ability points need to be handled correctly so that you can only allocate the max amount of the provided skill points and also along their logic (some have maybe multiple points for higher Skill levels like above skill lvl 5 it costs 2)
-- subclasses and -races
-- full description of skills
+- Pathfinder works nearly perfect
+- some minor verschönerungen and complete data for all (sub)races/(sub)classes
 
 ### Add extra UI with APIs for characters // feature player_char_sheet
 That is the UI in which the player:

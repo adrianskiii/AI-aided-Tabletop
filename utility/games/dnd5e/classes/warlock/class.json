@@ -1,0 +1,216 @@
+{
+  "class_name": "Warlock",
+  "description": "A wielder of magic derived from a bargain with an extraplanar entity.",
+  "key_ability": ["charisma"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "pact_magic",
+    "ability": "charisma"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["arcana", "deception", "history", "intimidation", "investigation", "nature", "religion"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "untrained",
+      "heavy": "untrained",
+      "shields": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "otherworldly_patron",
+          "name": "Otherworldly Patron",
+          "type": "subclass_choice",
+          "tldr": "Forge a pact with a supernatural entity that grants you magical power and features."
+        },
+        {
+          "id": "pact_magic",
+          "name": "Pact Magic",
+          "type": "class_feature",
+          "tldr": "Cast spells using Charisma that always recharge on a short or long rest at maximum slot level."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "eldritch_invocations",
+          "name": "Eldritch Invocations",
+          "type": "class_feature",
+          "tldr": "Gain fragments of forbidden knowledge that grant you permanent magical augmentations and abilities."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "pact_boon",
+          "name": "Pact Boon",
+          "type": "class_feature",
+          "tldr": "Your patron bestows a special gift, such as a bound weapon, a tome of secrets, or a familiar."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": []
+    },
+    "6": {
+      "features": [
+        {
+          "id": "patron_feature_6",
+          "name": "Otherworldly Patron Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Otherworldly Patron."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "patron_feature_10",
+          "name": "Otherworldly Patron Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Otherworldly Patron."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "mystic_arcanum_6",
+          "name": "Mystic Arcanum (6th Level)",
+          "type": "class_feature",
+          "tldr": "Call upon your patron to grant you a 6th-level spell that you can cast once per long rest."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "mystic_arcanum_7",
+          "name": "Mystic Arcanum (7th Level)",
+          "type": "class_feature",
+          "tldr": "Gain a 7th-level spell granted by your patron that you can cast once per long rest."
+        }
+      ]
+    },
+    "14": {
+      "features": [
+        {
+          "id": "patron_feature_14",
+          "name": "Otherworldly Patron Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Otherworldly Patron."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "mystic_arcanum_8",
+          "name": "Mystic Arcanum (8th Level)",
+          "type": "class_feature",
+          "tldr": "Gain an 8th-level spell granted by your patron that you can cast once per long rest."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "mystic_arcanum_9",
+          "name": "Mystic Arcanum (9th Level)",
+          "type": "class_feature",
+          "tldr": "Gain a 9th-level spell granted by your patron that you can cast once per long rest."
+        }
+      ]
+    },
+    "18": {
+      "features": []
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "eldritch_master",
+          "name": "Eldritch Master",
+          "type": "class_feature",
+          "tldr": "Regain all expended Pact Magic spell slots by spending 1 minute pleading your patron for power."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Otherworldly Patron",
+    "level": 1
+  }
+}

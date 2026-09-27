@@ -1,0 +1,36 @@
+{
+  "class_name": "Inventor",
+  "subclass_type": "Innovation",
+  "choices": {
+    "Armor Innovation": {
+      "description": "Eine hochentwickelte Rüstung oder Exosuit, die dich vor enormem Schaden schützt und mit kinetischen oder thermischen Modifikationen versehen ist.",
+      "features": [
+        {
+          "id": "innovation_armor",
+          "name": "Armor Innovation",
+          "tldr": "Verleiht deiner Rüstung spezielle Modifikationen (wie Subsysteme oder flexible Panzerung) und erhöht deinen defensiven Schutz."
+        }
+      ]
+    },
+    "Construct Innovation": {
+      "description": "Ein loyaler mechanischer Begleiter oder Roboter, der an deiner Seite kämpft, Feinde ablenkt und individuell angepasst werden kann.",
+      "features": [
+        {
+          "id": "innovation_construct",
+          "name": "Construct Innovation",
+          "tldr": "Erschafft einen autonomen mechanischen Begleiter, den du mit verschiedenen Chassis-Modifikationen und Verhaltensweisen ausstattest."
+        }
+      ]
+    },
+    "Weapon Innovation": {
+      "description": "Eine einzigartige, hocheffiziente Waffe voller ausgeklügelter Mechanismen, Haken oder Sprengsätzen, die verheerenden Schaden anrichtet.",
+      "features": [
+        {
+          "id": "innovation_weapon",
+          "name": "Weapon Innovation",
+          "tldr": "Modifiziert eine Waffe deiner Wahl mit speziellen Merkmalen (Tinker-Eigenschaften), um sie im Kampf extrem vielseitig und gefährlich zu machen."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Sprite",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Luminous": {
+      "description": "Radiating an inner glow that can illuminate dark spaces or blind attackers.",
+      "features": [
+        {
+          "id": "heritage_sprite_luminous",
+          "name": "Luminous Sprite",
+          "tldr": "You can shed bright light from your body and use flashes of light to dazzle foes."
+        }
+      ]
+    },
+    "Grig": {
+      "description": "Ressembling cricket-like fey with incredible leaping power and musical talent.",
+      "features": [
+        {
+          "id": "heritage_sprite_grig",
+          "name": "Grig Sprite",
+          "tldr": "You gain bonuses to jumping distance and can play captivating musical tunes."
+        }
+      ]
+    }
+  }
+}

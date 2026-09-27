@@ -1,0 +1,56 @@
+{
+  "class_name": "Monk",
+  "subclass_type": "Monk Path / Philosophy (Stances)",
+  "choices": {
+    "Wild Winds Stance": {
+      "description": "Fokussiert auf Fernangriffe mit Elementar-Druckwellen und luftige Beweglichkeit.",
+      "features": [
+        {
+          "id": "path_wild_winds",
+          "name": "Wild Winds Path",
+          "tldr": "Erlaubt Fernkampf-Schläge und Fern-Manöver durch fokussierte Windstöße."
+        }
+      ]
+    },
+    "Dragon Stance": {
+      "description": "Konzentriert sich auf verheerende, langsame Einzelschläge mit massivem Bonusschaden und weiten Schritten.",
+      "features": [
+        {
+          "id": "path_dragon",
+          "name": "Dragon Path",
+          "tldr": "Verleiht mächtige Drachen-Tritte mit hohem Schadenswürfel und exzellenter Schritt-Weite."
+        }
+      ]
+    },
+    "Crane Stance": {
+      "description": "Ein defensiver Kampfstil, der auf Ausweichen, weite Sprünge und präzise Konterangriffe setzt.",
+      "features": [
+        {
+          "id": "path_crane",
+          "name": "Crane Path",
+          "tldr": "Erhöht die Rüstungsklasse gegen Angriffe und verbessert die Mobilität in unwegsamem Gelände."
+        }
+      ]
+    },
+    "Tiger Stance": {
+      "description": "Fokussiert auf reißende Krallen-Angriffe, Bluten-Schaden und das Umkreisen von Gegnern.",
+      "features": [
+        {
+          "id": "path_tiger",
+          "name": "Tiger Path",
+          "tldr": "Gewährt tödliche Tigerkrallen und die Fähigkeit, durch Bewegung zusätzlichen Schaden auszuteilen."
+        }
+      ]
+    },
+    "Qi Mystic Path": {
+      "description": "Konzentriert sich ganz auf die Meisterschaft von Ki-Kräften, mystischen Heilungen und Astralprojektionen.",
+      "features": [
+        {
+          "id": "path_qi_mystic",
+          "name": "Qi Mystic Path",
+          "tldr": "Erweitert den Ki-Pool und erlaubt den Zugriff auf verheerende übernatürliche Kampftechniken."
+        }
+      ]
+    }
+  }
+}

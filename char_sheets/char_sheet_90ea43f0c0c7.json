@@ -1,0 +1,567 @@
+{
+  "id": "90ea43f0c0c7",
+  "system": "pathfinder2e",
+  "system_label": "Pathfinder 2nd Edition",
+  "campaign": {
+    "id": null,
+    "title": "",
+    "ai_generated": false,
+    "seed": "",
+    "source": ""
+  },
+  "created_at": "2026-09-27T19:41:33+00:00",
+  "updated_at": "2026-09-27T19:49:55+00:00",
+  "visibility": {
+    "hidden_revealed": false
+  },
+  "identity": {
+    "name": "tav",
+    "race": "Centaur",
+    "class": "Bard",
+    "level": 5,
+    "gender": "",
+    "age": "",
+    "appearance": "",
+    "player_name": ""
+  },
+  "choices": {
+    "ancestry": "centaur",
+    "background": null,
+    "class": "bard",
+    "classes": [],
+    "heritage": "steppe",
+    "subclass": "maestro"
+  },
+  "abilities": {
+    "strength": 10,
+    "dexterity": 10,
+    "constitution": 10,
+    "intelligence": 10,
+    "wisdom": 10,
+    "charisma": 10,
+    "notes": "",
+    "modifiers": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "intelligence": 0,
+      "wisdom": 0,
+      "charisma": 0
+    }
+  },
+  "background": {
+    "seed": "",
+    "summary": "",
+    "details": ""
+  },
+  "details": {
+    "personality": "",
+    "goals": "",
+    "fears_flaws": "",
+    "traits": "",
+    "alignment": "",
+    "languages": "",
+    "skills": "",
+    "equipment": "",
+    "spells": "",
+    "custom": {
+      "race_detail": "Centaur",
+      "subrace": "steppe",
+      "class_detail": "Bard",
+      "subclass": "maestro"
+    }
+  },
+  "public": {
+    "known_identity": "",
+    "known_backstory": "",
+    "known_relationships": "",
+    "known_items": "",
+    "rumors": ""
+  },
+  "hidden": {
+    "hidden_agendas": [],
+    "secrets": [],
+    "dm_notes": "",
+    "messages": [
+      {
+        "id": "2261e21447",
+        "from": "DM",
+        "to": "self",
+        "kind": "whisper",
+        "text": "TEST",
+        "created_at": "2026-09-27T19:46:24+00:00",
+        "read": true
+      },
+      {
+        "id": "932d6a5c36",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:08+00:00",
+        "read": true
+      },
+      {
+        "id": "ccbc47064c",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:23+00:00",
+        "read": false
+      },
+      {
+        "id": "35470a46eb",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:24+00:00",
+        "read": false
+      },
+      {
+        "id": "7ecc58e9ac",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:25+00:00",
+        "read": false
+      },
+      {
+        "id": "3e24bda849",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:43+00:00",
+        "read": false
+      },
+      {
+        "id": "b25d794699",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:43+00:00",
+        "read": false
+      },
+      {
+        "id": "9fd0ee9491",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:44+00:00",
+        "read": false
+      },
+      {
+        "id": "91d5ec98f4",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:44+00:00",
+        "read": false
+      },
+      {
+        "id": "ec93fee7e2",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:44+00:00",
+        "read": false
+      },
+      {
+        "id": "b4044c02ff",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:44+00:00",
+        "read": false
+      },
+      {
+        "id": "1f1cbbd80f",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:44+00:00",
+        "read": false
+      },
+      {
+        "id": "3aec857f49",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:45+00:00",
+        "read": false
+      },
+      {
+        "id": "faef0ee59b",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:45+00:00",
+        "read": false
+      },
+      {
+        "id": "ff1c22d68a",
+        "from": "DM",
+        "to": "self",
+        "kind": "level_up",
+        "text": "You can level up now! Head to the Progression tab.",
+        "created_at": "2026-09-27T19:49:53+00:00",
+        "read": false
+      }
+    ]
+  },
+  "progression": {
+    "xp": 0,
+    "level": 5
+  },
+  "inventory": [],
+  "build": {
+    "race_traits": [
+      {
+        "name": "Beast",
+        "source": "Centaur"
+      },
+      {
+        "name": "Centaur",
+        "source": "Centaur"
+      },
+      {
+        "name": "Humanoid",
+        "source": "Centaur"
+      },
+      {
+        "id": "equine_body",
+        "name": "Equine Body",
+        "type": "ancestry_feature",
+        "tldr": "Your large horse lower body grants high speed and stability, though you require specialized armor.",
+        "source": "Centaur"
+      },
+      {
+        "id": "heritage_choice",
+        "name": "Ancestry Heritage",
+        "type": "sub_ancestry_choice",
+        "tldr": "Choose a centaur heritage reflecting your nomadic tribe or environment.",
+        "source": "Centaur"
+      },
+      {
+        "id": "heritage_centaur_steppe",
+        "name": "Steppe Centaur",
+        "tldr": "Your land speed increases further across wide, open fields.",
+        "source": "Centaur — Steppe"
+      }
+    ],
+    "race_skills": [],
+    "class_features_by_level": {
+      "1": [
+        {
+          "id": "ancestry_and_background",
+          "name": "Ancestry and Background",
+          "type": "core",
+          "tldr": "Choose ancestry and background options.",
+          "source": "Bard"
+        },
+        {
+          "id": "initial_proficiencies",
+          "name": "Initial Proficiencies",
+          "type": "class_feature",
+          "tldr": "Gain starting proficiencies for saving throws, perception, and skills.",
+          "source": "Bard"
+        },
+        {
+          "id": "bard_spellcasting",
+          "name": "Bard Spellcasting",
+          "type": "spellcasting",
+          "tldr": "Cast occult spells spontaneously from a repertoire, including cantrips and composition spells.",
+          "source": "Bard"
+        },
+        {
+          "id": "muse",
+          "name": "Muse",
+          "type": "subclass_choice",
+          "tldr": "Choose your artistic inspiration (Enigma, Maestro, Polymath, or Warrior).",
+          "source": "Bard"
+        },
+        {
+          "id": "bard_feat_1",
+          "name": "Bard Feat",
+          "type": "feat_slot",
+          "tldr": "Gain a bard class feat.",
+          "source": "Bard"
+        },
+        {
+          "id": "muse_maestro",
+          "name": "Maestro Muse",
+          "tldr": "Extend the duration of your composition spells and gain access to inspiring crescendo effects.",
+          "source": "Bard — Maestro"
+        }
+      ]
+    },
+    "proficiencies": [
+      {
+        "name": "Perception",
+        "rank": "expert",
+        "category": "core",
+        "source": "Bard"
+      },
+      {
+        "name": "Fortitude",
+        "rank": "trained",
+        "category": "core",
+        "source": "Bard"
+      },
+      {
+        "name": "Reflex",
+        "rank": "trained",
+        "category": "core",
+        "source": "Bard"
+      },
+      {
+        "name": "Will",
+        "rank": "expert",
+        "category": "core",
+        "source": "Bard"
+      },
+      {
+        "name": "Class DC",
+        "rank": "trained",
+        "category": "core",
+        "source": "Bard"
+      },
+      {
+        "name": "Unarmed Weapons",
+        "rank": "trained",
+        "category": "weapons",
+        "source": "Bard"
+      },
+      {
+        "name": "Simple Weapons",
+        "rank": "trained",
+        "category": "weapons",
+        "source": "Bard"
+      },
+      {
+        "name": "Martial Weapons",
+        "rank": "untrained",
+        "category": "weapons",
+        "source": "Bard"
+      },
+      {
+        "name": "Advanced Weapons",
+        "rank": "untrained",
+        "category": "weapons",
+        "source": "Bard"
+      },
+      {
+        "name": "Unarmored Armor",
+        "rank": "trained",
+        "category": "armor",
+        "source": "Bard"
+      },
+      {
+        "name": "Light Armor",
+        "rank": "trained",
+        "category": "armor",
+        "source": "Bard"
+      },
+      {
+        "name": "Medium Armor",
+        "rank": "untrained",
+        "category": "armor",
+        "source": "Bard"
+      },
+      {
+        "name": "Heavy Armor",
+        "rank": "untrained",
+        "category": "armor",
+        "source": "Bard"
+      },
+      {
+        "name": "Occultism",
+        "rank": "trained",
+        "category": "skill",
+        "source": "Bard"
+      },
+      {
+        "name": "Performance",
+        "rank": "trained",
+        "category": "skill",
+        "source": "Bard"
+      }
+    ],
+    "spells": [],
+    "cantrips": []
+  },
+  "state": {
+    "hp": {
+      "current": 1,
+      "max": 9,
+      "temp": 0
+    },
+    "stats": {},
+    "resources": {
+      "spellslot lvl1": {
+        "current": 2,
+        "max": 2,
+        "label": "spellslot lvl1"
+      }
+    },
+    "buffs": [
+      {
+        "id": "079b44671a",
+        "name": "debug",
+        "kind": "buff",
+        "description": "",
+        "source": "DM",
+        "duration_rounds": 1,
+        "applied_at": "2026-09-27T19:47:26+00:00"
+      }
+    ],
+    "action_log": [
+      {
+        "id": "bdfadfbe77",
+        "type": "turn_end",
+        "description": "Ended turn — actions refreshed",
+        "at": "2026-09-27T19:46:58+00:00"
+      },
+      {
+        "id": "63f7de1043",
+        "type": "buff_applied",
+        "description": "DM applied buff: debug",
+        "at": "2026-09-27T19:47:26+00:00",
+        "buff_id": "079b44671a"
+      },
+      {
+        "id": "750f546c13",
+        "type": "heal",
+        "description": "DM healed 1",
+        "at": "2026-09-27T19:48:39+00:00"
+      },
+      {
+        "id": "c8235baf1c",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:08+00:00"
+      },
+      {
+        "id": "92b24f4eeb",
+        "type": "level_up",
+        "description": "Leveled up to 2",
+        "at": "2026-09-27T19:49:17+00:00"
+      },
+      {
+        "id": "942bcbca0c",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:23+00:00"
+      },
+      {
+        "id": "8d670261c8",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:24+00:00"
+      },
+      {
+        "id": "d15204e854",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:25+00:00"
+      },
+      {
+        "id": "d564fb599d",
+        "type": "level_up",
+        "description": "Leveled up to 3",
+        "at": "2026-09-27T19:49:30+00:00"
+      },
+      {
+        "id": "dbb327635a",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:43+00:00"
+      },
+      {
+        "id": "06c07a8029",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:43+00:00"
+      },
+      {
+        "id": "af0edba2b6",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:44+00:00"
+      },
+      {
+        "id": "9c54f488d2",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:44+00:00"
+      },
+      {
+        "id": "675669ce77",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:44+00:00"
+      },
+      {
+        "id": "639266907b",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:44+00:00"
+      },
+      {
+        "id": "62adf9a288",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:44+00:00"
+      },
+      {
+        "id": "f3c51f2988",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:45+00:00"
+      },
+      {
+        "id": "0d204bea0c",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:45+00:00"
+      },
+      {
+        "id": "32f227478b",
+        "type": "level_up",
+        "description": "Leveled up to 4",
+        "at": "2026-09-27T19:49:51+00:00"
+      },
+      {
+        "id": "b5dc6395a4",
+        "type": "level_up_unlocked",
+        "description": "DM unlocked a level up",
+        "at": "2026-09-27T19:49:53+00:00"
+      },
+      {
+        "id": "727c30540c",
+        "type": "level_up",
+        "description": "Leveled up to 5",
+        "at": "2026-09-27T19:49:55+00:00"
+      }
+    ],
+    "action_economy": {
+      "actions": {
+        "current": 3,
+        "max": 3,
+        "label": "Actions"
+      }
+    },
+    "level_up_available": false
+  }
+}

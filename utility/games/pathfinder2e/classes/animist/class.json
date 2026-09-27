@@ -1,0 +1,183 @@
+{
+  "class_name": "Animist",
+  "description": "Divine spellcaster channeling the power of spiritual entities called apparitions.",
+  "key_ability": ["wisdom"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "divine_apparition"
+  },
+  "skills": {
+    "mandatory": ["religion"],
+    "additional_count": "2 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "untrained",
+      "martial": "untrained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "attribute_boosts_1", "name": "Attribute Boosts", "type": "progression", "tldr": "Gain an attribute boost to Wisdom."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, and skills."},
+        {"id": "apparition_attunement", "name": "Apparition Attunement", "type": "class_feature", "tldr": "Form a bond with spiritual entities called apparitions."},
+        {"id": "animist_spellcasting", "name": "Animist & Apparition Spellcasting", "type": "spellcasting", "tldr": "Cast divine spells and leverage your bonded apparition repertoires."},
+        {"id": "animistic_practice", "name": "Animistic Practice", "type": "subclass_choice", "tldr": "Choose your animistic practice specialization (Liturgist, Medium, Seer, or Shaman)."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "animist_feat_2", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "spell_rank_2", "name": "2nd-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 2nd-rank spell slots."},
+        {"id": "fortitude_expertise_3", "name": "Fortitude Expertise", "type": "defense", "tldr": "Fortitude saving throw proficiency increases to expert."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "animist_feat_4", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "spell_rank_3", "name": "3rd-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 3rd-rank spell slots."},
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "animist_feat_6", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "spell_rank_4", "name": "4th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 4th-rank spell slots."},
+        {"id": "expert_spellcaster_7", "name": "Expert Spellcaster", "type": "spellcasting", "tldr": "Your proficiency rank for spell attack rolls and spell DCs increases to expert."},
+        {"id": "third_apparition_7", "name": "Third Apparition", "type": "class_feature", "tldr": "You can bond with a third apparition."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "animist_feat_8", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "spell_rank_5", "name": "5th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 5th-rank spell slots."},
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "perception_expertise_9", "name": "Perception Expertise", "type": "defense", "tldr": "Perception proficiency increases to expert."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "animist_feat_10", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "spell_rank_6", "name": "6th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 6th-rank spell slots."},
+        {"id": "expert_protections_11", "name": "Expert Protections", "type": "defense", "tldr": "Armor and unarmored defense proficiencies improve."},
+        {"id": "simple_weapon_expertise_11", "name": "Simple Weapon Expertise", "type": "class_feature", "tldr": "Gain training proficiency with simple weapons."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "animist_feat_12", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "spell_rank_7", "name": "7th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 7th-rank spell slots."},
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "master_of_mind_and_spirit_13", "name": "Master of Mind and Spirit", "type": "class_feature", "tldr": "Enhance defenses against mental and spiritual effects."},
+        {"id": "weapon_specialization_13", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "animist_feat_14", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "spell_rank_8", "name": "8th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 8th-rank spell slots."},
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "fourth_apparition_15", "name": "Fourth Apparition", "type": "class_feature", "tldr": "You can bond with a fourth apparition."},
+        {"id": "master_spellcaster_15", "name": "Master Spellcaster", "type": "spellcasting", "tldr": "Your spell attack rolls and spell DCs increase to master proficiency."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "animist_feat_16", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "spell_rank_9", "name": "9th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 9th-rank spell slots."},
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "animist_feat_18", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "legendary_spellcaster_19", "name": "Legendary Spellcaster", "type": "spellcasting", "tldr": "Your spell attack rolls and spell DCs increase to legendary proficiency."},
+        {"id": "supreme_incarnation_19", "name": "Supreme Incarnation", "type": "class_feature", "tldr": "Unlock supreme battle forms through your apparition slots."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "animist_feat_20", "name": "Animist Feat", "type": "feat_slot", "tldr": "Gain an animist class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

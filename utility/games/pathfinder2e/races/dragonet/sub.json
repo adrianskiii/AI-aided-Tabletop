@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Dragonet",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Flame": {
+      "description": "Descended from blazing red or gold dragon ancestry.",
+      "features": [
+        {
+          "id": "heritage_dragonet_flame",
+          "name": "Flame Dragonet",
+          "tldr": "You gain resistance to fire and a minor spark breath attack."
+        }
+      ]
+    },
+    "Frost": {
+      "description": "Bound to the chilling air of white or silver dragons.",
+      "features": [
+        {
+          "id": "heritage_dragonet_frost",
+          "name": "Frost Dragonet",
+          "tldr": "You gain resistance to cold and a freezing exhalation."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Automaton",
+  "rarity": "rare",
+  "description": "If you want to play a character who is a living construct with powerful potential and ties to ancient magic, you should play an automaton.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["strength", "free"],
+  "flaws": [],
+  "languages": ["Common", "Vagabond Spoken"],
+  "traits": ["Automaton", "Construct"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "constructed_core",
+          "name": "Constructed Core",
+          "type": "ancestry_feature",
+          "tldr": "Your body is made of inorganic materials, granting unique defenses against physical and magical ailments."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an automaton heritage reflecting your core design and magical spark."
+        }
+      ]
+    }
+  }
+}

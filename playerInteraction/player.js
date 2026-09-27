@@ -3,6 +3,7 @@
 const $ = (id) => document.getElementById(id);
 let me = null;       // full /api/me/<id> payload for the selected character
 let roster = [];     // everyone, name-level only
+let lastMsgCount = 0;
 
 function toast(msg, isErr = false) {
   const t = $("toast");
@@ -21,6 +22,25 @@ async function api(path, opts = {}) {
   }
   return data;
 }
+
+// --------------------------------------------------------------------- //
+// Tabs                                                                    //
+// --------------------------------------------------------------------- //
+
+function wireTabs() {
+  $("tabs").querySelectorAll("button[data-tab]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $("tabs").querySelectorAll("button[data-tab]").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      document.querySelectorAll(".tabpanel").forEach((p) => p.classList.remove("active"));
+      $(`tab-${btn.dataset.tab}`).classList.add("active");
+    });
+  });
+}
+
+// --------------------------------------------------------------------- //
+// Boot / load                                                             //
+// --------------------------------------------------------------------- //
 
 async function boot() {
   roster = await api("/api/roster").catch(() => []);
@@ -45,6 +65,7 @@ async function boot() {
 
 async function loadCharacter(id) {
   me = await api(`/api/me/${id}`);
+  lastMsgCount = 0;
   $("emptyState").style.display = "none";
   $("sheet").style.display = "block";
   populateTargetPickers(id);
@@ -58,11 +79,18 @@ async function refresh() {
 
 function populateTargetPickers(selfId) {
   const others = roster.filter((c) => c.id !== selfId);
-  for (const selId of ["actionTarget", "tradeTarget"]) {
+  for (const selId of ["actionTarget", "tradeTarget", "whisperTarget"]) {
     const sel = $(selId);
     const keep = selId === "actionTarget" ? `<option value="">(no target)</option>` : "";
     sel.innerHTML = keep + others.map((c) => `<option value="${c.id}">${c.name}${c.npc ? " (NPC)" : ""}</option>`).join("");
   }
+}
+
+function populateCostResourcePicker() {
+  const sel = $("costResource");
+  const entries = Object.entries(me.state.resources || {});
+  sel.innerHTML = `<option value="">(no resource cost)</option>` +
+    entries.map(([key, r]) => `<option value="${key}">${r.label || key} (${r.current}/${r.max})</option>`).join("");
 }
 
 // --------------------------------------------------------------------- //
@@ -70,7 +98,7 @@ function populateTargetPickers(selfId) {
 // --------------------------------------------------------------------- //
 
 async function renderAll() {
-  const { identity, abilities, state, inventory, progression } = me;
+  const { identity, abilities, state, inventory, progression, known } = me;
 
   $("charName").textContent = identity.name || "(unnamed)";
   $("charSub").textContent =
@@ -80,44 +108,15 @@ async function renderAll() {
   renderAbilities(abilities);
   renderBuffs(state.buffs);
   renderResources(state.resources);
-  renderInventory(inventory);
-  renderSpells(me.build?.spells || me.details?.spells || []);
+  renderActionEconomy(state.action_economy);
+  renderKnown(known || {});
   renderLog(state.action_log);
+  renderInventory(inventory);
+  renderProgression(progression, state);
+  populateCostResourcePicker();
   await renderMessages();
   await renderTrades();
-}
-
-function renderSpells(spells) {
-  const wrap = $("spellList");
-
-  if (!spells || !spells.length) {
-    wrap.innerHTML = `<div class="empty">no spells available</div>`;
-    return;
-  }
-
-  wrap.innerHTML = spells
-    .map((spell) => {
-      if (typeof spell === "string") {
-        return `<div class="spell-row">
-          <span class="spell-name">${spell}</span>
-        </div>`;
-      }
-
-      const name = spell.name || "Unnamed spell";
-      const level = spell.level != null
-        ? `<span class="muted">Level ${spell.level}</span>`
-        : "";
-
-      const school = spell.school
-        ? `<span class="muted">${spell.school}</span>`
-        : "";
-
-      return `<div class="spell-row">
-        <span class="spell-name">${name}</span>
-        <span class="spell-meta">${level}${school}</span>
-      </div>`;
-    })
-    .join("");
+  await renderMyRequests();
 }
 
 function renderHp(hp) {
@@ -145,7 +144,7 @@ function renderAbilities(ab) {
 function renderBuffs(buffs) {
   const wrap = $("buffChips");
   wrap.innerHTML =
-    buffs
+    (buffs || [])
       .map((b) => {
         const dur = b.duration_rounds != null ? ` (${b.duration_rounds}r)` : "";
         const cls = b.kind === "debuff" || b.kind === "condition" ? "debuff" : "buff";
@@ -160,15 +159,88 @@ function renderResources(resources) {
     entries
       .map(([key, r]) => {
         const pips = Array.from({ length: r.max || 0 })
-          .map((_, i) => `<div class="pip ${i < r.current ? "filled" : ""}" data-key="${key}" data-idx="${i}"></div>`)
+          .map((_, i) => `<div class="pip ${i < r.current ? "filled" : ""}"></div>`)
           .join("");
         return `<div class="resource-row"><span>${r.label || key} <span class="muted">(${r.current}/${r.max})</span></span><div class="pips">${pips}</div></div>`;
       })
       .join("") || `<div class="empty">none granted yet</div>`;
+  // Pips are read-only display — spending a resource goes through a DM-approved
+  // request (Social tab), not a direct click here. See wireControls() for the
+  // resource dropdown used to build those requests.
+}
 
-  $("resourceList").querySelectorAll(".pip").forEach((pip) =>
-    pip.addEventListener("click", () => usePip(pip.dataset.key, +pip.dataset.idx))
+function renderActionEconomy(econ) {
+  const entries = Object.entries(econ || {});
+  $("actionEconList").innerHTML =
+    entries
+      .map(([key, p]) => {
+        const pips = Array.from({ length: p.max || 0 })
+          .map((_, i) => `<div class="pip action ${i < p.current ? "filled" : ""}" data-key="${key}" data-idx="${i}"></div>`)
+          .join("");
+        return `<div class="pool-row"><span>${p.label || key} <span class="muted">(${p.current}/${p.max})</span></span><div class="pips">${pips}</div></div>`;
+      })
+      .join("") || `<div class="empty">no action pools set by DM yet</div>`;
+
+  $("actionEconList").querySelectorAll(".pip").forEach((pip) =>
+    pip.addEventListener("click", () => useActionPip(pip.dataset.key, +pip.dataset.idx))
   );
+}
+
+function renderKnown(known) {
+  $("featureList").innerHTML =
+    (known.class_features || [])
+      .map((f) => `<div class="feature-card"><span class="lvl">lvl ${f.level}</span><span class="name">${f.name}</span>${f.tldr || f.description ? " — " + (f.tldr || f.description) : ""}</div>`)
+      .join("") || `<div class="empty">no class features yet</div>`;
+
+  const profLabel = (p) => {
+    if (typeof p === "string") return p;
+    const name = p.name || p.skill || "?";
+    const rank = p.rank || p.level;
+    return rank ? `${name} (${rank})` : name;
+  };
+
+  $("profList").innerHTML = tagList((known.proficiencies || []).map(profLabel));
+  $("raceTraitList").innerHTML = tagList((known.race_traits || []).map((t) => (typeof t === "string" ? t : t.name)));
+  $("raceSkillList").innerHTML = tagList((known.race_skills || []).map(profLabel));
+
+  $("cantripList").innerHTML = spellRows(known.cantrips);
+  $("spellList").innerHTML = spellRows(known.spells);
+}
+
+function tagList(items) {
+  const list = (items || []).filter(Boolean);
+  return list.map((t) => `<span class="tag">${t}</span>`).join("") || `<span class="empty">none</span>`;
+}
+
+function spellRows(spells) {
+  if (!spells || !spells.length) return `<div class="empty">none known</div>`;
+  return spells
+    .map((spell) => {
+      if (typeof spell === "string") {
+        return `<div class="spell-row"><span>${spell}</span></div>`;
+      }
+      const name = spell.name || "Unnamed";
+      const level = spell.level != null ? `<span class="muted">Lv ${spell.level}</span>` : "";
+      const school = spell.school ? `<span class="muted">${spell.school}</span>` : "";
+      return `<div class="spell-row"><span>${name}</span><span class="spell-meta">${level}${school}</span></div>`;
+    })
+    .join("");
+}
+
+async function renderMyRequests() {
+  const items = await api(`/api/me/${me.id}/requests`).catch(() => []);
+  $("myRequests").innerHTML =
+    items.slice(0, 20).map((r) => {
+      const costStr = (r.costs || []).map((c) =>
+        c.kind === "resource" ? `${c.amount}x ${c.label || c.key}` : `${c.qty}x ${c.name}`
+      ).join(", ") || "nothing";
+      return `<div class="trade-card">
+        <div class="status ${r.status}">${r.status}</div>
+        <div>${r.description}</div>
+        <div class="muted">costs: ${costStr}</div>
+        ${r.resolution_note ? `<div class="muted">"${r.resolution_note}"</div>` : ""}
+      </div>`;
+    }).join("") || `<div class="empty">nothing filed yet</div>`;
 }
 
 function renderInventory(inv) {
@@ -177,7 +249,7 @@ function renderInventory(inv) {
       .map(
         (item, i) => `<tr>
           <td>${item.name}</td><td class="mono">x${item.qty ?? 1}</td>
-          <td><button data-i="${i}" class="useItem">Use</button></td>
+          <td><button data-i="${i}" class="useItem">Request use</button></td>
         </tr>`
       )
       .join("") || `<tr><td class="empty">empty</td></tr>`;
@@ -185,6 +257,24 @@ function renderInventory(inv) {
   $("invTable").querySelectorAll(".useItem").forEach((btn) =>
     btn.addEventListener("click", () => useItem(+btn.dataset.i))
   );
+}
+
+function renderProgression(progression, state) {
+  const xp = progression?.xp ?? 0;
+  const level = progression?.level ?? me.identity?.level ?? 1;
+  $("progLevel").textContent = level;
+  $("xpVal").textContent = xp;
+  // no universal xp-per-level formula across systems, so show a soft bar
+  // relative to the next 1000-xp band purely as a visual cue
+  const pct = Math.max(0, Math.min(100, (xp % 1000) / 10));
+  $("xpBar").style.width = pct + "%";
+
+  const available = !!state.level_up_available;
+  $("levelUpBtn").disabled = !available;
+  $("levelUpStatus").textContent = available
+    ? "Your DM unlocked a level up — go ahead!"
+    : "Waiting on the DM to unlock your next level.";
+  $("levelUpBadge").style.display = available ? "inline-block" : "none";
 }
 
 function renderLog(log) {
@@ -196,6 +286,10 @@ function renderLog(log) {
 
 async function renderMessages() {
   const messages = await api(`/api/me/${me.id}/messages`).catch(() => []);
+  const unread = messages.filter((m) => !m.read).length;
+  $("msgBadge").style.display = unread ? "inline-block" : "none";
+  $("msgBadge").textContent = unread || "";
+
   $("messageList").innerHTML =
     messages
       .slice()
@@ -211,6 +305,9 @@ async function renderMessages() {
     el.addEventListener("click", async () => {
       await api(`/api/me/${me.id}/messages/${el.dataset.id}/read`, { method: "POST" });
       el.classList.remove("unread");
+      const remaining = $("messageList").querySelectorAll(".msg.unread").length;
+      $("msgBadge").style.display = remaining ? "inline-block" : "none";
+      $("msgBadge").textContent = remaining || "";
     })
   );
 }
@@ -252,17 +349,17 @@ function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 // Actions                                                                  //
 // --------------------------------------------------------------------- //
 
-async function usePip(key, idx) {
-  const r = me.state.resources[key];
-  if (idx >= r.current) return; // only clicking a filled pip spends it
-  await api(`/api/me/${me.id}/resources/${key}/use`, { method: "POST", body: JSON.stringify({ amount: r.current - idx }) });
+async function useActionPip(key, idx) {
+  const p = me.state.action_economy[key];
+  if (idx >= p.current) return;
+  await api(`/api/me/${me.id}/action-economy/${key}/use`, { method: "POST", body: JSON.stringify({ amount: p.current - idx }) });
   await refresh();
 }
 
 async function useItem(i) {
   await api(`/api/me/${me.id}/inventory/${i}/use`, { method: "POST", body: JSON.stringify({ amount: 1 }) });
   await refresh();
-  toast("Item used");
+  toast("Request sent to DM");
 }
 
 async function respondTrade(action, id) {
@@ -271,53 +368,95 @@ async function respondTrade(action, id) {
   toast(`Trade ${action}ed`);
 }
 
-// function wireControls() {
-//   $("spellCast").onclick = async () => {
-//     const name = $("spellName").value.trim();
-//     if (!name) return;
-//     const lvl = $("spellLevel").value;
-//     const body = { name };
-//     if (lvl !== "") body.slot_level = parseInt(lvl, 10);
-//     const r = await api(`/api/me/${me.id}/spells/cast`, { method: "POST", body: JSON.stringify(body) }).catch(() => null);
-//     if (r) {
-//       toast(`Cast ${r.name}`);
-//       $("spellName").value = "";
-//       $("spellLevel").value = "";
-//       await refresh();
-//     }
-//   };
+function wireControls() {
+  $("endTurn").onclick = async () => {
+    await api(`/api/me/${me.id}/action-economy/reset`, { method: "POST" });
+    await refresh();
+    toast("Actions refreshed");
+  };
 
-//   $("actionAdd").onclick = async () => {
-//     const description = $("actionDesc").value.trim();
-//     if (!description) return;
-//     const body = { type: $("actionType").value, description };
-//     if ($("actionTarget").value) body.target_id = $("actionTarget").value;
-//     await api(`/api/me/${me.id}/actions`, { method: "POST", body: JSON.stringify(body) });
-//     $("actionDesc").value = "";
-//     await refresh();
-//   };
+  $("levelUpBtn").onclick = async () => {
+    const r = await api(`/api/me/${me.id}/level-up`, { method: "POST" }).catch(() => null);
+    if (r) {
+      toast(`Level up! Now level ${r.level}`);
+      await refresh();
+    }
+  };
 
-//   $("tradePropose").onclick = async () => {
-//     const to_id = $("tradeTarget").value;
-//     if (!to_id) return toast("pick who to trade with", true);
-//     const offer = [];
-//     const oName = $("offerName").value.trim();
-//     if (oName) offer.push({ name: oName, qty: parseInt($("offerQty").value || "1", 10) });
-//     const request = [];
-//     const rName = $("requestName").value.trim();
-//     if (rName) request.push({ name: rName, qty: parseInt($("requestQty").value || "1", 10) });
-//     if (!offer.length && !request.length) return toast("offer or request something first", true);
+  $("actionAdd").onclick = async () => {
+    const description = $("actionDesc").value.trim();
+    if (!description) return;
+    const body = { type: $("actionType").value, description };
+    if ($("actionTarget").value) body.target_id = $("actionTarget").value;
+    await api(`/api/me/${me.id}/actions`, { method: "POST", body: JSON.stringify(body) });
+    $("actionDesc").value = "";
+    await refresh();
+    toast("Logged");
+  };
 
-//     await api("/api/trades", {
-//       method: "POST",
-//       body: JSON.stringify({ from_id: me.id, to_id, offer, request, note: $("tradeNote").value.trim() }),
-//     }).catch(() => null);
+  $("actionRequest").onclick = async () => {
+    const description = $("actionDesc").value.trim();
+    if (!description) return toast("describe what you're doing first", true);
+    const body = { type: $("actionType").value, description };
+    if ($("actionTarget").value) body.target_id = $("actionTarget").value;
 
-//     $("offerName").value = ""; $("requestName").value = ""; $("tradeNote").value = "";
-//     await refresh();
-//     toast("Trade proposed");
-//   };
-// }
+    const resKey = $("costResource").value;
+    if (resKey) {
+      const r = me.state.resources[resKey];
+      const amount = parseInt($("costAmount").value || "1", 10);
+      body.costs = [{ kind: "resource", key: resKey, amount, label: r?.label || resKey }];
+    } else {
+      body.costs = [];
+    }
 
-//wireControls();
+    const r = await api(`/api/me/${me.id}/requests`, { method: "POST", body: JSON.stringify(body) }).catch(() => null);
+    if (r) {
+      $("actionDesc").value = "";
+      await refresh();
+      toast("Request sent to DM — waiting for approval");
+    }
+  };
+
+  $("whisperSend").onclick = async () => {
+    const to_id = $("whisperTarget").value;
+    const text = $("whisperText").value.trim();
+    if (!to_id || !text) return toast("pick someone and write a message", true);
+    await api(`/api/me/${me.id}/messages/whisper`, { method: "POST", body: JSON.stringify({ to_id, text }) });
+    $("whisperText").value = "";
+    toast("Whisper sent");
+  };
+
+  $("dmMsgSend").onclick = async () => {
+    const text = $("dmMsgText").value.trim();
+    if (!text) return;
+    await api(`/api/me/${me.id}/messages/to-dm`, { method: "POST", body: JSON.stringify({ text }) });
+    $("dmMsgText").value = "";
+    toast("Message sent to DM");
+  };
+
+  $("tradePropose").onclick = async () => {
+    const to_id = $("tradeTarget").value;
+    if (!to_id) return toast("pick who to trade with", true);
+    const offer = [];
+    const oName = $("offerName").value.trim();
+    if (oName) offer.push({ name: oName, qty: parseInt($("offerQty").value || "1", 10) });
+    const request = [];
+    const rName = $("requestName").value.trim();
+    if (rName) request.push({ name: rName, qty: parseInt($("requestQty").value || "1", 10) });
+    if (!offer.length && !request.length) return toast("offer or request something first", true);
+
+    await api("/api/trades", {
+      method: "POST",
+      body: JSON.stringify({ from_id: me.id, to_id, offer, request, note: $("tradeNote").value.trim() }),
+    }).catch(() => null);
+
+    $("offerName").value = ""; $("requestName").value = ""; $("tradeNote").value = "";
+    await refresh();
+    toast("Trade proposed");
+  };
+}
+
+wireTabs();
+wireControls();
 boot();
+setInterval(() => { if (me) refresh(); }, 8000); // light polling for DM grants / other players' actions

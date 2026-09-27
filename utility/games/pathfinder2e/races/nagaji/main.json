@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Nagaji",
+  "rarity": "uncommon",
+  "description": "With humanoid figures and serpentine heads, nagaji are heralds, companions, and servitors of powerful nagas.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["strength", "free"],
+  "flaws": [],
+  "languages": ["Common", "Nagaji"],
+  "traits": ["Humanoid", "Nagaji"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "serpentine_resistance",
+          "name": "Serpentine Resistance",
+          "type": "ancestry_feature",
+          "tldr": "Your reptilian heritage provides inherent resistance against mental magic and toxins."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a nagaji heritage reflecting your specific serpentine scale type or duty."
+        }
+      ]
+    }
+  }
+}

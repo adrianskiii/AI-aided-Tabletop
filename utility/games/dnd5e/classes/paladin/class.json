@@ -1,0 +1,242 @@
+{
+  "class_name": "Paladin",
+  "description": "A holy warrior bound to a sacred oath, wielding martial prowess and divine magic.",
+  "key_ability": ["strength", "charisma"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "half_caster",
+    "ability": "charisma"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["athletics", "insight", "intimidation", "medicine", "persuasion", "religion"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "martial": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "divine_sense",
+          "name": "Divine Sense",
+          "type": "class_feature",
+          "tldr": "Open your awareness to detect celestials, fiends, and undead within 60 feet."
+        },
+        {
+          "id": "lay_on_hands",
+          "name": "Lay on Hands",
+          "type": "class_feature",
+          "tldr": "A pool of healing power lets you restore hit points or cure diseases by touching creatures."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "fighting_style_paladin",
+          "name": "Fighting Style",
+          "type": "class_feature",
+          "tldr": "Adopt a particular style of fighting as your specialty (Defense, Dueling, Great Weapon Fighting, Protection)."
+        },
+        {
+          "id": "spellcasting_paladin",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast divine paladin spells using Charisma as your spellcasting ability."
+        },
+        {
+          "id": "divine_smite",
+          "name": "Divine Smite",
+          "type": "class_feature",
+          "tldr": "Expended spell slots can be channeled into weapon strikes to deal extra radiant damage to targets."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "divine_health",
+          "name": "Divine Health",
+          "type": "class_feature",
+          "tldr": "The divine magic flowing through you makes you immune to disease."
+        },
+        {
+          "id": "sacred_oath",
+          "name": "Sacred Oath",
+          "type": "subclass_choice",
+          "tldr": "Swear an oath that binds you to a holy path, granting specialized features and spells."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "extra_attack_paladin",
+          "name": "Extra Attack",
+          "type": "class_feature",
+          "tldr": "You can attack twice, instead of once, whenever you take the Attack action on your turn."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "aura_of_protection",
+          "name": "Aura of Protection",
+          "type": "class_feature",
+          "tldr": "You and friendly creatures within 10 feet gain a bonus to saving throws equal to your Charisma modifier."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "oath_feature_7",
+          "name": "Sacred Oath Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Sacred Oath."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "aura_of_courage",
+          "name": "Aura of Courage",
+          "type": "class_feature",
+          "tldr": "You and friendly creatures within 10 feet cannot be frightened while you are conscious."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "improved_divine_smite",
+          "name": "Improved Divine Smite",
+          "type": "class_feature",
+          "tldr": "Your melee weapon attacks are infused with divine power, dealing extra radiant damage on every hit."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "cleansing_touch",
+          "name": "Cleansing Touch",
+          "type": "class_feature",
+          "tldr": "Use your touch to end one spell on yourself or a willing creature."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "oath_feature_15",
+          "name": "Sacred Oath Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Sacred Oath."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "aura_improvements",
+          "name": "Aura Improvements",
+          "type": "class_feature",
+          "tldr": "The range of your aura features (Protection, Courage, and subclass auras) increases to 30 feet."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "sacred_oath_capstone",
+          "name": "Sacred Oath Capstone",
+          "type": "subclass_feature",
+          "tldr": "Gain the ultimate avatar transformation feature granted by your chosen Sacred Oath."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Sacred Oath",
+    "level": 3
+  }
+}

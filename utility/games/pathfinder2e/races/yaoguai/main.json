@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Yaoguai",
+  "rarity": "rare",
+  "description": "Yaoguai usually begin as simple animals, plants, or objects before finding a way to awaken to sapience, becoming strange shapeshifting creatures in the process.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["charisma", "constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Yaoguai"],
+  "traits": ["Humanoid", "Yaoguai"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "awakened_form",
+          "name": "Awakened Nature",
+          "type": "ancestry_feature",
+          "tldr": "Your origins as an awakened object, plant, or beast give you unique biological adaptations."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a yaoguai heritage representing whether you originated from flora, fauna, or an object."
+        }
+      ]
+    }
+  }
+}

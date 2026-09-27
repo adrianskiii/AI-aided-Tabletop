@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Ghoran",
+  "rarity": "rare",
+  "description": "These intelligent plant people, created by a long-dead druid, possess a sort of immortality through their seeds.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Sylvan"],
+  "traits": ["Ghoran", "Humanoid", "Plant"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "ghoran_seed",
+          "name": "Ghoran Seed",
+          "type": "ancestry_feature",
+          "tldr": "You contain a living seed capable of growing a brand new body if you perish."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a ghoran heritage representing your botanical design."
+        }
+      ]
+    }
+  }
+}

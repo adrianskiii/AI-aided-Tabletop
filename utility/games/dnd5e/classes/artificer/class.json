@@ -1,0 +1,214 @@
+{
+  "class_name": "Artificer",
+  "description": "A magical crafter and inventor who unlocks extraordinary capabilities in objects.",
+  "key_ability": ["intelligence"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "half_caster_prepared"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 2,
+    "available": ["arcana", "history", "investigation", "medicine", "nature", "perception", "sleight_of_hand"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "martial": "untrained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "trained",
+      "shields": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "magical_tinkering",
+          "name": "Magical Tinkering",
+          "type": "class_feature",
+          "tldr": "Touch a tiny object to imbue it with one of several minor magical properties, such as a light or a recorded message."
+        },
+        {
+          "id": "spellcasting",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You learn to invoke magic through your tools, preparing Intelligence-based spells from the artificer spell list."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "infuse_item",
+          "name": "Infuse Item",
+          "type": "class_feature",
+          "tldr": "Learn special magical infusions and imbue them into mundane items, granting those items magical properties overnight."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "artificer_specialist",
+          "name": "Artificer Specialist",
+          "type": "subclass_choice",
+          "tldr": "Choose an area of specialization, granting features and spells related to your chosen focus."
+        },
+        {
+          "id": "right_tool_for_the_job",
+          "name": "The Right Tool for the Job",
+          "type": "class_feature",
+          "tldr": "Magically create a set of artisan's tools in your hand, replacing another set you own, given an hour of work."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": []
+    },
+    "6": {
+      "features": [
+        {
+          "id": "tool_expertise",
+          "name": "Tool Expertise",
+          "type": "class_feature",
+          "tldr": "Your proficiency bonus is doubled for any ability check you make that uses your proficiency with a tool."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "flash_of_genius",
+          "name": "Flash of Genius",
+          "type": "class_feature",
+          "tldr": "When you or a creature you can see fails an ability check or saving throw, use your reaction to add your Intelligence modifier to the roll."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": []
+    },
+    "10": {
+      "features": [
+        {
+          "id": "magic_item_adept",
+          "name": "Magic Item Adept",
+          "type": "class_feature",
+          "tldr": "Attune to up to four magic items at once, and gain the ability to craft common and uncommon magic items more quickly and cheaply."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "spell_storing_item",
+          "name": "Spell-Storing Item",
+          "type": "class_feature",
+          "tldr": "Store a spell of 1st or 2nd level in an object, letting another creature use your reserve of that spell later."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": []
+    },
+    "14": {
+      "features": [
+        {
+          "id": "magic_item_savant",
+          "name": "Magic Item Savant",
+          "type": "class_feature",
+          "tldr": "Ignore all class, race, and level requirements on attuning to or using a magic item, and attune to up to five items at once."
+        }
+      ]
+    },
+    "15": {
+      "features": []
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "magic_item_master",
+          "name": "Magic Item Master",
+          "type": "class_feature",
+          "tldr": "Attune to up to six magic items at once, further expanding your capacity to wield magical gear."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "soul_of_artifice",
+          "name": "Soul of Artifice",
+          "type": "class_feature",
+          "tldr": "Gain a bonus to all saving throws for each magic item you're attuned to, and can prevent yourself from dropping to 0 hit points by destroying an attuned item."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Artificer Specialist",
+    "level": 3
+  }
+}

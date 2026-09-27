@@ -1,0 +1,173 @@
+{
+  "class_name": "Champion",
+  "description": "Devoted emissary of a deity bound to a strict code, wielding divine power to protect allies and punish foes.",
+  "key_ability": ["strength", "dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["religion"],
+    "additional_count": "2 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, weapons, and heavy armor."},
+        {"id": "deity_and_tenets", "name": "Deity and Tenets", "type": "class_feature", "tldr": "Choose a deity and follow the edicts, anathema, and code of your alignment/cause."},
+        {"id": "cause", "name": "Cause", "type": "subclass_choice", "tldr": "Choose your champion cause (Paladin, Redeemer, Liberator, etc.), granting a holy champion's reaction."},
+        {"id": "champion_feat_1", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "champion_feat_2", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "divine_ally", "name": "Divine Ally", "type": "class_feature", "tldr": "Gain a blade, shield, or steed ally endowed with divine power."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "champion_feat_4", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "champion_feat_6", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex save proficiency increases to expert."},
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Will save success against fear or mental effects becomes a critical success."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "champion_feat_8", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "champion_toughness", "name": "Champion's Resilience", "type": "defense", "tldr": "Armor proficiencies and defensive capabilities improve."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "champion_feat_10", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Fortitude save success against damage or disease becomes a critical success."},
+        {"id": "weapon_mastery", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Proficiency for simple and martial weapons increases to master or expert scaling."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "champion_feat_12", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Deal even more damage with weapons you have expert proficiency in."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "champion_feat_14", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "greater_resolve", "name": "Greater Resolve", "type": "defense", "tldr": "Will save proficiency increases to master, and successes on mental saves become critical successes."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "champion_feat_16", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "shield_mastery", "name": "Shield Mastery / Defensive Tactics", "type": "defense", "tldr": "Defensive proficiencies and shield block effectiveness reach peak capability."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "champion_feat_18", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "legendary_defender", "name": "Legendary Defender", "type": "defense", "tldr": "Armor proficiency scales up, granting superior damage mitigation."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "champion_feat_20", "name": "Champion Feat", "type": "feat_slot", "tldr": "Gain a champion class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

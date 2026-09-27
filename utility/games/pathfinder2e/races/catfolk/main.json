@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Catfolk",
+  "rarity": "uncommon",
+  "description": "Catfolk, or amurruns, are humanoid felines who believe they were created to protect the wilderness from great danger.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Amurrun", "Common"],
+  "traits": ["Catfolk", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "cat_senses",
+          "name": "Cat's Senses",
+          "type": "ancestry_feature",
+          "tldr": "You have low-light vision and keen feline awareness."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a catfolk heritage representing your specific feline lineage."
+        }
+      ]
+    }
+  }
+}

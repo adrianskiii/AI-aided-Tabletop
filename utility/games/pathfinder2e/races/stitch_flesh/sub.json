@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Stitch Flesh",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Gargoyle": {
+      "description": "Reinforced with heavy stone plates and thick iron staples.",
+      "features": [
+        {
+          "id": "heritage_stitchflesh_gargoyle",
+          "name": "Gargoyle Stitch Flesh",
+          "tldr": "You gain extra armor density that reduces physical slashing and piercing damage."
+        }
+      ]
+    },
+    "Galvanized": {
+      "description": "Wired with conductive copper channels and energized by residual electrical sparks.",
+      "features": [
+        {
+          "id": "heritage_stitchflesh_galvanized",
+          "name": "Galvanized Stitch Flesh",
+          "tldr": "You gain resistance to electricity and can discharge static shocks in close combat."
+        }
+      ]
+    }
+  }
+}

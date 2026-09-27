@@ -1,0 +1,50 @@
+{
+  "ancestry_name": "Human",
+  "rarity": "common",
+  "description": "Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
+  "flaws": [],
+  "languages": ["Common", "Choice of one extra language"],
+  "traits": ["Versatility"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "human_versatility",
+          "name": "Human Versatility",
+          "type": "ancestry_feature",
+          "tldr": "You gain an increase to all ability scores or select specialized talents, reflecting human adaptability."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Human Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a human variant path such as Standard Human or Variant Human."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "ambitious_drive",
+          "name": "Ambitious Drive",
+          "type": "ancestry_feature",
+          "tldr": "Your relentless drive lets you push past ordinary limitations once per rest when failing a check."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "resourceful_pioneer",
+          "name": "Resourceful Pioneer",
+          "type": "ancestry_feature",
+          "tldr": "You gain an extra skill proficiency and adaptability bonus during long or short rests."
+        }
+      ]
+    }
+  }
+}

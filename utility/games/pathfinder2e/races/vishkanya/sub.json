@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Vishkanya",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Venomous": {
+      "description": "Producing potent defensive toxins used to coat blades or bite back.",
+      "features": [
+        {
+          "id": "heritage_vishkanya_venomous",
+          "name": "Venomous Vishkanya",
+          "tldr": "You can secrete mild poison to augment your unarmed strikes."
+        }
+      ]
+    },
+    "Serpentine": {
+      "description": "Endowed with incredible flexibility and silent footwork.",
+      "features": [
+        {
+          "id": "heritage_vishkanya_serpentine",
+          "name": "Serpentine Vishkanya",
+          "tldr": "You gain bonuses to Stealth and squeeze through narrow spaces easily."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Shisk",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Quillbound": {
+      "description": "Featuring long, hardened quills capable of deflecting glancing strikes.",
+      "features": [
+        {
+          "id": "heritage_shisk_quillbound",
+          "name": "Quillbound Shisk",
+          "tldr": "You gain a natural defensive reaction using your quills to deter melee attackers."
+        }
+      ]
+    },
+    "Gloomstalker": {
+      "description": "Trained to navigate absolute dark without making a sound.",
+      "features": [
+        {
+          "id": "heritage_shisk_gloomstalker",
+          "name": "Gloomstalker Shisk",
+          "tldr": "Your low-light vision upgrades to darkvision in pitch-black subterranean vaults."
+        }
+      ]
+    }
+  }
+}

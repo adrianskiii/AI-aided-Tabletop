@@ -1,0 +1,179 @@
+{
+  "class_name": "Alchemist",
+  "description": "Martial support character utilizing alchemical bombs, elixirs, mutagens, and poisons.",
+  "key_ability": ["intelligence"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "alchemy"
+  },
+  "skills": {
+    "mandatory": ["crafting"],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "alchemy", "name": "Alchemy", "type": "class_feature", "tldr": "Create alchemical items and versatile vials using infused reagents."},
+        {"id": "formula_book", "name": "Formula Book", "type": "class_feature", "tldr": "Contains your known alchemical item formulas."},
+        {"id": "research_field", "name": "Research Field", "type": "subclass_choice", "tldr": "Choose your alchemical specialization."},
+        {"id": "alchemist_feat_1", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "alchemist_feat_2", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "alchemist_feat_4", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "field_discovery_5", "name": "Field Discovery", "type": "class_feature", "tldr": "Unlock special research field benefits."},
+        {"id": "powerful_alchemy_5", "name": "Powerful Alchemy", "type": "class_feature", "tldr": "DC penalties for your items scale better."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "alchemist_feat_6", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "alchemical_weapon_expertise_7", "name": "Alchemical Weapon Expertise", "type": "class_feature", "tldr": "Proficiency with weapons and bombs improves."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "will_expertise_7", "name": "Will Expertise", "type": "defense", "tldr": "Will save proficiency increases to expert."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "alchemist_feat_8", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "alchemical_expertise_9", "name": "Alchemical Expertise", "type": "class_feature", "tldr": "Class DC and alchemy capabilities improve."},
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "double_brew_9", "name": "Double Brew", "type": "class_feature", "tldr": "Quickly create multiple items at once."},
+        {"id": "perception_expertise_9", "name": "Perception Expertise", "type": "defense", "tldr": "Perception proficiency increases to expert."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "alchemist_feat_10", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "advanced_vials_11", "name": "Advanced Vials", "type": "class_feature", "tldr": "Improve your versatile vials and reagent handling."},
+        {"id": "chemical_hardiness_11", "name": "Chemical Hardiness", "type": "class_feature", "tldr": "Gain resistance against poisons and alchemical effects."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "alchemist_feat_12", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "greater_field_discovery_13", "name": "Greater Field Discovery", "type": "class_feature", "tldr": "Unlock major research field power upgrades."},
+        {"id": "medium_armor_expertise_13", "name": "Medium Armor Expertise", "type": "defense", "tldr": "Medium armor and unarmored defense proficiency increases to expert."},
+        {"id": "weapon_specialization_13", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "alchemist_feat_14", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "alchemical_weapon_mastery_15", "name": "Alchemical Weapon Mastery", "type": "class_feature", "tldr": "Weapon and bomb proficiency improves further."},
+        {"id": "explosion_dodger_15", "name": "Explosion Dodger", "type": "class_feature", "tldr": "Avoid area effects and blasts with exceptional reflexes."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "alchemist_feat_16", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "abundant_vials_17", "name": "Abundant Vials", "type": "class_feature", "tldr": "Significantly increase your daily versatile vials pool."},
+        {"id": "alchemical_mastery_17", "name": "Alchemical Mastery", "type": "class_feature", "tldr": "Reach the pinnacle of alchemical potency and speed."},
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "alchemist_feat_18", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "medium_armor_mastery_19", "name": "Medium Armor Mastery", "type": "defense", "tldr": "Armor proficiency ranks improve further."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "alchemist_feat_20", "name": "Alchemist Feat", "type": "feat_slot", "tldr": "Gain an alchemist class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

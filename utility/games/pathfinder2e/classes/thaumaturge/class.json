@@ -1,0 +1,176 @@
+{
+  "class_name": "Thaumaturge",
+  "description": "Ein erfahrener Sammler esoterischer Geheimnisse und Artefakte, der die Schwachstellen von Monstern durch das Ausnutzen ihres okkulten Wissens aufdeckt.",
+  "key_ability": ["charisma"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["esoterica"],
+    "additional_count": "4 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "exploit_vulnerability", "name": "Exploit Vulnerability", "type": "class_feature", "tldr": "Identifiziere die übernatürliche Schwäche eines Feindes und nutze sie im Kampf aus."},
+        {"id": "implement", "name": "First Implement and Adept", "type": "subclass_choice", "tldr": "Wähle dein erstes magisches Werkzeug (Implement), das dir einzigartige Effekte verleiht."},
+        {"id": "thaumaturge_feat_1", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "thaumaturge_feat_2", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "implement_innovation_3", "name": "Adept Implement", "type": "class_feature", "tldr": "Dein Implement verbessert sich auf die Adeptenstufe."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "thaumaturge_feat_4", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "thaumaturge_weapon_expertise", "name": "Thaumaturge Weapon Expertise", "type": "class_feature", "tldr": "Waffen- und unbewaffnete Fertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "thaumaturge_feat_6", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "second_implement", "name": "Second Implement", "type": "class_feature", "tldr": "Erhalte ein zweites magisches Implement."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "thaumaturge_feat_8", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "thaumaturge_expertise", "name": "Thaumaturge Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Expertenstufe."},
+        {"id": "medium_armor_expertise", "name": "Medium Armor Expertise", "type": "defense", "tldr": "Mittlere Rüstung (und ungenutzte Rüstungen) erreicht die Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "thaumaturge_feat_10", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "implement_master", "name": "Implement Master", "type": "class_feature", "tldr": "Deine Implements erreichen die Meisterstufe."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "thaumaturge_feat_12", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_thaumaturge", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "third_implement", "name": "Third Implement", "type": "class_feature", "tldr": "Erhalte ein drittes magisches Implement."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "thaumaturge_feat_14", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_evasion", "name": "Greater Evasion", "type": "defense", "tldr": "Bei einem normalen Erfolg bei Reflexwürfen erleidest du ebenfalls keinen Schaden."},
+        {"id": "thaumaturge_mastery", "name": "Thaumaturge Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "thaumaturge_feat_16", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "reflex_master_thaumaturge", "name": "Reflex Master", "type": "defense", "tldr": "Reflex-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "thaumaturge_feat_18", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "resolute_thaumaturge", "name": "Resolute", "type": "defense", "tldr": "Willens-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "thaumaturge_feat_20", "name": "Thaumaturge Feat", "type": "feat_slot", "tldr": "Erhalte ein Thaumaturg-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

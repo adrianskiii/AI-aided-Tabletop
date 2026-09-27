@@ -1,0 +1,36 @@
+{
+  "class_name": "Ranger",
+  "subclass_type": "Hunter's Edge",
+  "choices": {
+    "Flurry": {
+      "description": "Fokussiert auf einen unaufhaltsamen Hagel aus schnellen Schlägen, bei dem die Malusabzüge für mehrfache Angriffe drastisch reduziert sind.",
+      "features": [
+        {
+          "id": "edge_flurry",
+          "name": "Flurry Hunter's Edge",
+          "tldr": "Reduziert den Malus für Mehrfachangriffe (Multiple Attack Penalty) gegen deine gejagte Beute deutlich."
+        }
+      ]
+    },
+    "Outwit": {
+      "description": "Konzentriert sich darauf, die Taktiken, Schwachstellen und Bewegungen der Beute zu durchschauen, um im Gegenzug Schutz und taktische Vorteile zu erlangen.",
+      "features": [
+        {
+          "id": "edge_outwit",
+          "name": "Outwit Hunter's Edge",
+          "tldr": "Verleiht Boni auf Rüstungsklasse gegen die Beute sowie Boni auf Täuschungs-, Wahrnehmungs- und Überlebenswürfe."
+        }
+      ]
+    },
+    "Precision": {
+      "description": "Setzt auf den einen, perfekt platzierten und vernichtenden Treffer pro Runde mit enormem Bonusschaden.",
+      "features": [
+        {
+          "id": "edge_precision",
+          "name": "Precision Hunter's Edge",
+          "tldr": "Verursacht beim ersten erfolgreichen Treffer in jeder Runde zusätzlichen Präzisionsschaden gegen die Beute."
+        }
+      ]
+    }
+  }
+}

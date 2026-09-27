@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Nagaji",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Cobra": {
+      "description": "Marked by hood-like neck markings and venomous spit defenses.",
+      "features": [
+        {
+          "id": "heritage_nagaji_cobra",
+          "name": "Cobra Nagaji",
+          "tldr": "You gain a specialized spit attack that can distract or irritate opponents."
+        }
+      ]
+    },
+    "Constrictor": {
+      "description": "Bred with massive physical strength and flexible coils.",
+      "features": [
+        {
+          "id": "heritage_nagaji_constrictor",
+          "name": "Constrictor Nagaji",
+          "tldr": "You gain bonuses when executing and maintaining grappling maneuvers."
+        }
+      ]
+    }
+  }
+}

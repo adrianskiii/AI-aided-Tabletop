@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Tiefling",
+  "rarity": "rare",
+  "description": "To be greeted with stares and whispers, to suffer violence and insult on account of your ancestry, is the lot of the tiefling. Their appearance and their nature are not their fault, but the result of an ancient pact.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["charisma", "intelligence", "free"],
+  "flaws": [],
+  "languages": ["Common", "Infernal"],
+  "traits": ["Darkvision", "Hellish Resistance"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+        },
+        {
+          "id": "hellish_resistance",
+          "name": "Hellish Resistance",
+          "type": "ancestry_feature",
+          "tldr": "You have resistance to fire damage."
+        },
+        {
+          "id": "infernal_legacy",
+          "name": "Infernal Legacy",
+          "type": "ancestry_feature",
+          "tldr": "You know the Thaumaturgy cantrip. Charisma is your spellcasting ability for it."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Fiendish Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a fiendish heritage lineage reflecting your specific infernal bloodline."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "legacy_spell_3",
+          "name": "Hellish Rebuke Legacy",
+          "type": "ancestry_feature",
+          "tldr": "You can cast the *Hellish Rebuke* spell once per long rest as a 2nd-level spell."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "legacy_spell_5",
+          "name": "Darkness Legacy",
+          "type": "ancestry_feature",
+          "tldr": "You can cast the *Darkness* spell once per long rest using Charisma as your spellcasting ability."
+        }
+      ]
+    }
+  }
+}

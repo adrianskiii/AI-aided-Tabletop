@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Centaur",
+  "rarity": "uncommon",
+  "description": "Centaurs are half-human, half-horse nomads who range wild and free across their ancestral lands.",
+  "hit_points": 10,
+  "size": "Large",
+  "speed": 35,
+  "boosts": ["strength", "wisdom", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Centaur", "Common"],
+  "traits": ["Beast", "Centaur", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "equine_body",
+          "name": "Equine Body",
+          "type": "ancestry_feature",
+          "tldr": "Your large horse lower body grants high speed and stability, though you require specialized armor."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a centaur heritage reflecting your nomadic tribe or environment."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "class_name": "Ranger",
+  "description": "Ein unerbittlicher Fährtenleser, Überlebenskünstler und Meister der Jagd, der seine Beute mit tödlicher Präzision oder unermüdlichen Salven verfolgt.",
+  "key_ability": ["strength", "dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": ["survival"],
+    "additional_count": "4 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "expert",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "hunt_prey", "name": "Hunt Prey", "type": "class_feature", "tldr": "Markiere ein Ziel als deine Beute, um Boni beim Aufspüren und Angreifen zu erhalten."},
+        {"id": "hunter_edge", "name": "Hunter's Edge", "type": "subclass_choice", "tldr": "Wähle deinen Jagdstil (Flurry, Outwit oder Precision)."},
+        {"id": "ranger_feat_1", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "ranger_feat_2", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "trackless_step", "name": "Trackless Step", "type": "class_feature", "tldr": "Hinterlasse in der Natur keine Spuren, sofern du es nicht wünschst."},
+        {"id": "vehement_will", "name": "Vehement Will", "type": "defense", "tldr": "Willens-Rettungswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "ranger_feat_4", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "ranger_weapon_expertise", "name": "Ranger Weapon Expertise", "type": "class_feature", "tldr": "Waffen- und unbewaffnete Fertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "ranger_feat_6", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Expertenstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "ranger_feat_8", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "ranger_expertise", "name": "Ranger Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Experten- bzw. Meisterstufe."},
+        {"id": "nature_s_edge", "name": "Nature's Edge", "type": "class_feature", "tldr": "Beute in natürlicher Umgebung gilt für dich als flankiert."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ranger_feat_10", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Erhöhe den Bonusschaden mit deinen Waffen deutlich."},
+        {"id": "Sleight_of_foot_or_evasion", "name": "Evasion", "type": "defense", "tldr": "Bei einem erfolgreichen Reflexwurf erleidest du keinen Schaden (kritischer Erfolg statt normalem Erfolg)."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "ranger_feat_12", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery_ranger", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Meisterstufe."},
+        {"id": "Medium_armor_expertise", "name": "Armor Expertise", "type": "defense", "tldr": "Leichte und mittlere Rüstungen erreichen die Expertenstufe."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "ranger_feat_14", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "greater_juggernaut", "name": "Greater Juggernaut", "type": "defense", "tldr": "Zähigkeits-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "ranger_mastery", "name": "Ranger Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "ranger_feat_16", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "master_will", "name": "Master Will", "type": "defense", "tldr": "Willens-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "ranger_feat_18", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "master_hunter", "name": "Master Hunter", "type": "class_feature", "tldr": "Verfolge Spuren selbst übernatürlich gut und erhalte tödliche Vorteile gegen deine Beute."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ranger_feat_20", "name": "Ranger Feat", "type": "feat_slot", "tldr": "Erhalte ein Waldläufer-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Aasimar",
+  "sub_ancestry_type": "Revelation",
+  "choices": {
+    "Protector": {
+      "description": "Tasked by the powers of good to guard the weak, manifesting radiant energy to ward off foes.",
+      "features": [
+        {
+          "id": "subrace_protector_wings",
+          "name": "Radiant Soul",
+          "tldr": "When you unleash your celestial revelation, spectral wings sprout from your back, granting you a flying speed."
+        }
+      ]
+    },
+    "Scourge": {
+      "description": "Charged with rooting out evil where it hides, brimming with a blinding inner radiance that leaks outward.",
+      "features": [
+        {
+          "id": "subrace_scourge_burst",
+          "name": "Radiant Consumption",
+          "tldr": "When you unleash your celestial revelation, searing light radiates from your eyes and mouth, scorching nearby enemies."
+        }
+      ]
+    }
+  }
+}

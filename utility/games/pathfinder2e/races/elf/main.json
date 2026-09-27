@@ -1,0 +1,34 @@
+{
+  "ancestry_name": "Elf",
+  "rarity": "common",
+  "description": "While generally taller than humans, elves possess a fragile grace, accentuated by long features and sharply pointed ears.",
+  "hit_points": 6,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["dexterity", "intelligence", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Common", "Elven"],
+  "additional_languages": ["Celestial", "Draconic", "Gnoll", "Gnome", "Goblin", "Sylvan"],
+  "traits": ["Elf", "Humanoid"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "elven_longevity",
+          "name": "Elven Longevity",
+          "type": "ancestry_feature",
+          "tldr": "Change a trained skill each day based on centuries of refined memory."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Select a heritage like Cavern Elf or Wood Elf."
+        }
+      ]
+    }
+  }
+}

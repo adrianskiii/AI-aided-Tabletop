@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Halfling",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Gutsy": {
+      "description": "Possessing fierce determination and resilience against fear.",
+      "features": [
+        {
+          "id": "heritage_halfling_gutsy",
+          "name": "Gutsy Halfling",
+          "tldr": "You gain bonuses on saves against fear effects and bounce back quickly."
+        }
+      ]
+    },
+    "Nomadic": {
+      "description": "Raised traveling the roads, highly adaptable to shifting environments.",
+      "features": [
+        {
+          "id": "heritage_halfling_nomadic",
+          "name": "Nomadic Halfling",
+          "tldr": "You gain extra training in survival skills and resistance to travel fatigue."
+        }
+      ]
+    }
+  }
+}

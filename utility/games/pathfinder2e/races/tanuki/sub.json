@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Tanuki",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Urban": {
+      "description": "Thriving in bustling cities and crowded markets with clever social tricks.",
+      "features": [
+        {
+          "id": "heritage_tanuki_urban",
+          "name": "Urban Tanuki",
+          "tldr": "You gain bonuses to deception and gathering local street rumors."
+        }
+      ]
+    },
+    "Wildwood": {
+      "description": "Deeply attuned to dense forests and secluded rural countrysides.",
+      "features": [
+        {
+          "id": "heritage_tanuki_wildwood",
+          "name": "Wildwood Tanuki",
+          "tldr": "You gain bonuses to survival skills and tracking in natural environments."
+        }
+      ]
+    }
+  }
+}

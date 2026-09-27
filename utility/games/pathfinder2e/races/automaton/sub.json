@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Automaton",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Aethel": {
+      "description": "Constructed with advanced magical matrices.",
+      "features": [
+        {
+          "id": "heritage_automaton_aethel",
+          "name": "Aethel Automaton",
+          "tldr": "Your internal magic flares, allowing you to discharge a burst of defensive energy."
+        }
+      ]
+    },
+    "Sharpshooter": {
+      "description": "Engineered with integrated targeting optics and ballistic stabilization.",
+      "features": [
+        {
+          "id": "heritage_automaton_sharpshooter",
+          "name": "Sharpshooter Automaton",
+          "tldr": "You ignore range penalties more easily and calibrate your attacks with mechanical precision."
+        }
+      ]
+    }
+  }
+}

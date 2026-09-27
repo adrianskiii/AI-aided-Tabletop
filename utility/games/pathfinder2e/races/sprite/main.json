@@ -1,0 +1,35 @@
+{
+  "ancestry_name": "Sprite",
+  "rarity": "rare",
+  "description": "Sprites are tiny fey creatures known for their whimsical nature, bright wings, and connection to the First World.",
+  "hit_points": 6,
+  "size": "Tiny",
+  "speed": 15,
+  "fly_speed": 40,
+  "boosts": ["dexterity", "intelligence", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Sylvan"],
+  "additional_languages": ["Aklo", "Elven", "Gnome", "Goblin", "Halfling"],
+  "traits": ["Fey", "Sprite"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "fey_magic",
+          "name": "Fey Magic",
+          "type": "ancestry_feature",
+          "tldr": "You can cast innate primal cantrips drawn from the vibrant magic of the First World."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a sprite heritage representing your specific fey lineage or elemental connection."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Tiefling",
+  "sub_ancestry_type": "Bloodline",
+  "choices": {
+    "Asmodeus": {
+      "description": "Tied to the Lord of the Nine Hells, granting manipulative fire magic and commanding presence.",
+      "features": [
+        {
+          "id": "subrace_asmodeus_legacy",
+          "name": "Blood of Asmodeus",
+          "tldr": "Your innate spells focus on fire and deception, supplementing your standard infernal legacy."
+        }
+      ]
+    },
+    "Mephistopheles": {
+      "description": "Tied to the archdevil Mephistopheles, granting arcane flair and raw destructive power.",
+      "features": [
+        {
+          "id": "subrace_mephistopheles_legacy",
+          "name": "Blood of Mephistopheles",
+          "tldr": "You gain access to fiery arcane magic such as the *Burning Hands* spell."
+        }
+      ]
+    }
+  }
+}

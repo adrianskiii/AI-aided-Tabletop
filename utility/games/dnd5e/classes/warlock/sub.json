@@ -1,0 +1,72 @@
+{
+  "class_name": "Warlock",
+  "subclass_type": "Otherworldly Patron",
+  "choices": {
+    "The Fiend": {
+      "description": "You have made a pact with a fiend from the lower planes of existence, seeking destruction or dark secrets.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "dark_ones_blessing",
+            "name": "Dark One's Blessing",
+            "tldr": "Gain temporary hit points whenever you reduce an enemy creature to 0 hit points."
+          }
+        ],
+        "6": [
+          {
+            "id": "dark_ones_own_luck",
+            "name": "Dark One's Own Luck",
+            "tldr": "Call on your patron to add a bonus to an ability check or saving throw."
+          }
+        ],
+        "10": [
+          {
+            "id": "fiendish_resilience",
+            "name": "Fiendish Resilience",
+            "tldr": "Choose a damage type and gain resistance to it until you change it during a rest."
+          }
+        ],
+        "14": [
+          {
+            "id": "hurl_through_hell",
+            "name": "Hurl Through Hell",
+            "tldr": "Temporarily banish a creature through the lower planes, dealing psychic damage when it returns."
+          }
+        ]
+      }
+    },
+    "The Archfey": {
+      "description": "Your pact is with a lord or lady of the fey, filled with unpredictable charm, illusions, and nature magic.",
+      "level_progression": {
+        "1": [
+          {
+            "id": "fey_presence",
+            "name": "Fey Presence",
+            "tldr": "Project a dazzling or terrifying magical presence that charms or frightens nearby creatures."
+          }
+        ],
+        "6": [
+          {
+            "id": "misty_escape",
+            "name": "Misty Escape",
+            "tldr": "Disappear into a puff of mist and teleport away invisibly when you take damage."
+          }
+        ],
+        "10": [
+          {
+            "id": "beguiling_defenses",
+            "name": "Beguiling Defenses",
+            "tldr": "Become immune to being charmed, and reflect charm attempts back at the attacker."
+          }
+        ],
+        "14": [
+          {
+            "id": "dark_delirium",
+            "name": "Dark Delirium",
+            "tldr": "Plunge a creature into an illusory realm of fey magic, incapacitating it with fear or charm."
+          }
+        ]
+      }
+    }
+  }
+}

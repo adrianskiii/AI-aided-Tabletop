@@ -1,0 +1,260 @@
+{
+  "class_name": "Bard",
+  "description": "An inspiring magician whose power echoes the music of creation.",
+  "key_ability": ["charisma"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "full_caster",
+    "ability": "charisma"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 3,
+    "available": ["acrobatics", "animal_handling", "arcana", "athletics", "deception", "history", "insight", "intimidation", "investigation", "medicine", "nature", "perception", "performance", "religion", "sleight_of_hand", "stealth", "survival"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "hand_crossbows": "trained",
+      "longswords": "trained",
+      "rapiers": "trained",
+      "shortswords": "trained"
+    },
+    "armor": {
+      "light": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "spellcasting",
+          "name": "Spellcasting",
+          "type": "class_feature",
+          "tldr": "You can cast spells using Charisma as your spellcasting ability, shaping magic through music and oratory."
+        },
+        {
+          "id": "bardic_inspiration_d6",
+          "name": "Bardic Inspiration (d6)",
+          "type": "class_feature",
+          "tldr": "You can inspire others through words or music, granting a d6 bonus die to add to d20 rolls."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "jack_of_all_trades",
+          "name": "Jack of All Trades",
+          "type": "class_feature",
+          "tldr": "Add half your proficiency bonus to any ability check you make that doesn't already include your proficiency bonus."
+        },
+        {
+          "id": "song_of_rest_d6",
+          "name": "Song of Rest (d6)",
+          "type": "class_feature",
+          "tldr": "Use soothing music or oratory to help wounded allies regain extra hit points during a short rest."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "bard_college",
+          "name": "Bard College",
+          "type": "subclass_choice",
+          "tldr": "Choose a college that shapes your magical performance style and grants specialized features."
+        },
+        {
+          "id": "expertise_3",
+          "name": "Expertise",
+          "type": "class_feature",
+          "tldr": "Choose two of your skill proficiencies to double your proficiency bonus for checks made with them."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "bardic_inspiration_d8",
+          "name": "Bardic Inspiration (d8)",
+          "type": "class_feature",
+          "tldr": "Your Bardic Inspiration die increases to a d8."
+        },
+        {
+          "id": "font_of_inspiration",
+          "name": "Font of Inspiration",
+          "type": "class_feature",
+          "tldr": "You now regain all expended uses of Bardic Inspiration when you finish a short or long rest."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "countercharm",
+          "name": "Countercharm",
+          "type": "class_feature",
+          "tldr": "Use musical notes or words of power to grant advantage on saving throws against being frightened or charmed for you and allies."
+        }
+      ]
+    },
+    "7": {
+      "features": []
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": [
+        {
+          "id": "song_of_rest_d8",
+          "name": "Song of Rest (d8)",
+          "type": "class_feature",
+          "tldr": "The extra healing provided by your Song of Rest increases to a d8."
+        }
+      ]
+    },
+    "10": {
+      "features": [
+        {
+          "id": "bardic_inspiration_d10",
+          "name": "Bardic Inspiration (d10)",
+          "type": "class_feature",
+          "tldr": "Your Bardic Inspiration die increases to a d10."
+        },
+        {
+          "id": "expertise_10",
+          "name": "Expertise",
+          "type": "class_feature",
+          "tldr": "Choose two more skill proficiencies to double your proficiency bonus for checks made with them."
+        },
+        {
+          "id": "magical_secrets_10",
+          "name": "Magical Secrets",
+          "type": "class_feature",
+          "tldr": "Learn two spells of your choice from any class's spell list."
+        }
+      ]
+    },
+    "11": {
+      "features": []
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "song_of_rest_d10",
+          "name": "Song of Rest (d10)",
+          "type": "class_feature",
+          "tldr": "The extra healing provided by your Song of Rest increases to a d10."
+        }
+      ]
+    },
+    "14": {
+      "features": [
+        {
+          "id": "magical_secrets_14",
+          "name": "Magical Secrets",
+          "type": "class_feature",
+          "tldr": "Learn two additional spells of your choice from any class's spell list."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "bardic_inspiration_d12",
+          "name": "Bardic Inspiration (d12)",
+          "type": "class_feature",
+          "tldr": "Your Bardic Inspiration die increases to a d12."
+        },
+        {
+          "id": "song_of_rest_d12",
+          "name": "Song of Rest (d12)",
+          "type": "class_feature",
+          "tldr": "The extra healing provided by your Song of Rest increases to a d12."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": []
+    },
+    "18": {
+      "features": [
+        {
+          "id": "magical_secrets_18",
+          "name": "Magical Secrets",
+          "type": "class_feature",
+          "tldr": "Learn two additional spells of your choice from any class's spell list."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "superior_inspiration",
+          "name": "Superior Inspiration",
+          "type": "class_feature",
+          "tldr": "When you roll initiative and have no uses of Bardic Inspiration left, you regain one use."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Bard College",
+    "level": 3
+  }
+}

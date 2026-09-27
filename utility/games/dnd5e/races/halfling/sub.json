@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Halfling",
+  "sub_ancestry_type": "Subrace",
+  "choices": {
+    "Lightfoot": {
+      "description": "Inclined to hide and slip away unnoticed, able to vanish behind other larger people.",
+      "features": [
+        {
+          "id": "subrace_lightfoot_stealth",
+          "name": "Naturally Stealthy",
+          "tldr": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+        }
+      ]
+    },
+    "Stout": {
+      "description": "Hardier than other halflings, with some resistance to poison and tough endurance.",
+      "features": [
+        {
+          "id": "subrace_stout_resilience",
+          "name": "Stout Resilience",
+          "tldr": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+        }
+      ]
+    }
+  }
+}

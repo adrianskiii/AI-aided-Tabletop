@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Kobold",
+  "rarity": "uncommon",
+  "description": "Kobolds are diligent crafters whose small, reptilian forms are influenced in the egg by the proximity of powerful magic.",
+  "hit_points": 6,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Common", "Draconic"],
+  "traits": ["Humanoid", "Kobold", "Reptilian"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "kobold_breath",
+          "name": "Kobold Breath / Cringe",
+          "type": "ancestry_feature",
+          "tldr": "You use groveling social tactics or an innate elemental breath weapon."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a kobold heritage reflecting your magical egg-chamber environment."
+        }
+      ]
+    }
+  }
+}

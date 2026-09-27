@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Awakened Animal",
+  "rarity": "rare",
+  "description": "Awakened animals were once normal creatures before they obtained sapience that gave them one paw in nature and the other in the world of cities and society.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["constitution", "wisdom", "free"],
+  "flaws": ["intelligence"],
+  "languages": ["Common", "Wild Speaking"],
+  "traits": ["Awakened animal", "Beast"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "natural_instinct",
+          "name": "Natural Instinct",
+          "type": "ancestry_feature",
+          "tldr": "Your wild background gives you keen survival instincts and specialized movement modes."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an awakened animal heritage based on your original species group."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Jotunborn",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Mountain": {
+      "description": "Echoing the unyielding fortitude of stone giants and mountain peaks.",
+      "features": [
+        {
+          "id": "heritage_jotunborn_mountain",
+          "name": "Mountain Jotunborn",
+          "tldr": "You gain bonuses to resist being moved or knocked down by heavy impacts."
+        }
+      ]
+    },
+    "Storm": {
+      "description": "Imbued with the crackling, atmospheric fury of cloud and storm giants.",
+      "features": [
+        {
+          "id": "heritage_jotunborn_storm",
+          "name": "Storm Jotunborn",
+          "tldr": "You gain minor resistance to electricity and atmospheric conditions."
+        }
+      ]
+    }
+  }
+}

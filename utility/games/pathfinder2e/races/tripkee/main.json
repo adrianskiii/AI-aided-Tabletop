@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Tripkee",
+  "rarity": "uncommon",
+  "description": "Tripkees are froglike humanoids who rely on their cunning and curiosity to keep their communities safe.",
+  "hit_points": 8,
+  "size": "Small",
+  "speed": 25,
+  "boosts": ["dexterity", "wisdom", "free"],
+  "flaws": ["strength"],
+  "languages": ["Common", "Tripkee"],
+  "traits": ["Amphibious", "Humanoid", "Tripkee"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "powerful_leap",
+          "name": "Powerful Leap",
+          "type": "ancestry_feature",
+          "tldr": "Your amphibian legs let you jump much further than other humanoids of your size."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a tripkee heritage representing your wetland or jungle background."
+        }
+      ]
+    }
+  }
+}

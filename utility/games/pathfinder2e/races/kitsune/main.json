@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Kitsune",
+  "rarity": "uncommon",
+  "description": "Kitsune are a charismatic and witty people with a connection to the spiritual that grants them many magical abilities, chiefly the power to shapechange into other forms.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["charisma", "free"],
+  "flaws": [],
+  "languages": ["Common", "Minkaian", "Sylvan"],
+  "traits": ["Humanoid", "Kitsune"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "change_shape",
+          "name": "Change Shape",
+          "type": "ancestry_feature",
+          "tldr": "You can magically transform into an alternate form, typically a human or a fox."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a kitsune heritage reflecting your magical lineage or tail progression."
+        }
+      ]
+    }
+  }
+}

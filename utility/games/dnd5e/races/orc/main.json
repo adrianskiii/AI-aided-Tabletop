@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Orc",
+  "rarity": "common",
+  "description": "Scarred and imposing, orcs possess an inner fire and relentless drive that allows them to push past any obstacle.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["strength", "constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Orc"],
+  "traits": ["Darkvision", "Adrenaline Rush", "Relentless Endurance"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "darkvision",
+          "name": "Darkvision",
+          "type": "ancestry_feature",
+          "tldr": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light."
+        },
+        {
+          "id": "adrenaline_rush",
+          "name": "Adrenaline Rush",
+          "type": "ancestry_feature",
+          "tldr": "You can take the Dash action as a bonus action a number of times equal to your proficiency bonus per long rest, gaining temporary hit points when you do."
+        },
+        {
+          "id": "relentless_endurance",
+          "name": "Relentless Endurance",
+          "type": "ancestry_feature",
+          "tldr": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead once per long rest."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Orcish Lineage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an orcish tribal heritage reflecting your physical specialization or culture."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "powerful_build",
+          "name": "Powerful Build",
+          "type": "ancestry_feature",
+          "tldr": "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "savage_attacks",
+          "name": "Savage Attacks",
+          "type": "ancestry_feature",
+          "tldr": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage."
+        }
+      ]
+    }
+  }
+}

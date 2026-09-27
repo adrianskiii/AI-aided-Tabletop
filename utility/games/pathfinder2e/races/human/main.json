@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Human",
+  "rarity": "common",
+  "description": "Humans’ physical characteristics are as varied as the world’s climes.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["free", "free"],
+  "flaws": [],
+  "languages": ["Common"],
+  "additional_languages": ["Any one language (based on region or intelligence)"],
+  "traits": ["Human", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "human_versatility",
+          "name": "Human Versatility",
+          "type": "ancestry_feature",
+          "tldr": "Your adaptability grants you an extra general feat or skill proficiency at level 1."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a human heritage like Skilled Human or Versatile Human."
+        }
+      ]
+    }
+  }
+}

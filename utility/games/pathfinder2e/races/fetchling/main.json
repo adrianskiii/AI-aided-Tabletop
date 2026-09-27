@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Fetchling",
+  "rarity": "uncommon",
+  "description": "Once human and now something apart, fetchlings display the Shadow Plane’s ancient influence through monochrome complexions, glowing eyes, and the casting of supernatural shadows.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Aklo", "Shadowtongue"],
+  "traits": ["Fetchling", "Humanoid"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "shadow_magic",
+          "name": "Shadow Magic",
+          "type": "ancestry_feature",
+          "tldr": "You wield innate magic linked to the Shadow Plane, letting you manipulate darkness."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a fetchling heritage reflecting your unique connection to the plane of shadow."
+        }
+      ]
+    }
+  }
+}

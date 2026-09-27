@@ -1,0 +1,72 @@
+{
+  "class_name": "Ranger",
+  "subclass_type": "Ranger Archetype",
+  "choices": {
+    "Hunter": {
+      "description": "Emulates specialized techniques for taking down specific types of dangerous monsters and groups of foes.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "hunter_prey",
+            "name": "Hunter's Prey",
+            "tldr": "Choose a tactical option to enhance your attacks: Colossus Slayer, Giant Killer, or Horde Breaker."
+          }
+        ],
+        "7": [
+          {
+            "id": "defensive_tactics",
+            "name": "Defensive Tactics",
+            "tldr": "Choose a defensive option: Escape the Horde, Multiattack Defense, or Steel Will."
+          }
+        ],
+        "11": [
+          {
+            "id": "multiattack",
+            "name": "Multiattack",
+            "tldr": "Gain a sweeping multiattack option: Volley (ranged) or Whirlwind Attack (melee)."
+          }
+        ],
+        "15": [
+          {
+            "id": "superior_hunters_defense",
+            "name": "Superior Hunter's Defense",
+            "tldr": "Choose an advanced defensive technique: Evasion, Stand Against the Tide, or Uncanny Dodge."
+          }
+        ]
+      }
+    },
+    "Beast Master": {
+      "description": "Bonds with a loyal animal companion to fight side-by-side in the wild.",
+      "level_progression": {
+        "3": [
+          {
+            "id": "ranger_companion",
+            "name": "Ranger's Companion",
+            "tldr": "Gain a beast companion that accompanies you on your adventures and fights under your command."
+          }
+        ],
+        "7": [
+          {
+            "id": "exceptional_training",
+            "name": "Exceptional Training",
+            "tldr": "Command your beast companion to take the Dash, Disengage, Dodge, or Help action as a bonus action."
+          }
+        ],
+        "11": [
+          {
+            "id": "bestial_fury",
+            "name": "Bestial Fury",
+            "tldr": "Your beast companion can make two attacks when you command it to take the Attack action."
+          }
+        ],
+        "15": [
+          {
+            "id": "share_spells",
+            "name": "Share Spells",
+            "tldr": "When you cast a spell targeting yourself, you can also affect your beast companion if it is within 30 feet."
+          }
+        ]
+      }
+    }
+  }
+}

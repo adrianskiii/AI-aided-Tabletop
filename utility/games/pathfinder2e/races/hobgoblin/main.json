@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Hobgoblin",
+  "rarity": "uncommon",
+  "description": "Hobgoblins are goblins’ stronger and taller cousins, often devoted to proving themselves in battle.",
+  "hit_points": 12,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["constitution", "intelligence", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Common", "Goblin", "Zul"],
+  "traits": ["Goblin", "Hobgoblin", "Humanoid"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "martial_experiencing",
+          "name": "Tactical Advantage",
+          "type": "ancestry_feature",
+          "tldr": "You excel at capitalizing on enemies who are off-guard or compromised."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a hobgoblin heritage reflecting your military or tactical training."
+        }
+      ]
+    }
+  }
+}

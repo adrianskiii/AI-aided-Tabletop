@@ -1,0 +1,46 @@
+{
+  "class_name": "Investigator",
+  "subclass_type": "Methodology",
+  "choices": {
+    "Alchemical Sciences": {
+      "description": "Ein Ermittler, der Alchemie nutzt, um nützliche Elixiere, Mutagene und chemische Analysen direkt im Feld herzustellen.",
+      "features": [
+        {
+          "id": "methodology_alchemical",
+          "name": "Alchemical Sciences Methodology",
+          "tldr": "Verleiht dir tägliche alchemistische Infusionen und die Fähigkeit, nützliche alchemistische Gegenstände zu brauen."
+        }
+      ]
+    },
+    "Empiricism": {
+      "description": "Ein methodischer Logiker, der sich auf Logik, Fallenentschärfung und das Aufspüren feinster Hinweise verlässt.",
+      "features": [
+        {
+          "id": "methodology_empiricism",
+          "name": "Empiricism Methodology",
+          "tldr": "Verbessert deine Fähigkeiten bei der Untersuchung von Tatorten, dem Aufspüren von Täuschungen und dem Entschärfen von Gefahren."
+        }
+      ]
+    },
+    "Forensic Medicine": {
+      "description": "Ein Gerichtsmediziner und Arzt, der Wunden analysiert, Todesursachen feststellt und Verbündete im Handumdrehen medizinisch versorgt.",
+      "features": [
+        {
+          "id": "methodology_forensic",
+          "name": "Forensic Medicine Methodology",
+          "tldr": "Erhöht die Effektivität von Erste-Hilfe-Maßnahmen (Treat Wounds) und verstärkt deinen Strategic Strike an lebenden Organismen."
+        }
+      ]
+    },
+    "Interrogation": {
+      "description": "Ein Verhörspezialist und Psychologe, der Lügen durchschaut, Zeugen befragt und soziale Dynamiken auf dem Schlachtfeld kontrolliert.",
+      "features": [
+        {
+          "id": "methodology_interrogation",
+          "name": "Interrogation Methodology",
+          "tldr": "Fokus auf soziale Interaktionen, das Erkennen von Motiven und das Ausüben von psychologischem Druck auf Gegner."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "class_name": "Bard",
+  "description": "Versatile occult spellcaster and inspiring performer using composition spells and diverse skills.",
+  "key_ability": ["charisma"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "spontaneous_occult"
+  },
+  "skills": {
+    "mandatory": ["occultism", "performance"],
+    "additional_count": "4 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "expert",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "untrained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Choose ancestry and background options."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Gain starting proficiencies for saving throws, perception, and skills."},
+        {"id": "bard_spellcasting", "name": "Bard Spellcasting", "type": "spellcasting", "tldr": "Cast occult spells spontaneously from a repertoire, including cantrips and composition spells."},
+        {"id": "muse", "name": "Muse", "type": "subclass_choice", "tldr": "Choose your artistic inspiration (Enigma, Maestro, Polymath, or Warrior)."},
+        {"id": "bard_feat_1", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "bard_feat_2", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "spell_rank_2", "name": "2nd-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 2nd-rank spell slots."},
+        {"id": "reflex_expertise_3", "name": "Reflex Expertise", "type": "defense", "tldr": "Reflex saving throw proficiency increases to expert."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill's proficiency rank."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "bard_feat_4", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "spell_rank_3", "name": "3rd-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 3rd-rank spell slots."},
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "expert_spellcaster_5", "name": "Expert Spellcaster", "type": "spellcasting", "tldr": "Spell attack rolls and spell DCs increase to expert proficiency."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "bard_feat_6", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "spell_rank_4", "name": "4th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 4th-rank spell slots."},
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Fortitude save success against damage or diseases becomes a critical success."},
+        {"id": "resolute", "name": "Resolute", "type": "defense", "tldr": "Will save success against fear or mental effects becomes a critical success."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "bard_feat_8", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "spell_rank_5", "name": "5th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 5th-rank spell slots."},
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "maestros_introduction", "name": "Beguiling Defense", "type": "class_feature", "tldr": "Enhance protections against mental tricks and illusions."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "bard_feat_10", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "spell_rank_6", "name": "6th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 6th-rank spell slots."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex save proficiency increases to master."},
+        {"id": "master_spellcaster_11", "name": "Master Spellcaster", "type": "spellcasting", "tldr": "Spell attack rolls and spell DCs increase to master proficiency."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "bard_feat_12", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "spell_rank_7", "name": "7th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 7th-rank spell slots."},
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Deal extra damage with weapons you know well."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "bard_feat_14", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "spell_rank_8", "name": "8th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 8th-rank spell slots."},
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "legendary_spellcaster_15", "name": "Legendary Spellcaster", "type": "spellcasting", "tldr": "Spell attack rolls and spell DCs increase to legendary proficiency."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "bard_feat_16", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "spell_rank_9", "name": "9th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to 9th-rank spell slots."},
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Gain an ancestry feat."},
+        {"id": "skilled_diety", "name": "Mettle or Similar Defense Upgrade", "type": "defense", "tldr": "Save successes against partial effects become critical successes."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "bard_feat_18", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "spell_rank_10", "name": "10th-Rank Spells", "type": "spellcasting", "tldr": "Gain access to powerful 10th-rank spell slots."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Gain a general feat."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Increase a skill proficiency."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Apply four attribute boosts."},
+        {"id": "bard_feat_20", "name": "Bard Feat", "type": "feat_slot", "tldr": "Gain a bard class feat."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Gain a skill feat."}
+      ]
+    }
+  }
+}

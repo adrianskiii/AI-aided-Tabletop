@@ -23,6 +23,8 @@ button { background: var(--panel2); border: 1px solid var(--line2); color: var(-
 button:hover { border-color: var(--gold); color: var(--gold2); }
 button.primary { background: var(--gold); border-color: var(--gold); color: #201808; font-weight: 600; }
 button.danger:hover { border-color: var(--red); color: var(--red); }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button:disabled:hover { border-color: var(--line2); color: var(--ink); }
 
 header { position: sticky; top:0; z-index:50; display:flex; align-items:center; gap:14px;
   padding: 12px 22px; background: rgba(16,14,12,.94); backdrop-filter: blur(6px);
@@ -31,12 +33,25 @@ header .brand { font-size: 19px; color: var(--gold); letter-spacing: 1.5px; }
 header .brand small { color: var(--muted); font-family: sans-serif; font-size: 11px; margin-left: 8px; }
 #charSelect { margin-left: auto; min-width: 220px; }
 
+nav.tabs { position: sticky; top: 57px; z-index: 49; display:flex; gap:4px; padding: 8px 22px 0;
+  background: var(--bg); border-bottom: 1px solid var(--line2); flex-wrap: wrap; }
+nav.tabs button { background: transparent; border: 1px solid transparent; border-bottom: none;
+  border-radius: 8px 8px 0 0; padding: 8px 16px; font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--muted); position: relative; top: 1px; }
+nav.tabs button.active { background: var(--panel); border-color: var(--line2); color: var(--gold2); }
+nav.tabs .badge { display:inline-block; margin-left:6px; background: var(--gold); color:#201808;
+  border-radius: 999px; font-size: 10px; font-weight:700; padding: 1px 6px; }
+
 main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 90px; }
+.tabpanel { display: none; }
+.tabpanel.active { display: block; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
-  padding: 16px 18px; box-shadow: var(--shadow); }
+  padding: 16px 18px; box-shadow: var(--shadow); margin-bottom: 16px; }
 .panel h2 { color: var(--gold2); font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
   border-bottom: 1px solid var(--line2); padding-bottom: 8px; }
+.panel h3 { color: var(--muted); font-size: 12.5px; text-transform: uppercase; letter-spacing: .6px;
+  margin: 14px 0 6px; }
 .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
 .muted { color: var(--muted); font-size: 12.5px; }
 .mono { font-family: 'Cascadia Code', Consolas, monospace; }
@@ -46,6 +61,10 @@ main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 90px; }
 .hpbar { height: 100%; background: linear-gradient(90deg, var(--red), var(--green)); transition: width .2s; }
 .hpnum { font-family: 'Cascadia Code', Consolas, monospace; font-size: 20px; color: var(--gold2); }
 
+.xpbar-wrap { width: 100%; height: 14px; background: var(--bg2); border: 1px solid var(--line2);
+  border-radius: 999px; overflow: hidden; margin: 8px 0; }
+.xpbar { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); transition: width .2s; }
+
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: left; }
 
@@ -54,11 +73,20 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
 .chip.debuff { border-color: var(--red); color: #e0a89c; }
 .chip.buff { border-color: var(--green); color: #b7d6ab; }
 
-.resource-row { display:flex; align-items:center; justify-content:space-between; gap:8px;
+.pool-row, .resource-row { display:flex; align-items:center; justify-content:space-between; gap:8px;
   padding:6px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
 .pips { display:flex; gap:4px; }
 .pip { width:14px; height:14px; border-radius:50%; border:1px solid var(--line2); background:var(--bg2); cursor:pointer; }
 .pip.filled { background: var(--gold); border-color: var(--gold); }
+.pip.action { border-radius: 3px; }
+
+.feature-card { border-left: 2px solid var(--purple); padding: 4px 10px; margin-bottom: 8px; font-size: 13px; }
+.feature-card .lvl { color: var(--faint); font-family: sans-serif; font-size: 10.5px; text-transform: uppercase; margin-right: 6px; }
+.feature-card .name { color: var(--gold2); }
+.spell-row { display:flex; justify-content:space-between; gap:8px; padding: 4px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+.spell-meta { display:flex; gap:8px; }
+.tag-list { display:flex; flex-wrap:wrap; gap:6px; }
+.tag { background: var(--panel2); border:1px solid var(--line2); border-radius:6px; padding:2px 8px; font-size:12px; }
 
 .log { max-height: 260px; overflow-y: auto; display:flex; flex-direction: column-reverse; gap:6px; }
 .log-entry { font-size:12.5px; border-left:2px solid var(--line2); padding:3px 0 3px 8px; }
@@ -90,65 +118,146 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
   <select id="charSelect"></select>
 </header>
 
+<nav class="tabs" id="tabs">
+  <button data-tab="character" class="active">Character</button>
+  <button data-tab="inventory">Inventory</button>
+  <button data-tab="progression">Progression <span class="badge" id="levelUpBadge" style="display:none;">!</span></button>
+  <button data-tab="social">Social</button>
+  <button data-tab="messages">Messages <span class="badge" id="msgBadge" style="display:none;"></span></button>
+</nav>
+
 <main>
   <div id="emptyState" class="empty" style="display:none;">No characters found — build one in the Character Forge first.</div>
 
   <div id="sheet" style="display:none;">
-    <div class="grid" style="margin-bottom:16px;">
-      <div class="panel">
-        <h2 id="charName">—</h2>
-        <div class="muted" id="charSub"></div>
-        <div class="hpbar-wrap"><div class="hpbar" id="hpBar" style="width:0%"></div></div>
-        <div class="row"><span class="hpnum"><span id="hpCurrent">—</span> / <span id="hpMax">—</span></span>
-          <span class="muted" id="hpTemp"></span></div>
-        <table id="abilitiesTable" style="margin-top:8px;"></table>
+
+    <!-- ============================= CHARACTER ============================= -->
+    <section class="tabpanel active" id="tab-character">
+      <div class="grid">
+        <div class="panel">
+          <h2 id="charName">—</h2>
+          <div class="muted" id="charSub"></div>
+          <div class="hpbar-wrap"><div class="hpbar" id="hpBar" style="width:0%"></div></div>
+          <div class="row"><span class="hpnum"><span id="hpCurrent">—</span> / <span id="hpMax">—</span></span>
+            <span class="muted" id="hpTemp"></span></div>
+          <table id="abilitiesTable" style="margin-top:8px;"></table>
+        </div>
+
+        <div class="panel">
+          <h2>Turn Actions</h2>
+          <div id="actionEconList"></div>
+          <div class="row"><button id="endTurn" style="width:100%;">End turn (refresh my actions)</button></div>
+          <h2 style="margin-top:14px;">Buffs &amp; Conditions</h2>
+          <div id="buffChips" class="row"></div>
+          <h2 style="margin-top:14px;">Resources</h2>
+          <div id="resourceList"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Class Features</h2>
+          <div id="featureList"></div>
+        </div>
       </div>
 
-      <div class="panel">
-        <h2>Buffs &amp; Conditions</h2>
-        <div id="buffChips" class="row"></div>
-        <h2 style="margin-top:14px;">Resources</h2>
-        <div id="resourceList"></div>
-      </div>
+      <div class="grid">
+        <div class="panel">
+          <h2>Proficiencies &amp; Race Traits</h2>
+          <h3>Proficiencies</h3>
+          <div id="profList" class="tag-list"></div>
+          <h3>Race traits</h3>
+          <div id="raceTraitList" class="tag-list"></div>
+          <h3>Race skills</h3>
+          <div id="raceSkillList" class="tag-list"></div>
+        </div>
 
-      <div class="panel">
-        <h2>Messages from the DM</h2>
-        <div id="messageList"></div>
-      </div>
-    </div>
+        <div class="panel">
+          <h2>Cantrips &amp; Spells Known</h2>
+          <h3>Cantrips</h3>
+          <div id="cantripList"></div>
+          <h3>Spells</h3>
+          <div id="spellList"></div>
+        </div>
 
-    <div class="grid">
+        <div class="panel" style="grid-column: 1 / -1;">
+          <h2>Your Recent Actions</h2>
+          <div class="log" id="logList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= INVENTORY ============================= -->
+    <section class="tabpanel" id="tab-inventory">
       <div class="panel">
         <h2>Inventory</h2>
         <table id="invTable"></table>
       </div>
+    </section>
+
+    <!-- ============================= PROGRESSION ============================ -->
+    <section class="tabpanel" id="tab-progression">
+      <div class="grid">
+        <div class="panel">
+          <h2>Experience</h2>
+          <div class="row"><span class="muted">Level <b id="progLevel">1</b></span></div>
+          <div class="xpbar-wrap"><div class="xpbar" id="xpBar" style="width:0%"></div></div>
+          <div class="row"><span class="muted">XP: <b id="xpVal">0</b></span></div>
+        </div>
 
         <div class="panel">
-        <h2>Available Spells</h2>
-          <div id="spellList" class="spell-list">
-            <div class="empty">No spells available</div>
-          </div>
-        <div class="muted">Leave slot level blank for cantrips / at-will.</div>
-      </div> 
-      <div class="panel">
-        <h2>Act</h2>
-        <div class="row">
-          <select id="actionTarget"><option value="">(no target)</option></select>
+          <h2>Level Up</h2>
+          <div id="levelUpStatus" class="muted">Waiting on the DM to unlock your next level.</div>
+          <div class="row"><button id="levelUpBtn" class="primary" disabled style="width:100%;">Level up</button></div>
         </div>
-        <div class="row">
-          <select id="actionType">
-            <option value="action">action</option>
-            <option value="attack">attack</option>
-            <option value="skill_check">skill check</option>
-            <option value="social">social</option>
-            <option value="exploration">exploration</option>
-          </select>
-          <input id="actionDesc" placeholder="what are you doing…" style="flex:1; min-width:160px;">
-          <button id="actionAdd">Do it</button>
+      </div>
+    </section>
+
+    <!-- ============================== SOCIAL ================================ -->
+    <section class="tabpanel" id="tab-social">
+      <div class="grid">
+        <div class="panel">
+          <h2>Act</h2>
+          <div class="row">
+            <select id="actionTarget"><option value="">(no target)</option></select>
+          </div>
+          <div class="row">
+            <select id="actionType">
+              <option value="action">action</option>
+              <option value="attack">attack</option>
+              <option value="skill_check">skill check</option>
+              <option value="social">social</option>
+              <option value="exploration">exploration</option>
+            </select>
+            <input id="actionDesc" placeholder="what are you doing…" style="flex:1; min-width:160px;">
+          </div>
+          <div class="row">
+            <button id="actionAdd" style="flex:1;">Do it (free, logs instantly)</button>
+          </div>
+
+          <h3>Spend something for it</h3>
+          <div class="muted" style="margin-bottom:4px;">Costs a resource? File a request — the DM approves it before anything is deducted.</div>
+          <div class="row">
+            <select id="costResource"><option value="">(no resource cost)</option></select>
+            <input id="costAmount" type="number" min="1" value="1" style="width:60px;">
+          </div>
+          <div class="row">
+            <button id="actionRequest" class="primary" style="flex:1;">Request (needs DM approval)</button>
+          </div>
+
+          <h3>Your requests</h3>
+          <div id="myRequests"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Whisper a player</h2>
+          <div class="row"><select id="whisperTarget"></select></div>
+          <div class="row">
+            <input id="whisperText" placeholder="private message…" style="flex:1; min-width:160px;">
+            <button id="whisperSend" class="primary">Send</button>
+          </div>
         </div>
       </div>
 
-      <div class="panel" style="grid-column: 1 / -1;">
+      <div class="panel">
         <h2>Trade</h2>
         <div class="row">
           <select id="tradeTarget"></select>
@@ -179,12 +288,26 @@ td, th { padding: 5px 4px; border-bottom: 1px solid var(--line); text-align: lef
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="panel" style="grid-column: 1 / -1;">
-        <h2>Your Recent Actions</h2>
-        <div class="log" id="logList"></div>
+    <!-- ============================= MESSAGES =============================== -->
+    <section class="tabpanel" id="tab-messages">
+      <div class="grid">
+        <div class="panel">
+          <h2>Messages (DM &amp; players)</h2>
+          <div id="messageList"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Message the DM</h2>
+          <div class="row">
+            <input id="dmMsgText" placeholder="ask the DM something…" style="flex:1; min-width:160px;">
+            <button id="dmMsgSend" class="primary">Send</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
   </div>
 </main>
 

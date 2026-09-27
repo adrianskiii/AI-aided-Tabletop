@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Samsaran",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Mystic": {
+      "description": "Imbued with clear memories of past lives' magical practices.",
+      "features": [
+        {
+          "id": "heritage_samsaran_mystic",
+          "name": "Mystic Samsaran",
+          "tldr": "You can pick up an additional arcane or divine cantrip from your past studies."
+        }
+      ]
+    },
+    "Resilient": {
+      "description": "Carrying physical fortitude carried over from strenuous previous incarnations.",
+      "features": [
+        {
+          "id": "heritage_samsaran_resilient",
+          "name": "Resilient Samsaran",
+          "tldr": "You gain bonuses on saving throws against curses and magical afflictions."
+        }
+      ]
+    }
+  }
+}

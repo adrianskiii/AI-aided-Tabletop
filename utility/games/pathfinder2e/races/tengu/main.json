@@ -1,0 +1,33 @@
+{
+  "ancestry_name": "Tengu",
+  "rarity": "uncommon",
+  "description": "Tengu are corvid-like humanoids with an affinity for blades and the rumored mystical ability to absorb bad luck.",
+  "hit_points": 6,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["dexterity", "free"],
+  "flaws": [],
+  "languages": ["Common", "Tengu"],
+  "traits": ["Humanoid", "Tengu"],
+  "core_senses": {
+    "low_light_vision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "tengu_luck_absorption",
+          "name": "Absorb Luck",
+          "type": "ancestry_feature",
+          "tldr": "You have a natural mystic talent for brushing off misfortune."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a tengu heritage representing your plumage and blade training."
+        }
+      ]
+    }
+  }
+}

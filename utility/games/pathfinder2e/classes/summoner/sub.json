@@ -1,0 +1,72 @@
+{
+  "class_name": "Summoner",
+  "subclass_type": "Eidolon",
+  "choices": {
+    "Angel": {
+      "description": "Dein Eidolon ist ein himmlisches Wesen von Güte, Licht und göttlichem Schutz.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "eidolon_angel",
+          "name": "Angel Eidolon",
+          "tldr": "Verleiht göttliche Zaubertradition, himmlische Heilkräfte und Flugfähigkeit."
+        }
+      ]
+    },
+    "Demon": {
+      "description": "Du bist an einen brutalen und zerstörerischen Bewohner der Abyss oder der Höllen gebunden.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "eidolon_demon",
+          "name": "Demon Eidolon",
+          "tldr": "Verleiht göttliche Zaubertradition, dämonische Wut und Widerstände gegen Feuer."
+        }
+      ]
+    },
+    "Devotion": {
+      "description": "Ein loyaler und treuer Beschützer (wie ein Geist, ein Tierwesen oder ein treuer Wächter), der dich bedingungslos verteidigt.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "eidolon_devotion",
+          "name": "Devotion Phantom / Protector",
+          "tldr": "Verleiht göttliche Tradition und spezielle Schutzmechanismen, um Schaden von dir abzuwenden."
+        }
+      ]
+    },
+    "Fey": {
+      "description": "Eine schelmische, naturverbundene und unvorhersehbare Kreatur aus dem Feenreich steht an deiner Seite.",
+      "tradition": "primal",
+      "features": [
+        {
+          "id": "eidolon_fey",
+          "name": "Fey Eidolon",
+          "tldr": "Verleiht primale Zaubertradition, Illusionen und Kontrolle über die Natur."
+        }
+      ]
+    },
+    "Plant": {
+      "description": "Dein Eidolon ist ein lebendes Pflanzenwesen oder eine Ranken-Kreatur mit regenerativen Kräften.",
+      "tradition": "primal",
+      "features": [
+        {
+          "id": "eidolon_plant",
+          "name": "Plant Eidolon",
+          "tldr": "Verleiht primale Zaubertradition, Robustheit und Pflanzen-basierte Angriffe."
+        }
+      ]
+    },
+    "Undead": {
+      "description": "Eine unheilvolle, untote Kreatur oder ein geisterhafter Wiedergänger ist untrennbar an deine Lebenskraft geknüpft.",
+      "tradition": "divine",
+      "features": [
+        {
+          "id": "eidolon_undead",
+          "name": "Undead Eidolon",
+          "tldr": "Verleiht göttliche Zaubertradition, nekromantische Energie und Immunität gegen bestimmte Gifte."
+        }
+      ]
+    }
+  }
+}

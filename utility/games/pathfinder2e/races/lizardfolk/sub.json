@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Lizardfolk",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Constrictor": {
+      "description": "Possessing a muscular tail suited for gripping and tripping opponents.",
+      "features": [
+        {
+          "id": "heritage_lizardfolk_constrictor",
+          "name": "Constrictor Lizardfolk",
+          "tldr": "Your tail assists in grappling maneuvers and maintaining physical balance."
+        }
+      ]
+    },
+    "Sandstrider": {
+      "description": "Adapted to scorching deserts and loose sand dunes.",
+      "features": [
+        {
+          "id": "heritage_lizardfolk_sandstrider",
+          "name": "Sandstrider Lizardfolk",
+          "tldr": "You gain resistance to heat and move easily across loose terrain."
+        }
+      ]
+    }
+  }
+}

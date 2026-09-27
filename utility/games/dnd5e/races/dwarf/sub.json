@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Dwarf",
+  "sub_ancestry_type": "Subrace",
+  "choices": {
+    "Hill Dwarf": {
+      "description": "Possessing extra intuition and remarkable resilience, attuned to the earth.",
+      "features": [
+        {
+          "id": "subrace_hill_dwarf_toughness",
+          "name": "Dwarven Toughness",
+          "tldr": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+        }
+      ]
+    },
+    "Mountain Dwarf": {
+      "description": "Strong and hardy, accustomed to a difficult life in rugged mountain terrain.",
+      "features": [
+        {
+          "id": "subrace_mountain_dwarf_armor",
+          "name": "Dwarven Armor Training",
+          "tldr": "You gain proficiency with light and medium armor."
+        }
+      ]
+    }
+  }
+}

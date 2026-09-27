@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Catfolk",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Clawed": {
+      "description": "Blessed with exceptionally sharp, retractable claws.",
+      "features": [
+        {
+          "id": "heritage_catfolk_clawed",
+          "name": "Clawed Catfolk",
+          "tldr": "You have sharp claws that deal slashing damage for unarmed attacks."
+        }
+      ]
+    },
+    "NineLives": {
+      "description": "Possessing uncanny agility and a knack for avoiding fatal disasters.",
+      "features": [
+        {
+          "id": "heritage_catfolk_ninelives",
+          "name": "Nine Lives Catfolk",
+          "tldr": "You bounce back from falls and minor missteps with miraculous ease."
+        }
+      ]
+    }
+  }
+}

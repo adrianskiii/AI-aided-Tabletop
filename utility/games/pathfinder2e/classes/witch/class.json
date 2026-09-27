@@ -1,0 +1,185 @@
+{
+  "class_name": "Witch",
+  "description": "Ein Zauberwirker, der durch einen mysteriösen Patron an einen vertrauten Gefährten (Familiar) gebunden ist und geheimnisvolle, hexenhafte Flüche und Rituale entfesselt.",
+  "key_ability": ["intelligence"],
+  "spellcaster": true,
+  "casting": {
+    "is_spellcaster": true,
+    "system": "prepared",
+    "tradition": "varies_by_patron",
+    "progression": "prepared_caster_class_slots"
+  },
+  "skills": {
+    "mandatory": ["arcana_or_nature_or_occultism_or_religion"],
+    "additional_count": "2 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "trained",
+    "will": "expert",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "untrained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "untrained",
+      "medium": "untrained",
+      "heavy": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung."},
+        {"id": "witch_patron", "name": "Patron and Familiar", "type": "subclass_choice", "tldr": "Wähle deinen Patron und deinen magischen Vertrauten."},
+        {"id": "witch_spellcasting", "name": "Witch Spellcasting", "type": "spellcasting", "tldr": "Bereite arkan, göttlich, okkult oder primal ausgerichtete Zauber vor."},
+        {"id": "hex_cantrips", "name": "Hex Cantrips", "type": "class_feature", "tldr": "Erhalte spezielle Hexereizauber (Hexes), die du über deinen Vertrauten wirkst."},
+        {"id": "witch_feat_1", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "witch_feat_2", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "2nd_level_spells", "name": "2nd-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 2. Grades."},
+        {"id": "resolute_resolve", "name": "Resolve", "type": "defense", "tldr": "Willens-Rettungswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "witch_feat_4", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "3rd_level_spells", "name": "3rd-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 3. Grades."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "witch_feat_6", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "4th_level_spells", "name": "4th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 4. Grades."},
+        {"id": "juggernaut", "name": "Juggernaut", "type": "defense", "tldr": "Zähigkeitswürfe verbessern sich bei Erfolg zu kritischen Erfolgen."},
+        {"id": "lightning_reflexes", "name": "Lightning Reflexes", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Expertenstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "witch_feat_8", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "5th_level_spells", "name": "5th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 5. Grades."},
+        {"id": "witch_expertise", "name": "Witch Expertise", "type": "class_feature", "tldr": "Klassen-DC und Wahrnehmung erreichen die Expertenstufe."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "witch_feat_10", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "6th_level_spells", "name": "6th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 6. Grades."},
+        {"id": "witch_weapon_expertise", "name": "Weapon Expertise", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "witch_feat_12", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "7th_level_spells", "name": "7th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 7. Grades."},
+        {"id": "greater_resolve", "name": "Greater Resolve", "type": "defense", "tldr": "Willens-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "witch_feat_14", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "8th_level_spells", "name": "8th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 8. Grades."},
+        {"id": "greater_juggernaut", "name": "Greater Juggernaut", "type": "defense", "tldr": "Zähigkeits-Rettungswürfe erreichen die Meisterstufe."},
+        {"id": "witch_mastery", "name": "Witch Mastery", "type": "class_feature", "tldr": "Klassen-DC erreicht die Meisterstufe."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "witch_feat_16", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "9th_level_spells", "name": "9th_level_spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf Zauber des 9. Grades."},
+        {"id": "hex_mastery", "name": "Hex Mastery", "type": "class_feature", "tldr": "Verstärke die Macht deiner Flüche dauerhaft."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "witch_feat_18", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "10th_level_spells", "name": "10th-Level Spells", "type": "spellcasting", "tldr": "Erhalte Zugriff auf legendäre Zauber des 10. Grades."},
+        {"id": "legendary_witch", "name": "Legendary Spellcaster", "type": "class_feature", "tldr": "Meistere die arkane oder okkulte Magie auf legendärem Niveau."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "witch_feat_20", "name": "Witch Feat", "type": "feat_slot", "tldr": "Erhalte ein Hexen-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

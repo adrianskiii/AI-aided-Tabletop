@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Ratfolk",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Desert": {
+      "description": "Adapted to dry, arid badlands with large ears for cooling.",
+      "features": [
+        {
+          "id": "heritage_ratfolk_desert",
+          "name": "Desert Ratfolk",
+          "tldr": "You gain resistance to heat and harsh environmental conditions."
+        }
+      ]
+    },
+    "Deep": {
+      "description": "Accustomed to deep subterranean tunnels and metallic scrap yards.",
+      "features": [
+        {
+          "id": "heritage_ratfolk_deep",
+          "name": "Deep Ratfolk",
+          "tldr": "Your low-light vision upgrades to darkvision in lightless tunnels."
+        }
+      ]
+    }
+  }
+}

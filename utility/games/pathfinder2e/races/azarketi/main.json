@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Azarketi",
+  "rarity": "uncommon",
+  "description": "Azarketis, inheritors of a shattered empire's legacy, hold their proud traditions close but still surface to interact with the rest of the world.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 20,
+  "swim_speed": 25,
+  "boosts": ["constitution", "charisma", "free"],
+  "flaws": ["wisdom"],
+  "languages": ["Azarketi", "Common"],
+  "traits": ["Amphibious", "Azarketi", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "hydrated_breath",
+          "name": "Hydrated Breath",
+          "type": "ancestry_feature",
+          "tldr": "You require regular immersion in water to stay healthy, but thrive seamlessly in aquatic environments."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an azarketi heritage reflecting your lineage from specific aquatic domains."
+        }
+      ]
+    }
+  }
+}

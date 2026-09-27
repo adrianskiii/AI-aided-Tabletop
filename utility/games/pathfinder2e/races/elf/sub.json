@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Elf",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Cavern": {
+      "description": "Adapted to underground tunnels and lightless vaults.",
+      "features": [
+        {
+          "id": "heritage_elf_cavern",
+          "name": "Cavern Elf",
+          "tldr": "Upgrades your low-light vision into darkvision."
+        }
+      ]
+    },
+    "Wood": {
+      "description": "At home within thick forest canopies and wild flora.",
+      "features": [
+        {
+          "id": "heritage_elf_wood",
+          "name": "Wood Elf",
+          "tldr": "Increases your speed in natural terrain and grants extra mobility features."
+        }
+      ]
+    }
+  }
+}

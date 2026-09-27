@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Human",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Skilled": {
+      "description": "Drawn to wide studies and diverse professional training.",
+      "features": [
+        {
+          "id": "heritage_human_skilled",
+          "name": "Skilled Human",
+          "tldr": "You become trained in an additional skill of your choice."
+        }
+      ]
+    },
+    "Versatile": {
+      "description": "Possessing a knack for picking up unconventional tricks and feats.",
+      "features": [
+        {
+          "id": "heritage_human_versatile",
+          "name": "Versatile Human",
+          "tldr": "You gain a general feat of your choice at 1st level."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "class_name": "Guardian",
+  "description": "Ein unerschütterlicher Bollwerk-Kämpfer in schwerster Rüstung, der Feinde gezielt auf sich zieht und Verbündete vor Schaden schützt.",
+  "key_ability": ["strength"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": "3 + intelligence_modifier"
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "expert",
+    "reflex": "trained",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "unarmed": "trained",
+      "simple": "trained",
+      "martial": "trained",
+      "advanced": "untrained"
+    },
+    "armor": {
+      "unarmored": "trained",
+      "light": "trained",
+      "medium": "trained",
+      "heavy": "trained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {"id": "ancestry_and_background", "name": "Ancestry and Background", "type": "core", "tldr": "Wähle Abstammung und Hintergrund."},
+        {"id": "initial_proficiencies", "name": "Initial Proficiencies", "type": "class_feature", "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstungen."},
+        {"id": "guardians_armor", "name": "Guardian's Armor", "type": "class_feature", "tldr": "Erhäls physische Schadensresistenz in mittelschwerer oder schwerer Rüstung und kannst darin normal schlafen."},
+        {"id": "shield_block", "name": "Shield Block", "type": "feat_slot", "tldr": "Erhalte das allgemeine Talent Schildblock als Bonus."},
+        {"id": "taunt", "name": "Taunt", "type": "class_feature", "tldr": "Zwinge oder locke einen Feind dazu, sich auf dich zu konzentrieren, wodurch er Abzüge erhält, wenn er Verbündete angreift."},
+        {"id": "guardian_feat_1", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."}
+      ]
+    },
+    "2": {
+      "features": [
+        {"id": "guardian_feat_2", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_2", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "3": {
+      "features": [
+        {"id": "tough_to_kill", "name": "Tough to Kill", "type": "defense", "tldr": "Erhöhte Robustheit gegen den Tod und schwere Verletzungen."},
+        {"id": "general_feat_3", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_3", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "4": {
+      "features": [
+        {"id": "guardian_feat_4", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_4", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "5": {
+      "features": [
+        {"id": "attribute_boosts_5", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "ancestry_feat_5", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "unbreakable_expertise", "name": "Unbreakable Expertise", "type": "defense", "tldr": "Rüstungs- und Defensivwerte steigen weiter an."},
+        {"id": "weapon_expertise", "name": "Weapon Expertise", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Expertenstufe."},
+        {"id": "skill_increase_5", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "6": {
+      "features": [
+        {"id": "guardian_feat_6", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_6", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "7": {
+      "features": [
+        {"id": "reaction_time", "name": "Reaction Time", "type": "defense", "tldr": "Verbesserte Reaktionsmöglichkeiten auf dem Schlachtfeld."},
+        {"id": "reflex_expertise", "name": "Reflex Expertise", "type": "defense", "tldr": "Reflex-Rettungswürfe erhöhen sich auf Expertenstufe."},
+        {"id": "general_feat_7", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_7", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "8": {
+      "features": [
+        {"id": "guardian_feat_8", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_8", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "9": {
+      "features": [
+        {"id": "ancestry_feat_9", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "battle_hardened", "name": "Battle Hardened", "type": "defense", "tldr": "Erhöhte Widerstandskraft gegen feindliche Effekte im Kampf."},
+        {"id": "guardian_expertise", "name": "Guardian Expertise", "type": "class_feature", "tldr": "Klassen-DC und Kernmerkmale verbessern sich."},
+        {"id": "skill_increase_9", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "10": {
+      "features": [
+        {"id": "attribute_boosts_10", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "guardian_feat_10", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_10", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "11": {
+      "features": [
+        {"id": "unbreakable_mastery", "name": "Unbreakable Mastery", "type": "defense", "tldr": "Meisterschaft in Rüstung und Schadensabsorption."},
+        {"id": "weapon_specialization", "name": "Weapon Specialization", "type": "class_feature", "tldr": "Verursache mehr Schaden mit vertrauten Waffen."},
+        {"id": "general_feat_11", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_11", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "12": {
+      "features": [
+        {"id": "guardian_feat_12", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_12", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "13": {
+      "features": [
+        {"id": "ancestry_feat_13", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "weapon_mastery", "name": "Weapon Mastery", "type": "class_feature", "tldr": "Waffenfertigkeiten verbessern sich auf Experten- oder Meisterstufe."},
+        {"id": "skill_increase_13", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "14": {
+      "features": [
+        {"id": "guardian_feat_14", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_14", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "15": {
+      "features": [
+        {"id": "attribute_boosts_15", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "unbreakable_legend", "name": "Unbreakable Legend", "type": "defense", "tldr": "Legendäre Robustheit in Rüstung und Standhaftigkeit."},
+        {"id": "general_feat_15", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_15", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "16": {
+      "features": [
+        {"id": "guardian_feat_16", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_16", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "17": {
+      "features": [
+        {"id": "ancestry_feat_17", "name": "Ancestry Feat", "type": "feat_slot", "tldr": "Erhalte ein Abstammungstalent."},
+        {"id": "greater_weapon_specialization", "name": "Greater Weapon Specialization", "type": "class_feature", "tldr": "Erhöhe den Waffenschaden weiter."},
+        {"id": "unyielding_resolve", "name": "Unyielding Resolve", "type": "defense", "tldr": "Unbeugsamer Wille und Schutz gegen mentale Effekte."},
+        {"id": "skill_increase_17", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "18": {
+      "features": [
+        {"id": "guardian_feat_18", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_18", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    },
+    "19": {
+      "features": [
+        {"id": "guardian_mastery", "name": "Guardian Mastery", "type": "class_feature", "tldr": "Erreiche die absolute Meisterschaft als Wächter."},
+        {"id": "general_feat_19", "name": "General Feat", "type": "feat_slot", "tldr": "Erhalte ein allgemeines Talent."},
+        {"id": "skill_increase_19", "name": "Skill Increase", "type": "progression", "tldr": "Erhöhe den Rang einer Fertigkeit."}
+      ]
+    },
+    "20": {
+      "features": [
+        {"id": "attribute_boosts_20", "name": "Attribute Boosts", "type": "progression", "tldr": "Erhöhe vier Attributswerte."},
+        {"id": "guardian_feat_20", "name": "Guardian Feat", "type": "feat_slot", "tldr": "Erhalte ein Guardian-Klassenwunder."},
+        {"id": "skill_feat_20", "name": "Skill Feat", "type": "feat_slot", "tldr": "Erhalte ein Fertigkeitstalent."}
+      ]
+    }
+  }
+}

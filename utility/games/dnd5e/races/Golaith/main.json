@@ -1,0 +1,62 @@
+{
+  "ancestry_name": "Goliath",
+  "rarity": "rare",
+  "description": "Strong and self-reliant, goliaths consider the individual to be supreme, yet they recognize that strength in numbers keeps a community alive.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 30,
+  "boosts": ["strength", "constitution", "free"],
+  "flaws": [],
+  "languages": ["Common", "Giant"],
+  "traits": ["Natural Athlete", "Stone's Endurance", "Powerful Build"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "natural_athlete",
+          "name": "Natural Athlete",
+          "type": "ancestry_feature",
+          "tldr": "You have proficiency in the Athletics skill."
+        },
+        {
+          "id": "stones_endurance",
+          "name": "Stone's Endurance",
+          "type": "ancestry_feature",
+          "tldr": "You can focus your rocky resilience to shrug off damage. When you take damage, you can use your reaction to roll a d12 and reduce the damage by that total plus your Constitution modifier."
+        },
+        {
+          "id": "powerful_build",
+          "name": "Powerful Build",
+          "type": "ancestry_feature",
+          "tldr": "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+        },
+        {
+          "id": "subrace_choice",
+          "name": "Mountain Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a goliath mountain origin reflecting your clan's high-altitude adaptation."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "mountain_born",
+          "name": "Mountain Born",
+          "type": "ancestry_feature",
+          "tldr": "You have resistance to cold damage and naturally adapt to high altitudes without suffering thin-air fatigue."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "titan_strike",
+          "name": "Titan Strike",
+          "type": "ancestry_feature",
+          "tldr": "Your connection to giant ancestry lets you channel extra force into your physical attacks once per turn."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "class_name": "Rogue",
+  "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.",
+  "key_ability": ["dexterity"],
+  "spellcaster": false,
+  "casting": {
+    "is_spellcaster": false,
+    "system": "none"
+  },
+  "skills": {
+    "mandatory": [],
+    "additional_count": 4,
+    "available": ["acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleight_of_hand", "stealth"]
+  },
+  "core_proficiencies": {
+    "perception": "trained",
+    "fortitude": "trained",
+    "reflex": "expert",
+    "will": "trained",
+    "class_dc": "trained",
+    "weapons": {
+      "simple": "trained",
+      "hand_crossbows": "trained",
+      "longswords": "trained",
+      "rapiers": "trained",
+      "shortswords": "trained"
+    },
+    "armor": {
+      "light": "trained",
+      "medium": "untrained",
+      "heavy": "untrained",
+      "shields": "untrained"
+    }
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "expertise",
+          "name": "Expertise",
+          "type": "class_feature",
+          "tldr": "Choose two of your skill proficiencies (or one skill and thieves' tools) to double your proficiency bonus."
+        },
+        {
+          "id": "sneak_attack",
+          "name": "Sneak Attack",
+          "type": "class_feature",
+          "tldr": "Deal extra damage to a creature you hit with advantage or when an ally is within 5 feet of it."
+        },
+        {
+          "id": "thieves_cant",
+          "name": "Thieves' Cant",
+          "type": "class_feature",
+          "tldr": "Know a secret mix of dialect, jargon, and code that allows you to hide messages in normal conversation."
+        }
+      ]
+    },
+    "2": {
+      "features": [
+        {
+          "id": "cunning_action",
+          "name": "Cunning Action",
+          "type": "class_feature",
+          "tldr": "Quickly dart around the battlefield by using Dash, Disengage, or Hide as a bonus action."
+        }
+      ]
+    },
+    "3": {
+      "features": [
+        {
+          "id": "roguish_archetype",
+          "name": "Roguish Archetype",
+          "type": "subclass_choice",
+          "tldr": "Choose an archetype that defines your criminal or specialized specialty."
+        }
+      ]
+    },
+    "4": {
+      "features": [
+        {
+          "id": "asi_4",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "5": {
+      "features": [
+        {
+          "id": "uncanny_dodge",
+          "name": "Uncanny Dodge",
+          "type": "class_feature",
+          "tldr": "Use your reaction to halve the damage an attacker deals to you when you can see them."
+        }
+      ]
+    },
+    "6": {
+      "features": [
+        {
+          "id": "expertise_6",
+          "name": "Expertise (Additional)",
+          "type": "class_feature",
+          "tldr": "Choose two more skill proficiencies to double your proficiency bonus."
+        }
+      ]
+    },
+    "7": {
+      "features": [
+        {
+          "id": "evasion_rogue",
+          "name": "Evasion",
+          "type": "class_feature",
+          "tldr": "You can deftly dodge out of the way of certain area effects, taking no damage on a successful save and half on a failure."
+        }
+      ]
+    },
+    "8": {
+      "features": [
+        {
+          "id": "asi_8",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "9": {
+      "features": [
+        {
+          "id": "archetype_feature_9",
+          "name": "Roguish Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Roguish Archetype."
+        }
+      ]
+    },
+    "10": {
+      "features": [
+        {
+          "id": "asi_10",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "11": {
+      "features": [
+        {
+          "id": "reliable_talent",
+          "name": "Reliable Talent",
+          "type": "class_feature",
+          "tldr": "Refine your skills so that any ability check using your proficiency lets you treat a roll of 9 or lower as a 10."
+        }
+      ]
+    },
+    "12": {
+      "features": [
+        {
+          "id": "asi_12",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "13": {
+      "features": [
+        {
+          "id": "archetype_feature_13",
+          "name": "Roguish Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain a specialized feature granted by your chosen Roguish Archetype."
+        }
+      ]
+    },
+    "14": {
+      "features": [
+        {
+          "id": "blindsense",
+          "name": "Blindsense",
+          "type": "class_feature",
+          "tldr": "If you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you."
+        }
+      ]
+    },
+    "15": {
+      "features": [
+        {
+          "id": "slippery_mind",
+          "name": "Slippery Mind",
+          "type": "class_feature",
+          "tldr": "Gain proficiency in Wisdom saving throws."
+        }
+      ]
+    },
+    "16": {
+      "features": [
+        {
+          "id": "asi_16",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "17": {
+      "features": [
+        {
+          "id": "archetype_feature_17",
+          "name": "Roguish Archetype Feature",
+          "type": "subclass_feature",
+          "tldr": "Gain the capstone feature granted by your chosen Roguish Archetype."
+        }
+      ]
+    },
+    "18": {
+      "features": [
+        {
+          "id": "elusive",
+          "name": "Elusive",
+          "type": "class_feature",
+          "tldr": "You are so evasive that attackers never gain advantage on attack rolls against you unless you are incapacitated."
+        }
+      ]
+    },
+    "19": {
+      "features": [
+        {
+          "id": "asi_19",
+          "name": "Ability Score Improvement",
+          "type": "class_feature",
+          "tldr": "Increase one ability score by 2, or two different scores by 1 (or select a feat)."
+        }
+      ]
+    },
+    "20": {
+      "features": [
+        {
+          "id": "stroke_of_luck",
+          "name": "Stroke of Luck",
+          "type": "class_feature",
+          "tldr": "Turn a missed attack into a hit, or treat a failed ability check as a natural 20 once per rest."
+        }
+      ]
+    }
+  },
+  "subclass_data": {
+    "label": "Roguish Archetype",
+    "level": 3
+  }
+}

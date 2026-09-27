@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Minotaur",
+  "rarity": "uncommon",
+  "description": "Minotaurs are horned, bovine humanoids who originate from an ancient divine curse.",
+  "hit_points": 10,
+  "size": "Large",
+  "speed": 30,
+  "boosts": ["strength", "constitution", "free"],
+  "flaws": ["charisma"],
+  "languages": ["Common", "Minotaur"],
+  "traits": ["Beast", "Humanoid", "Minotaur"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "horns_gore",
+          "name": "Gore Attack",
+          "type": "ancestry_feature",
+          "tldr": "You possess powerful horns capable of delivering dangerous piercing gore attacks."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a minotaur heritage representing your labyrinthine or physical resilience."
+        }
+      ]
+    }
+  }
+}

@@ -8,28 +8,43 @@ Scope, deliberately:
     item swap), but never sees the other side's sheet. Trades are typed
     requests ("I'll give you a Rope, for a Torch"), not an x-ray of their
     inventory.
-  - A player can spend their OWN resources (cast a spell, use a charge),
-    consume their OWN items, and log their OWN actions (attack, pick a
-    pocket, ask an NPC to trade, whatever) — that's the character acting
-    in the world. Granting XP/items/buffs out of nowhere is the DM's job:
-    that's dm_app.py (port 5002), a separate platform on purpose.
+  - Free-form narration (attack, pick a pocket, ask an NPC to trade,
+    whatever) logs instantly to the character's own action log — no gate,
+    it's just flavor text the DM sees show up live.
+  - Anything that would actually SPEND something (a spell slot, a resource
+    pool, an inventory item) is NOT self-service. The player files a
+    request (requests_store.py); nothing is deducted until the DM approves
+    it from dm_app.py (port 5002). This is the anti-cheat boundary: a
+    player has no endpoint anywhere that mutates their own hp, resources,
+    buffs, xp, or inventory quantities directly — only the DM does, either
+    by hand or by approving a request.
 
 Does not import or modify char_creator.py or dm_app.py. Reads/writes the
-same char_sheets/*.json via sheets.py, and trades.json via trades.py.
+same char_sheets/*.json via sheets.py, trades.json via trades.py, and
+requests.json via requests_store.py.
 
 REST API
 --------
 GET    /api/roster                               everyone (id, name, class/race, level, npc flag) — no stats, no inventory
-GET    /api/me/<id>                               full own sheet (identity, abilities, background, details, state, inventory) — 'hidden' block is never included
-GET    /api/me/<id>/messages                      DM whispers / level-up notices addressed to this character
+GET    /api/me/<id>                               full own sheet incl. derived 'known' block — 'hidden' block is never included
+GET    /api/me/<id>/messages                      DM whispers / player whispers / level-up notices addressed to this character
 POST   /api/me/<id>/messages/<msg_id>/read         mark a message read
+POST   /api/me/<id>/messages/to-dm                 {"text"} — private note to the DM
+POST   /api/me/<id>/messages/whisper               {"to_id","text"} — private note to another player
 
-POST   /api/me/<id>/resources/<key>/use            spend your own resource pool, e.g. a spell slot
-POST   /api/me/<id>/spells/cast                    {"name": "...", "slot_level": 1}  convenience wrapper
-POST   /api/me/<id>/inventory/<int:index>/use       consume qty of your own item
+POST   /api/me/<id>/requests                       {"type","description","costs":[...],"target_id"?} — file an action request; NOT applied until DM approves
+GET    /api/me/<id>/requests                       your own request history + status
+POST   /api/me/<id>/spells/cast                    {"name","slot_level"} — convenience wrapper around /requests
+POST   /api/me/<id>/inventory/<int:index>/use       convenience wrapper around /requests (item-use cost)
 
-POST   /api/me/<id>/actions                        {"type": "...", "description": "...", "target_id": "<optional other char/npc>"}
+GET    /api/me/<id>/action-economy                 your per-turn action/bonus-action/reaction (or PF2e 3-action) pools
+POST   /api/me/<id>/action-economy/<key>/use        spend one of your own turn-actions (bookkeeping only, no persistent effect)
+POST   /api/me/<id>/action-economy/reset            refill your own pools (end of turn)
+
+POST   /api/me/<id>/actions                        {"type","description","target_id"?} — free narration, logs instantly, no cost/approval
 GET    /api/me/<id>/actions                        your own action log
+
+POST   /api/me/<id>/level-up                       apply a level up the DM has unlocked (mechanically inert beyond what's already baked into 'build')
 
 POST   /api/trades                                  propose a swap: {"from_id","to_id","offer":[{"name","qty"}],"request":[{"name","qty"}],"note"}
 GET    /api/trades?character=<id>&status=pending    inbox/outbox for a character (status optional)
@@ -43,8 +58,13 @@ import sys
 from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory
 sys.path.append(str(Path(__file__).resolve().parent.parent / "utility"))
+# dm_inbox.py and requests_store.py live in dmInteraction/, not utility/ —
+# add that folder too so this app can import them without duplicating files.
+sys.path.append(str(Path(__file__).resolve().parent.parent / "dmInteraction"))
 
 import trades as trade_store
+import dm_inbox
+import requests_store
 from sheets import (
     load_sheet,
     save_sheet,
@@ -54,6 +74,8 @@ from sheets import (
     give_items,
     is_npc,
     new_message,
+    known_info,
+    reset_action_economy,
     _now,
 )
 
@@ -114,6 +136,7 @@ def api_me(sheet_id: str):
     if sheet is None:
         return _not_found()
     view = {k: v for k, v in sheet.items() if k != "hidden"}  # never leak DM-only block
+    view["known"] = known_info(sheet)  # class features/proficiencies/traits/spells unlocked so far
     return jsonify(view)
 
 
@@ -140,11 +163,102 @@ def api_mark_read(sheet_id: str, msg_id: str):
 
 
 # --------------------------------------------------------------------------- #
-# Spending your own resources / items                                        #
+# Spending resources/items is NOT self-service. A player declares a request  #
+# (what they want to do + what it would cost); nothing is deducted until the #
+# DM approves it from the dashboard. See requests_store.py.                  #
 # --------------------------------------------------------------------------- #
 
-@app.post("/api/me/<sheet_id>/resources/<key>/use")
-def api_use_resource(sheet_id: str, key: str):
+def _validate_costs(sheet: dict, costs: list) -> str | None:
+    """Sanity-check that a request's declared costs are at least plausible
+    against the CURRENT sheet (existing resource keys, items on hand in
+    enough quantity). Returns an error string, or None if OK. This is just
+    a friendly early check for the player — the DM's approval step
+    re-validates for real at the point of actually spending it."""
+    resources = sheet["state"]["resources"]
+    inventory = sheet.get("inventory", [])
+    for c in costs:
+        kind = c.get("kind")
+        if kind == "resource":
+            key = c.get("key")
+            pool = resources.get(key)
+            if pool is None:
+                return f"no such resource '{key}'"
+            if pool["current"] < _num(c.get("amount", 1), 1):
+                return f"not enough '{key}' ({pool['current']} available)"
+        elif kind == "item":
+            name = str(c.get("name", "")).strip().lower()
+            qty = _num(c.get("qty", 1), 1)
+            have = sum(_num(i.get("qty", 1), 1) for i in inventory if i.get("name", "").lower() == name)
+            if have < qty:
+                return f"not enough '{c.get('name')}' (have {have}, need {qty})"
+        else:
+            return f"unknown cost kind '{kind}'"
+    return None
+
+
+@app.get("/api/me/<sheet_id>/requests")
+def api_list_own_requests(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    items = [r for r in requests_store.load_requests() if r["character_id"] == sheet_id]
+    items.sort(key=lambda r: r["created_at"], reverse=True)
+    return jsonify(items)
+
+
+@app.post("/api/me/<sheet_id>/requests")
+def api_create_request(sheet_id: str):
+    """Declare an intended action, optionally with a cost. If there's no
+    cost, this is really just flavor and you're better off using
+    /actions — but it's harmless to route it through here too."""
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    payload = request.get_json(silent=True) or {}
+    description = str(payload.get("description", "")).strip()
+    if not description:
+        return _bad("description required")
+    req_type = str(payload.get("type", "action")).strip() or "action"
+    costs = payload.get("costs") or []
+    if not isinstance(costs, list):
+        return _bad("'costs' must be a list")
+
+    err = _validate_costs(sheet, costs)
+    if err:
+        return _bad(err, 409)
+
+    target_id = payload.get("target_id")
+    target_name = None
+    if target_id:
+        target = load_sheet(target_id)
+        if target is None:
+            return _bad("no such target character", 404)
+        target_name = target.get("identity", {}).get("name", target_id)
+
+    name = sheet.get("identity", {}).get("name", sheet_id)
+    req = requests_store.new_request(
+        character_id=sheet_id,
+        character_name=name,
+        req_type=req_type,
+        description=description,
+        costs=costs,
+        target_id=target_id,
+        target_name=target_name,
+    )
+    return jsonify(req), 201
+
+
+@app.get("/api/me/<sheet_id>/action-economy")
+def api_get_action_economy(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    return jsonify(sheet["state"]["action_economy"])
+
+
+@app.post("/api/me/<sheet_id>/action-economy/<key>/use")
+def api_use_action(sheet_id: str, key: str):
     sheet = load_sheet(sheet_id)
     if sheet is None:
         return _not_found()
@@ -152,20 +266,111 @@ def api_use_resource(sheet_id: str, key: str):
     payload = request.get_json(silent=True) or {}
     amount = _num(payload.get("amount", 1), 1)
 
-    pool = sheet["state"]["resources"].get(key)
+    pool = sheet["state"]["action_economy"].get(key)
     if pool is None:
-        return _bad(f"no such resource '{key}'", 404)
+        return _bad(f"no such action pool '{key}'", 404)
     if pool["current"] < amount:
-        return _bad(f"not enough '{key}' ({pool['current']} available)", 409)
+        return _bad(f"not enough '{key}' left ({pool['current']} available)", 409)
 
     pool["current"] -= amount
-    log_action(sheet, "resource_use", f"Used {amount} x {pool.get('label', key)}", key=key)
+    log_action(sheet, "action_spent", f"Spent {amount} x {pool.get('label', key)}", key=key)
     save_sheet(sheet)
     return jsonify(pool)
 
 
+@app.post("/api/me/<sheet_id>/action-economy/reset")
+def api_reset_own_action_economy(sheet_id: str):
+    """A player ending their own turn — refills their own action pools."""
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+    key = (request.get_json(silent=True) or {}).get("key")
+    econ = reset_action_economy(sheet, key)
+    log_action(sheet, "turn_end", "Ended turn — actions refreshed")
+    save_sheet(sheet)
+    return jsonify(econ)
+
+
+# --------------------------------------------------------------------------- #
+# Progression — XP is DM-granted (dm_app.py); leveling up is unlocked by the #
+# DM and then applied here, by the player, when they're ready.               #
+# --------------------------------------------------------------------------- #
+
+@app.post("/api/me/<sheet_id>/level-up")
+def api_level_up(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    if not sheet["state"].get("level_up_available"):
+        return _bad("the DM hasn't unlocked a level up for this character yet", 409)
+
+    identity = sheet.setdefault("identity", {})
+    progression = sheet.setdefault("progression", {"xp": 0, "level": 1})
+    new_level = _num(identity.get("level", 1), 1) + 1
+    identity["level"] = new_level
+    progression["level"] = new_level
+
+    sheet["state"]["level_up_available"] = False
+    log_action(sheet, "level_up", f"Leveled up to {new_level}")
+    save_sheet(sheet)
+    return jsonify({
+        "level": new_level,
+        "known": known_info(sheet),
+    })
+
+
+# --------------------------------------------------------------------------- #
+# Messaging — a private line to the DM, and player-to-player whispers.      #
+# Neither is visible to anyone but the sender, the recipient, and the DM.   #
+# --------------------------------------------------------------------------- #
+
+@app.post("/api/me/<sheet_id>/messages/to-dm")
+def api_message_dm(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    payload = request.get_json(silent=True) or {}
+    text = str(payload.get("text", "")).strip()
+    if not text:
+        return _bad("text required")
+
+    name = sheet.get("identity", {}).get("name", sheet_id)
+    msg = dm_inbox.new_dm_message(from_id=sheet_id, from_name=name, text=text)
+    return jsonify(msg), 201
+
+
+@app.post("/api/me/<sheet_id>/messages/whisper")
+def api_whisper_player(sheet_id: str):
+    sheet = load_sheet(sheet_id)
+    if sheet is None:
+        return _not_found()
+
+    payload = request.get_json(silent=True) or {}
+    to_id = payload.get("to_id")
+    text = str(payload.get("text", "")).strip()
+    if not to_id or not text:
+        return _bad("'to_id' and 'text' required")
+    if to_id == sheet_id:
+        return _bad("can't whisper yourself")
+
+    target = load_sheet(to_id)
+    if target is None:
+        return _bad("no such character", 404)
+
+    name = sheet.get("identity", {}).get("name", sheet_id)
+    msg = new_message(text, from_name=name, kind="player_whisper", to=to_id)
+    target.setdefault("hidden", {}).setdefault("messages", []).append(msg)
+    save_sheet(target)
+    return jsonify(msg), 201
+
+
 @app.post("/api/me/<sheet_id>/spells/cast")
 def api_cast_spell(sheet_id: str):
+    """Convenience wrapper: builds the right cost automatically and files a
+    request, same as POST /requests would. The DM still has to approve it
+    before the slot is actually spent."""
     sheet = load_sheet(sheet_id)
     if sheet is None:
         return _not_found()
@@ -176,49 +381,61 @@ def api_cast_spell(sheet_id: str):
         return _bad("spell 'name' required")
 
     slot_level = payload.get("slot_level")
-    if slot_level in (None, "", 0):
-        log_action(sheet, "spell_cast", f"Cast {name} (no slot used)")
-        save_sheet(sheet)
-        return jsonify({"name": name, "slot_level": None, "slot_used": None})
+    costs = []
+    description = f"Cast {name}"
+    if slot_level not in (None, "", 0):
+        key = f"spell_slots_{int(slot_level)}"
+        pool = sheet["state"]["resources"].get(key)
+        if pool is None:
+            return _bad(f"no '{key}' resource on this character yet (ask your DM to grant it)", 404)
+        costs = [{"kind": "resource", "key": key, "amount": 1, "label": pool.get("label", key)}]
+        description = f"Cast {name} using a level {slot_level} slot"
 
-    key = f"spell_slots_{int(slot_level)}"
-    pool = sheet["state"]["resources"].get(key)
-    if pool is None:
-        return _bad(f"no '{key}' resource on this character yet (ask your DM to grant it)", 404)
-    if pool["current"] < 1:
-        return _bad(f"no {key} remaining", 409)
+    err = _validate_costs(sheet, costs)
+    if err:
+        return _bad(err, 409)
 
-    pool["current"] -= 1
-    log_action(sheet, "spell_cast", f"Cast {name} using a level {slot_level} slot", slot_level=slot_level)
-    save_sheet(sheet)
-    return jsonify({"name": name, "slot_level": slot_level, "slot_used": key, "remaining": pool["current"]})
+    char_name = sheet.get("identity", {}).get("name", sheet_id)
+    req = requests_store.new_request(
+        character_id=sheet_id,
+        character_name=char_name,
+        req_type="spell_cast",
+        description=description,
+        costs=costs,
+    )
+    return jsonify(req), 201
 
 
 @app.post("/api/me/<sheet_id>/inventory/<int:index>/use")
 def api_use_item(sheet_id: str, index: int):
+    """Also files a request rather than consuming the item outright — the
+    DM confirms it before it actually leaves the inventory."""
     sheet = load_sheet(sheet_id)
     if sheet is None:
         return _not_found()
 
-    inventory = sheet.setdefault("inventory", [])
+    inventory = sheet.get("inventory", [])
     if not (0 <= index < len(inventory)):
         return _bad("bad inventory index", 404)
 
     payload = request.get_json(silent=True) or {}
     amount = _num(payload.get("amount", 1), 1)
-
     item = inventory[index]
-    qty = _num(item.get("qty", 1), 1) - amount
-    if qty > 0:
-        item["qty"] = qty
-        removed = False
-    else:
-        inventory.pop(index)
-        removed = True
 
-    log_action(sheet, "item_used", f"Used {amount} x {item.get('name', 'item')}")
-    save_sheet(sheet)
-    return jsonify({"item": item.get("name"), "remaining_qty": max(qty, 0), "removed": removed})
+    costs = [{"kind": "item", "name": item.get("name"), "qty": amount}]
+    err = _validate_costs(sheet, costs)
+    if err:
+        return _bad(err, 409)
+
+    char_name = sheet.get("identity", {}).get("name", sheet_id)
+    req = requests_store.new_request(
+        character_id=sheet_id,
+        character_name=char_name,
+        req_type="item_use",
+        description=f"Use {amount} x {item.get('name')}",
+        costs=costs,
+    )
+    return jsonify(req), 201
 
 
 # --------------------------------------------------------------------------- #

@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Goloma",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Vigilant": {
+      "description": "Featuring an expanded arc of visual focus that spots hidden threats instantly.",
+      "features": [
+        {
+          "id": "heritage_goloma_vigilant",
+          "name": "Vigilant Goloma",
+          "tldr": "You gain bonuses to Perception checks to notice hidden or stealthy creatures."
+        }
+      ]
+    },
+    "Dread": {
+      "description": "Displaying terrifying visual patterns that actively repel attackers.",
+      "features": [
+        {
+          "id": "heritage_goloma_dread",
+          "name": "Dread Goloma",
+          "tldr": "You can demoralize opponents more easily by flashing your multitude of eyes."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ancestry_name": "Goloma",
+  "rarity": "rare",
+  "description": "Golomas fear most other people and deliberately use their unusual biology to frighten off those they consider to be dangerous predators.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["wisdom", "free"],
+  "flaws": [],
+  "languages": ["Goloma", "Common"],
+  "traits": ["Goloma", "Humanoid"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "many_eyes",
+          "name": "Many Eyes",
+          "type": "ancestry_feature",
+          "tldr": "Your cluster of eyes prevents you from being easily flanked or caught off guard."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a goloma heritage reflecting your specific cluster adaptation or defense style."
+        }
+      ]
+    }
+  }
+}

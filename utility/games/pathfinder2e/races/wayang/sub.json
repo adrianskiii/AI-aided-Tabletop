@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Wayang",
+  "sub_ancestry_type": "Heritage",
+  "choices": {
+    "Gloom": {
+      "description": "Deeply woven into shadows, blending seamlessly into dark environments.",
+      "features": [
+        {
+          "id": "heritage_wayang_gloom",
+          "name": "Gloom Wayang",
+          "tldr": "You gain bonuses to Stealth checks while in dim light or darkness."
+        }
+      ]
+    },
+    "Nether": {
+      "description": "Carrying lingering planar energy from the Netherworld's shifting vaults.",
+      "features": [
+        {
+          "id": "heritage_wayang_nether",
+          "name": "Nether Wayang",
+          "tldr": "You gain resistance against negative energy and necrotic effects."
+        }
+      ]
+    }
+  }
+}

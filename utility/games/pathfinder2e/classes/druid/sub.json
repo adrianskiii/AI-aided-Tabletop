@@ -1,0 +1,46 @@
+{
+  "class_name": "Druid",
+  "subclass_type": "Druidic Order",
+  "choices": {
+    "Animal": {
+      "description": "Deep connection to beasts featuring a powerful loyal animal companion.",
+      "features": [
+        {
+          "id": "order_animal",
+          "name": "Animal Order",
+          "tldr": "Gain Athletics training, the Animal Companion feat, and the Heal Animal focus spell."
+        }
+      ]
+    },
+    "Leaf": {
+      "description": "Warden of flora and plant life accompanied by a leshy familiar.",
+      "features": [
+        {
+          "id": "order_leaf",
+          "name": "Leaf Order",
+          "tldr": "Gain Diplomacy training, the Leshy Familiar feat, and the Goodberry focus spell."
+        }
+      ]
+    },
+    "Storm": {
+      "description": "Channeler of weather fury, lightning, and destructive winds.",
+      "features": [
+        {
+          "id": "order_storm",
+          "name": "Storm Order",
+          "tldr": "Gain Acrobatics training, the Storm Born feat, and the Tempest Surge focus spell."
+        }
+      ]
+    },
+    "Untamed": {
+      "description": "Shapeshifting master of natural forms and wild combat adaptation.",
+      "features": [
+        {
+          "id": "order_untamed",
+          "name": "Untamed Order",
+          "tldr": "Gain Intimidation training, the Untamed Form feat, and the Untamed Shift focus spell."
+        }
+      ]
+    }
+  }
+}

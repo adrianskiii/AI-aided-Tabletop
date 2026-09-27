@@ -1,0 +1,34 @@
+{
+  "ancestry_name": "Orc",
+  "rarity": "common",
+  "description": "Orcs are tall and powerfully built, with long arms and stocky legs.",
+  "hit_points": 10,
+  "size": "Medium",
+  "speed": 25,
+  "boosts": ["free", "free"],
+  "flaws": [],
+  "languages": ["Common", "Orcish"],
+  "additional_languages": ["Aklo", "Dwarven", "Giant", "Gnoll", "Goblin", "Undercommon"],
+  "traits": ["Humanoid", "Orc"],
+  "core_senses": {
+    "darkvision": true
+  },
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "orc_ferocity",
+          "name": "Orc Ferocity",
+          "type": "ancestry_feature",
+          "tldr": "You hang on to life by a thread, avoiding being knocked unconscious once per day."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose an orc heritage representing your clan's combat style or physical adaptation."
+        }
+      ]
+    }
+  }
+}

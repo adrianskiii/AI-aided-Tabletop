@@ -1,0 +1,31 @@
+{
+  "ancestry_name": "Merfolk",
+  "rarity": "uncommon",
+  "description": "Merfolk are a half-human, half-fish aquatic people who live in every ocean and sea of Golarion.",
+  "hit_points": 8,
+  "size": "Medium",
+  "speed": 5,
+  "swim_speed": 30,
+  "boosts": ["dexterity", "charisma", "free"],
+  "flaws": ["constitution"],
+  "languages": ["Common", "Thalassic"],
+  "traits": ["Amphibious", "Humanoid", "Merfolk"],
+  "level_progression": {
+    "1": {
+      "features": [
+        {
+          "id": "aquatic_movement",
+          "name": "Tail and Swim Speed",
+          "type": "ancestry_feature",
+          "tldr": "Your powerful tail grants exceptional swimming mobility, though land movement is limited."
+        },
+        {
+          "id": "heritage_choice",
+          "name": "Ancestry Heritage",
+          "type": "sub_ancestry_choice",
+          "tldr": "Choose a merfolk heritage reflecting your deep-sea or coastal lineage."
+        }
+      ]
+    }
+  }
+}

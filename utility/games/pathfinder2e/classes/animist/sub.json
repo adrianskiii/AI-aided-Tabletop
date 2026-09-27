@@ -1,0 +1,46 @@
+{
+  "class_name": "Animist",
+  "subclass_type": "Animistic Practice",
+  "choices": {
+    "Liturgist": {
+      "description": "Specialist in ritualistic invocation and sustainable spell coordination.",
+      "features": [
+        {
+          "id": "practice_liturgist",
+          "name": "Liturgist Practice",
+          "tldr": "Focus on highly efficient sustainable vessel spells and dynamic battle prayers."
+        }
+      ]
+    },
+    "Medium": {
+      "description": "Spiritual medium capable of close vessel synchronization and multi-apparition hosting.",
+      "features": [
+        {
+          "id": "practice_medium",
+          "name": "Medium Practice",
+          "tldr": "Gain deeper possession integration and the capability to host multiple primary apparitions."
+        }
+      ]
+    },
+    "Seer": {
+      "description": "Prophetic channeler tuned to sensory ghost phenomena and protective insight.",
+      "features": [
+        {
+          "id": "practice_seer",
+          "name": "Seer Practice",
+          "tldr": "Gain specialized spiritual senses and defensive wards specialized against haunts and spirits."
+        }
+      ]
+    },
+    "Shaman": {
+      "description": "Traditional spirit bond expert closely aligned with familiar guidance.",
+      "features": [
+        {
+          "id": "practice_shaman",
+          "name": "Shaman Practice",
+          "tldr": "Enhance your connection with spirit guides and familiar utility options."
+        }
+      ]
+    }
+  }
+}

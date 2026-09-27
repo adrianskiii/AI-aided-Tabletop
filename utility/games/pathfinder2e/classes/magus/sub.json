@@ -1,0 +1,56 @@
+{
+  "class_name": "Magus",
+  "subclass_type": "Hybrid Study",
+  "choices": {
+    "Inexorable Iron": {
+      "description": "Ein unaufhaltsamer Frontkämpfer mit zweihändigen Waffen, der arkanen Schwung nutzt, um temporäre Trefferpunkte im Nahkampf zu generieren.",
+      "features": [
+        {
+          "id": "study_inexorable_iron",
+          "name": "Inexorable Iron Hybrid Study",
+          "tldr": "Gewährt das Konflux-Talent *Rearing Strike* und erzeugt temporäre Trefferpunkte beim Aufladen deiner arkanen Klinge."
+        }
+      ]
+    },
+    "Laughing Shadow": {
+      "description": "Ein agiler Teleportations- und Fintenmeister mit einhändigen Waffen, der geschmeidig durch die Reihen der Feinde tanzt.",
+      "features": [
+        {
+          "id": "study_laughing_shadow",
+          "name": "Laughing Shadow Hybrid Study",
+          "tldr": "Gewährt das Konflux-Talent *Dimensional Assault* und Bonusschaden, wenn du flankierst oder Gegner unvorbereitet triffst."
+        }
+      ]
+    },
+    "Smiling Serpent": {
+      "description": "Ein gewiefter Täuscher, der sich auf Dolche, leichte Waffen und heimtückische Gift- oder Statuskombinationen spezialisiert.",
+      "features": [
+        {
+          "id": "study_smiling_serpent",
+          "name": "Smiling Serpent Hybrid Study",
+          "tldr": "Fokussiert auf subtile Angriffe, das Verbergen arkaner Absichten und tödliche Präzision mit kleinen Waffen."
+        }
+      ]
+    },
+    "Sparkling Targe": {
+      "description": "Ein Verteidigungskünstler mit Schild, der arkanen Schutz auf seine Rüstung und Schilde legt, um magische und physische Angriffe abzuwehren.",
+      "features": [
+        {
+          "id": "study_sparkling_targe",
+          "name": "Sparkling Targe Hybrid Study",
+          "tldr": "Gewährt das Konflux-Talent *Shielded Strike* und erlaubt es, den Schildbonus auf Rettungswürfe gegen Zauber anzuwenden."
+        }
+      ]
+    },
+    "Starlit Span": {
+      "description": "Ein Fernkampf-Magus, der seine Zauber über Pfeile, Bolzen oder Wurfwaffen auf enorme Distanzen ins Ziel transportiert.",
+      "features": [
+        {
+          "id": "study_starlit_span",
+          "name": "Starlit Span Hybrid Study",
+          "tldr": "Erlaubt Spellstrikes mit Fernkampfwaffen und das Überbrücken großer Entfernungen mit arkaner Feuerkraft."
+        }
+      ]
+    }
+  }
+}

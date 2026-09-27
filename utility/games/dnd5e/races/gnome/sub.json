@@ -1,0 +1,26 @@
+{
+  "ancestry_name": "Gnome",
+  "sub_ancestry_type": "Subrace",
+  "choices": {
+    "Forest Gnome": {
+      "description": "Possessing a natural knack for illusion and inherent swiftness, closely bonded with woodland creatures.",
+      "features": [
+        {
+          "id": "subrace_forest_gnome_magic",
+          "name": "Natural Illusionist",
+          "tldr": "You know the *Minor Illusion* cantrip. Intelligence is your spellcasting ability for it."
+        }
+      ]
+    },
+    "Rock Gnome": {
+      "description": "Naturally inventive and hardy, with a sharp mind for crafting clockwork devices and gadgets.",
+      "features": [
+        {
+          "id": "subrace_rock_gnome_tinker",
+          "name": "Artisan's Tinker",
+          "tldr": "You have proficiency with artisan's tools (tinker's tools) and can construct small clockwork devices."
+        }
+      ]
+    }
+  }
+}
