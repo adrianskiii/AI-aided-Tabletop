@@ -1,0 +1,13 @@
+{
+  "name": "Hunger of Hadar",
+  "description": "A sphere of darkness and cold that harms creatures inside.",
+  "range": "150 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 cold; 2d6 acid",
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

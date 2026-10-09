@@ -1,0 +1,13 @@
+{
+  "name": "Sword Burst",
+  "description": "Create a momentary circle of spectral blades around you; each other creature within range must succeed on a Dexterity save or take force damage.",
+  "range": "Self (5-foot radius)",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 force",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V"
+}

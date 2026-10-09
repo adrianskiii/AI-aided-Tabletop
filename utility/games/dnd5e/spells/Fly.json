@@ -1,0 +1,13 @@
+{
+  "name": "Fly",
+  "description": "A creature gains a flying speed.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "One additional creature per slot level above 3rd.",
+  "Components": "V, S, M"
+}

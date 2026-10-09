@@ -1,0 +1,13 @@
+{
+  "name": "Earthbind",
+  "description": "Force a flying creature to the ground.",
+  "range": "300 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

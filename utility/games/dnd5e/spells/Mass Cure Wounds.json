@@ -1,0 +1,13 @@
+{
+  "name": "Mass Cure Wounds",
+  "description": "A wave of healing energy restores hit points to up to six creatures.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d8 healing per slot level above 5th.",
+  "Components": "V, S"
+}

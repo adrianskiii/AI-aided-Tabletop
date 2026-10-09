@@ -1,0 +1,13 @@
+{
+  "name": "Shocking Grasp",
+  "description": "Lightning springs from your hand in a melee spell attack with advantage against metal armor; on a hit, the target takes lightning damage and can't take reactions until its next turn.",
+  "range": "Touch",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d8 lightning",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

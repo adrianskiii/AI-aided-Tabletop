@@ -1,0 +1,13 @@
+{
+  "name": "Locate Object",
+  "description": "Sense the direction of a familiar object.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

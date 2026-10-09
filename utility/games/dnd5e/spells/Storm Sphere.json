@@ -1,0 +1,13 @@
+{
+  "name": "Storm Sphere",
+  "description": "A sphere of crackling electricity damages nearby creatures and can hurl lightning.",
+  "range": "150 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 bludgeoning; 4d6 lightning (bolt)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d6 bludgeoning and +1d6 lightning damage per slot level above 4th.",
+  "Components": "V, S"
+}

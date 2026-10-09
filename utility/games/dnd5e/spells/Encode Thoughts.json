@@ -1,0 +1,13 @@
+{
+  "name": "Encode Thoughts",
+  "description": "Extract a thought, memory, or message from your mind and shape it into a strand of colored, yarn-like substance that you can later read by holding it.",
+  "range": "Self",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Gift of Alacrity",
+  "description": "Add 1d8 to a creature's initiative rolls.",
+  "range": "Touch",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "DC (Chronurgy Dunamancy)"
+  ]
+}

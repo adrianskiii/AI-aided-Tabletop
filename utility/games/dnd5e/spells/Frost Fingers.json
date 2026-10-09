@@ -1,0 +1,13 @@
+{
+  "name": "Frost Fingers",
+  "description": "Blast creatures with a cone of freezing cold.",
+  "range": "Self (15-foot cone)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d8 cold",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d8 cold damage per slot level above 1st.",
+  "Components": "V, S"
+}

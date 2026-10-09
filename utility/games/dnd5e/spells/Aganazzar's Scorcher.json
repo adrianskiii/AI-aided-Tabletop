@@ -1,0 +1,13 @@
+{
+  "name": "Aganazzar's Scorcher",
+  "description": "A line of roaring flame lashes out from you.",
+  "range": "30 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d8 fire",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 fire damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

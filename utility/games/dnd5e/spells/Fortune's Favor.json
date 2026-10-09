@@ -1,0 +1,16 @@
+{
+  "name": "Fortune's Favor",
+  "description": "Grant a creature a fortunate reroll.",
+  "range": "60 feet",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "D (Dunamancy)"
+  ]
+}

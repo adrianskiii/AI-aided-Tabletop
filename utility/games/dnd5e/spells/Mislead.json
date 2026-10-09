@@ -1,0 +1,13 @@
+{
+  "name": "Mislead",
+  "description": "Become invisible while an illusory double of you appears in your place.",
+  "range": "Self",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

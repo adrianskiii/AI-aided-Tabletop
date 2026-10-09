@@ -1,0 +1,13 @@
+{
+  "name": "Gust of Wind",
+  "description": "Create a strong wind that pushes creatures and disperses gas.",
+  "range": "Self (60-foot line)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

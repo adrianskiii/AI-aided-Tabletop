@@ -1,0 +1,13 @@
+{
+  "name": "Magic Weapon",
+  "description": "Make a weapon magical with a +1 bonus.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "Bonus increases to +2 at 4th level and +3 at 6th.",
+  "Components": "V, S"
+}

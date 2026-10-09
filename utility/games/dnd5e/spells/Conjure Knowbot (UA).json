@@ -1,0 +1,16 @@
+{
+  "name": "Conjure Knowbot (UA)",
+  "description": "Summon a knowbot that gathers information for you.",
+  "range": "Touch",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "T (Technomagic)"
+  ]
+}

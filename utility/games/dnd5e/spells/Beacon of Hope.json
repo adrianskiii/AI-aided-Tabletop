@@ -1,0 +1,13 @@
+{
+  "name": "Beacon of Hope",
+  "description": "Allies gain advantage on Wisdom and death saves and maximum healing.",
+  "range": "30 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

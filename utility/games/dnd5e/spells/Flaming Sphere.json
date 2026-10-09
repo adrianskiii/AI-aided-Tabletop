@@ -1,0 +1,13 @@
+{
+  "name": "Flaming Sphere",
+  "description": "Create a rolling ball of fire that damages creatures.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 fire",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d6 fire damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

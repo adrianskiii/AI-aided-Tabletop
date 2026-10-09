@@ -1,0 +1,13 @@
+{
+  "name": "Raulothim's Psychic Lance",
+  "description": "Unleash a psychic lance that damages and incapacitates a creature.",
+  "range": "120 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "7d6 psychic",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

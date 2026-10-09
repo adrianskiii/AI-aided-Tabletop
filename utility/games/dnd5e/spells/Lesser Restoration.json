@@ -1,0 +1,13 @@
+{
+  "name": "Lesser Restoration",
+  "description": "End a disease or condition affecting a creature.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

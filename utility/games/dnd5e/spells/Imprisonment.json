@@ -1,0 +1,13 @@
+{
+  "name": "Imprisonment",
+  "description": "Confine a creature in one of several forms of magical imprisonment (burial, chaining, hedged prison, minimus containment, or slumber).",
+  "range": "30 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "Until dispelled",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

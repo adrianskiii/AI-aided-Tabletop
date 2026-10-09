@@ -1,0 +1,13 @@
+{
+  "name": "Confusion",
+  "description": "Assault creatures' minds, causing erratic behavior.",
+  "range": "90 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "Radius increases by 5 feet per slot level above 4th.",
+  "Components": "V, S, M"
+}

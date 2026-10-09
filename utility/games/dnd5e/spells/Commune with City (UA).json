@@ -1,0 +1,17 @@
+{
+  "name": "Commune with City (UA)",
+  "description": "Ask a city up to three questions about its layout and inhabitants.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "T (Technomagic)",
+    "R (Ritual)"
+  ]
+}

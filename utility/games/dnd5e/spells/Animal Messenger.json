@@ -1,0 +1,16 @@
+{
+  "name": "Animal Messenger",
+  "description": "Send a tiny beast to deliver a message.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "Duration increases by 48 hours per slot level above 2nd.",
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

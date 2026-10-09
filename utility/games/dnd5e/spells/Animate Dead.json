@@ -1,0 +1,13 @@
+{
+  "name": "Animate Dead",
+  "description": "Raise a skeleton or zombie from remains.",
+  "range": "10 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Animate two more undead per slot level above 3rd.",
+  "Components": "V, S, M"
+}

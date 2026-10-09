@@ -1,0 +1,13 @@
+{
+  "name": "Produce Flame",
+  "description": "A flickering flame appears in your hand, shedding light; you can hurl it as a ranged spell attack to deal fire damage.",
+  "range": "Self",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": "1d8 fire",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

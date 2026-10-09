@@ -1,0 +1,13 @@
+{
+  "name": "Clone",
+  "description": "Grow an inert duplicate of a creature that its spirit can inhabit if the original dies.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Hour",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

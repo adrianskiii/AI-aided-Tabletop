@@ -1,0 +1,13 @@
+{
+  "name": "Hold Person",
+  "description": "Paralyze a humanoid.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "One additional humanoid per slot level above 2nd.",
+  "Components": "V, S, M"
+}

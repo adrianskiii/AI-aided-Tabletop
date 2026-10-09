@@ -1,0 +1,16 @@
+{
+  "name": "Time Ravage",
+  "description": "Blast a creature with temporal energy that ages it rapidly and deals necrotic damage.",
+  "range": "90 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "10d12 necrotic",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "DC (Chronurgy Dunamancy)"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Fog Cloud",
+  "description": "Create a sphere of fog that heavily obscures the area.",
+  "range": "120 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": "Radius increases by 20 feet per slot level above 1st.",
+  "Components": "V, S"
+}

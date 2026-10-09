@@ -1,0 +1,13 @@
+{
+  "name": "Arcane Lock",
+  "description": "Magically lock a door, window, or container.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Until dispelled",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

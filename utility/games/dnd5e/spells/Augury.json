@@ -1,0 +1,16 @@
+{
+  "name": "Augury",
+  "description": "Receive an omen about the results of an action.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

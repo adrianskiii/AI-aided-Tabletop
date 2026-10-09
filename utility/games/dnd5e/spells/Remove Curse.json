@@ -1,0 +1,13 @@
+{
+  "name": "Remove Curse",
+  "description": "End curses affecting a creature or object.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Catnap",
+  "description": "Willing creatures fall into a brief sleep that counts as a short rest.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "One additional creature per slot level above 3rd.",
+  "Components": "S, M"
+}

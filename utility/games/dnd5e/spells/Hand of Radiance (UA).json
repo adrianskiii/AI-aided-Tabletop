@@ -1,0 +1,13 @@
+{
+  "name": "Hand of Radiance (UA)",
+  "description": "Sparks of radiance burst from your hand; each creature of your choice within range must succeed on a Constitution save or take radiant damage.",
+  "range": "5 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 radiant",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V, S"
+}

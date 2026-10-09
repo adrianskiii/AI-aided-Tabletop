@@ -1,0 +1,13 @@
+{
+  "name": "Thought Shield (UA)",
+  "description": "Playtest spell that protects against mind reading.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

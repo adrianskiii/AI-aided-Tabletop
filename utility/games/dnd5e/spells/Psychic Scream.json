@@ -1,0 +1,13 @@
+{
+  "name": "Psychic Scream",
+  "description": "Unleash a mind-shattering scream on up to ten creatures, dealing psychic damage and stunning those who fail their save.",
+  "range": "90 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "14d6 psychic",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

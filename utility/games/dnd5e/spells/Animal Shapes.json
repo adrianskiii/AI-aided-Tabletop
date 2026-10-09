@@ -1,0 +1,13 @@
+{
+  "name": "Animal Shapes",
+  "description": "Transform any number of willing creatures you can see into beasts, changing their form again as an action.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 24 hours",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

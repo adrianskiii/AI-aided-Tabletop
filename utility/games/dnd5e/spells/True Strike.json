@@ -1,0 +1,13 @@
+{
+  "name": "True Strike",
+  "description": "Extend your senses toward a target; on your next turn, you gain advantage on your first attack roll against it, provided the spell hasn't ended.",
+  "range": "30 feet",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 round",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

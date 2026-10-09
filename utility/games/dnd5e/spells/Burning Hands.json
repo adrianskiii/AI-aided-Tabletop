@@ -1,0 +1,13 @@
+{
+  "name": "Burning Hands",
+  "description": "A thin sheet of flames shoots from your fingertips.",
+  "range": "Self (15-foot cone)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d6 fire",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d6 fire damage per slot level above 1st.",
+  "Components": "V, S"
+}

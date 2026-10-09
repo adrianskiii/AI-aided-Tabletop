@@ -1,0 +1,13 @@
+{
+  "name": "Pass Without Trace",
+  "description": "Grant you and allies a bonus to Stealth checks.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

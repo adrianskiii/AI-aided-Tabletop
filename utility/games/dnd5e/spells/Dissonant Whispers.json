@@ -1,0 +1,13 @@
+{
+  "name": "Dissonant Whispers",
+  "description": "Whisper a discordant melody that damages and frightens a creature.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d6 psychic",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d6 psychic damage per slot level above 1st.",
+  "Components": "V"
+}

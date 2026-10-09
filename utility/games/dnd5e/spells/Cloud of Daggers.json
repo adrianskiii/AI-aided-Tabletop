@@ -1,0 +1,13 @@
+{
+  "name": "Cloud of Daggers",
+  "description": "Fill a cube with spinning daggers that damage creatures inside.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d4 slashing",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+2d4 slashing damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

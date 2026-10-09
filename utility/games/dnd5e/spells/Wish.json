@@ -1,0 +1,13 @@
+{
+  "name": "Wish",
+  "description": "Alter reality: duplicate any spell of 8th level or lower, or attempt a greater effect with risk of stress and never casting it again.",
+  "range": "Self",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

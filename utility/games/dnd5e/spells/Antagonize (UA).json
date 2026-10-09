@@ -1,0 +1,13 @@
+{
+  "name": "Antagonize (UA)",
+  "description": "Playtest version of the taunting spell.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d4 psychic",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d4 psychic damage per slot level above 3rd.",
+  "Components": "V, S, M"
+}

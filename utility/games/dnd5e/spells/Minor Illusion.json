@@ -1,0 +1,13 @@
+{
+  "name": "Minor Illusion",
+  "description": "Create a sound or an image of an object within range that lasts for the duration; it ends if you dismiss it or cast the spell again, and can be exposed by investigation.",
+  "range": "30 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S, M"
+}

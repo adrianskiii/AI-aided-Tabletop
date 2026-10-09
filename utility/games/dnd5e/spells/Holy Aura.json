@@ -1,0 +1,13 @@
+{
+  "name": "Holy Aura",
+  "description": "Divine light surrounds you and your allies, granting advantage on saves and disadvantage to attackers, and punishing fiends and undead that strike.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

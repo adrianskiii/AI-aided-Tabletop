@@ -1,0 +1,13 @@
+{
+  "name": "Stinking Cloud",
+  "description": "A sickening gas cloud makes creatures lose their actions.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

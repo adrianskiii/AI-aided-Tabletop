@@ -1,0 +1,13 @@
+{
+  "name": "Mold Earth",
+  "description": "Choose a portion of loose earth, stone, or sand and excavate it, move it, or reshape it into simple forms, or change its color or make it difficult terrain.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous or 1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

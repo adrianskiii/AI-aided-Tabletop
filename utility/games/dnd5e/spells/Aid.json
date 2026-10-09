@@ -1,0 +1,13 @@
+{
+  "name": "Aid",
+  "description": "Increase hit points and maximum hit points of up to three creatures.",
+  "range": "30 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+5 hit points per slot level above 2nd.",
+  "Components": "V, S, M"
+}

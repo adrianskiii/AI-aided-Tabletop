@@ -1,0 +1,13 @@
+{
+  "name": "Conjure Animals",
+  "description": "Summon fey spirits in the form of beasts.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "More beasts at higher slot levels (5th, 7th, 9th).",
+  "Components": "V, S"
+}

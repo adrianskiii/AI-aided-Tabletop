@@ -1,0 +1,16 @@
+{
+  "name": "On/Off (UA)",
+  "description": "Turn a simple nonmagical object on or off, such as a lamp, latch, or small device that has a simple power switch or mechanism.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "T (Technomagic)"
+  ]
+}

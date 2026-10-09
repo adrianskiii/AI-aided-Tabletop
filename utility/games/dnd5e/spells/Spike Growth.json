@@ -1,0 +1,13 @@
+{
+  "name": "Spike Growth",
+  "description": "Terrain becomes thorny and damages creatures moving across it.",
+  "range": "150 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "2d4 piercing (per 5 feet moved)",
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

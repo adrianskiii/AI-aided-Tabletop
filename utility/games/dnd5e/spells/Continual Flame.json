@@ -1,0 +1,13 @@
+{
+  "name": "Continual Flame",
+  "description": "Create a permanent flame that gives light but no heat.",
+  "range": "Touch",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Until dispelled",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

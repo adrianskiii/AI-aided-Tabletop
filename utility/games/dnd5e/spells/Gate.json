@@ -1,0 +1,13 @@
+{
+  "name": "Gate",
+  "description": "Conjure a portal linking a point on another plane to a point within range; you can name a creature to be drawn through.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

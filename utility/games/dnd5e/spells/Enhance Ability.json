@@ -1,0 +1,13 @@
+{
+  "name": "Enhance Ability",
+  "description": "Grant a creature an ability score enhancement.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "One additional creature per slot level above 2nd.",
+  "Components": "V, S, M"
+}

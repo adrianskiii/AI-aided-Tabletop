@@ -1,0 +1,13 @@
+{
+  "name": "Mass Heal",
+  "description": "A flood of healing energy restores up to 700 hit points divided among creatures you choose, and also cures diseases and blindness or deafness.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

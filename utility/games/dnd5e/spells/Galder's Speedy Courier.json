@@ -1,0 +1,13 @@
+{
+  "name": "Galder's Speedy Courier",
+  "description": "Summon a courier that carries an item to a destination.",
+  "range": "10 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

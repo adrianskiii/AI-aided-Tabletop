@@ -1,0 +1,13 @@
+{
+  "name": "Guardian of Faith",
+  "description": "A spectral guardian protects an area and damages enemies.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": "20 radiant (fixed)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

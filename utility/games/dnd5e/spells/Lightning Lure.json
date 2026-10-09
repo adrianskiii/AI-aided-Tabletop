@@ -1,0 +1,13 @@
+{
+  "name": "Lightning Lure",
+  "description": "Create a lash of lightning; a creature you can see must succeed on a Strength save or be pulled up to 10 feet toward you and take lightning damage if it ends within 5 feet.",
+  "range": "Self (15-foot radius)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d8 lightning",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V"
+}

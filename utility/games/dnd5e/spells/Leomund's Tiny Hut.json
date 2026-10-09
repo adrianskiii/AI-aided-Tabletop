@@ -1,0 +1,16 @@
+{
+  "name": "Leomund's Tiny Hut",
+  "description": "Create a dome of force that shelters creatures.",
+  "range": "Self (10-foot radius hemisphere)",
+  "School": "Evocation",
+  "Casting Time": "1 Minute",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

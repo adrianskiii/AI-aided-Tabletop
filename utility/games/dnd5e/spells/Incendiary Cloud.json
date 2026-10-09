@@ -1,0 +1,13 @@
+{
+  "name": "Incendiary Cloud",
+  "description": "A swirling cloud of smoke and embers heavily obscures a 20-foot radius and burns creatures within it.",
+  "range": "150 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "10d8 fire",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

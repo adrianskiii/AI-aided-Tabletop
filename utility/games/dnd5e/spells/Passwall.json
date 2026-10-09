@@ -1,0 +1,13 @@
+{
+  "name": "Passwall",
+  "description": "Create a passage through wood, plaster, or stone.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

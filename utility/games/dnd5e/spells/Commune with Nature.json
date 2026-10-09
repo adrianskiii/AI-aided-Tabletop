@@ -1,0 +1,16 @@
+{
+  "name": "Commune with Nature",
+  "description": "Gain knowledge of the surrounding natural terrain within a few miles.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Temporal Shunt",
+  "description": "Remove a creature from time until the start of its next turn.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Reaction",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "DC (Chronurgy Dunamancy)"
+  ]
+}

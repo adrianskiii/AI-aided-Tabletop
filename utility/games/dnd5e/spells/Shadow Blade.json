@@ -1,0 +1,13 @@
+{
+  "name": "Shadow Blade",
+  "description": "Weave a sword of psychic shadow.",
+  "range": "Self",
+  "School": "Illusion",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d8 psychic",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 at 3rd-4th, 5th-6th, and 7th+ level.",
+  "Components": "V, S"
+}

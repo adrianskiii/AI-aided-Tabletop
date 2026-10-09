@@ -1,0 +1,16 @@
+{
+  "name": "Gravity Sinkhole",
+  "description": "Create a gravitational sphere that crushes and pulls creatures.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "5d10 force",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d10 force damage per slot level above 4th.",
+  "Components": "V, S, M",
+  "Tags": [
+    "DG (Graviturgy Dunamancy)"
+  ]
+}

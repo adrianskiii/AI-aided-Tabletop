@@ -1,0 +1,16 @@
+{
+  "name": "Phantom Steed",
+  "description": "Create a quasi-real horse-like creature to ride.",
+  "range": "30 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Minute",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

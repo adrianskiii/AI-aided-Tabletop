@@ -1,0 +1,13 @@
+{
+  "name": "Demiplane",
+  "description": "Create a shadowy door to an empty extradimensional room that you can enter and furnish.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

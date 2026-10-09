@@ -1,0 +1,13 @@
+{
+  "name": "Sending",
+  "description": "Send a short message to a familiar creature.",
+  "range": "Unlimited",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

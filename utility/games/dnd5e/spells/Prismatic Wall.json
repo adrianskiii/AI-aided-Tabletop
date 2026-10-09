@@ -1,0 +1,13 @@
+{
+  "name": "Prismatic Wall",
+  "description": "Create a shimmering wall of multicolored light made of seven layers, each with a different effect.",
+  "range": "60 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": "12d6 fire/acid/lightning/poison/cold (per layer)",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Darkness",
+  "description": "Create magical darkness in a 15-foot radius.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, M"
+}

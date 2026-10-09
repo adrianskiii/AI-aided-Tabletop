@@ -1,0 +1,13 @@
+{
+  "name": "Grease",
+  "description": "Slick grease makes the ground difficult to stand on.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

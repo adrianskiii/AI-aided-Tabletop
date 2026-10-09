@@ -1,0 +1,16 @@
+{
+  "name": "Ravenous Void",
+  "description": "Create a sphere of gravitational force that drags creatures and objects toward its center, crushing them.",
+  "range": "1,000 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "5d10 force",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "DG (Graviturgy Dunamancy)"
+  ]
+}

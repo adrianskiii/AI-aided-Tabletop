@@ -1,0 +1,13 @@
+{
+  "name": "Sleet Storm",
+  "description": "Freezing rain creates difficult terrain and obscures the area.",
+  "range": "150 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

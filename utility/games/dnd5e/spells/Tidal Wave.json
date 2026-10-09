@@ -1,0 +1,13 @@
+{
+  "name": "Tidal Wave",
+  "description": "Conjure a wave of water that crashes down.",
+  "range": "120 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d8 bludgeoning",
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

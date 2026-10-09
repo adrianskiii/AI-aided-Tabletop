@@ -1,0 +1,13 @@
+{
+  "name": "Elemental Bane",
+  "description": "Make a creature vulnerable to a chosen element.",
+  "range": "90 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 (chosen element, extra)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "One additional creature per slot level above 4th.",
+  "Components": "V, S"
+}

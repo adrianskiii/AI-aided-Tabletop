@@ -1,0 +1,13 @@
+{
+  "name": "Destructive Wave",
+  "description": "Strike the ground, sending a wave of thunder and radiant or necrotic energy.",
+  "range": "Self (30-foot radius)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "5d6 thunder + 5d6 radiant or necrotic",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

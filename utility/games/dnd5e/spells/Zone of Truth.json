@@ -1,0 +1,13 @@
+{
+  "name": "Zone of Truth",
+  "description": "Prevent creatures from lying.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

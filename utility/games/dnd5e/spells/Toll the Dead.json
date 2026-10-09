@@ -1,0 +1,13 @@
+{
+  "name": "Toll the Dead",
+  "description": "Point at a creature and the sound of a dolorous bell fills the air; it must succeed on a Wisdom save or take necrotic damage, which is greater if it is missing any hit points.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d8 necrotic (1d12 if target is missing hit points)",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8/3d8/4d8 (or 2d12/3d12/4d12 if the target is missing hit points).",
+  "Components": "V, S"
+}

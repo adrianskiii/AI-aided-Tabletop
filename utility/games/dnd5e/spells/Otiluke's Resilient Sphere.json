@@ -1,0 +1,13 @@
+{
+  "name": "Otiluke's Resilient Sphere",
+  "description": "Enclose a creature in a sphere of force.",
+  "range": "30 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Ray of Frost",
+  "description": "A frigid beam makes a ranged spell attack dealing cold damage and reducing the target's speed by 10 feet until the start of your next turn.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d8 cold",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

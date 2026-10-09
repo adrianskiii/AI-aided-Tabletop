@@ -1,0 +1,13 @@
+{
+  "name": "Rime's Binding Ice",
+  "description": "Blast creatures with cold that may bind them in ice.",
+  "range": "Self (30-foot cone)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d8 cold",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 cold damage per slot level above 2nd.",
+  "Components": "S, M"
+}

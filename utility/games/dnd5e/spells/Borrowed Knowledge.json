@@ -1,0 +1,13 @@
+{
+  "name": "Borrowed Knowledge",
+  "description": "Gain proficiency in a skill.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

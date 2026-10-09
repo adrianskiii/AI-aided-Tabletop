@@ -1,0 +1,13 @@
+{
+  "name": "Ray of Enfeeblement",
+  "description": "Weaken a creature's damage output.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

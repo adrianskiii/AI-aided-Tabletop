@@ -1,0 +1,13 @@
+{
+  "name": "Sunburst",
+  "description": "Brilliant sunlight flashes in a 60-foot radius, dealing radiant damage and blinding creatures that fail their saves.",
+  "range": "150 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "12d6 radiant",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

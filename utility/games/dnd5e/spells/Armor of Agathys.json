@@ -1,0 +1,13 @@
+{
+  "name": "Armor of Agathys",
+  "description": "Gain temporary hit points and damage melee attackers with cold.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": "5 cold (retaliation)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+5 temporary hit points and +5 cold damage per slot level above 1st.",
+  "Components": "V, S, M"
+}

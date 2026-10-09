@@ -1,0 +1,13 @@
+{
+  "name": "Thunderous Smite",
+  "description": "Your next weapon hit rings with thunder and pushes the target.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 thunder (extra)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

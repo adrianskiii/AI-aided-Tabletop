@@ -1,0 +1,13 @@
+{
+  "name": "Modify Memory",
+  "description": "Reshape a charmed creature's memories of an event.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Can alter older memories at higher slot levels.",
+  "Components": "V, S"
+}

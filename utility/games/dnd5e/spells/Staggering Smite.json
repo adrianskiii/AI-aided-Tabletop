@@ -1,0 +1,13 @@
+{
+  "name": "Staggering Smite",
+  "description": "Your next weapon hit deals extra psychic damage and may daze the target.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d6 psychic (extra)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d6 psychic damage per slot level above 4th.",
+  "Components": "V"
+}

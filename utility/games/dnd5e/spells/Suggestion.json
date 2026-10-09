@@ -1,0 +1,13 @@
+{
+  "name": "Suggestion",
+  "description": "Suggest a course of action to a creature.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 8 hours",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, M"
+}

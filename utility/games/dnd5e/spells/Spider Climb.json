@@ -1,0 +1,13 @@
+{
+  "name": "Spider Climb",
+  "description": "Let a creature climb walls and ceilings.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

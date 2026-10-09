@@ -1,0 +1,13 @@
+{
+  "name": "Power Word: Heal",
+  "description": "A wave of healing energy restores all of a creature's hit points and ends charm, fright, paralysis, and stun.",
+  "range": "Touch",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

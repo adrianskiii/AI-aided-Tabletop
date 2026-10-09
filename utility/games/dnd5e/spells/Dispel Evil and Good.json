@@ -1,0 +1,13 @@
+{
+  "name": "Dispel Evil and Good",
+  "description": "Shimmering energy protects you from fiends, celestials, and other otherworldly creatures.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

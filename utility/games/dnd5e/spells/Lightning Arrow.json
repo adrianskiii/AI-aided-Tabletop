@@ -1,0 +1,13 @@
+{
+  "name": "Lightning Arrow",
+  "description": "Your next ranged attack becomes a bolt of lightning.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d8 lightning",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d8 lightning damage per slot level above 3rd.",
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Thunderwave",
+  "description": "A wave of thunder pushes and damages creatures.",
+  "range": "Self (15-foot cube)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d8 thunder",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d8 thunder damage per slot level above 1st.",
+  "Components": "V, S"
+}

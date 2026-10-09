@@ -1,0 +1,13 @@
+{
+  "name": "Seeming",
+  "description": "Change the appearance of creatures you choose.",
+  "range": "30 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

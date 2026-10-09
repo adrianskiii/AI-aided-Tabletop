@@ -1,0 +1,13 @@
+{
+  "name": "Death Ward",
+  "description": "Protect a creature from dropping to 0 hit points once.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

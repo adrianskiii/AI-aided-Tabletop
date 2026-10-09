@@ -1,0 +1,13 @@
+{
+  "name": "Flame Arrows",
+  "description": "Ammunition deals extra fire damage.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": "1d6 fire (extra per hit)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Two additional pieces of ammunition per slot level above 3rd.",
+  "Components": "V, S"
+}

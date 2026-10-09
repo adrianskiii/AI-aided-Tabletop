@@ -1,0 +1,13 @@
+{
+  "name": "Wall of Water",
+  "description": "Create a wall of water that hampers movement and attacks.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Nystul's Magic Aura",
+  "description": "Alter how divination magic perceives a creature or object.",
+  "range": "Touch",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

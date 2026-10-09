@@ -1,0 +1,13 @@
+{
+  "name": "Find Steed",
+  "description": "Summon a loyal steed.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "10 Minutes",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

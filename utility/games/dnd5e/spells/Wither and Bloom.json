@@ -1,0 +1,13 @@
+{
+  "name": "Wither and Bloom",
+  "description": "Drain life from creatures while allowing others to heal.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d6 necrotic",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d6 necrotic damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

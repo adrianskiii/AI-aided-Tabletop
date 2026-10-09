@@ -1,0 +1,13 @@
+{
+  "name": "Maximillian's Earthen Grasp",
+  "description": "Conjure a hand of earth that restrains and crushes a creature.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d6 bludgeoning",
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

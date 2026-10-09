@@ -1,0 +1,13 @@
+{
+  "name": "Dawn",
+  "description": "A shaft of light shines down in a cylinder, damaging creatures in it.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d10 radiant",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

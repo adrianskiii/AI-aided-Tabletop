@@ -1,0 +1,13 @@
+{
+  "name": "Virtue (UA)",
+  "description": "Touch a creature to bolster it with a surge of vitality, granting it temporary hit points.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

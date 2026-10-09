@@ -1,0 +1,16 @@
+{
+  "name": "Unseen Servant",
+  "description": "Create an invisible servant that performs simple tasks.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

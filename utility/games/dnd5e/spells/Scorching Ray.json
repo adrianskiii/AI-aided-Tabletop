@@ -1,0 +1,13 @@
+{
+  "name": "Scorching Ray",
+  "description": "Hurl three rays of fire.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d6 fire (per ray)",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "One additional ray per slot level above 2nd.",
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Protection from Evil and Good",
+  "description": "Protect a creature from aberrations, celestials, fiends, and more.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Crusader's Mantle",
+  "description": "Holy power boosts allies' weapon damage.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d4 radiant (extra)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

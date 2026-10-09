@@ -1,0 +1,13 @@
+{
+  "name": "Misty Step",
+  "description": "Teleport up to 30 feet.",
+  "range": "Self",
+  "School": "Conjuration",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

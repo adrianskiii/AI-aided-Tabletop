@@ -1,0 +1,13 @@
+{
+  "name": "Resistance",
+  "description": "Touch a willing creature; once before the spell ends, it can roll a d4 and add the result to one saving throw of its choice.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

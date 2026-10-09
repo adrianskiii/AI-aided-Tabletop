@@ -1,0 +1,13 @@
+{
+  "name": "Antipathy/Sympathy",
+  "description": "Make a creature or object repel or attract a specified kind of creature that comes near it.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Hour",
+  "Duration": "10 Days",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

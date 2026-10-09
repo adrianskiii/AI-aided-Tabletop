@@ -1,0 +1,13 @@
+{
+  "name": "Power Word: Stun",
+  "description": "Stun a creature with 150 hit points or fewer; it can repeat a Constitution save to end the effect.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

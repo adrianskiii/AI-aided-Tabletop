@@ -1,0 +1,16 @@
+{
+  "name": "Find Familiar",
+  "description": "Summon a spirit that takes an animal form and serves you.",
+  "range": "10 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Hour",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Infallible Relay (UA)",
+  "description": "Playtest spell that relays messages accurately.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "T (Technomagic)"
+  ]
+}

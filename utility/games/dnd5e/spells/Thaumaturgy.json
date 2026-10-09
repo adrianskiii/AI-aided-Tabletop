@@ -1,0 +1,13 @@
+{
+  "name": "Thaumaturgy",
+  "description": "Manifest a minor wonder, such as a booming voice, flickering flames, harmless tremors, altered eyes, or a slamming door or window.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Up to 1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

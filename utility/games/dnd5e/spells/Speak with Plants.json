@@ -1,0 +1,13 @@
+{
+  "name": "Speak with Plants",
+  "description": "Communicate with plants.",
+  "range": "Self (30-foot radius)",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

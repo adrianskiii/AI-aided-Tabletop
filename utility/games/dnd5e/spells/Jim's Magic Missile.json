@@ -1,0 +1,13 @@
+{
+  "name": "Jim's Magic Missile",
+  "description": "Fire darts of force that never miss.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d4 force (per dart)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "One additional dart per slot level above 1st.",
+  "Components": "V, S, M"
+}

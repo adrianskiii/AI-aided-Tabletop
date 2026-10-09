@@ -1,0 +1,13 @@
+{
+  "name": "Transmute Rock",
+  "description": "Turn rock into mud or mud into rock.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Intellect Fortress",
+  "description": "Protect creatures from psychic damage and mental effects.",
+  "range": "30 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "One additional creature per slot level above 3rd.",
+  "Components": "V"
+}

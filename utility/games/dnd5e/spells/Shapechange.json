@@ -1,0 +1,13 @@
+{
+  "name": "Shapechange",
+  "description": "Transform into any creature you have seen, up to a challenge rating limit tied to your level, and change form again as an action.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

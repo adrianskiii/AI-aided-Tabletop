@@ -1,0 +1,13 @@
+{
+  "name": "Charm Person",
+  "description": "Charm a humanoid so it regards you as a friend.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": "One additional humanoid per slot level above 1st.",
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Acid Splash",
+  "description": "Hurl a bubble of acid at one creature, or two adjacent creatures; each must succeed on a Dexterity save or take acid damage.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 acid",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V, S"
+}

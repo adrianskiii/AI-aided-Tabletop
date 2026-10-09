@@ -1,0 +1,13 @@
+{
+  "name": "Chaos Bolt",
+  "description": "Hurl a wobbling energy that deals varied damage and may leap.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d8 + 1d6 (type varies)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d6 damage per slot level above 1st.",
+  "Components": "V, S"
+}

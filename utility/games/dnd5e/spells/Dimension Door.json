@@ -1,0 +1,13 @@
+{
+  "name": "Dimension Door",
+  "description": "Teleport yourself and possibly one other creature up to 500 feet.",
+  "range": "500 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

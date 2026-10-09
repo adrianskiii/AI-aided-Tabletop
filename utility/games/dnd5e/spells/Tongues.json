@@ -1,0 +1,13 @@
+{
+  "name": "Tongues",
+  "description": "Understand and speak any language.",
+  "range": "Touch",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Arcane Eye",
+  "description": "Create an invisible magical eye that sends you visual information.",
+  "range": "30 feet",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

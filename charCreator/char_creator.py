@@ -84,8 +84,8 @@ from pathlib import Path
 from typing import Any
 
 from flask import Flask, request, jsonify, send_from_directory
-print(Path(__file__).resolve().parent.parent / "utility")
 sys.path.append(str(Path(__file__).resolve().parent.parent / "utility"))
+sys.path.append(str(Path(__file__).resolve().parent.parent / "utility" / "games" / "pathfinder2e"))
 
 import fiveetools as fiveetools
 import pf2etools as pf2etools
@@ -1893,7 +1893,33 @@ def derive(sheet: dict) -> dict:
     # Automatically apply subclass & choice features to the build menu
     sheet = _derive_build(sheet)
 
+    if sheet.get("system") == "pathfinder2e":
+        sheet = _derive_pf2e_stats(sheet)
+
     return sheet
+
+
+def _derive_pf2e_stats(sheet: dict) -> dict:
+    from pf2e_derive import derive_pf2e_stats
+
+    level = _safe_int(sheet.get("identity", {}).get("level"), 1)
+    rules = rules_payload("pathfinder2e", level)
+    choices = sheet.get("choices", {})
+
+    _, class_data = _find_by_slug(rules.get("class_data", {}), choices.get("class"))
+    _, ancestry_data = _find_by_slug(
+        rules.get("ancestry_data", {}),
+        choices.get("ancestry") or choices.get("race"),
+    )
+
+    bg_data = {}
+    bg_choice = str(choices.get("background", "")).strip().lower()
+    for name, data in _as_dict(rules.get("backgrounds")).items():
+        if name.lower() == bg_choice and isinstance(data, dict):
+            bg_data = data
+            break
+
+    return derive_pf2e_stats(sheet, class_data, ancestry_data, bg_data)
 
 
 def sheet_path(
@@ -1958,6 +1984,31 @@ def save_sheet(
 # --------------------------------------------------------------------------- #
 # Generic character merge                                                      #
 # --------------------------------------------------------------------------- #
+
+_ABIL_SHORT = {"str": "strength", "dex": "dexterity", "con": "constitution",
+               "int": "intelligence", "wis": "wisdom", "cha": "charisma"}
+
+
+def _normalize_ability_payload(value: dict) -> dict:
+    """Accept {strength: 8}, {str: 8}, {scores: {...}} or {str: {score: 8}}.
+
+    The old merge silently dropped anything that was not a flat, full-name
+    int, which loses scores when the web UI uses short ids or nests them.
+    """
+    flat = {}
+    for k, v in value.items():
+        if k == "scores" and isinstance(v, dict):
+            flat.update(_normalize_ability_payload(v))
+            continue
+        key = _ABIL_SHORT.get(str(k).lower(), k)
+        if isinstance(v, dict):
+            v = v.get("score", v.get("value", v))
+        flat[key] = v
+    dropped = [k for k in flat if k in STD_ABILITIES and isinstance(flat[k], dict)]
+    if dropped:
+        app.logger.warning("ability payload not understood for: %s", dropped)
+    return flat
+
 
 def _merge(
     target: dict,
@@ -2074,6 +2125,8 @@ def _merge(
                 "abilities",
                 {},
             )
+
+            value = _normalize_ability_payload(value)
 
             for ab_key, ab_val in value.items():
 

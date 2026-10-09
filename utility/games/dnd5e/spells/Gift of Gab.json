@@ -1,0 +1,13 @@
+{
+  "name": "Gift of Gab",
+  "description": "Persuasively talk your way out of a tricky situation.",
+  "range": "Self",
+  "School": "Enchantment",
+  "Casting Time": "1 Reaction",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

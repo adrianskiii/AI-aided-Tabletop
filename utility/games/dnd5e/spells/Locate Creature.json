@@ -1,0 +1,13 @@
+{
+  "name": "Locate Creature",
+  "description": "Sense the direction of a familiar creature.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

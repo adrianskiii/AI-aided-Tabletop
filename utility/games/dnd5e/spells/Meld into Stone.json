@@ -1,0 +1,16 @@
+{
+  "name": "Meld into Stone",
+  "description": "Merge into a stone object or surface.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

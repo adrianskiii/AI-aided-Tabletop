@@ -1,0 +1,13 @@
+{
+  "name": "Color Spray",
+  "description": "Blind creatures with a spray of dazzling colors.",
+  "range": "Self (15-foot cone)",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": "Affects 2d10 more hit points per slot level above 1st.",
+  "Components": "V, S, M"
+}

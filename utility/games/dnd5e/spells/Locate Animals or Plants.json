@@ -1,0 +1,16 @@
+{
+  "name": "Locate Animals or Plants",
+  "description": "Sense the location of a kind of animal or plant.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

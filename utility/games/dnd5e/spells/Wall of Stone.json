@@ -1,0 +1,13 @@
+{
+  "name": "Wall of Stone",
+  "description": "Create a wall of stone.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

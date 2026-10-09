@@ -1,0 +1,13 @@
+{
+  "name": "Telepathy",
+  "description": "Create a telepathic link with a willing creature you are familiar with, allowing two-way communication at any distance.",
+  "range": "Unlimited",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

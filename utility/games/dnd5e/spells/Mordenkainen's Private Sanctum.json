@@ -1,0 +1,13 @@
+{
+  "name": "Mordenkainen's Private Sanctum",
+  "description": "Protect an area against scrying, teleportation, and eavesdropping.",
+  "range": "120 feet",
+  "School": "Abjuration",
+  "Casting Time": "10 Minutes",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "Area increases by 100 feet per slot level above 4th.",
+  "Components": "V, S, M"
+}

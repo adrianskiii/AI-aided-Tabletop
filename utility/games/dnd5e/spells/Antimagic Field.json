@@ -1,0 +1,13 @@
+{
+  "name": "Antimagic Field",
+  "description": "A 10-foot sphere around you suppresses magic within it, including spells, magic items, and summoned creatures.",
+  "range": "Self (10-foot radius sphere)",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

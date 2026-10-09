@@ -1,0 +1,13 @@
+{
+  "name": "Primal Savagery",
+  "description": "Channel primal magic to make your teeth or fingernails sharp and make a melee spell attack against a creature within 5 feet, dealing acid damage.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d10 acid",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d10, 3d10, 4d10.",
+  "Components": "S"
+}

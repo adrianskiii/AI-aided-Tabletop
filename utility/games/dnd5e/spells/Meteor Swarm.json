@@ -1,0 +1,13 @@
+{
+  "name": "Meteor Swarm",
+  "description": "Blazing orbs of fire plummet to four points you choose, each exploding in a 40-foot-radius sphere.",
+  "range": "1 mile",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "20d6 fire + 20d6 bludgeoning (per point)",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

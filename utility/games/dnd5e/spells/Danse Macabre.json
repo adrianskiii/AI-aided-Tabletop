@@ -1,0 +1,13 @@
+{
+  "name": "Danse Macabre",
+  "description": "Animate up to five skeletons or zombies that obey you.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Two additional creatures per slot level above 5th.",
+  "Components": "V, S"
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "798d77f8e4",
+    "character_id": "7a1b5267e166",
+    "character_name": "atv",
+    "type": "item_use",
+    "description": "Use 1 x stick of stick",
+    "target_id": null,
+    "target_name": null,
+    "costs": [
+      {
+        "kind": "item",
+        "name": "stick of stick",
+        "qty": 1
+      }
+    ],
+    "status": "denied",
+    "resolution_note": "",
+    "created_at": "2026-09-28T09:34:25+00:00",
+    "resolved_at": "2026-09-28T09:34:39+00:00"
+  }
+]

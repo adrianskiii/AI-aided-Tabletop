@@ -1,0 +1,16 @@
+{
+  "name": "Wild Cunning (UA)",
+  "description": "Playtest spell that grants wilderness cunning.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

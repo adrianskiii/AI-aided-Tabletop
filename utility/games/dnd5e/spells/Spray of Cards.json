@@ -1,0 +1,13 @@
+{
+  "name": "Spray of Cards",
+  "description": "Fire a spray of cards that damage and blind creatures.",
+  "range": "Self (15-foot cone)",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d10 force",
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

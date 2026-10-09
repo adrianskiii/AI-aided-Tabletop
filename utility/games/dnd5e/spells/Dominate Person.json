@@ -1,0 +1,13 @@
+{
+  "name": "Dominate Person",
+  "description": "Charm a humanoid so it obeys your telepathic commands.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Duration longer with higher slots: 6th 10 minutes, 7th 1 hour, 8th 8 hours.",
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Sickening Radiance",
+  "description": "Dim green light fills a 30-foot radius, damaging creatures and inflicting exhaustion.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "4d10 radiant",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

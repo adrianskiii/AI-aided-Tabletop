@@ -1,0 +1,13 @@
+{
+  "name": "Banishing Smite",
+  "description": "Your next weapon hit deals extra force damage and may banish a weakened target.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "5d10 force (extra)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

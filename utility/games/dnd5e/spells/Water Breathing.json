@@ -1,0 +1,16 @@
+{
+  "name": "Water Breathing",
+  "description": "Grant up to ten creatures the ability to breathe underwater.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

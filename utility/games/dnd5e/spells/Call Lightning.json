@@ -1,0 +1,13 @@
+{
+  "name": "Call Lightning",
+  "description": "Summon a storm cloud that calls down lightning bolts.",
+  "range": "120 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "3d10 lightning",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d10 lightning damage per slot level above 3rd.",
+  "Components": "V, S"
+}

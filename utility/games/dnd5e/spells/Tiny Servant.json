@@ -1,0 +1,13 @@
+{
+  "name": "Tiny Servant",
+  "description": "Animate a Tiny object into a servant.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Minute",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Two more servants per slot level above 3rd.",
+  "Components": "V, S"
+}

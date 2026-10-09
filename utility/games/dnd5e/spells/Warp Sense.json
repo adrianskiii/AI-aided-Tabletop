@@ -1,0 +1,13 @@
+{
+  "name": "Warp Sense",
+  "description": "Distort the senses of a creature.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Fire Shield",
+  "description": "Flames surround you, resisting one type of damage and damaging attackers.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": "2d8 fire or cold (retaliation)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

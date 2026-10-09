@@ -1,0 +1,13 @@
+{
+  "name": "Snilloc's Snowball Swarm",
+  "description": "A flurry of magic snowballs erupts.",
+  "range": "90 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d6 cold",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d6 cold damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

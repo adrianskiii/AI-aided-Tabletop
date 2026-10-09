@@ -1,0 +1,13 @@
+{
+  "name": "Charm Monster",
+  "description": "Charm a creature so it regards you as a friendly acquaintance.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "One additional creature per slot level above 4th.",
+  "Components": "V, S"
+}

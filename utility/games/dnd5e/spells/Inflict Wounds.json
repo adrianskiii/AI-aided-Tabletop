@@ -1,0 +1,13 @@
+{
+  "name": "Inflict Wounds",
+  "description": "Deliver necrotic damage with a touch.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d10 necrotic",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d10 necrotic damage per slot level above 1st.",
+  "Components": "V, S"
+}

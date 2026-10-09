@@ -1,0 +1,13 @@
+{
+  "name": "Illusory Dragon",
+  "description": "Create the illusion of a Huge dragon that frightens creatures when it appears and can breathe a chosen type of energy.",
+  "range": "120 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "7d6 damage (chosen type)",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

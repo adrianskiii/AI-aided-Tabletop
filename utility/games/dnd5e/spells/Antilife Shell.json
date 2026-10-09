@@ -1,0 +1,13 @@
+{
+  "name": "Antilife Shell",
+  "description": "A barrier around you blocks living creatures from passing through it.",
+  "range": "Self (10-foot radius)",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

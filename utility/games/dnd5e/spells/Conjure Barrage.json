@@ -1,0 +1,13 @@
+{
+  "name": "Conjure Barrage",
+  "description": "Turn a weapon or ammunition into a barrage of copies.",
+  "range": "Self (60-foot cone)",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "5d8 (weapon type)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

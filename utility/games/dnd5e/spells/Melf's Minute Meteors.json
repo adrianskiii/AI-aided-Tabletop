@@ -1,0 +1,13 @@
+{
+  "name": "Melf's Minute Meteors",
+  "description": "Six glowing meteors orbit you and can be launched to explode.",
+  "range": "Self (120 feet)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "2d6 fire (per meteor)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Two more meteors per slot level above 3rd.",
+  "Components": "V, S, M"
+}

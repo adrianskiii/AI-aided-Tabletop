@@ -1,0 +1,13 @@
+{
+  "name": "Vampiric Touch",
+  "description": "Drain life with a melee spell attack and heal yourself.",
+  "range": "Self",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "3d6 necrotic",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d6 necrotic damage per slot level above 3rd.",
+  "Components": "V, S"
+}

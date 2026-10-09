@@ -1,0 +1,13 @@
+{
+  "name": "Gust",
+  "description": "Use a blast of air to push a Medium or smaller creature 5 feet, push an unattended object, or create a harmless sensory effect with air.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

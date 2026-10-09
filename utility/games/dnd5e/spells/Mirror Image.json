@@ -1,0 +1,13 @@
+{
+  "name": "Mirror Image",
+  "description": "Create three illusory duplicates of yourself.",
+  "range": "Self",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

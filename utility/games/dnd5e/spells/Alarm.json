@@ -1,0 +1,16 @@
+{
+  "name": "Alarm",
+  "description": "Set an alarm that alerts you to intruders.",
+  "range": "30 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Wall of Fire",
+  "description": "Create a wall of fire that damages creatures near or within it.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "5d8 fire",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d8 fire damage per slot level above 4th.",
+  "Components": "V, S, M"
+}

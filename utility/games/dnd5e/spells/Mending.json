@@ -1,0 +1,13 @@
+{
+  "name": "Mending",
+  "description": "Repair a single break or tear in an object you touch, such as a broken chain link or a torn cloak, as long as the damage is no larger than 1 foot in any dimension.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

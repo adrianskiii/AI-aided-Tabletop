@@ -1,0 +1,13 @@
+{
+  "name": "Conjure Volley",
+  "description": "Turn a piece of ammunition or a thrown weapon into a volley that hits creatures in a 40-foot radius.",
+  "range": "150 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "8d8 (type of the weapon)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

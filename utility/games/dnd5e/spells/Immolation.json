@@ -1,0 +1,13 @@
+{
+  "name": "Immolation",
+  "description": "Flames wreathe a creature, dealing fire damage each turn.",
+  "range": "90 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "8d6 fire",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

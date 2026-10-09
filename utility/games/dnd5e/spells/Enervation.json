@@ -1,0 +1,13 @@
+{
+  "name": "Enervation",
+  "description": "A tendril of inky energy drains life force from a creature each turn.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d8 necrotic",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d8 necrotic damage per slot level above 5th.",
+  "Components": "V, S"
+}

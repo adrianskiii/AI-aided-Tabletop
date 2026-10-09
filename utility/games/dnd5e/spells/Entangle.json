@@ -1,0 +1,13 @@
+{
+  "name": "Entangle",
+  "description": "Grasping weeds and vines restrain creatures.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Glibness",
+  "description": "When you make a Charisma check, you can replace the roll with a 15, and magic can't reveal that you're lying.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

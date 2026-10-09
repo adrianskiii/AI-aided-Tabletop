@@ -1,0 +1,13 @@
+{
+  "name": "Speak with Dead",
+  "description": "Ask a corpse up to five questions.",
+  "range": "10 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "10 minutes",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

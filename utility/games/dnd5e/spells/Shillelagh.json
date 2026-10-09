@@ -1,0 +1,13 @@
+{
+  "name": "Shillelagh",
+  "description": "The wood of a club or quarterstaff you hold is imbued with nature's power; it uses your spellcasting ability for attacks and damage and deals a larger damage die.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": "1d8 + spellcasting modifier bludgeoning",
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Mind Spike",
+  "description": "Pierce a creature's mind, damaging it and revealing its location.",
+  "range": "60 feet",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": "3d8 psychic",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 psychic damage per slot level above 2nd.",
+  "Components": "S"
+}

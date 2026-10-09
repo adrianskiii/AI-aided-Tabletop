@@ -1,0 +1,13 @@
+{
+  "name": "Synaptic Static",
+  "description": "Blast the minds of creatures in a 20-foot radius with psychic energy.",
+  "range": "120 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "8d6 psychic",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

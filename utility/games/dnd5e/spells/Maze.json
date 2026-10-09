@@ -1,0 +1,13 @@
+{
+  "name": "Maze",
+  "description": "Banish a creature into a labyrinthine demiplane until it escapes or the spell ends.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

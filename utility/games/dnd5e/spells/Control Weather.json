@@ -1,0 +1,13 @@
+{
+  "name": "Control Weather",
+  "description": "Change the weather conditions in a 5-mile radius, altering precipitation, temperature, and wind.",
+  "range": "Self (5 mile radius)",
+  "School": "Transmutation",
+  "Casting Time": "10 Minutes",
+  "Duration": "Concentration, Up to 8 hours",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

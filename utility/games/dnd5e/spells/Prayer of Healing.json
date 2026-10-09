@@ -1,0 +1,13 @@
+{
+  "name": "Prayer of Healing",
+  "description": "Restore hit points to up to six creatures.",
+  "range": "30 feet",
+  "School": "Evocation",
+  "Casting Time": "10 Minutes",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 healing per slot level above 2nd.",
+  "Components": "V"
+}

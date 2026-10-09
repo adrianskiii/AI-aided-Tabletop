@@ -1,0 +1,13 @@
+{
+  "name": "Mind Sliver",
+  "description": "Drive a spike of psychic energy into a creature; it must succeed on an Intelligence save or take psychic damage and subtract a d4 from the next saving throw it makes before the end of your next turn.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "1d6 psychic",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V"
+}

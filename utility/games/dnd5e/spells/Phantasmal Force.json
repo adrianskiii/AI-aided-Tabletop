@@ -1,0 +1,13 @@
+{
+  "name": "Phantasmal Force",
+  "description": "Craft an illusion in a creature's mind that harms it.",
+  "range": "60 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d6 psychic (per turn)",
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

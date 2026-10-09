@@ -1,0 +1,13 @@
+{
+  "name": "Motivational Speech",
+  "description": "Inspire allies with temporary hit points and advantage on Wisdom saves.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Minute",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Vitriolic Sphere",
+  "description": "A glowing acid orb explodes, damaging creatures immediately and again later.",
+  "range": "150 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "10d4 acid (+5d4 at end of next turn)",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+2d4 initial acid damage per slot level above 4th.",
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Wall of Light",
+  "description": "A shimmering wall of light blinds and damages creatures.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "4d8 radiant",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d8 radiant damage per slot level above 5th.",
+  "Components": "V, S, M"
+}

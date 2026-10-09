@@ -1,0 +1,13 @@
+{
+  "name": "Cloudkill",
+  "description": "A 20-foot-radius sphere of poisonous fog that drifts and damages creatures inside.",
+  "range": "120 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "5d8 poison",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d8 poison damage per slot level above 5th.",
+  "Components": "V, S"
+}

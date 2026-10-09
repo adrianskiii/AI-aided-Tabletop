@@ -1,0 +1,13 @@
+{
+  "name": "Chromatic Orb",
+  "description": "Hurl an orb of elemental energy of your chosen type.",
+  "range": "90 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d8 (acid/cold/fire/lightning/poison/thunder)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d8 damage per slot level above 1st.",
+  "Components": "V, S, M"
+}

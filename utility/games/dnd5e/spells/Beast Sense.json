@@ -1,0 +1,16 @@
+{
+  "name": "Beast Sense",
+  "description": "See and hear through a beast's senses.",
+  "range": "Touch",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

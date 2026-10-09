@@ -1,0 +1,13 @@
+{
+  "name": "Knock",
+  "description": "Open a lock or fastener.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

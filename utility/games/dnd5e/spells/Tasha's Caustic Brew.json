@@ -1,0 +1,13 @@
+{
+  "name": "Tasha's Caustic Brew",
+  "description": "Spray acid in a line that keeps burning.",
+  "range": "Self (30-foot line)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d4 acid (per turn)",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+2d4 acid damage per slot level above 1st.",
+  "Components": "V, S, M"
+}

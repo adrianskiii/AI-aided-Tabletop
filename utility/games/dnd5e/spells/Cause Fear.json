@@ -1,0 +1,13 @@
+{
+  "name": "Cause Fear",
+  "description": "Awaken dread in a creature so it becomes frightened.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": "One additional creature per slot level above 1st.",
+  "Components": "V, S"
+}

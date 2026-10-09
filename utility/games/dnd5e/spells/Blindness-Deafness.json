@@ -1,0 +1,13 @@
+{
+  "name": "Blindness/Deafness",
+  "description": "Blind or deafen a creature.",
+  "range": "30 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "One additional creature per slot level above 2nd.",
+  "Components": "V"
+}

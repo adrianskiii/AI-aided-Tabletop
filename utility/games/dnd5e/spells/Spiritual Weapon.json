@@ -1,0 +1,13 @@
+{
+  "name": "Spiritual Weapon",
+  "description": "Create a floating spectral weapon that attacks.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": "1d8 + spellcasting modifier force",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 damage for every two slot levels above 2nd.",
+  "Components": "V, S"
+}

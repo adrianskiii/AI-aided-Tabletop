@@ -1,0 +1,13 @@
+{
+  "name": "Legend Lore",
+  "description": "Learn information about a person, place, or object.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "10 Minutes",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

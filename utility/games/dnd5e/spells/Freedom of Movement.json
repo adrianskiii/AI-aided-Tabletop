@@ -1,0 +1,13 @@
+{
+  "name": "Freedom of Movement",
+  "description": "Make a creature immune to effects that reduce or restrain its movement.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

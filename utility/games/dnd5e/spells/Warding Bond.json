@@ -1,0 +1,13 @@
+{
+  "name": "Warding Bond",
+  "description": "Link a creature to you, sharing damage and granting protection.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

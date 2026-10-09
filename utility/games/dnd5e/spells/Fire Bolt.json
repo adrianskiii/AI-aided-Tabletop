@@ -1,0 +1,13 @@
+{
+  "name": "Fire Bolt",
+  "description": "Hurl a mote of fire with a ranged spell attack; the target takes fire damage, and flammable unattended objects ignite.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d10 fire",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d10, 3d10, 4d10.",
+  "Components": "V, S"
+}

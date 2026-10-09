@@ -1,0 +1,13 @@
+{
+  "name": "Mass Healing Word",
+  "description": "Restore hit points to up to six creatures.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d4 healing per slot level above 3rd.",
+  "Components": "V"
+}

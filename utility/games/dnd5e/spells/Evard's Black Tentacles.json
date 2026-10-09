@@ -1,0 +1,13 @@
+{
+  "name": "Evard's Black Tentacles",
+  "description": "Squirming tentacles fill a 20-foot square, restraining and damaging creatures.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "3d6 bludgeoning",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

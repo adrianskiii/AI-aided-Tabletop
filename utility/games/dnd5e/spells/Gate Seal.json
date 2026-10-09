@@ -1,0 +1,13 @@
+{
+  "name": "Gate Seal",
+  "description": "Seal a portal or opening against planar travel.",
+  "range": "60 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

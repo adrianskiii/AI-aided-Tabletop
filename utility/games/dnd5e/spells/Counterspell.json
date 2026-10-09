@@ -1,0 +1,13 @@
+{
+  "name": "Counterspell",
+  "description": "Interrupt a creature casting a spell.",
+  "range": "60 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Reaction",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

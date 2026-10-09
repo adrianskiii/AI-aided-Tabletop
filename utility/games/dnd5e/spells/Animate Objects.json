@@ -1,0 +1,13 @@
+{
+  "name": "Animate Objects",
+  "description": "Animate up to ten nonmagical objects that attack for you.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "Varies by size (Tiny 1d4+4 to Huge 2d12+4 bludgeoning)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Two additional objects per slot level above 5th.",
+  "Components": "V, S"
+}

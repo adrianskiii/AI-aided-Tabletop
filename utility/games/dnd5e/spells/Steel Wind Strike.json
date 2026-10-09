@@ -1,0 +1,13 @@
+{
+  "name": "Steel Wind Strike",
+  "description": "Flourish a weapon and strike up to five creatures with spectral blades.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "6d10 force (per hit)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "S, M"
+}

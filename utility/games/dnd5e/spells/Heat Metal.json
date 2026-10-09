@@ -1,0 +1,13 @@
+{
+  "name": "Heat Metal",
+  "description": "Heat a metal object, damaging creatures holding it.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d8 fire",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 fire damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

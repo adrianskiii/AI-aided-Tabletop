@@ -1,0 +1,13 @@
+{
+  "name": "Mind Blank",
+  "description": "Make a creature immune to psychic damage, divination magic, and mind-reading or charm effects.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

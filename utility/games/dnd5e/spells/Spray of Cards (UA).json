@@ -1,0 +1,13 @@
+{
+  "name": "Spray of Cards (UA)",
+  "description": "Playtest version of the spray of cards.",
+  "range": "15-foot cone",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d10 force",
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

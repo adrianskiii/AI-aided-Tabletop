@@ -1,0 +1,16 @@
+{
+  "name": "Invisibility to Cameras (UA)",
+  "description": "Playtest spell that hides a creature from cameras.",
+  "range": "10 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "T (Technomagic)"
+  ]
+}

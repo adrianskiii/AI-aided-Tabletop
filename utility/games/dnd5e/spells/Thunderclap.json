@@ -1,0 +1,13 @@
+{
+  "name": "Thunderclap",
+  "description": "Create a burst of thunderous sound audible up to 100 feet away; each creature within range other than you must succeed on a Constitution save or take thunder damage.",
+  "range": "Self (5-foot radius)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 thunder",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "S"
+}

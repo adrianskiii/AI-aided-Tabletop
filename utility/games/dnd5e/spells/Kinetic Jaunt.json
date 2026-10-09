@@ -1,0 +1,13 @@
+{
+  "name": "Kinetic Jaunt",
+  "description": "Weave a quick movement effect that keeps you mobile.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

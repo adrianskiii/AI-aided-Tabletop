@@ -1,0 +1,13 @@
+{
+  "name": "Moonbeam",
+  "description": "A silvery beam of pale light burns creatures inside it.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "2d10 radiant",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d10 radiant damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

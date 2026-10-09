@@ -1,0 +1,13 @@
+{
+  "name": "Hallow",
+  "description": "Consecrate an area with a magical effect tied to the site.",
+  "range": "Touch",
+  "School": "Evocation",
+  "Casting Time": "24 Hours",
+  "Duration": "Until dispelled",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

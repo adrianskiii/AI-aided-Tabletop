@@ -1,0 +1,13 @@
+{
+  "name": "Flame Strike",
+  "description": "A vertical column of divine fire roars down, dealing fire and radiant damage.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d6 fire + 4d6 radiant",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d6 fire or radiant per slot level above 5th.",
+  "Components": "V, S, M"
+}

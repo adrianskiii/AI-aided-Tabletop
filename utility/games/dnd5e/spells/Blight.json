@@ -1,0 +1,13 @@
+{
+  "name": "Blight",
+  "description": "Drain moisture and vitality from a creature.",
+  "range": "30 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "8d8 necrotic",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d8 necrotic damage per slot level above 4th.",
+  "Components": "V, S"
+}

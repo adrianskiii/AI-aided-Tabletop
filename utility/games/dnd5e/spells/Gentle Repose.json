@@ -1,0 +1,16 @@
+{
+  "name": "Gentle Repose",
+  "description": "Protect a corpse from decay and undeath.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "10 days",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

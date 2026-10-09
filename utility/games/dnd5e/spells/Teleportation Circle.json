@@ -1,0 +1,13 @@
+{
+  "name": "Teleportation Circle",
+  "description": "Draw a circle that links to a permanent teleportation circle elsewhere.",
+  "range": "10 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, M"
+}

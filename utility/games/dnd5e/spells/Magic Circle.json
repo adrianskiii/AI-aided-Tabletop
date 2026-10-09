@@ -1,0 +1,13 @@
+{
+  "name": "Magic Circle",
+  "description": "Create a circle that guards against certain creature types.",
+  "range": "10 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Duration increases by 1 hour per slot level above 3rd.",
+  "Components": "V, S, M"
+}

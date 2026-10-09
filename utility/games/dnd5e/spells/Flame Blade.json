@@ -1,0 +1,13 @@
+{
+  "name": "Flame Blade",
+  "description": "Create a fiery scimitar-like blade of flame.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "3d6 fire",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d6 fire damage for every two slot levels above 2nd.",
+  "Components": "V, S, M"
+}

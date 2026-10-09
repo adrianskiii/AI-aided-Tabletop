@@ -1,0 +1,13 @@
+{
+  "name": "Blade Ward",
+  "description": "Until the end of your next turn, you have resistance to bludgeoning, piercing, and slashing damage from weapon attacks.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

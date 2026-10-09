@@ -1,0 +1,13 @@
+{
+  "name": "Ego Whip (UA)",
+  "description": "Playtest spell that lashes a creature's mind, hindering it.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

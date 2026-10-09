@@ -1,0 +1,13 @@
+{
+  "name": "Reincarnate",
+  "description": "Return a dead humanoid to life in a new body.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Hour",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

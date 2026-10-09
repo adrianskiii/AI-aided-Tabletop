@@ -1,0 +1,13 @@
+{
+  "name": "Mental Barrier (UA)",
+  "description": "Playtest spell that shields your mind.",
+  "range": "Self",
+  "School": "Abjuration",
+  "Casting Time": "1 Reaction",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

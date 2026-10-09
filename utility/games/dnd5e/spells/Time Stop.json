@@ -1,0 +1,13 @@
+{
+  "name": "Time Stop",
+  "description": "Briefly stop the flow of time for everyone but yourself, giving you several extra turns.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

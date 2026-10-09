@@ -1,0 +1,13 @@
+{
+  "name": "Prestidigitation",
+  "description": "A minor magical trick: create a harmless sensory effect, light or snuff a small flame, clean or soil an object, chill, warm, or flavor material, make a small mark, or create a trinket or illusory image.",
+  "range": "10 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Up to 1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

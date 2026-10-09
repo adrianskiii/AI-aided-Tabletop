@@ -1,0 +1,13 @@
+{
+  "name": "Eldritch Blast",
+  "description": "A beam of crackling energy makes a ranged spell attack dealing force damage; additional beams are created at higher character levels.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d10 force (per beam)",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2, 3, and 4 beams.",
+  "Components": "V, S"
+}

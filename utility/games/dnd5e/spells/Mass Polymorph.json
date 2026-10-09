@@ -1,0 +1,13 @@
+{
+  "name": "Mass Polymorph",
+  "description": "Transform up to ten creatures into beasts of a challenge rating limit tied to their own.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

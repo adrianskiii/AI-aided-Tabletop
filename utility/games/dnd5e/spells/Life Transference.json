@@ -1,0 +1,13 @@
+{
+  "name": "Life Transference",
+  "description": "Take necrotic damage to heal another creature.",
+  "range": "30 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d8 necrotic (to self)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d8 necrotic damage per slot level above 3rd.",
+  "Components": "V, S"
+}

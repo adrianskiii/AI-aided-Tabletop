@@ -1,0 +1,13 @@
+{
+  "name": "Witch Bolt",
+  "description": "A beam of lightning crackles between you and a target each turn.",
+  "range": "30 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d12 lightning",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d12 lightning damage per slot level above 1st.",
+  "Components": "V, S, M"
+}

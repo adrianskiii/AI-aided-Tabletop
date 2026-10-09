@@ -1,0 +1,13 @@
+{
+  "name": "Mordenkainen's Faithful Hound",
+  "description": "Conjure a spectral watchdog that guards and attacks intruders.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": "4d8 piercing",
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

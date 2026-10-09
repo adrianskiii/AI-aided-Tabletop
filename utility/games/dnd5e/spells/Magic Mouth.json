@@ -1,0 +1,16 @@
+{
+  "name": "Magic Mouth",
+  "description": "Implant a message in an object that speaks when triggered.",
+  "range": "30 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Minute",
+  "Duration": "Until dispelled",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

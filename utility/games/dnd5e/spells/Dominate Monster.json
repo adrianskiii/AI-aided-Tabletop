@@ -1,0 +1,13 @@
+{
+  "name": "Dominate Monster",
+  "description": "Try to bend a creature to your will; on a failed Wisdom save it is charmed and obeys your telepathic commands.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": "At 9th level: duration is concentration, up to 8 hours.",
+  "Components": "V, S"
+}

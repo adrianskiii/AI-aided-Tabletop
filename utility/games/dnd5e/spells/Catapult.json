@@ -1,0 +1,13 @@
+{
+  "name": "Catapult",
+  "description": "Launch a small object at a target.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d8 bludgeoning",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d8 bludgeoning damage per slot level above 1st.",
+  "Components": "S"
+}

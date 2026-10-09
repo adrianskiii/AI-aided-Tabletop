@@ -1,0 +1,13 @@
+{
+  "name": "Daylight",
+  "description": "A 60-foot-radius sphere of bright light.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

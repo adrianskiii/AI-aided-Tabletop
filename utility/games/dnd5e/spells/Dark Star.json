@@ -1,0 +1,16 @@
+{
+  "name": "Dark Star",
+  "description": "Create a 40-foot sphere of impenetrable darkness and crushing gravity that muffles sound and damages creatures inside.",
+  "range": "150 Feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "8d10 force",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "DG (Graviturgy Dunamancy)"
+  ]
+}

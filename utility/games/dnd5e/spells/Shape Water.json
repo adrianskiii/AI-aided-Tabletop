@@ -1,0 +1,13 @@
+{
+  "name": "Shape Water",
+  "description": "Choose an area of water and move or redirect it, shape it into simple forms, change its color or opacity, or freeze it if it contains no creatures.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous or 1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Icingdeath's Frost (UA)",
+  "description": "Playtest spell that blasts a cone of frost.",
+  "range": "Self (15-foot cone)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "S, M"
+}

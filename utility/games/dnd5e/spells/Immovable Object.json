@@ -1,0 +1,16 @@
+{
+  "name": "Immovable Object",
+  "description": "Make an object fixed in place.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "DG (Graviturgy Dunamancy)"
+  ]
+}

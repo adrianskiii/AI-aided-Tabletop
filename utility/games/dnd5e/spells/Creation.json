@@ -1,0 +1,13 @@
+{
+  "name": "Creation",
+  "description": "Pull wisps of shadow to create a nonliving object of vegetable or mineral matter.",
+  "range": "30 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Minute",
+  "Duration": "Special",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Cube size increases by 5 feet per slot level above 5th.",
+  "Components": "V, S, M"
+}

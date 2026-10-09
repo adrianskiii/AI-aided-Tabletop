@@ -1,0 +1,13 @@
+{
+  "name": "Ashardalon's Stride",
+  "description": "Gain speed and leave a fiery trail that burns creatures.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d6 fire (trail)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d6 fire damage per slot level above 3rd.",
+  "Components": "V, S"
+}

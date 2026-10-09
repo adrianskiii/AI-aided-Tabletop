@@ -1,0 +1,16 @@
+{
+  "name": "Rary's Telepathic Bond",
+  "description": "Link the minds of up to eight creatures so they can communicate telepathically.",
+  "range": "30 feet",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

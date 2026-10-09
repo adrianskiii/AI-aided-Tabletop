@@ -1,0 +1,13 @@
+{
+  "name": "Geas",
+  "description": "Place a magical command on a creature that punishes disobedience.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Minute",
+  "Duration": "30 days",
+  "concentration": false,
+  "dmg roll": "5d10 psychic (when command is disobeyed)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Duration is 1 year at 7th-8th level and until dispelled at 9th.",
+  "Components": "V"
+}

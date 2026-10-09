@@ -1,0 +1,13 @@
+{
+  "name": "Dancing Lights",
+  "description": "Create up to four torch-sized lights that hover in the air and can be moved as a bonus action, or combine them into a faintly glowing humanoid form.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

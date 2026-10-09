@@ -1,0 +1,13 @@
+{
+  "name": "Mage Hand",
+  "description": "A spectral floating hand appears and can manipulate objects, open doors and containers, and carry items, but it can't attack or activate magic items.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

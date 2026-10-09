@@ -1,0 +1,13 @@
+{
+  "name": "Sleep",
+  "description": "Put creatures to sleep, affecting lowest hit points first.",
+  "range": "90 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": "Affects 2d8 more hit points per slot level above 1st.",
+  "Components": "V, S, M"
+}

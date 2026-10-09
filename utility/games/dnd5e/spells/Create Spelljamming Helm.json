@@ -1,0 +1,13 @@
+{
+  "name": "Create Spelljamming Helm",
+  "description": "Turn a chair into a spelljamming helm that can pilot a spelljamming ship.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

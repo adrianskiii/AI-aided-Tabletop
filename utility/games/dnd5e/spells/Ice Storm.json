@@ -1,0 +1,13 @@
+{
+  "name": "Ice Storm",
+  "description": "Hail pounds a 20-foot-radius area, damaging creatures and creating difficult terrain.",
+  "range": "300 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d8 bludgeoning + 4d6 cold",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d8 bludgeoning damage per slot level above 4th.",
+  "Components": "V, S, M"
+}

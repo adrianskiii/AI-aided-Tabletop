@@ -1,0 +1,16 @@
+{
+  "name": "Commune",
+  "description": "Contact your deity to ask up to three yes-or-no questions.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

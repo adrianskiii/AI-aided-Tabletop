@@ -1,0 +1,13 @@
+{
+  "name": "Sacred Flame",
+  "description": "Radiance descends on a creature; it must succeed on a Dexterity save or take radiant damage, and gains no benefit from cover for this save.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d8 radiant",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

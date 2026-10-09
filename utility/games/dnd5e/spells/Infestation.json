@@ -1,0 +1,13 @@
+{
+  "name": "Infestation",
+  "description": "Cause a cloud of mites, fleas, and other pests to appear on a creature; it must succeed on a Constitution save or take poison damage and move 5 feet in a random direction.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 poison",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V, S, M"
+}

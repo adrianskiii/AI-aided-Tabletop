@@ -1,0 +1,16 @@
+{
+  "name": "Guiding Hand (UA)",
+  "description": "Playtest spell that guides a creature's path.",
+  "range": "5 feet",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "Concentration, up to 8 hours",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

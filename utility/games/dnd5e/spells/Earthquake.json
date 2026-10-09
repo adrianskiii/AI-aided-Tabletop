@@ -1,0 +1,13 @@
+{
+  "name": "Earthquake",
+  "description": "Create a seismic disturbance in a 100-foot radius that shakes the ground, opens fissures, and collapses structures.",
+  "range": "500 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "5d6 bludgeoning (structure collapse)",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

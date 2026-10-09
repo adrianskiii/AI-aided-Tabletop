@@ -1,0 +1,13 @@
+{
+  "name": "Poison Spray",
+  "description": "Project a puff of noxious gas at a creature; it must succeed on a Constitution save or take poison damage.",
+  "range": "10 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d12 poison",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d12, 3d12, 4d12.",
+  "Components": "V, S"
+}

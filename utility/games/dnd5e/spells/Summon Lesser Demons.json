@@ -1,0 +1,13 @@
+{
+  "name": "Summon Lesser Demons",
+  "description": "Summon lesser demons that may turn on you.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "More demons at higher slot levels.",
+  "Components": "V, S, M"
+}

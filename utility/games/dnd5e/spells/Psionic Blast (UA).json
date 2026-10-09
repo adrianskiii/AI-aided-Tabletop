@@ -1,0 +1,13 @@
+{
+  "name": "Psionic Blast (UA)",
+  "description": "Playtest spell that blasts creatures with psychic force.",
+  "range": "Self (30-foot cone)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

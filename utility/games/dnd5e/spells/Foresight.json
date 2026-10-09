@@ -1,0 +1,13 @@
+{
+  "name": "Foresight",
+  "description": "Grant a willing creature glimpses of the immediate future: it can't be surprised, has advantage on attacks, checks, and saves, and attackers have disadvantage against it.",
+  "range": "Touch",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

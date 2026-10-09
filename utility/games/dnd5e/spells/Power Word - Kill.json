@@ -1,0 +1,13 @@
+{
+  "name": "Power Word: Kill",
+  "description": "Force a creature with 100 hit points or fewer to die; otherwise the spell has no effect.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

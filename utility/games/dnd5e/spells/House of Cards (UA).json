@@ -1,0 +1,13 @@
+{
+  "name": "House of Cards (UA)",
+  "description": "Playtest spell that conjures a house made of cards.",
+  "range": "Touch",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

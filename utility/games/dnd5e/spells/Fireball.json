@@ -1,0 +1,13 @@
+{
+  "name": "Fireball",
+  "description": "A bright streak explodes in a 20-foot-radius fiery blast.",
+  "range": "150 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "8d6 fire",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d6 fire damage per slot level above 3rd.",
+  "Components": "V, S, M"
+}

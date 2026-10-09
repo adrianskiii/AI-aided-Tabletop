@@ -1,0 +1,13 @@
+{
+  "name": "Blinding Smite",
+  "description": "Your next weapon hit deals extra radiant damage and blinds the target.",
+  "range": "Self",
+  "School": "Evocation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "3d8 radiant (extra)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

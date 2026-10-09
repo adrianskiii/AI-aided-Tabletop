@@ -1,0 +1,13 @@
+{
+  "name": "Tasha's Mind Whip",
+  "description": "Lash a creature's mind, damaging it and limiting its actions.",
+  "range": "90 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "3d6 psychic",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "One additional creature per slot level above 2nd.",
+  "Components": "V"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Contact Other Plane",
+  "description": "Contact an otherworldly entity for answers, at risk to your sanity.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Minute",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": "6d6 psychic (on failed save)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

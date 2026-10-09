@@ -1,0 +1,13 @@
+{
+  "name": "Spirit Guardians",
+  "description": "Spectral guardians harm and slow nearby enemies.",
+  "range": "Self (15-foot radius)",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "3d8 radiant or necrotic",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d8 damage per slot level above 3rd.",
+  "Components": "V, S, M"
+}

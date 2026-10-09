@@ -1,0 +1,13 @@
+{
+  "name": "Planar Binding",
+  "description": "Bind a celestial, elemental, fey, or fiend to your service.",
+  "range": "60 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Hour",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Duration longer at higher slots: 10, 30, 180 days, then a year and a day.",
+  "Components": "V, S, M"
+}

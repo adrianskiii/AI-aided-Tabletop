@@ -1,0 +1,13 @@
+{
+  "name": "Flock of Familiars",
+  "description": "Summon spirit familiars that assist you.",
+  "range": "Touch",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

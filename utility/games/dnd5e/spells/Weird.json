@@ -1,0 +1,13 @@
+{
+  "name": "Weird",
+  "description": "Draw on the deepest fears of creatures in a 30-foot radius; those who fail a save are frightened and take psychic damage each turn.",
+  "range": "120 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d10 psychic (per turn)",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

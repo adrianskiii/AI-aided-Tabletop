@@ -1,0 +1,13 @@
+{
+  "name": "Vicious Mockery",
+  "description": "Unleash a string of insults laced with subtle enchantment; the target must succeed on a Wisdom save or take psychic damage and have disadvantage on its next attack roll.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d4 psychic",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d4, 3d4, 4d4.",
+  "Components": "V"
+}

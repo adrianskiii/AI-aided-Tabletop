@@ -1,0 +1,13 @@
+{
+  "name": "Hellish Rebuke",
+  "description": "Engulf an attacker in hellish flames.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Reaction",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d10 fire",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d10 fire damage per slot level above 1st.",
+  "Components": "V, S"
+}

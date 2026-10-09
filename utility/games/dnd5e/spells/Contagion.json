@@ -1,0 +1,13 @@
+{
+  "name": "Contagion",
+  "description": "Afflict a creature with a disease of your choice with a melee spell attack.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "7 days",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

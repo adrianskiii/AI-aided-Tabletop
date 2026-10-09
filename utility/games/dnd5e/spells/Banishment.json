@@ -1,0 +1,13 @@
+{
+  "name": "Banishment",
+  "description": "Send a creature to a harmless demiplane or another plane.",
+  "range": "60 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "One additional creature per slot level above 4th.",
+  "Components": "V, S, M"
+}

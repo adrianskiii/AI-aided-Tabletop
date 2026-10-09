@@ -1,0 +1,13 @@
+{
+  "name": "Revivify",
+  "description": "Return a recently deceased creature to life.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

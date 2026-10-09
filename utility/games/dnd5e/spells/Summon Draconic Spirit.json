@@ -1,0 +1,13 @@
+{
+  "name": "Summon Draconic Spirit",
+  "description": "Summon a draconic spirit that fights alongside you.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Use the slot level for the spirit's statistics.",
+  "Components": "V, S, M"
+}

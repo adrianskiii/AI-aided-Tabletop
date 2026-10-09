@@ -1,0 +1,13 @@
+{
+  "name": "Conjure Elemental",
+  "description": "Summon an elemental of challenge rating 5 or lower that serves you.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": "Challenge rating increases by 1 per slot level above 5th.",
+  "Components": "V, S, M"
+}

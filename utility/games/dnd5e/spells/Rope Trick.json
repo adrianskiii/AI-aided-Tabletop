@@ -1,0 +1,13 @@
+{
+  "name": "Rope Trick",
+  "description": "Create an extradimensional space reached by a rope.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

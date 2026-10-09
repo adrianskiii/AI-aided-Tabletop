@@ -1,0 +1,13 @@
+{
+  "name": "Dispel Magic",
+  "description": "End spells on a creature, object, or area.",
+  "range": "120 feet",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Automatically ends spells of the slot level or lower.",
+  "Components": "V, S"
+}

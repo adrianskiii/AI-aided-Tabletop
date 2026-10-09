@@ -1,0 +1,13 @@
+{
+  "name": "Create Food and Water",
+  "description": "Create food and water for up to 15 creatures.",
+  "range": "30 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

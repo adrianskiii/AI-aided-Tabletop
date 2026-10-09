@@ -1,0 +1,13 @@
+{
+  "name": "Glyph of Warding",
+  "description": "Inscribe a glyph that explodes or casts a spell when triggered.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Hour",
+  "Duration": "Until dispelled or triggered",
+  "concentration": false,
+  "dmg roll": "5d8 (acid/cold/fire/lightning/thunder)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d8 damage per slot level above 3rd.",
+  "Components": "V, S, M"
+}

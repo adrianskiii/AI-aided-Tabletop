@@ -1,0 +1,16 @@
+{
+  "name": "Magnify Gravity",
+  "description": "Increase gravity in a 10-foot radius, damaging and hampering creatures.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "2d8 force",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d8 force damage per slot level above 1st.",
+  "Components": "V, S",
+  "Tags": [
+    "DG (Graviturgy Dunamancy)"
+  ]
+}

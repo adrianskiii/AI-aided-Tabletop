@@ -1,0 +1,13 @@
+{
+  "name": "Shatter",
+  "description": "A painfully loud noise damages creatures and objects.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d8 thunder",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d8 thunder damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

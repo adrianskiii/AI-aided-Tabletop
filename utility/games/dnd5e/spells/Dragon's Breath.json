@@ -1,0 +1,13 @@
+{
+  "name": "Dragon's Breath",
+  "description": "Grant a creature a breath weapon.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "3d6 (chosen type)",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d6 damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

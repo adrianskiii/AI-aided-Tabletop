@@ -1,0 +1,13 @@
+{
+  "name": "Astral Projection",
+  "description": "You and up to eight willing creatures project your astral forms into the Astral Plane, leaving your bodies behind in suspended animation.",
+  "range": "10 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Hour",
+  "Duration": "Special",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

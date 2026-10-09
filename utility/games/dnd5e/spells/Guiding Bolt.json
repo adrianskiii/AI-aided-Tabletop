@@ -1,0 +1,13 @@
+{
+  "name": "Guiding Bolt",
+  "description": "A flash of light strikes a target and grants advantage to the next attack.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "4d6 radiant",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d6 radiant damage per slot level above 1st.",
+  "Components": "V, S"
+}

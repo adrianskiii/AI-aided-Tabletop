@@ -1,0 +1,13 @@
+{
+  "name": "Insect Plague",
+  "description": "A swarm of locusts fills a 20-foot-radius sphere, damaging creatures within it.",
+  "range": "300 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": "4d10 piercing",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+1d10 piercing damage per slot level above 5th.",
+  "Components": "V, S, M"
+}

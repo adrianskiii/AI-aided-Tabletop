@@ -1,0 +1,13 @@
+{
+  "name": "Antagonize",
+  "description": "Taunt creatures into rage, damaging them and forcing them to attack.",
+  "range": "30 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d4 psychic",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d4 psychic damage per slot level above 3rd.",
+  "Components": "V, S, M"
+}

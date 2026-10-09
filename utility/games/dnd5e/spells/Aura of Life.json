@@ -1,0 +1,13 @@
+{
+  "name": "Aura of Life",
+  "description": "Grant nearby allies necrotic resistance and restore creatures at 0 hit points.",
+  "range": "Self (30-foot radius)",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

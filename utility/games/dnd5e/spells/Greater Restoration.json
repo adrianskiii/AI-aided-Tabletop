@@ -1,0 +1,13 @@
+{
+  "name": "Greater Restoration",
+  "description": "Remove a debilitating effect such as charm, curse, or reduced ability score.",
+  "range": "Touch",
+  "School": "Abjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

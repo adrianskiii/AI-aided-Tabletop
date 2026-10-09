@@ -1,0 +1,13 @@
+{
+  "name": "Wall of Sand",
+  "description": "Create a wall of swirling sand that blocks vision.",
+  "range": "90 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Elemental Weapon",
+  "description": "A weapon becomes magical and deals bonus elemental damage.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": "1d4 (chosen element, extra)",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Bonus grows to +2 at 5th-6th and +3 at 7th+.",
+  "Components": "V, S"
+}

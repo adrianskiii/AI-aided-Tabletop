@@ -1,0 +1,13 @@
+{
+  "name": "Dominate Beast",
+  "description": "Charm a beast so it obeys your commands.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "Duration longer at higher slots: 5th 10 minutes, 6th 1 hour, 7th+ 8 hours.",
+  "Components": "V, S"
+}

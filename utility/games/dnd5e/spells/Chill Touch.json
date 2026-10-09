@@ -1,0 +1,13 @@
+{
+  "name": "Chill Touch",
+  "description": "A ghostly skeletal hand makes a ranged spell attack dealing necrotic damage; the target can't regain hit points until your next turn, and undead also have disadvantage on attacks against you.",
+  "range": "120 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "1d8 necrotic",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

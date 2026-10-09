@@ -1,0 +1,13 @@
+{
+  "name": "Tsunami",
+  "description": "Summon a huge wall of water that sweeps across the ground, damaging and pushing creatures.",
+  "range": "Sight",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 6 rounds",
+  "concentration": true,
+  "dmg roll": "6d10 bludgeoning",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

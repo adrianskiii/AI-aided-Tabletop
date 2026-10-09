@@ -1,0 +1,13 @@
+{
+  "name": "Thorn Whip",
+  "description": "Create a vine-like whip covered in thorns and make a melee spell attack; on a hit, the target takes piercing damage and, if Large or smaller, is pulled up to 10 feet toward you.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 piercing",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V, S, M"
+}

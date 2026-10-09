@@ -1,0 +1,13 @@
+{
+  "name": "Maelstrom",
+  "description": "A whirlpool of water pulls and batters creatures within it.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "6d6 bludgeoning",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

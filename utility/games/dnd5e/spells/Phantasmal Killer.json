@@ -1,0 +1,13 @@
+{
+  "name": "Phantasmal Killer",
+  "description": "Draw a creature's worst fears into an illusion that damages it.",
+  "range": "120 feet",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d10 psychic",
+  "spellslot": "4",
+  "higher_spellslot_benefit": "+1d10 psychic damage per slot level above 4th.",
+  "Components": "V, S"
+}

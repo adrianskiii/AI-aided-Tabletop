@@ -1,0 +1,16 @@
+{
+  "name": "Feign Death",
+  "description": "Make a willing creature appear dead.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M",
+  "Tags": [
+    "R (Ritual)"
+  ]
+}

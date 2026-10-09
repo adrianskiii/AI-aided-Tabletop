@@ -1,0 +1,13 @@
+{
+  "name": "Frostbite",
+  "description": "The target must succeed on a Constitution save or take cold damage and have disadvantage on the next weapon attack it makes before the end of its next turn.",
+  "range": "60 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "1d6 cold",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d6, 3d6, 4d6.",
+  "Components": "V, S"
+}

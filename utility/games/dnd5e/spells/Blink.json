@@ -1,0 +1,13 @@
+{
+  "name": "Blink",
+  "description": "Randomly flicker between the Material and Ethereal Planes.",
+  "range": "Self",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Infernal Calling",
+  "description": "Summon a devil from the Nine Hells that tries to bargain with you.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

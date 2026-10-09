@@ -1,0 +1,13 @@
+{
+  "name": "Abi-Dalzim's Horrid Wilting",
+  "description": "Draw the moisture from creatures in a 30-foot cube; those who fail a Constitution save take necrotic damage (half on a success), and plants and water elementals suffer worse.",
+  "range": "150 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "12d8 necrotic",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

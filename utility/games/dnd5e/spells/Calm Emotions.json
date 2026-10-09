@@ -1,0 +1,13 @@
+{
+  "name": "Calm Emotions",
+  "description": "Suppress strong emotions in a 20-foot radius.",
+  "range": "60 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

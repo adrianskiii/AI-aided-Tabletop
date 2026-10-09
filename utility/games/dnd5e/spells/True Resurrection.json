@@ -1,0 +1,13 @@
+{
+  "name": "True Resurrection",
+  "description": "Restore a dead creature to life with full hit points, even if no body remains, provided it died no more than 200 years ago.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Hour",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

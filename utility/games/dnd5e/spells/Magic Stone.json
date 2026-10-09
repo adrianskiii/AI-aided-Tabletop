@@ -1,0 +1,13 @@
+{
+  "name": "Magic Stone",
+  "description": "Imbue up to three pebbles with magic; they can be thrown or slung, using a ranged spell attack that deals bludgeoning damage.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "1 minute",
+  "concentration": false,
+  "dmg roll": "1d6 + spellcasting modifier bludgeoning",
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

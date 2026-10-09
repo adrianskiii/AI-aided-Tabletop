@@ -1,0 +1,13 @@
+{
+  "name": "Melf's Acid Arrow",
+  "description": "A shimmering green arrow deals acid damage now and later.",
+  "range": "90 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d4 acid (+2d4 at end of next turn)",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "+1d4 initial and +1d4 later damage per slot level above 2nd.",
+  "Components": "V, S, M"
+}

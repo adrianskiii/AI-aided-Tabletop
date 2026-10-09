@@ -1,0 +1,13 @@
+{
+  "name": "Far Step",
+  "description": "Teleport up to 60 feet each turn while the spell lasts.",
+  "range": "Self",
+  "School": "Conjuration",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

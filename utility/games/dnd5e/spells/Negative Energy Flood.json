@@ -1,0 +1,13 @@
+{
+  "name": "Negative Energy Flood",
+  "description": "Flood a creature with necrotic energy, possibly killing it and raising a zombie.",
+  "range": "60 feet",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "5d12 necrotic",
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, M"
+}

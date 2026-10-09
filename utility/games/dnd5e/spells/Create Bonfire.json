@@ -1,0 +1,13 @@
+{
+  "name": "Create Bonfire",
+  "description": "Conjure a bonfire on the ground; creatures in its space must succeed on a Dexterity save or take fire damage, and again when they enter or end their turn there.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d8 fire",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: 2d8, 3d8, 4d8.",
+  "Components": "V, S"
+}

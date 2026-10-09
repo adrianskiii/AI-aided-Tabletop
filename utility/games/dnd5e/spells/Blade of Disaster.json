@@ -1,0 +1,13 @@
+{
+  "name": "Blade of Disaster",
+  "description": "Create a blade-shaped planar rift that can attack twice as a bonus action each turn, dealing force damage with an expanded critical range.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Bonus Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d12 force (per attack)",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Haywire (UA)",
+  "description": "Playtest spell that disrupts technological devices.",
+  "range": "90 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S",
+  "Tags": [
+    "T (Technomagic)"
+  ]
+}

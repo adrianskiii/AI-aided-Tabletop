@@ -1,0 +1,453 @@
+{
+  "id": "02bd75374896",
+  "system": "pathfinder2e",
+  "system_label": "Pathfinder 2nd Edition",
+  "campaign": {
+    "id": null,
+    "title": null,
+    "ai_generated": false,
+    "seed": ""
+  },
+  "created_at": "2026-09-28T09:34:52+00:00",
+  "updated_at": "2026-09-28T09:34:53+00:00",
+  "visibility": {
+    "hidden_revealed": false
+  },
+  "identity": {
+    "name": "atva",
+    "race": "Shoony",
+    "class": "Wizard",
+    "level": 1,
+    "gender": "male",
+    "age": "12",
+    "appearance": "appears gud",
+    "player_name": ""
+  },
+  "choices": {
+    "background": "test bg",
+    "ancestry": "shoony",
+    "heritage": "tinker",
+    "class": "wizard",
+    "subclass": "abjuration",
+    "classes": []
+  },
+  "abilities": {
+    "strength": 1,
+    "dexterity": 2,
+    "constitution": 3,
+    "intelligence": 4,
+    "wisdom": 5,
+    "charisma": 6,
+    "notes": "",
+    "modifiers": {
+      "strength": -5,
+      "dexterity": -4,
+      "constitution": -4,
+      "intelligence": -3,
+      "wisdom": -3,
+      "charisma": -2
+    }
+  },
+  "background": {
+    "seed": "test bg",
+    "summary": "test sum",
+    "details": "test bs"
+  },
+  "details": {
+    "personality": "personali and ty",
+    "goals": "goal and de",
+    "fears_flaws": "fear and fla",
+    "traits": "trait bonds quirks",
+    "alignment": "gud",
+    "languages": "lang is ger",
+    "skills": "test prof",
+    "equipment": "equipment full",
+    "spells": "",
+    "custom": {
+      "race_detail": "Shoony",
+      "subrace": "tinker",
+      "class_detail": "Wizard",
+      "subclass": "abjuration",
+      "background": "test bg"
+    }
+  },
+  "public": {
+    "known_identity": "identify test",
+    "known_backstory": "bs test",
+    "known_relationships": "rel test",
+    "known_items": "known items test",
+    "rumors": "rum and gossip test"
+  },
+  "hidden": {
+    "hidden_agendas": [
+      {
+        "title": "test age",
+        "description": "test agendea",
+        "revealed": false
+      }
+    ],
+    "secrets": [
+      {
+        "title": "test secret",
+        "description": "testing secrerts",
+        "revealed": false
+      }
+    ],
+    "dm_notes": "this is a note to the dm",
+    "messages": []
+  },
+  "progression": {
+    "xp": 0,
+    "level": 1
+  },
+  "inventory": [],
+  "build": {
+    "race_traits": [
+      {
+        "name": "Humanoid",
+        "source": "Shoony"
+      },
+      {
+        "name": "Shoony",
+        "source": "Shoony"
+      },
+      {
+        "id": "shoony_luck",
+        "name": "Humble Perseverance",
+        "type": "ancestry_feature",
+        "tldr": "You excel at pushing past hazardous conditions despite your small size.",
+        "source": "Shoony"
+      },
+      {
+        "id": "heritage_choice",
+        "name": "Ancestry Heritage",
+        "type": "sub_ancestry_choice",
+        "tldr": "Choose a shoony heritage reflecting your community's trade or craft background.",
+        "source": "Shoony"
+      },
+      {
+        "id": "heritage_shoony_tinker",
+        "name": "Tinker Shoony",
+        "tldr": "You gain trained proficiency in Crafting and bonuses when repairing gear.",
+        "source": "Shoony — Tinker"
+      }
+    ],
+    "race_skills": [],
+    "class_features_by_level": {
+      "1": [
+        {
+          "id": "ancestry_and_background",
+          "name": "Ancestry and Background",
+          "type": "core",
+          "tldr": "Wähle Abstammung und Hintergrund.",
+          "source": "Wizard"
+        },
+        {
+          "id": "initial_proficiencies",
+          "name": "Initial Proficiencies",
+          "type": "class_feature",
+          "tldr": "Erhalte Startfertigkeiten für Rettungswürfe, Wahrnehmung und Rüstung.",
+          "source": "Wizard"
+        },
+        {
+          "id": "arcane_school",
+          "name": "Arcane School",
+          "type": "subclass_choice",
+          "tldr": "Wähle deine arkane Schule, die deinen Fokus und deine magische Spezialisierung bestimmt.",
+          "source": "Wizard"
+        },
+        {
+          "id": "wizard_spellcasting",
+          "name": "Wizard Spellcasting",
+          "type": "spellcasting",
+          "tldr": "Bereite arkan ausgerichtete Zauber aus deinem Zauberbuch vor.",
+          "source": "Wizard"
+        },
+        {
+          "id": "arcane_thesis",
+          "name": "Arcane Thesis",
+          "type": "class_feature",
+          "tldr": "Wähle eine arkane These (z. B. Spellbook, Experimental Spellshaping), die deinen magischen Forschungsstil prägt.",
+          "source": "Wizard"
+        },
+        {
+          "id": "wizard_feat_1",
+          "name": "Wizard Feat",
+          "type": "feat_slot",
+          "tldr": "Erhalte ein Magier-Klassenwunder.",
+          "source": "Wizard"
+        },
+        {
+          "id": "school_abjuration",
+          "name": "Abjuration School",
+          "tldr": "Spezialisierung auf Schutzmagie, Barrieren und das Neutralisieren feindlicher Zauber.",
+          "source": "Wizard — Abjuration"
+        }
+      ]
+    },
+    "proficiencies": [
+      {
+        "name": "Perception",
+        "rank": "trained",
+        "category": "core",
+        "source": "Wizard"
+      },
+      {
+        "name": "Fortitude",
+        "rank": "trained",
+        "category": "core",
+        "source": "Wizard"
+      },
+      {
+        "name": "Reflex",
+        "rank": "trained",
+        "category": "core",
+        "source": "Wizard"
+      },
+      {
+        "name": "Will",
+        "rank": "expert",
+        "category": "core",
+        "source": "Wizard"
+      },
+      {
+        "name": "Class DC",
+        "rank": "trained",
+        "category": "core",
+        "source": "Wizard"
+      },
+      {
+        "name": "Unarmed Weapons",
+        "rank": "trained",
+        "category": "weapons",
+        "source": "Wizard"
+      },
+      {
+        "name": "Simple Weapons",
+        "rank": "trained",
+        "category": "weapons",
+        "source": "Wizard"
+      },
+      {
+        "name": "Martial Weapons",
+        "rank": "untrained",
+        "category": "weapons",
+        "source": "Wizard"
+      },
+      {
+        "name": "Advanced Weapons",
+        "rank": "untrained",
+        "category": "weapons",
+        "source": "Wizard"
+      },
+      {
+        "name": "Unarmored Armor",
+        "rank": "trained",
+        "category": "armor",
+        "source": "Wizard"
+      },
+      {
+        "name": "Light Armor",
+        "rank": "untrained",
+        "category": "armor",
+        "source": "Wizard"
+      },
+      {
+        "name": "Medium Armor",
+        "rank": "untrained",
+        "category": "armor",
+        "source": "Wizard"
+      },
+      {
+        "name": "Heavy Armor",
+        "rank": "untrained",
+        "category": "armor",
+        "source": "Wizard"
+      },
+      {
+        "name": "Arcana",
+        "rank": "trained",
+        "category": "skill",
+        "source": "Wizard"
+      }
+    ],
+    "spells": [],
+    "cantrips": []
+  },
+  "stats": {
+    "level": 1,
+    "hp": {
+      "max": 8,
+      "current": 8,
+      "temp": 0,
+      "breakdown": "ancestry 6 + (6 class + -4 Con) x 1"
+    },
+    "ac": {
+      "value": 9,
+      "rank": "trained",
+      "breakdown": "10 + -4 Dex + 1 level + 2 prof (unarmored)",
+      "note": "Baseline without armor/shield; add item bonus and Dex cap when equipment is modelled."
+    },
+    "class_dc": {
+      "value": 10,
+      "rank": "trained",
+      "key_ability": "intelligence"
+    },
+    "perception": {
+      "rank": "trained",
+      "bonus": 0,
+      "ability": "wisdom",
+      "dc": 10
+    },
+    "saves": {
+      "fortitude": {
+        "rank": "trained",
+        "bonus": -1,
+        "ability": "constitution"
+      },
+      "reflex": {
+        "rank": "trained",
+        "bonus": -1,
+        "ability": "dexterity"
+      },
+      "will": {
+        "rank": "expert",
+        "bonus": 2,
+        "ability": "wisdom"
+      }
+    },
+    "skills": {
+      "Acrobatics": {
+        "rank": "untrained",
+        "bonus": -4,
+        "ability": "dexterity"
+      },
+      "Arcana": {
+        "rank": "trained",
+        "bonus": 0,
+        "ability": "intelligence"
+      },
+      "Athletics": {
+        "rank": "untrained",
+        "bonus": -5,
+        "ability": "strength"
+      },
+      "Crafting": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "intelligence"
+      },
+      "Deception": {
+        "rank": "untrained",
+        "bonus": -2,
+        "ability": "charisma"
+      },
+      "Diplomacy": {
+        "rank": "untrained",
+        "bonus": -2,
+        "ability": "charisma"
+      },
+      "Intimidation": {
+        "rank": "untrained",
+        "bonus": -2,
+        "ability": "charisma"
+      },
+      "Medicine": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "wisdom"
+      },
+      "Nature": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "wisdom"
+      },
+      "Occultism": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "intelligence"
+      },
+      "Performance": {
+        "rank": "untrained",
+        "bonus": -2,
+        "ability": "charisma"
+      },
+      "Religion": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "wisdom"
+      },
+      "Society": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "intelligence"
+      },
+      "Stealth": {
+        "rank": "untrained",
+        "bonus": -4,
+        "ability": "dexterity"
+      },
+      "Survival": {
+        "rank": "untrained",
+        "bonus": -3,
+        "ability": "wisdom"
+      },
+      "Thievery": {
+        "rank": "untrained",
+        "bonus": -4,
+        "ability": "dexterity"
+      }
+    },
+    "attacks": {
+      "unarmed_melee": {
+        "rank": "trained",
+        "bonus": -2
+      },
+      "unarmed_ranged": {
+        "rank": "trained",
+        "bonus": -1
+      },
+      "simple_melee": {
+        "rank": "trained",
+        "bonus": -2
+      },
+      "simple_ranged": {
+        "rank": "trained",
+        "bonus": -1
+      },
+      "martial_melee": {
+        "rank": "untrained",
+        "bonus": -5
+      },
+      "martial_ranged": {
+        "rank": "untrained",
+        "bonus": -4
+      },
+      "advanced_melee": {
+        "rank": "untrained",
+        "bonus": -5
+      },
+      "advanced_ranged": {
+        "rank": "untrained",
+        "bonus": -4
+      }
+    },
+    "speed": 20,
+    "size": "Small",
+    "ability_modifiers": {
+      "strength": -5,
+      "dexterity": -4,
+      "constitution": -4,
+      "intelligence": -3,
+      "wisdom": -3,
+      "charisma": -2
+    },
+    "bulk_limit": {
+      "encumbered_at": 0,
+      "max": 5
+    },
+    "missing": [
+      "class hp (used Player Core table)"
+    ]
+  }
+}

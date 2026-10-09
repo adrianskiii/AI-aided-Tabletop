@@ -1,0 +1,13 @@
+{
+  "name": "Cordon of Arrows",
+  "description": "Enchant arrows to fire at intruders.",
+  "range": "5 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "8 hours",
+  "concentration": false,
+  "dmg roll": "1d6 piercing",
+  "spellslot": "2",
+  "higher_spellslot_benefit": "Two more pieces of ammunition per slot level above 2nd.",
+  "Components": "V, S, M"
+}

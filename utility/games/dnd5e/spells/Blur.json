@@ -1,0 +1,13 @@
+{
+  "name": "Blur",
+  "description": "Your body appears blurred, imposing disadvantage on attacks against you.",
+  "range": "Self",
+  "School": "Illusion",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": null,
+  "Components": "V"
+}

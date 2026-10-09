@@ -1,0 +1,13 @@
+{
+  "name": "Control Flames",
+  "description": "Choose nonmagical flame you can see; you can expand it, extinguish it, double or halve its light, change its color, or shape it into simple forms.",
+  "range": "60 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous or 1 hour",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S"
+}

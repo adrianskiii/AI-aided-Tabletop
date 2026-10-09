@@ -1,0 +1,13 @@
+{
+  "name": "Feeblemind",
+  "description": "Blast a creature's mind, dealing psychic damage and reducing its Intelligence and Charisma to 1 on a failed save.",
+  "range": "150 feet",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "4d6 psychic",
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

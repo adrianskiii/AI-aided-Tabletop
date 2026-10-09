@@ -1,0 +1,13 @@
+{
+  "name": "Summon Greater Demon",
+  "description": "Summon a demon that may turn on you if control is lost.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "Challenge rating increases with higher slot levels.",
+  "Components": "V, S, M"
+}

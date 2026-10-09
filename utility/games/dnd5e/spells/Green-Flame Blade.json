@@ -1,0 +1,13 @@
+{
+  "name": "Green-Flame Blade",
+  "description": "Make a melee weapon attack; on a hit, green fire leaps from the target to a second creature within 5 feet of it, dealing fire damage.",
+  "range": "Self (5-foot radius)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "weapon damage; secondary target takes fire equal to spellcasting modifier",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: +1d8, +2d8, +3d8 fire on the hit target, and the secondary target takes 1d8, 2d8, 3d8 + spellcasting modifier.",
+  "Components": "S, M"
+}

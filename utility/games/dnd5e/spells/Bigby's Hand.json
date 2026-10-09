@@ -1,0 +1,13 @@
+{
+  "name": "Bigby's Hand",
+  "description": "Create a Large hand of force that can punch, push, shield, or grasp.",
+  "range": "120 feet",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "4d8 force (clenched fist)",
+  "spellslot": "5",
+  "higher_spellslot_benefit": "+2d8 fist damage and +2d8 grasping hand damage per slot level above 5th.",
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Friends",
+  "description": "You have advantage on Charisma checks against one creature that isn't hostile to you; when the spell ends, the creature realizes you used magic to influence it.",
+  "range": "Self",
+  "School": "Enchantment",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Druidcraft",
+  "description": "Whisper to nature to create a tiny sensory effect, predict the weather, make a plant bloom, or light or snuff out a small flame.",
+  "range": "30 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

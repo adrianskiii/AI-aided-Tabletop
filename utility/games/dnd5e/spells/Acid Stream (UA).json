@@ -1,0 +1,13 @@
+{
+  "name": "Acid Stream (UA)",
+  "description": "Playtest spell that shoots a stream of acid.",
+  "range": "Self (30-foot line)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Mighty Fortress",
+  "description": "Summon a stone fortress with towers, walls, and furnishings that remains permanently.",
+  "range": "1 mile",
+  "School": "Conjuration",
+  "Casting Time": "1 Minute",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "8",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

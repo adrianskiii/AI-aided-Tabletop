@@ -1,0 +1,13 @@
+{
+  "name": "Awaken",
+  "description": "Give a beast or plant an awakened mind and human-like intelligence.",
+  "range": "Touch",
+  "School": "Transmutation",
+  "Casting Time": "8 Hours",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

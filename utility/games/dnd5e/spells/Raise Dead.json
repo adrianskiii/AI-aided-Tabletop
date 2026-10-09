@@ -1,0 +1,13 @@
+{
+  "name": "Raise Dead",
+  "description": "Return a dead creature to life with 1 hit point.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Hour",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "5",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

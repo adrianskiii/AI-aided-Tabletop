@@ -1,0 +1,13 @@
+{
+  "name": "Detect Evil and Good",
+  "description": "Sense nearby aberrations, celestials, fiends, and the like.",
+  "range": "Self",
+  "School": "Divination",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 10 minutes",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "1",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

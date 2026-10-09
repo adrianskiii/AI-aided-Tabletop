@@ -1,0 +1,13 @@
+{
+  "name": "Bestow Curse",
+  "description": "Curse a creature with a debilitating effect.",
+  "range": "Touch",
+  "School": "Necromancy",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": "Duration extends at 4th level and up (10 minutes, 8 hours, 24 hours, until dispelled).",
+  "Components": "V, S"
+}

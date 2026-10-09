@@ -1,0 +1,13 @@
+{
+  "name": "Plant Growth",
+  "description": "Enrich or overgrow plants.",
+  "range": "150 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action Or 8 Hours",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "3",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}

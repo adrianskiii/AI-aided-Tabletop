@@ -1,0 +1,13 @@
+{
+  "name": "Summon Aberration",
+  "description": "Summon an aberrant spirit that fights for you.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 hour",
+  "concentration": true,
+  "dmg roll": null,
+  "spellslot": "4",
+  "higher_spellslot_benefit": "Use the slot level for the spirit's statistics.",
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Message",
+  "description": "Point at a creature and whisper a message; only the target hears it and can reply in a whisper that only you can hear.",
+  "range": "120 feet",
+  "School": "Transmutation",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "0",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S, M"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Air Bubble",
+  "description": "Create a bubble of breathable air around creatures.",
+  "range": "60 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "24 hours",
+  "concentration": false,
+  "dmg roll": null,
+  "spellslot": "2",
+  "higher_spellslot_benefit": "Two more creatures per slot level above 2nd.",
+  "Components": "S"
+}

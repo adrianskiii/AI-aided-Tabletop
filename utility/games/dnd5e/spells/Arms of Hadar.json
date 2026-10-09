@@ -1,0 +1,13 @@
+{
+  "name": "Arms of Hadar",
+  "description": "Dark tentacles lash out at nearby creatures.",
+  "range": "Self (10-foot radius)",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "2d6 necrotic",
+  "spellslot": "1",
+  "higher_spellslot_benefit": "+1d6 necrotic damage per slot level above 1st.",
+  "Components": "V, S"
+}

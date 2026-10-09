@@ -1,0 +1,13 @@
+{
+  "name": "Thunder Step",
+  "description": "Teleport and unleash a thunderous burst around your starting spot.",
+  "range": "90 feet",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Instantaneous",
+  "concentration": false,
+  "dmg roll": "3d10 thunder",
+  "spellslot": "3",
+  "higher_spellslot_benefit": "+1d10 thunder damage per slot level above 3rd.",
+  "Components": "V"
+}

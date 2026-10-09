@@ -1,0 +1,13 @@
+{
+  "name": "Booming Blade",
+  "description": "Make a melee weapon attack against a creature within reach; it takes thunder damage if it willingly moves before the start of your next turn.",
+  "range": "Self (5-foot radius)",
+  "School": "Evocation",
+  "Casting Time": "1 Action",
+  "Duration": "1 round",
+  "concentration": false,
+  "dmg roll": "weapon damage; +1d8 thunder if target moves",
+  "spellslot": "0",
+  "higher_spellslot_benefit": "At 5th, 11th, and 17th level: +1d8, +2d8, +3d8 thunder on hit, and movement damage becomes 2d8, 3d8, 4d8.",
+  "Components": "S, M"
+}

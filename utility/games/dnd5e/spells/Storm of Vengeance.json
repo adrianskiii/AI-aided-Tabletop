@@ -1,0 +1,13 @@
+{
+  "name": "Storm of Vengeance",
+  "description": "A churning storm cloud forms, unleashing a different effect each round: acid rain, lightning, hail, and finally sleet and wind.",
+  "range": "Sight",
+  "School": "Conjuration",
+  "Casting Time": "1 Action",
+  "Duration": "Concentration, up to 1 minute",
+  "concentration": true,
+  "dmg roll": "1d6 acid; 10d6 lightning (per bolt); 2d6 bludgeoning; 1d6 cold",
+  "spellslot": "9",
+  "higher_spellslot_benefit": null,
+  "Components": "V, S"
+}
